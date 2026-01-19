@@ -24,7 +24,7 @@ sphinx:
 
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/Danieljoha/Bed-1304-ressursside  # Online location of your book
+  url: https://uit-sok-1303-v26.github.io/uit-sok-1303.v26.github.io/  # Online location of your book
   branch: main  # Which branch of the repository should be used when creating links (optional)
 
 html:
