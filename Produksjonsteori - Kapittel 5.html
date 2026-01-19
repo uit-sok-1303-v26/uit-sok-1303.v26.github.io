@@ -1,0 +1,926 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Kapittel 5 - Produksjonsteori &#8212; Sok-1303</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Produksjonsteori - Kapittel 5';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Kapittel 6 - Produksjonsteori" href="Produksjonsteori%20-%20Kapittel%206.html" />
+    <link rel="prev" title="Kapittel 2 - Konsumentteori 2.1 - 2.4" href="Konsumenteori%20-%20Kapittel%202.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/py.png" class="logo__image only-light" alt="Sok-1303 - Home"/>
+    <script>document.write(`<img src="_static/py.png" class="logo__image only-dark" alt="Sok-1303 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    SOK-1303 Mikroøkonomi
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Konsumentteori%20-%20Kapittel%201.html">Kapittel 1 - Konsumentteori</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Konsumenteori%20-%20Kapittel%202.html">Kapittel 2 - Konsumentteori 2.1 - 2.4</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Kapittel 5 - Produksjonsteori</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Produksjonsteori%20-%20Kapittel%206.html">Kapittel 6 - Produksjonsteori</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Produksjonsteori-%20Kapittel%207.html">Kapittel 7 - Produksjonsteori</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Markedsteori%20-%20Kapittel%208.html">Kapittel 8 - Markedsteori, frikonkurranse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seminar/Seminar%201%20-%20Konsumentens%20valg%20og%20nyttemaksimering.html">Seminar 1 - Konsumentens valg nyttemaksimering</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Danieljoha/Bed-1304-ressursside" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Danieljoha/Bed-1304-ressursside/issues/new?title=Issue%20on%20page%20%2FProduksjonsteori - Kapittel 5.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Produksjonsteori - Kapittel 5.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Kapittel 5 - Produksjonsteori</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#isokost">1. Isokost</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#produktfunksjon-og-isokvant">2. Produktfunksjon og isokvant</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#et-eksempel">Et eksempel</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kostnadsminimering">3. Kostnadsminimering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppskrift-for-kostnadsminimering">Oppskrift for kostnadsminimering</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="kapittel-5-produksjonsteori">
+<h1>Kapittel 5 - Produksjonsteori<a class="headerlink" href="#kapittel-5-produksjonsteori" title="Link to this heading">#</a></h1>
+<p>Vi forutsetter følgende om bedriftene som vi analyserer:</p>
+<ul class="simple">
+<li><p>Bedriften produserer ett homogent produkt</p></li>
+<li><p>Produksjonen kan måles</p></li>
+<li><p>Bedriften bruker to produksjonsfaktorer (arbeidskraft og kapital)</p></li>
+<li><p>Produksjonsfaktorer er homogene, målbare, og har faste gitte priser</p></li>
+<li><p>Forholdet mellom innsatsfaktorer og ferdigprodukt representeres med en produktfunksjon</p></li>
+<li><p>Produsenten tar produktprisen for gitt</p></li>
+<li><p>Produsentens mål er å maksimere fortjeneste</p></li>
+</ul>
+<section id="isokost">
+<h2>1. Isokost<a class="headerlink" href="#isokost" title="Link to this heading">#</a></h2>
+<p>Kostandfunksjon for produksjon med to produksjonsfaktorer:
+$<span class="math notranslate nohighlight">\(C = wL + rK \tag{1}\)</span>$</p>
+<p>hvor <span class="math notranslate nohighlight">\(w\)</span> er lønn per arbeider, <span class="math notranslate nohighlight">\(L\)</span> er antall arbeidere. Kostander for arbeid blir da <span class="math notranslate nohighlight">\(wL\)</span>. Kaptialkostnadene er prisen på kapital <span class="math notranslate nohighlight">\((r)\)</span> ganget med antall enheter kapital <span class="math notranslate nohighlight">\((K)\)</span>
+er prisen på bolig (B) og andre ting (A).</p>
+<p>En isokostlinje viser ulike kombinasjoner av arbeidskraft og kapital som mulig å oppnå for en gitt kostnad. For å tegne isolinjen kan vi omforme kostandfunksjonen slik at den står med:</p>
+<div class="math notranslate nohighlight">
+\[K = \frac{C}{r} - \frac{w}{l}L \tag{2}\]</div>
+<p>For å finne helningen til isokostlinjen deriverer vi mhp <span class="math notranslate nohighlight">\(L\)</span></p>
+<div class="math notranslate nohighlight">
+\[ -\frac{\partial K}{\partial L}=\frac{w}{r}\]</div>
+<p><img alt="Bilde3" src="_images/Picture3.png" /></p>
+<p>Figuren viser faktorkombinasjoner og isokostliner.</p>
+</section>
+<section id="produktfunksjon-og-isokvant">
+<h2>2. Produktfunksjon og isokvant<a class="headerlink" href="#produktfunksjon-og-isokvant" title="Link to this heading">#</a></h2>
+<p>Generelt kan vi skrive at kvantum produsert (Q) er en funksjon av alle produksjonsfaktorer brukt i prosessen. Bruker bedriften arbeidskraft (L) og kapital (K) vil produktfunksjonen være
+$<span class="math notranslate nohighlight">\( Q = Q(K,L).\)</span>$</p>
+<p>Produktfunksjonen viser sammenhengen mellom tre variabler (enheter ferdigprodukt, kapital og arbeidskraft). For å kunne tegne denne funksjonen i to dimensjoner må vi fastsette en verdi for én av variablene. Vi setter en fast verdi <span class="math notranslate nohighlight">\(Q_1\)</span> på produksjon og skriver
+$<span class="math notranslate nohighlight">\(Q_1 = f(K,L)\tag{3}\)</span>$</p>
+<p>Likning (3) viser kombinasjoner av K og L som kan brukes for å produsere nøyaktig <span class="math notranslate nohighlight">\(Q_1\)</span> enheter ferdig produkt. Dette er med andre ord en isokvant, som vises i figuren</p>
+<p><img alt="image.png" src="_images/Picture4.png" /></p>
+<p>Figuren viser isokvanter for produksjon av kvantum <span class="math notranslate nohighlight">\(Q_1, Q_2, Q_3\)</span>. Kombinasjoner av K og L langs isokvanten for <span class="math notranslate nohighlight">\(Q_3\)</span> gir høyere produksjon enn kombinasjoner langs isokvanten for <span class="math notranslate nohighlight">\(Q_2\)</span>, og <span class="math notranslate nohighlight">\(Q_3\)</span> gir høyest produksjon for bedriften.</p>
+<p>På lang sikt kan bedriften variere begge (alle) produksjonsfaktorer. For å si noe om helningen på isokvanten kan vi beregne grenseproduktiviteten til begge faktorene:
+$<span class="math notranslate nohighlight">\(\frac{\partial Q}{\partial K}=MP_K&gt;0\;,\frac{\partial Q}{\partial L}=MP_L&gt;0\tag{4} .\)</span>$</p>
+<p>Grenseproduktet sier noe om hvor mye produksjonen øker med når vi får en liten økning i en av produksjonsfaktorene. Vi ser at dette er et positivt tall, ettersom bedriften må produsere på en teknisk effektiv måte, dvs de vil ikke bruke mer innsatsfaktorer enn nødvendig.</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial MP_K}{\partial K}&lt;0\;,\frac{\partial MP_L}{\partial L}&lt;0\tag{5} .\]</div>
+<p>Vi antar at det er avtakende grenseprodukt med hensyn på hver av produksjonsfatorene. Det betyr at etter hvert som man øker innsatsen av en faktor, mens den andre ligger fast, så vil grenseproduktet gå ned. Som i uttrykket”Jo flere kokker jo mer søl”. Dette kalles for “loven om avtakene grenseprodukt”.</p>
+<p>Helningen på en isokvanten kan utledes ved å bruke regelen for implisitt derivasjon. Langs en isokvant er kvantum uendret og lik <span class="math notranslate nohighlight">\(Q_1\)</span>. Med produktfunksjon <span class="math notranslate nohighlight">\(Q(K,L)=Q_1\)</span> får vi følgene uttrykket for helningen på isokvanten:
+$<span class="math notranslate nohighlight">\(\begin{align}
+-\frac{dK}{dL} &amp;= \frac{\frac{\partial Q}{\partial L}}{\frac{\partial Q}{\partial K}}\tag {6}\\
+\end{align}\)</span>$</p>
+<p>Helningen på isokvanten kalles for “Den marginale tekniske subsitusjonsrate (MRTS)”, og viser hvor mye mindre kapital man trenger dersom man øker innsatsen av arbeidakraft med en enhet, uten at produskjoen endres. Fra (4) vet vi at:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{\partial Q}{\partial K}=MU_K, \frac{\partial Q}{\partial L}=MU_L\]</div>
+<p>Og da kan MRTS uttrykkes som:</p>
+<div class="math notranslate nohighlight">
+\[ MRTS=\frac{MU_L}{MU_K}\]</div>
+<section id="et-eksempel">
+<h3>Et eksempel<a class="headerlink" href="#et-eksempel" title="Link to this heading">#</a></h3>
+<p>En bedrift bruker følgende produktfunksjon til å lage et gode</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d1ff23a3-469c-47bf-8019-6827fa6ce96a">
+<span class="eqno">(1)<a class="headerlink" href="#equation-d1ff23a3-469c-47bf-8019-6827fa6ce96a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+   Q = Q(K,L)=K^aL^{1-a}\tag{7}
+\end{equation}\]</div>
+<p>hvor <span class="math notranslate nohighlight">\(Q\)</span> er enheter ferdigprodukt, <span class="math notranslate nohighlight">\(l\)</span> er enheter arbeidskraft (målt i timer), <span class="math notranslate nohighlight">\(K\)</span> er enheter kapital og <span class="math notranslate nohighlight">\(1&gt;  a&gt;0\)</span> er et konstant tall.<br />
+Vi skal beregne grenseproduktivitetene og MRTS for denne funksjonen; se matteboks 5.1.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># importer pakkene som vi trenger</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># definer nye symboler</span>
+<span class="n">K</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">Q1</span>  <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;K a L w r C Q1&#39;</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># definer ny produksjonsfunksjon (Cobb-Douglas)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">prod_cd</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="n">a</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">K</span><span class="o">**</span><span class="n">a</span><span class="o">*</span><span class="n">L</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">a</span><span class="p">)</span>
+<span class="n">prod_cd</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle K^{a} L^{1 - a}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># grenseproduktivitet til kaptial (K)</span>
+<span class="n">MP_K</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">prod_cd</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="n">a</span><span class="p">),</span><span class="n">K</span><span class="p">))</span>
+<span class="n">MP_K</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle K^{a - 1} L^{1 - a} a\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># grenseproduktivitet til arbeid (L)</span>
+<span class="n">MP_L</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">prod_cd</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="n">a</span><span class="p">),</span><span class="n">L</span><span class="p">))</span>
+<span class="n">MP_L</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left(\frac{K}{L}\right)^{a} \left(1 - a\right)\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># beregn MRTS</span>
+<span class="n">MRTS</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">MP_L</span><span class="o">/</span><span class="n">MP_K</span><span class="p">)</span>
+<span class="n">MRTS</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{K \left(1 - a\right)}{L a}\]</div>
+</div>
+</div>
+</section>
+</section>
+<section id="kostnadsminimering">
+<h2>3. Kostnadsminimering<a class="headerlink" href="#kostnadsminimering" title="Link to this heading">#</a></h2>
+<p>På lang sikt kan bedriften velge hvor mye av hver faktor som skal ansettes. Dette, sammen med evt. faste kostnader, vil bestemme produksjonskostnaden. Hvordan velger bedrifter faktorinnsatsen? Det er naturlig å tenke at bedriften vil maksimere sin fortjeneste (dette er ikke eneste mulighet, men et nauturlig utgangspunkt for mange produsenter). Gitt at bedriften tar alle priser for gitt vil en produsert mengde <span class="math notranslate nohighlight">\(Q\)</span> gi en inntekt på <span class="math notranslate nohighlight">\(PQ\)</span> NOK. Å maksimere fortjeneste er da det samme som å minimere kostnaden for å prodsuere denne mengden. Gitt at bedriften tar priser i faktormarkedet for gitt vil det koste <span class="math notranslate nohighlight">\(wL\)</span> å ansette <span class="math notranslate nohighlight">\(L\)</span> enheter med arbeidskraft, <span class="math notranslate nohighlight">\(rK\)</span> å ansette <span class="math notranslate nohighlight">\(K\)</span> enheter med kapital. Summen av disse utgiftene er det som bedriften vil minimere ved optimale valg av innsatsfaktorer. Vi kan se bort fra faste kostnader i beregningen.<br />
+Minimeringsproblemet til bedriften er da
+$<span class="math notranslate nohighlight">\( minimer \;\; C\;\; for\;\; Q=Q_1\)</span><span class="math notranslate nohighlight">\(
+hvor \)</span>Q_1<span class="math notranslate nohighlight">\( er mengden som bedriften ønsker å produsere. Tenk at vi har kun to faktorer, arbeidskraft og kapital, og bedriften bruker følgende teknologi: \)</span>Q=f(K,L)<span class="math notranslate nohighlight">\(. Da kan vi skrive kostnadsminimeringsproblemet som:        
+\)</span><span class="math notranslate nohighlight">\( min_{L,K}\;wL+rK \;\; ubb\;\; Q_1=Q(K,L).\)</span>$
+Subskriften ved siden av “min” viser hvilke variabler det er vi skal velge (dvs de endogene variablene), og “ubb” betyr “under bibetingelse”. Vi løses denne ved hjelp av Lagrange metoden.</p>
+<p>Vi setter opp Lagrange funksjonen:
+$<span class="math notranslate nohighlight">\(L = wL+rK-\lambda (Q(K,L)-Q_1)\)</span><span class="math notranslate nohighlight">\(
+hvor \)</span>\lambda<span class="math notranslate nohighlight">\( er en Lagrange multiplikator som viser verdien av å gjøre bibetingelsen mindre streng. I dette tilfellet viser det økningen i kostnaden dersom vi øke produskjonen med én enhet. Vi deriverer \)</span>L<span class="math notranslate nohighlight">\( med hensyn på \)</span>L,K,\lambda$:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+\frac{\partial L}{\partial L} &amp;= w - \lambda\frac{\partial Q}{\partial L} = 0 \tag {8}\\
+\frac{\partial L}{\partial K} &amp;= r - \lambda \frac{\partial Q}{\partial K} = 0 \tag {9}\\
+\frac{\partial L}{\partial \lambda} &amp;= Q(K,L)-Q_1 = 0 \tag {10}\\
+\end{align}\end{split}\]</div>
+<p>Legg merke til at (10) innebærer at løsningen som vi finner må tilfredsstille bibetingelsen. Vi kan skrive om (8) og (9):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+w &amp;= \lambda\frac{\partial Q}{\partial L}\tag {11}\\
+r &amp;= \lambda\frac{\partial Q}{\partial K}\tag {12}\\
+\end{align}\end{split}\]</div>
+<p>Deler vi (11) på (12) får vi</p>
+<div class="math notranslate nohighlight">
+\[MRTS=\frac{MP_L}{MP_K}=\frac{w}{r} \tag{13}\]</div>
+<p>Tolkningen av (13) er at den relative prisen på arbeidskraft er lik den marginale tekninske substitusjonsbrøken.</p>
+</section>
+<section id="oppskrift-for-kostnadsminimering">
+<h2>Oppskrift for kostnadsminimering<a class="headerlink" href="#oppskrift-for-kostnadsminimering" title="Link to this heading">#</a></h2>
+<p>Vi ser på en bedrift som bruker arbeidskraft og kapital til å produsere et gode gjennom bruk av følgende teknologi: <span class="math notranslate nohighlight">\(Q=Q(K,L).\)</span> Da kan vi skrive kostnadsminimeringsproblemet som:<br />
+$<span class="math notranslate nohighlight">\( min_{L,K}\;wL+rK \;\; ubb\;\; Q_1=Q(K;).\)</span>$</p>
+<p>Vi har to ting må være oppfylt for å finne verdier på <span class="math notranslate nohighlight">\(L,K\)</span> som gir et kostnadsminimum:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+\frac{MP_L}{MP_K}=\frac{w}{r}\tag {14} \\
+Q_1 &amp;=Q(K.L) \tag {15}\\
+\end{align}\end{split}\]</div>
+<p>Vi ser på et eksempel med Cobb-Douglas funksjon hvor <span class="math notranslate nohighlight">\(Q(K,L)=L^aK^{1-a}.\)</span> Se matteboks 5.2</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># produktfunksjon</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">prod</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">L</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">K</span><span class="o">**</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">L</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">a</span><span class="p">))</span>
+<span class="n">prod</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">L</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle K^{a} L^{1 - a}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Steg 1: beregn MRTS</span>
+<span class="n">MRTS</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">MP_L</span><span class="o">/</span><span class="n">MP_K</span><span class="p">)</span>
+<span class="n">MRTS</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{K \left(1 - a\right)}{L a}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Steg 2: setter MRTS=w/r som i likning (14), og kan skrive denne som K/L = wa/r(1-a)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Steg 3:Den optimale faktorkombinasjon for K finner vi ved å løse likning (14)</span>
+
+<span class="n">K_rel</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">MRTS</span><span class="o">-</span><span class="n">w</span><span class="o">/</span><span class="n">r</span><span class="p">,</span><span class="n">K</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">display</span><span class="p">(</span><span class="n">K_rel</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle - \frac{L a w}{r \left(a - 1\right)}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dette uttrykket sett inn i produktfunksjonen Q og løses for L</span>
+
+<span class="n">prod1</span><span class="o">=</span><span class="n">prod</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">L</span><span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">K_rel</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">prod1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle L^{1 - a} \left(- \frac{L a w}{r \left(a - 1\right)}\right)^{a}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">prod1</span><span class="p">)</span>   
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle L^{1 - a} \left(- \frac{L a w}{r \left(a - 1\right)}\right)^{a}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Optimal innsats av arbeidskraft</span>
+<span class="n">L_eq</span><span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">prod1</span><span class="o">-</span><span class="n">Q1</span><span class="p">,</span><span class="n">L</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">display</span><span class="p">(</span><span class="n">L_eq</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle Q_{1} \left(\frac{1}{a w}\right)^{a} \left(- \frac{1}{r \left(a - 1\right)}\right)^{- a}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">L_eq</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle Q_{1} \left(\frac{1}{a w}\right)^{a} \left(- \frac{1}{r \left(a - 1\right)}\right)^{- a}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#sett løsning av L inn i KA_rel for å få optimal innsats av kapital</span>
+
+<span class="n">K_eq</span><span class="o">=</span> <span class="n">K_rel</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">L_eq</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">K_eq</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle - \frac{Q_{1} a w \left(\frac{1}{a w}\right)^{a} \left(- \frac{1}{r \left(a - 1\right)}\right)^{- a}}{r \left(a - 1\right)}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">K_opt</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">K_rel</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">L_eq</span><span class="p">))</span>
+<span class="n">K_opt</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle - \frac{Q_{1} a w \left(\frac{1}{a w}\right)^{a} \left(- \frac{1}{r \left(a - 1\right)}\right)^{- a}}{r \left(a - 1\right)}\]</div>
+</div>
+</div>
+<p>Hvordan forenkle dette uttrykket ??</p>
+<p>Her ser vi på en balansert Cobb-Douglas produktfunksjon der <span class="math notranslate nohighlight">\(a= 0.5\)</span>; <span class="math notranslate nohighlight">\(Q(K,L)=L^{0.5}K^{0.5}.\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># produktfunksjon a=0.5</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">prod1</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">L</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">K</span><span class="o">**</span><span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">L</span><span class="o">**</span><span class="mf">0.5</span><span class="p">))</span>
+<span class="n">prod1</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">L</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle K^{0.5} L^{0.5}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># grenseproduktivitet til kaptial (K)</span>
+<span class="n">MP_K1</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">prod</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">K</span><span class="p">),</span><span class="n">K</span><span class="p">))</span>
+<span class="n">MP_K1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{0.5 L^{0.5}}{K^{0.5}}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># grenseproduktivitet til arbeid (L)</span>
+<span class="n">MP_L1</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">prod</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">K</span><span class="p">),</span><span class="n">L</span><span class="p">))</span>
+<span class="n">MP_L1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{0.5 K^{0.5}}{L^{0.5}}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Steg 1: beregn MRTS</span>
+<span class="n">MRTS1</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">MP_L1</span><span class="o">/</span><span class="n">MP_K1</span><span class="p">)</span>
+<span class="n">MRTS1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{1.0 K^{1.0}}{L^{1.0}}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Steg 3:Den optimale faktorkombinasjon for K finner vi ved å løse likning (14)</span>
+
+<span class="n">K_rel1</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">MRTS1</span><span class="o">-</span><span class="n">w</span><span class="o">/</span><span class="n">r</span><span class="p">,</span><span class="n">K</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">display</span><span class="p">(</span><span class="n">K_rel1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{L w}{r}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dette uttrykket sett inn i produktfunksjonen Q og løses for L</span>
+
+<span class="n">prod1</span><span class="o">=</span><span class="n">prod</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">L</span><span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">K_rel1</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">prod1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{L^{1.0} w^{0.5}}{r^{0.5}}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Optimal innsats av arbeidskraft</span>
+<span class="n">L_eq1</span><span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">prod1</span><span class="o">-</span><span class="n">Q1</span><span class="p">,</span><span class="n">L</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">display</span><span class="p">(</span><span class="n">L_eq1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{Q_{1} \sqrt{r}}{\sqrt{w}}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Optimal innsats av kapital</span>
+<span class="n">K_opt1</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">K_rel1</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">L_eq1</span><span class="p">))</span>
+<span class="n">K_opt1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{Q_{1} \sqrt{w}}{\sqrt{r}}\]</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Konsumenteori%20-%20Kapittel%202.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Kapittel 2 - Konsumentteori 2.1 - 2.4</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Produksjonsteori%20-%20Kapittel%206.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Kapittel 6 - Produksjonsteori</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#isokost">1. Isokost</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#produktfunksjon-og-isokvant">2. Produktfunksjon og isokvant</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#et-eksempel">Et eksempel</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kostnadsminimering">3. Kostnadsminimering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppskrift-for-kostnadsminimering">Oppskrift for kostnadsminimering</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Anita Michalsen, Daniel Nikolai Johannessen og Daniel Fabio Groth
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
