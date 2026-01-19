@@ -1,0 +1,12 @@
+format: jb-book
+root: intro.ipynb
+chapters:
+  - file: Konsumentteori - Kapittel 1.ipynb
+  - file: Konsumenteori - Kapittel 2.ipynb
+  - file: Produksjonsteori - Kapittel 5.ipynb
+  - file: Produksjonsteori - Kapittel 6.ipynb
+  - file: Produksjonsteori- Kapittel 7.ipynb
+  - file: Markedsteori - Kapittel 8.ipynb
+  - file: seminar/Seminar 1 - Konsumentens valg og nyttemaksimering.ipynb
+  
+

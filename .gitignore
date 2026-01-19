@@ -1,5 +1,11 @@
-svar/
-Thumbs.db
-unused/
-.ipynb_checkpoints/
+
+_build/
+.venv/
 __pycache__/
+*.py[cod]
+*.pyo
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+.vscode/

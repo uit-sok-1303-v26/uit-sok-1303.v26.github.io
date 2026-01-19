@@ -1,0 +1,43 @@
+name: Deploy Jupyter Book (v1) to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Jupyter Book (classic v1)
+        run: |
+          python -m pip install --upgrade pip
+          pip install "jupyter-book<2"
+
+      - name: Build the book
+        run: |
+          jupyter-book clean .
+          jupyter-book build .
+
+      - name: Verify built site exists
+        run: test -d _build/html || (echo "_build/html not found" && exit 1)
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4.0.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: _build/html
