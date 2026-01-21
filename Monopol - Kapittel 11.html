@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>SOK-1303 Mikroøkonomi &#8212; Sok-1303</title>
+    <title>Kapittel 11 - Monopol &#8212; Sok-1303</title>
   
   
   
@@ -62,6 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Monopol - Kapittel 11';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Seminar 1 - Konsumentens valg nyttemaksimering" href="seminar/Seminar%201%20-%20Konsumentens%20valg%20og%20nyttemaksimering.html" />
+    <link rel="prev" title="Kapittel 8 - Markedsteori, frikonkurranse" href="Markedsteori%20-%20Kapittel%208.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -124,8 +126,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -181,13 +181,14 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Konsumentteori%20-%20Kapittel%201.html">Kapittel 1 - Konsumentteori</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Konsumenteori%20-%20Kapittel%202.html">Kapittel 2 - Konsumentteori 2.1 - 2.4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Produksjonsteori%20-%20Kapittel%205.html">Kapittel 5 - Produksjonsteori</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Produksjonsteori%20-%20Kapittel%206.html">Kapittel 6 - Produksjonsteori</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Produksjonsteori-%20Kapittel%207.html">Kapittel 7 - Produksjonsteori</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Markedsteori%20-%20Kapittel%208.html">Kapittel 8 - Markedsteori, frikonkurranse</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Kapittel 11 - Monopol</a></li>
 <li class="toctree-l1"><a class="reference internal" href="seminar/Seminar%201%20-%20Konsumentens%20valg%20og%20nyttemaksimering.html">Seminar 1 - Konsumentens valg nyttemaksimering</a></li>
 </ul>
 
@@ -374,7 +375,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>SOK-1303 Mikroøkonomi</h1>
+    <h1>Kapittel 11 - Monopol</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -384,10 +385,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notater-monopol-kapittel-11">Notater Monopol - kapittel 11</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grunnleggende-monopoltilpasning">Grunnleggende monopoltilpasning</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grunnleggende-monopoltilpasning">Grunnleggende monopoltilpasning</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grenseinntekt">Grenseinntekt:</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-grenseinntekt-nar-vi-har-en-lineaer-ettersporselsfunksjon">Eksempel grenseinntekt når vi har en lineær etterspørselsfunksjon:</a></li>
 </ul>
@@ -404,10 +402,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="sok-1303-mikrookonomi">
-<h1>SOK-1303 Mikroøkonomi<a class="headerlink" href="#sok-1303-mikrookonomi" title="Link to this heading">#</a></h1>
-<section id="notater-monopol-kapittel-11">
-<h2>Notater Monopol - kapittel 11<a class="headerlink" href="#notater-monopol-kapittel-11" title="Link to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="kapittel-11-monopol">
+<h1>Kapittel 11 - Monopol<a class="headerlink" href="#kapittel-11-monopol" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
@@ -418,14 +414,13 @@ document.write(`
 </div>
 </div>
 <section id="grunnleggende-monopoltilpasning">
-<h3>Grunnleggende monopoltilpasning<a class="headerlink" href="#grunnleggende-monopoltilpasning" title="Link to this heading">#</a></h3>
+<h2>Grunnleggende monopoltilpasning<a class="headerlink" href="#grunnleggende-monopoltilpasning" title="Link to this heading">#</a></h2>
 <p>Monopolisten står overfor en etterspørselskurve og maksimerer profitt ved å sette grenseinntekten lik grensekostnaden (MR = MC).</p>
 <p>Forklaring av variabler i monopolmodellen:</p>
 <p>P er prisen monopolisten setter for produktet sitt.</p>
 <p>Q er mengden av produktet som produseres totalt.</p>
 <p>MR er grenseinntekt: Inntekten monopolisten får ved å selge én ekstra enhet.</p>
 <p>MC er grensekostnad: Kostnaden for å produsere én ekstra enhet.</p>
-</section>
 </section>
 <section id="grenseinntekt">
 <h2>Grenseinntekt:<a class="headerlink" href="#grenseinntekt" title="Link to this heading">#</a></h2>
@@ -436,12 +431,19 @@ Grenseinntekten (MR) er definert som den deriverte av inntekten med hensyn til Q
 \[MR(Q)=\frac{{\partial }R}{{\partial}Q}=P+Q\frac{{\partial }P}{{\partial}Q}\]</div>
 <section id="eksempel-grenseinntekt-nar-vi-har-en-lineaer-ettersporselsfunksjon">
 <h3>Eksempel grenseinntekt når vi har en lineær etterspørselsfunksjon:<a class="headerlink" href="#eksempel-grenseinntekt-nar-vi-har-en-lineaer-ettersporselsfunksjon" title="Link to this heading">#</a></h3>
-<p>Vi skal se på den lineære etterspørselsfunksjon:$<span class="math notranslate nohighlight">\(Q=a-bQ\)</span><span class="math notranslate nohighlight">\(
-Denne kan skrives på invers form som :\)</span><span class="math notranslate nohighlight">\(P=\frac{a-Q}{b}\)</span>$</p>
-<p>Helningen på etterspørselskurven vil være lik:$<span class="math notranslate nohighlight">\(\frac{{\partial }P}{{\partial}Q}=-\frac{1}{b}\)</span>$</p>
+<p>Vi skal se på den lineære etterspørselsfunksjon:</p>
+<div class="math notranslate nohighlight">
+\[Q=a-bQ\]</div>
+<p>Denne kan skrives på invers form som:</p>
+<div class="math notranslate nohighlight">
+\[P=\frac{a-Q}{b}\]</div>
+<p>Helningen på etterspørselskurven vil være lik:</p>
+<div class="math notranslate nohighlight">
+\[\frac{{\partial }P}{{\partial}Q}=-\frac{1}{b}\]</div>
 <p>Vi sette den linverse etterspørselsfunksjone inn i grenseinntekten og får:
 $<span class="math notranslate nohighlight">\(MR=\frac{{\partial }R}{{\partial}Q}=P+Q\frac{{\partial }P}{{\partial}Q}=\frac{a-Q}{b}-\frac{Q}{b}=\frac{a-2Q}{b}\)</span>$</p>
-<p>Helningen på grenseinntekstskurven er gitt ved:$<span class="math notranslate nohighlight">\(\frac{{\partial }MR}{{\partial}Q}=-\frac{1}{b}\)</span>$</p>
+<p>Helningen på grenseinntekstskurven er gitt ved:
+$<span class="math notranslate nohighlight">\(\frac{{\partial }MR}{{\partial}Q}=-\frac{1}{b}\)</span>$</p>
 <p>Når Q øker, reduseres marginalinntekten med en hastighet på <span class="math notranslate nohighlight">\(\frac{2}{b}\)</span> per enhet økning i Q.</p>
 <p>Marginalinntekten faller raskere enn prisen, noe som er en viktig egenskap i en monopolistisk markedsstruktur.</p>
 </section>
@@ -449,16 +451,33 @@ $<span class="math notranslate nohighlight">\(MR=\frac{{\partial }R}{{\partial}Q
 <section id="monopoltilpasning">
 <h2>Monopoltilpasning<a class="headerlink" href="#monopoltilpasning" title="Link to this heading">#</a></h2>
 <p>Matteboks 11.1</p>
-<p>Etterspørselsfunksjoene er gitt ved:$<span class="math notranslate nohighlight">\(Q=a-bQ\)</span><span class="math notranslate nohighlight">\(
-Denne kan skrives på invers form som :\)</span><span class="math notranslate nohighlight">\(P=\frac{a-Q}{b}\)</span>$</p>
-<p>Dette gir monopolisten inntekt lik: $<span class="math notranslate nohighlight">\(R(Q)=\frac{a-Q}{b}Q\)</span>$</p>
-<p>Grenseinntekten er gitt ved: $<span class="math notranslate nohighlight">\(MR=\frac{{\partial }R}{{\partial}Q}=\frac{a-2Q}{b}\)</span>$</p>
-<p>Vi antar at konstnadsfunksjonen er gitt ved: $<span class="math notranslate nohighlight">\(C(Q)=cQ\)</span>$</p>
-<p>Som gir grensekostnader lik: $<span class="math notranslate nohighlight">\(MC=\frac{{\partial}C}{{\partial}Q}=c\)</span>$</p>
-<p>Profittmaksimun er gitt ved:
-$<span class="math notranslate nohighlight">\(MR=MC=\frac{a-2Q}{b}=c\)</span>$</p>
-<p>Optimalt monopolkvantum finner vi ved å løse profittmaksimun med hensyn på kvantum: $<span class="math notranslate nohighlight">\(Q^m=\frac{a-bC}{2}\)</span><span class="math notranslate nohighlight">\( 
-Monopolprisen finner vi ved å sette optimal monopolkvantum inn i etterspørselsfunksjonen: \)</span><span class="math notranslate nohighlight">\(P^m=\frac{a-Q^M}{b}=\frac{1}{2}(\frac{a}{b}+c)\)</span>$</p>
+<p>Etterspørselsfunksjoene er gitt ved:</p>
+<div class="math notranslate nohighlight">
+\[Q=a-bQ\]</div>
+<p>Denne kan skrives på invers form som:</p>
+<div class="math notranslate nohighlight">
+\[P=\frac{a-Q}{b}\]</div>
+<p>Dette gir monopolisten inntekt lik:</p>
+<div class="math notranslate nohighlight">
+\[R(Q)=\frac{a-Q}{b}Q\]</div>
+<p>Grenseinntekten er gitt ved:</p>
+<div class="math notranslate nohighlight">
+\[MR=\frac{{\partial }R}{{\partial}Q}=\frac{a-2Q}{b}\]</div>
+<p>Vi antar at konstnadsfunksjonen er gitt ved:</p>
+<div class="math notranslate nohighlight">
+\[C(Q)=cQ\]</div>
+<p>Som gir grensekostnader lik:</p>
+<div class="math notranslate nohighlight">
+\[MC=\frac{{\partial}C}{{\partial}Q}=c\]</div>
+<p>Profittmaksimun er gitt ved:</p>
+<div class="math notranslate nohighlight">
+\[MR=MC=\frac{a-2Q}{b}=c\]</div>
+<p>Optimalt monopolkvantum finner vi ved å løse profittmaksimun med hensyn på kvantum:</p>
+<div class="math notranslate nohighlight">
+\[Q^m=\frac{a-bC}{2}\]</div>
+<p>Monopolprisen finner vi ved å sette optimal monopolkvantum inn i etterspørselsfunksjonen:</p>
+<div class="math notranslate nohighlight">
+\[P^m=\frac{a-Q^M}{b}=\frac{1}{2}(\frac{a}{b}+c)\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definerer symboler</span>
@@ -605,6 +624,24 @@ Monopolprisen finner vi ved å sette optimal monopolkvantum inn i etterspørsels
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="Markedsteori%20-%20Kapittel%208.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Kapittel 8 - Markedsteori, frikonkurranse</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="seminar/Seminar%201%20-%20Konsumentens%20valg%20og%20nyttemaksimering.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Seminar 1 - Konsumentens valg nyttemaksimering</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -621,10 +658,7 @@ Monopolprisen finner vi ved å sette optimal monopolkvantum inn i etterspørsels
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notater-monopol-kapittel-11">Notater Monopol - kapittel 11</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grunnleggende-monopoltilpasning">Grunnleggende monopoltilpasning</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grunnleggende-monopoltilpasning">Grunnleggende monopoltilpasning</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grenseinntekt">Grenseinntekt:</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-grenseinntekt-nar-vi-har-en-lineaer-ettersporselsfunksjon">Eksempel grenseinntekt når vi har en lineær etterspørselsfunksjon:</a></li>
 </ul>
