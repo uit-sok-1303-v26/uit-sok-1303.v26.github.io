@@ -389,6 +389,16 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pensum">Pensum</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#informasjon-om-undervisningen-i-kurset">Informasjon om undervisningen i kurset</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seminarer">Seminarer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nedlastning-av-python-og-visual-studio-code"><strong>Nedlastning av Python og Visual Studio Code</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installere-python">1. Installere Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows"><strong>Windows:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mac"><strong>Mac:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tips">Tips:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installere-visual-studio-code">2. Installere Visual Studio Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apne-visual-studio-code">3. Åpne Visual Studio Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pip-og-hvorfor-det-er-viktig"><code class="docutils literal notranslate"><span class="pre">pip</span></code> - og hvorfor det er viktig!</a></li>
 </ul>
             </nav>
         </div>
@@ -424,6 +434,62 @@ document.write(`
 <section id="seminarer">
 <h2>Seminarer<a class="headerlink" href="#seminarer" title="Link to this heading">#</a></h2>
 <p>I dette faget er det lagt opp til seminarundervisning etter at forelesningene er gjennomført. På seminarene vil <strong>Python-koder</strong>, som er lagt ut i Jupyter-notatblokker, bli gjennomgått. I tillegg vil seminarene dekke anbefalte seminaroppgaver som dere finner under modulene. Det vil også bli gitt veiledning i koding knuttet til arbeidskravet.</p>
+</section>
+<section id="nedlastning-av-python-og-visual-studio-code">
+<h2><strong>Nedlastning av Python og Visual Studio Code</strong><a class="headerlink" href="#nedlastning-av-python-og-visual-studio-code" title="Link to this heading">#</a></h2>
+</section>
+<section id="installere-python">
+<h2>1. Installere Python<a class="headerlink" href="#installere-python" title="Link to this heading">#</a></h2>
+<section id="windows">
+<h3><strong>Windows:</strong><a class="headerlink" href="#windows" title="Link to this heading">#</a></h3>
+<p>På noen systemer er det tilstrekkelig at du skriver <code class="docutils literal notranslate"><span class="pre">python</span></code> i kommandovinduet. Om ikke det fungerer, gjør slik:</p>
+<ol class="arabic simple">
+<li><p>Gå til <a class="reference external" href="https://www.python.org/downloads/">installasjonssiden</a> og last ned</p></li>
+<li><p>Installer for alle brukere (krever admin login) og <strong>hak av for å legge til “PATH”</strong>.</p></li>
+</ol>
+<p>Hvis det ikke er en boks for “Add Python to PATH”, så kan du prøve å lukke installasjonen og heller høyreklikke på filen og “Kjør som administrator”</p>
+</section>
+<section id="mac">
+<h3><strong>Mac:</strong><a class="headerlink" href="#mac" title="Link to this heading">#</a></h3>
+<p>Gå til <a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a>.</p>
+<p>Last ned nyeste versjon til MacOS.</p>
+</section>
+<section id="tips">
+<h3>Tips:<a class="headerlink" href="#tips" title="Link to this heading">#</a></h3>
+<p>Last ned nyeste versjon av Python til PC/Mac’en deres.</p>
+</section>
+</section>
+<section id="installere-visual-studio-code">
+<h2>2. Installere Visual Studio Code<a class="headerlink" href="#installere-visual-studio-code" title="Link to this heading">#</a></h2>
+<p>I dette kurset er seminarene lagt opp til at skal vi jobbe med Jupyter Notebooks, og da er <a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a> et glimrende verktøy.</p>
+<p>Denne kan også være lurt å kjøre som administrator siden denne også kan be om “add to path”.</p>
+<p>Dere finner nedlastning for både Mac og Windows på nettsiden <a class="reference external" href="https://code.visualstudio.com/">her</a>!</p>
+</section>
+<section id="apne-visual-studio-code">
+<h2>3. Åpne Visual Studio Code<a class="headerlink" href="#apne-visual-studio-code" title="Link to this heading">#</a></h2>
+<p>Visual Studio Code, forkortes ofte bare til VSCode.</p>
+<p>Når dere har lastet ned programmet, gjør følgende:</p>
+<ul class="simple">
+<li><p>Åpne programmet og finn <strong>Extensions</strong> på venstresiden av applikasjonen.</p></li>
+<li><p>Her skal dere finne <strong>Jupyter</strong> og trykk “<em>Install</em>”.</p></li>
+<li><p>Deretter finner dere <strong>Python</strong> (også i <strong>Extensions</strong>) og trykker “<em>Install</em>”.</p></li>
+</ul>
+</section>
+<section id="pip-og-hvorfor-det-er-viktig">
+<h2><code class="docutils literal notranslate"><span class="pre">pip</span></code> - og hvorfor det er viktig!<a class="headerlink" href="#pip-og-hvorfor-det-er-viktig" title="Link to this heading">#</a></h2>
+<p>For å laste ned pakker så vil vi bruke kommandoen <code class="docutils literal notranslate"><span class="pre">%pip</span> <span class="pre">install</span> <span class="pre">XXX</span></code> eller <code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">install</span> <span class="pre">XXX</span></code> hvor <code class="docutils literal notranslate"><span class="pre">XXX</span></code> er et bibliotek. Bibliotek brukes mye i Python, og kan sees på som pakker man henter ut, for å gjøre spesifikke kommandoer.</p>
+<p>For å kunne kjøre <code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">install</span></code> eller <code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">install</span></code> trenger dere å laste ned <code class="docutils literal notranslate"><span class="pre">!pip</span></code> på PC/Mac’en deres.</p>
+<p>Ved å laste ned kapitellene på kurssiden så ligger koden allerede inne, eller så kan du lage en ny jupyter notatblokk og kopiere inn koden i de neste kodeblokkene under her</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="o">!{</span>sys.executable<span class="o">}</span><span class="w"> </span>-m<span class="w"> </span>ensurepip<span class="w"> </span>--upgrade
+<span class="o">%</span><span class="k">pip</span> install --upgrade pip
+<span class="o">%</span><span class="k">pip</span> install numpy
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <div class="toctree-wrapper compound">
 </div>
@@ -488,6 +554,16 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pensum">Pensum</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#informasjon-om-undervisningen-i-kurset">Informasjon om undervisningen i kurset</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seminarer">Seminarer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nedlastning-av-python-og-visual-studio-code"><strong>Nedlastning av Python og Visual Studio Code</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installere-python">1. Installere Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows"><strong>Windows:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mac"><strong>Mac:</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tips">Tips:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installere-visual-studio-code">2. Installere Visual Studio Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apne-visual-studio-code">3. Åpne Visual Studio Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pip-og-hvorfor-det-er-viktig"><code class="docutils literal notranslate"><span class="pre">pip</span></code> - og hvorfor det er viktig!</a></li>
 </ul>
   </nav></div>
 
