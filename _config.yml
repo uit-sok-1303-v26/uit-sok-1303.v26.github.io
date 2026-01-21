@@ -9,10 +9,6 @@ logo: assets/img/py.png
 execute:
   execute_notebooks: off
   allow_errors: true
-  # exclude_patterns:
-  #   - 'notebooks/00/intro.ipynb'
-  #   - 'notebooks/01/introduksjon.ipynb'
-  #   - 'notebooks/10/simulering.ipynb'
 
 sphinx:
   config:
