@@ -183,6 +183,7 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Kapittel 1 - Konsumentteori</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="Konsumenteori%20-%20Kapittel%202.html">Kapittel 2 - Konsumentteori 2.1 - 2.4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Produksjonsteori%20-%20Kapittel%205.html">Kapittel 5 - Produksjonsteori</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Produksjonsteori%20-%20Kapittel%206.html">Kapittel 6 - Produksjonsteori</a></li>
@@ -385,6 +386,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Kapittel 1 - Konsumentteori</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#python-repitisjon">Python repitisjon</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">NumPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sympy">Sympy</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konsumentens-budsjettbetingelse">1. Konsumentens budsjettbetingelse</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seminaroppgave-1">Seminaroppgave 1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hoyere-strompriser-og-endrede-budsjettlinjer">1.2 Høyere strømpriser og endrede budsjettlinjer</a><ul class="nav section-nav flex-column">
@@ -418,6 +423,9 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prisstotte-eller-kontantstotte">1.4 Prisstøtte eller kontantstøtte?</a></li>
 </ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -431,6 +439,112 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="kapittel-1-konsumentteori">
 <h1>Kapittel 1 - Konsumentteori<a class="headerlink" href="#kapittel-1-konsumentteori" title="Link to this heading">#</a></h1>
 <p>Notatblokken lastes enklest ned på <a class="github reference external" href="https://github.com/uit-sok-1303-v26/uit-sok-1303.v26.github.io/blob/main/Konsumentteori%20-%20Kapittel%201.ipynb">uit-sok-1303-v26/uit-sok-1303.v26.github.io</a></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="python-repitisjon">
+<h1>Python repitisjon<a class="headerlink" href="#python-repitisjon" title="Link to this heading">#</a></h1>
+<section id="numpy">
+<h2>NumPy<a class="headerlink" href="#numpy" title="Link to this heading">#</a></h2>
+<p>NumPy er et bibliotek for numeriske beregninger i Python. Hovedsakelig blir vi kun å bruke NumPy til å lage arrays/tabeller og gjøre enkle matematiske operasjoner på disse.</p>
+<p>np.linspace(start, stop, num) lager en array med <code class="docutils literal notranslate"><span class="pre">num</span></code> jevnt fordelte verdier mellom <code class="docutils literal notranslate"><span class="pre">start</span></code> og <code class="docutils literal notranslate"><span class="pre">stop</span></code>.</p>
+<p><strong>Eksempel:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 0.          0.52631579  1.05263158  1.57894737  2.10526316  2.63157895
+  3.15789474  3.68421053  4.21052632  4.73684211  5.26315789  5.78947368
+  6.31578947  6.84210526  7.36842105  7.89473684  8.42105263  8.94736842
+  9.47368421 10.        ]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>numpy.ndarray
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="sympy">
+<h2>Sympy<a class="headerlink" href="#sympy" title="Link to this heading">#</a></h2>
+<p>Sympy er et bibliotek for symbolsk matematikk i Python. Vi kommer til å bruke dette biblioteket til å derivere funksjoner og løse likninger symbolsk.</p>
+<p>sp.symbols(‘x’) definerer en symbolsk variabel x. Python kan da bruke denne variabelen i funksjoner og uttrykk.</p>
+<p><strong>Eksempel:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle x\]</div>
+</div>
+</div>
+<p>sp.Eq(lhs, rhs) lager en likning mellom lhs (left-hand side) og rhs (right-hand side).</p>
+<p><strong>Eksempel:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">likning</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">likning</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle x^{2} + 2 x + 1 = 0\]</div>
+</div>
+</div>
+<p>sp.solve(likning, x) løser likningen for variabelen x.</p>
+<p><strong>Eksempel:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">løsning</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">likning</span><span class="p">,</span> <span class="n">x</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># 0 Henter første løsning hvis det er flere løsninger</span>
+<span class="n">løsning</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle -1\]</div>
+</div>
+</div>
+<p>.subs metoden fra sympy kan brukes for å sette inn direkte verdier i et symbolsk uttrykk.</p>
+<p><strong>Eksempel:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_verdi</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">x_verdi</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 2\]</div>
+</div>
+</div>
+<p>sp.diff(uttrykk, x) deriverer uttrykket med hensyn på variabelen x.</p>
+<p><strong>Eksempel:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">likning_derivert</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">likning</span><span class="o">.</span><span class="n">lhs</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="c1"># Her er vi kun interessert i venstresiden av likningen derfor vi bruker likning.lhs</span>
+<span class="n">likning_derivert</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 2 x + 2\]</div>
+</div>
+</div>
+<p>Hovedsakelig blir vi å bruke disse funksjonene i hele kurset. Med kun disse funksjonene kan vi løse alle oppgaver i kurset. Matplotlib er en pakke som man må jobbe litt med for å forstå den.</p>
+<p>Vi bruker matplotlib mye i notatblokkene, derfor er den beste måten å lære matplotlib på å se på eksemplene i notatblokkene og prøve å endre på dem for å se hva som skjer.</p>
 <p>Vi skal se på konsumentens valg.</p>
 <p>Vi setter opp en modell for å forenkle virkelighet, og bak denne forenklingen ligger noen forutsetninger.</p>
 <ol class="arabic simple">
@@ -441,6 +555,7 @@ document.write(`
 <li><p>Konsumenten velger mellom goder for å maksimere sin egen nytte.</p></li>
 </ol>
 <p>(Dere vil møte modeller i senere kurs som ta bort én eller flere av disse forutsetningene).</p>
+</section>
 <section id="konsumentens-budsjettbetingelse">
 <h2>1. Konsumentens budsjettbetingelse<a class="headerlink" href="#konsumentens-budsjettbetingelse" title="Link to this heading">#</a></h2>
 <p>Konsumenten bruker hele sin inntekt (m) på konsum, noe som gjenspeiles i budsjettbetingelsen</p>
@@ -1374,6 +1489,10 @@ I=p_AA+p_BB \tag {1}\\
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Kapittel 1 - Konsumentteori</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#python-repitisjon">Python repitisjon</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">NumPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sympy">Sympy</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konsumentens-budsjettbetingelse">1. Konsumentens budsjettbetingelse</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seminaroppgave-1">Seminaroppgave 1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hoyere-strompriser-og-endrede-budsjettlinjer">1.2 Høyere strømpriser og endrede budsjettlinjer</a><ul class="nav section-nav flex-column">
@@ -1407,6 +1526,9 @@ I=p_AA+p_BB \tag {1}\\
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prisstotte-eller-kontantstotte">1.4 Prisstøtte eller kontantstøtte?</a></li>
 </ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>
