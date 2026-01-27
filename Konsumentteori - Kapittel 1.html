@@ -764,7 +764,7 @@ P_A \times A = P_B \times B
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Vi begynner og definere symboler</span>
-<span class="n">A</span><span class="p">,</span><span class="n">B</span>  <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;A B&#39;</span><span class="p">)</span>
+<span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span>  <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;A B x y z&#39;</span><span class="p">)</span>
 
 
 <span class="c1"># Vi lagrer I P_A og P_B_lav som variabler som er lik 1</span>
@@ -868,12 +868,207 @@ P_A \times A = P_B \times B
 </div>
 <section id="b-anta-sa-at-prisen-pa-strom-gar-opp-slik-at-p-b-h-2-hvor-toppskrift-h-star-for-hoy-hva-er-helningen-pa-den-nye-budsjettlinjen-og-hva-blir-annes-tilpasning">
 <h3>b) Anta så at prisen på strøm går opp slik at <span class="math notranslate nohighlight">\(P_B^{h} = 2\)</span>, hvor toppskrift “h” står for høy. Hva er helningen på den nye budsjettlinjen, og hva blir Annes tilpasning?<a class="headerlink" href="#b-anta-sa-at-prisen-pa-strom-gar-opp-slik-at-p-b-h-2-hvor-toppskrift-h-star-for-hoy-hva-er-helningen-pa-den-nye-budsjettlinjen-og-hva-blir-annes-tilpasning" title="Link to this heading">#</a></h3>
+<p>Det vi vet fra tidligere er at helningen på budsjettlinjen er gitt ved <span class="math notranslate nohighlight">\(-\frac{P_B}{P_A}\)</span>. Når prisen på strøm dobles til <span class="math notranslate nohighlight">\(P_B^{h} = 2\)</span> mens prisen på mat forblir <span class="math notranslate nohighlight">\(P_A = 1\)</span>, blir helningen på den nye budsjettlinjen:</p>
+<div class="math notranslate nohighlight">
+\[
+-\frac{P_B^{h}}{P_A} = -\frac{2}{1} = -2
+\]</div>
+<p>For å finne Annes nye tilpasning må vi sette opp likningssettet på nytt med den nye prisen på strøm.</p>
+<p>Vi definerer budsjettbetingelsen med den nye prisen på strøm og løser likningssettet på nytt for å finne Annes nye konsum av gode A og B.</p>
+<p>Vi oppdaterer prisen på gode B til 2 og setter opp likningssettet på nytt:</p>
+<div class="math notranslate nohighlight">
+\[
+1 = 1 \times A + 2 \times B
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+1 \times A = 2 \times B
+\]</div>
+<p>Vi kan løse dette likningssettet i python på samme måte som tidligere, og finne Annes nye konsum av gode A og B.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P_B_høy</span><span class="p">,</span> <span class="n">P_A</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span><span class="n">P_B_lav</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;P{_B^h} P_A I P{_B^l}&#39;</span><span class="p">)</span>
+
+<span class="c1"># Skriv inn dine verdier her for I, P_A og den nye prisen på gode B</span>
+<span class="c1">#I = </span>
+<span class="c1">#P_A =</span>
+<span class="c1">#P_B_høy = </span>
+
+<span class="c1"># Ligninger</span>
+<span class="n">Budsjett</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">P_A</span><span class="o">*</span><span class="n">A</span> <span class="o">+</span> <span class="n">P_B_høy</span><span class="o">*</span><span class="n">B</span><span class="p">,</span> <span class="n">I</span><span class="p">)</span>
+
+<span class="c1"># like mye på begge</span>
+<span class="n">lite_forbruk</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">P_A</span><span class="o">*</span><span class="n">A</span><span class="p">,</span> <span class="n">P_B_høy</span><span class="o">*</span><span class="n">B</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">Budsjett</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">lite_forbruk</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle A P_{A} + B P{_B^h} = I\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle A P_{A} = B P{_B^h}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Løser budsjett for optimalt konsum</span>
+<span class="n">Løsning</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">((</span><span class="n">Budsjett</span><span class="p">,</span> <span class="n">lite_forbruk</span><span class="p">),</span> <span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">))</span>
+<span class="n">a_løsning</span> <span class="o">=</span> <span class="n">Løsning</span><span class="p">[</span><span class="n">A</span><span class="p">]</span>
+<span class="n">b_løsning</span> <span class="o">=</span> <span class="n">Løsning</span><span class="p">[</span><span class="n">B</span><span class="p">]</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">a_løsning</span><span class="p">,</span><span class="n">b_løsning</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{I}{2 P_{A}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{I}{2 P{_B^h}}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># For å visualisere trenger vi å vite budsjettlinjen</span>
+<span class="n">budsjettlinjen</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">Budsjett</span><span class="p">,</span> <span class="n">A</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">display</span><span class="p">(</span><span class="n">budsjettlinjen</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{- B P{_B^h} + I}{P_{A}}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Om koden er riktig ovenfor skal alt nede kjøre når man fjerner #</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">b_verdier</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">b_verdier</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Budsjettlinje, $P_B=2$&#39;</span><span class="p">)</span>
+
+<span class="c1"># optimal tilpasning</span>
+<span class="c1">#ax.plot(b_løsning, a_løsning, &#39;ro&#39;, label=&#39;Optimal tilpasning 2&#39;)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+<span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/e7f092ad970847270621b717936540263f7c073aa11185d3f7ca3ebaf438a53b.png" src="_images/e7f092ad970847270621b717936540263f7c073aa11185d3f7ca3ebaf438a53b.png" />
+</div>
+</div>
 </section>
 <section id="c-regjeringen-innforer-en-stromstotte-som-gjor-at-prisen-som-konsumentene-betaler-blir-akkurat-som-for-stotten-per-enhet-konsumert-er-dermed-s-b-p-b-h-p-b-l-1-hvor-p-b-l-er-den-opprinnelige-lave-prisen-hva-er-den-samlede-kostnaden-s-b-av-denne-stromstotten-hvor-s-b-s-b-b">
 <h3>c) Regjeringen innfører en strømstøtte som gjør at prisen som konsumentene betaler, blir akkurat som før. Støtten per enhet konsumert er dermed <span class="math notranslate nohighlight">\(S_B = P_B^{h} - P_B^{l} = 1\)</span>, hvor <span class="math notranslate nohighlight">\(P_B^{l}\)</span> er den opprinnelige, lave prisen. Hva er den samlede kostnaden <span class="math notranslate nohighlight">\(S_B\)</span> av denne strømstøtten, hvor <span class="math notranslate nohighlight">\(S_B = S_B  B\)</span>?<a class="headerlink" href="#c-regjeringen-innforer-en-stromstotte-som-gjor-at-prisen-som-konsumentene-betaler-blir-akkurat-som-for-stotten-per-enhet-konsumert-er-dermed-s-b-p-b-h-p-b-l-1-hvor-p-b-l-er-den-opprinnelige-lave-prisen-hva-er-den-samlede-kostnaden-s-b-av-denne-stromstotten-hvor-s-b-s-b-b" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># For å få en numerisk løsning legg til verdien for P_B før økningen i pris</span>
+<span class="c1">#P_B_lav = </span>
+
+
+<span class="c1"># Regjeringen innfører en subsidie</span>
+<span class="n">S_B</span> <span class="o">=</span> <span class="n">P_B_høy</span> <span class="o">-</span> <span class="n">P_B_lav</span>
+
+<span class="n">S_B</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle P{_B^h} - P{_B^l}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hva betaler regjeringen totalt for subsidien?</span>
+<span class="n">total_subsidie</span> <span class="o">=</span> <span class="n">S_B</span> <span class="o">*</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span>
+
+<span class="n">total_subsidie</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{P{_B^h}}{2} - \frac{P{_B^l}}{2}\]</div>
+</div>
+</div>
 </section>
 <section id="d-et-alternativ-til-a-gi-prisstotte-kan-vaere-a-gi-en-kontantstotte-til-forbrukerne-vis-hvordan-det-a-gi-anne-en-kontantstotte-s-som-er-like-stor-som-den-hun-skulle-fatt-i-stromsotte-altsa-s-s-b-pavirker-hennes-budsjettlinje-og-tilpasning">
 <h3>d) Et alternativ til å gi prisstøtte kan være å gi en kontantstøtte til forbrukerne. Vis hvordan det å gi Anne en kontantstøtte <span class="math notranslate nohighlight">\(S\)</span> (som er like stor som den hun skulle fått i strømsøtte, altså <span class="math notranslate nohighlight">\(S = S_B\)</span>) påvirker hennes budsjettlinje og tilpasning.<a class="headerlink" href="#d-et-alternativ-til-a-gi-prisstotte-kan-vaere-a-gi-en-kontantstotte-til-forbrukerne-vis-hvordan-det-a-gi-anne-en-kontantstotte-s-som-er-like-stor-som-den-hun-skulle-fatt-i-stromsotte-altsa-s-s-b-pavirker-hennes-budsjettlinje-og-tilpasning" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hva blir den nye inntekten til Anne med kontantstøtte istedenfor subsidie?</span>
+<span class="n">I_kontantstøtte</span> <span class="o">=</span> <span class="n">I</span> <span class="o">+</span> <span class="n">total_subsidie</span>
+
+<span class="n">I_kontantstøtte</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle I + \frac{P{_B^h}}{2} - \frac{P{_B^l}}{2}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ny Budsjettbetingelse</span>
+<span class="n">Budsjett</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">P_A</span><span class="o">*</span><span class="n">A</span> <span class="o">+</span> <span class="n">P_B_høy</span><span class="o">*</span><span class="n">B</span><span class="p">,</span> <span class="n">I_kontantstøtte</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">Budsjett</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle A P_{A} + B P{_B^h} = I + \frac{P{_B^h}}{2} - \frac{P{_B^l}}{2}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Løser budsjett for optimalt konsum</span>
+<span class="n">Løsning</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">((</span><span class="n">Budsjett</span><span class="p">,</span> <span class="n">lite_forbruk</span><span class="p">),</span> <span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">))</span>
+
+<span class="n">a_løsning</span> <span class="o">=</span> <span class="n">Løsning</span><span class="p">[</span><span class="n">A</span><span class="p">]</span>
+<span class="n">b_løsning</span> <span class="o">=</span> <span class="n">Løsning</span><span class="p">[</span><span class="n">B</span><span class="p">]</span>
+
+<span class="c1"># show numeric solutions</span>
+<span class="n">display</span><span class="p">(</span><span class="n">a_løsning</span><span class="o">.</span><span class="n">evalf</span><span class="p">()),</span> <span class="n">display</span><span class="p">(</span><span class="n">b_løsning</span><span class="o">.</span><span class="n">evalf</span><span class="p">())</span>
+
+<span class="c1"># For å visualisere trenger vi å vite budsjettlinjen</span>
+<span class="n">budsjettlinjen</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">Budsjett</span><span class="p">,</span> <span class="n">A</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">display</span><span class="p">(</span><span class="n">budsjettlinjen</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{0.25 \left(2.0 I + P{_B^h} - P{_B^l}\right)}{P_{A}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{0.25 \left(2.0 I + P{_B^h} - P{_B^l}\right)}{P{_B^h}}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{- B P{_B^h} + I + \frac{P{_B^h}}{2} - \frac{P{_B^l}}{2}}{P_{A}}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Viser i figur</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">b_verdier</span><span class="p">,</span> <span class="mi">3</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">b_verdier</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Budsjettlinje, kontantstøtte&#39;</span><span class="p">)</span>
+<span class="c1"># optimal tilpasning</span>
+<span class="c1">#ax.plot(b_løsning, a_løsning, &#39;ro&#39;, label=&#39;Optimal tilpasning kontantstøtte&#39;)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
+
+<span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/aa8974d7b48d915f853c4134b8ab6186500e9c323b8810174f303505b3fbd0a4.png" src="_images/aa8974d7b48d915f853c4134b8ab6186500e9c323b8810174f303505b3fbd0a4.png" />
+</div>
+</div>
 </section>
 </section>
 <section id="konsumentens-preferanser">
