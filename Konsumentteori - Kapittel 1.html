@@ -416,6 +416,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seminaroppgave-1-3-anne-og-venninnen-tilpasser-seg-ekte-strompriser">Seminaroppgave 1.3 Anne og venninnen tilpasser seg ekte strømpriser</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-hva-er-nyttevekten-a-til-anne-og-hva-med-beate">a) Hva er nyttevekten <span class="math notranslate nohighlight">\(a\)</span> til Anne, og hva med Beate?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-prisen-pa-de-to-godene-er-i-utgangspunktet-p-b-p-a-1-og-de-to-venninnene-begge-har-en-inntekt-i-1-hva-er-deres-konsum-av-a-og-b-regn-ut-og-illustrer-i-en-figur">b) Prisen på de to godene er i utgangspunktet <span class="math notranslate nohighlight">\(P_B = P_A = 1\)</span>, og de to venninnene begge har en inntekt <span class="math notranslate nohighlight">\(I = 1\)</span>. Hva er deres konsum av <span class="math notranslate nohighlight">\(A\)</span> og <span class="math notranslate nohighlight">\(B\)</span>? Regn ut og illustrer i en figur.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppskrift-for-indifferenskurver">Oppskrift for indifferenskurver</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-prisen-pa-strom-oker-sa-til-p-b-h-2-hvor-mye-har-du-skrudd-ned-varmen-i-leiligheten-spor-anne-bruker-du-mindre-penger-pa-mat-na-lurer-venninnen-pa-hva-er-svaret-ditt-pa-disse-sporsmalene">c) Prisen på strøm øker så til <span class="math notranslate nohighlight">\(P_B^{h} = 2\)</span>. “Hvor mye har du skrudd ned varmen i leiligheten?” spør Anne. “Bruker du mindre penger på mat nå” lurer venninnen på. Hva er svaret ditt på disse spørsmålene?</a></li>
 </ul>
 </li>
@@ -858,7 +861,7 @@ Vi definerer symboler for gode A og B, priser på gode A og B og vet at inntekte
 
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">b_verdier</span><span class="p">,</span> <span class="n">budsj</span><span class="p">(</span><span class="n">b_verdier</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Budsjettlinje&#39;</span><span class="p">)</span>
 <span class="c1"># optimal tilpasning</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">løsning_a</span><span class="p">,</span> <span class="n">løsning_b</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Optimal tilpasning&#39;</span><span class="p">)</span> 
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">løsning_a</span><span class="p">,</span> <span class="n">løsning_b</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Optimal tilpasning&#39;</span><span class="p">)</span> 
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
@@ -891,9 +894,9 @@ Vi definerer symboler for gode A og B, priser på gode A og B og vet at inntekte
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P_B_høy</span><span class="p">,</span> <span class="n">P_A</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span><span class="n">P_B_lav</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;P{_B^h} P_A I P{_B^l}&#39;</span><span class="p">)</span>
 
 <span class="c1"># Skriv inn dine verdier her for I, P_A og den nye prisen på gode B</span>
-<span class="c1">#I = </span>
-<span class="c1">#P_A =</span>
-<span class="c1">#P_B_høy = </span>
+<span class="n">I</span> <span class="o">=</span> <span class="mi">1</span> 
+<span class="n">P_A</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">P_B_høy</span> <span class="o">=</span> <span class="mi">2</span> 
 
 <span class="c1"># Ligninger</span>
 <span class="n">Budsjett</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">P_A</span><span class="o">*</span><span class="n">A</span> <span class="o">+</span> <span class="n">P_B_høy</span><span class="o">*</span><span class="n">B</span><span class="p">,</span> <span class="n">I</span><span class="p">)</span>
@@ -908,9 +911,9 @@ Vi definerer symboler for gode A og B, priser på gode A og B og vet at inntekte
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle A P_{A} + B P{_B^h} = I\]</div>
+\[\displaystyle A + 2 B = 1\]</div>
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle A P_{A} = B P{_B^h}\]</div>
+\[\displaystyle A = 2 B\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -926,9 +929,9 @@ Vi definerer symboler for gode A og B, priser på gode A og B og vet at inntekte
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \frac{I}{2 P_{A}}\]</div>
+\[\displaystyle \frac{1}{2}\]</div>
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \frac{I}{2 P{_B^h}}\]</div>
+\[\displaystyle \frac{1}{4}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -941,7 +944,7 @@ Vi definerer symboler for gode A og B, priser på gode A og B og vet at inntekte
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \frac{- B P{_B^h} + I}{P_{A}}\]</div>
+\[\displaystyle 1 - 2 B\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -950,14 +953,20 @@ Vi definerer symboler for gode A og B, priser på gode A og B og vet at inntekte
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">b_verdier</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">b_verdier</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Budsjettlinje, $P_B=2$&#39;</span><span class="p">)</span>
 
 <span class="c1"># optimal tilpasning</span>
-<span class="c1">#ax.plot(b_løsning, a_løsning, marker=&#39;o&#39;, label=&#39;Optimal tilpasning 2&#39;)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">b_løsning</span><span class="p">,</span> <span class="n">a_løsning</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">zorder</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Optimal tilpasning 2&#39;</span><span class="p">)</span>
+
+<span class="c1"># Tegner linjer som viser endring i forbruk av A og B</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">b_løsning</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="n">a_løsning</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">a_løsning</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="n">b_løsning</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">løsning_a</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="n">løsning_b</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">løsning_b</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="n">løsning_a</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 <span class="n">fig</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e7f092ad970847270621b717936540263f7c073aa11185d3f7ca3ebaf438a53b.png" src="_images/e7f092ad970847270621b717936540263f7c073aa11185d3f7ca3ebaf438a53b.png" />
+<img alt="_images/996b2a17e580d87d49a06733faf1e531a18d68fa37ddff7f6f099ca525203cbf.png" src="_images/996b2a17e580d87d49a06733faf1e531a18d68fa37ddff7f6f099ca525203cbf.png" />
 </div>
 </div>
 </section>
@@ -966,7 +975,7 @@ Vi definerer symboler for gode A og B, priser på gode A og B og vet at inntekte
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># For å få en numerisk løsning legg til verdien for P_B før økningen i pris</span>
-<span class="c1">#P_B_lav = </span>
+<span class="n">P_B_lav</span> <span class="o">=</span> <span class="mi">1</span> 
 
 
 <span class="c1"># Regjeringen innfører en subsidie</span>
@@ -977,8 +986,9 @@ Vi definerer symboler for gode A og B, priser på gode A og B og vet at inntekte
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle P{_B^h} - P{_B^l}\]</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -991,8 +1001,9 @@ Vi definerer symboler for gode A og B, priser på gode A og B og vet at inntekte
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \frac{P{_B^h}}{2} - \frac{P{_B^l}}{2}\]</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5
+</pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -1008,8 +1019,9 @@ Vi definerer symboler for gode A og B, priser på gode A og B og vet at inntekte
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle I + \frac{P{_B^h}}{2} - \frac{P{_B^l}}{2}\]</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.5
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -1023,7 +1035,7 @@ Vi definerer symboler for gode A og B, priser på gode A og B og vet at inntekte
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle A P_{A} + B P{_B^h} = I + \frac{P{_B^h}}{2} - \frac{P{_B^l}}{2}\]</div>
+\[\displaystyle A + 2 B = 1.5\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -1045,11 +1057,11 @@ Vi definerer symboler for gode A og B, priser på gode A og B og vet at inntekte
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \frac{0.25 \left(2.0 I + P{_B^h} - P{_B^l}\right)}{P_{A}}\]</div>
+\[\displaystyle 0.75\]</div>
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \frac{0.25 \left(2.0 I + P{_B^h} - P{_B^l}\right)}{P{_B^h}}\]</div>
+\[\displaystyle 0.375\]</div>
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \frac{- B P{_B^h} + I + \frac{P{_B^h}}{2} - \frac{P{_B^l}}{2}}{P_{A}}\]</div>
+\[\displaystyle 1.5 - 2.0 B\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -1057,17 +1069,23 @@ Vi definerer symboler for gode A og B, priser på gode A og B og vet at inntekte
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Viser i figur</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">b_verdier</span><span class="p">,</span> <span class="mi">3</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">b_verdier</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Budsjettlinje, kontantstøtte&#39;</span><span class="p">)</span>
 <span class="c1"># optimal tilpasning</span>
-<span class="c1">#ax.plot(b_løsning, a_løsning, marker=&#39;o&#39;, label=&#39;Optimal tilpasning kontantstøtte&#39;)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">b_løsning</span><span class="p">,</span> <span class="n">a_løsning</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Optimal tilpasning kontantstøtte&#39;</span><span class="p">)</span>
 
+<span class="c1">#limits på akser</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.75</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">)</span>
+
+<span class="c1"># tegner linjer</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">b_løsning</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="n">a_løsning</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">a_løsning</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="n">b_løsning</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 <span class="n">fig</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/aa8974d7b48d915f853c4134b8ab6186500e9c323b8810174f303505b3fbd0a4.png" src="_images/aa8974d7b48d915f853c4134b8ab6186500e9c323b8810174f303505b3fbd0a4.png" />
+<img alt="_images/cafba6631a6aa3b717a1ce82dcb8bba54fe8d7d471480a6bc3e079a5d8cbcb6f.png" src="_images/cafba6631a6aa3b717a1ce82dcb8bba54fe8d7d471480a6bc3e079a5d8cbcb6f.png" />
 </div>
 </div>
 </section>
@@ -1094,7 +1112,7 @@ Vi definerer symboler for gode A og B, priser på gode A og B og vet at inntekte
 $<span class="math notranslate nohighlight">\(U_1 = U(A, B)\tag{5}\)</span>$</p>
 <p>Likning (3) viser kombinasjoner av <span class="math notranslate nohighlight">\(A, B\)</span> som gir nøyaktig <span class="math notranslate nohighlight">\(U_1\)</span> i nytte. Dette er en indifferenskurve, som viser konsumentens preferanser. Alle godekombinasjoner av godene <span class="math notranslate nohighlight">\(A\)</span> og <span class="math notranslate nohighlight">\(B\)</span> langs en indifferenskurve gir konsumenten samme nytte.</p>
 <p><img alt="Bilde" src="_images/Picture1.png" /></p>
-<p>Figuren viser indifferenskurver for nyttenivå <span class="math notranslate nohighlight">\(U_1, U_2,U_3\)</span>. Godekombinasjon langs <span class="math notranslate nohighlight">\(U_1\)</span> gir høyere nytte enn <span class="math notranslate nohighlight">\(U_2\)</span>, og <span class="math notranslate nohighlight">\(U_1\)</span> gir høyest nytte for konsumenten.</p>
+<p>Figuren viser indifferenskurver for nyttenivå <span class="math notranslate nohighlight">\(U_1, U_2,U_3\)</span>. Godekombinasjon langs <span class="math notranslate nohighlight">\(U_1\)</span> gir høyere nytte enn <span class="math notranslate nohighlight">\(U_2\)</span>, og <span class="math notranslate nohighlight">\(U_3\)</span> gir høyest nytte for konsumenten.</p>
 <p>For å beskrive helningen på en indifferenskurve benytter vi regelen for implisitt derivasjon. Med en funksjon <span class="math notranslate nohighlight">\(f(x,y)=c\)</span>, hvor c er en konstant får vi følgene uttrykk:</p>
 <div class="math notranslate nohighlight">
 \[\begin{align}
@@ -1507,93 +1525,177 @@ I=p_AA+p_BB \tag {1}\\
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nyttevekten til Anne</span>
+<span class="n">I</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">alpha_anne</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">I</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">I</span><span class="o">*</span><span class="mi">1</span><span class="o">-</span><span class="n">a</span><span class="p">),</span><span class="n">a</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">alpha_anne</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{1}{2}\]</div>
 </div>
+</div>
+<p>Så nyttefunksjonen til Anne er gitt ved:</p>
+<div class="math notranslate nohighlight">
+\[U_{Anne} = A^{0.5} B^{0.5}\]</div>
 <p>For Beate blir nyttevekten Utgift på B <span class="math notranslate nohighlight">\(3 \cdot \text{utgift på}\)</span> A.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Nyttevekten til Beate</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nyttevekten til Beate</span>
+<span class="n">alpha_beate</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">a</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">a</span><span class="p">),</span> <span class="n">a</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">alpha_beate</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{1}{4}\]</div>
 </div>
+</div>
+<p>Og nyttefunksjonen til Beate er gitt ved:</p>
+<div class="math notranslate nohighlight">
+\[U_{Beate} = A^{0.25} B^{0.75}\]</div>
 </section>
 <section id="b-prisen-pa-de-to-godene-er-i-utgangspunktet-p-b-p-a-1-og-de-to-venninnene-begge-har-en-inntekt-i-1-hva-er-deres-konsum-av-a-og-b-regn-ut-og-illustrer-i-en-figur">
 <h3>b) Prisen på de to godene er i utgangspunktet <span class="math notranslate nohighlight">\(P_B = P_A = 1\)</span>, og de to venninnene begge har en inntekt <span class="math notranslate nohighlight">\(I = 1\)</span>. Hva er deres konsum av <span class="math notranslate nohighlight">\(A\)</span> og <span class="math notranslate nohighlight">\(B\)</span>? Regn ut og illustrer i en figur.<a class="headerlink" href="#b-prisen-pa-de-to-godene-er-i-utgangspunktet-p-b-p-a-1-og-de-to-venninnene-begge-har-en-inntekt-i-1-hva-er-deres-konsum-av-a-og-b-regn-ut-og-illustrer-i-en-figur" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Anne, fjern ?, # og legg inn dine verdier, HINT! CTRL + &#39; fjerner alle # om du markerer alt du skal fjerne, usikker på MAC</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P_A</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">P_B</span> <span class="o">=</span> <span class="mi">1</span>
 
-<span class="c1"># B_num_anne = B_eq.subs([(a,?),(b,?),(I,?),(p_B,?),(p_A,?)])</span>
-<span class="c1"># A_num_anne = A_eq.subs([(a,?),(b,?),(I,?),(p_B,?),(p_A,?)])</span>
+<span class="c1"># Optimal etterspørsel (Cobb-Douglas)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">optimal_konsum</span><span class="p">(</span><span class="n">alpha</span><span class="p">):</span>
+    <span class="n">A_opt</span> <span class="o">=</span> <span class="p">(</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">I</span><span class="p">)</span> <span class="o">/</span> <span class="n">P_A</span>
+    <span class="n">B_opt</span> <span class="o">=</span> <span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">)</span> <span class="o">*</span> <span class="n">I</span><span class="p">)</span> <span class="o">/</span> <span class="n">P_B</span>
+    <span class="k">return</span> <span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">A_opt</span><span class="p">),</span> <span class="n">B_opt</span>
 
-<span class="c1"># display(B_num_anne, A_num_anne)</span>
+<span class="c1"># Her er løsningen for Anne og Beate på oppgave b</span>
+<span class="n">A_anne</span><span class="p">,</span> <span class="n">B_anne</span> <span class="o">=</span> <span class="n">optimal_konsum</span><span class="p">(</span><span class="n">alpha_anne</span><span class="p">)</span>
+<span class="n">A_beate</span><span class="p">,</span><span class="n">B_beate</span> <span class="o">=</span> <span class="n">optimal_konsum</span><span class="p">(</span><span class="n">alpha_beate</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">A_anne</span><span class="o">.</span><span class="n">evalf</span><span class="p">(),</span> <span class="n">B_anne</span><span class="o">.</span><span class="n">evalf</span><span class="p">())</span>
+<span class="n">display</span><span class="p">(</span><span class="n">A_beate</span><span class="o">.</span><span class="n">evalf</span><span class="p">(),</span> <span class="n">B_beate</span><span class="o">.</span><span class="n">evalf</span><span class="p">())</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 0.5\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 0.5\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 0.25\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 0.75\]</div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Beate, fjern ?, #, og legg inn dine verdier</span>
-
-<span class="c1"># B_num_beate = B_eq.subs([(a,?),(b,?),(I,?),(p_B,?),(p_A,?)])</span>
-<span class="c1"># A_num_beate = A_eq.subs([(a,?),(b,?),(I,?),(p_B,?),(p_A,?)])</span>
-
-<span class="c1"># display(B_num_beate, A_num_beate)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fjern # når du har regnet riktig a for anne og beate</span>
-
-<span class="n">a_verdier</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_verdier</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">create_ax</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Optimal konsum for ulike alpha-verdier&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">a_verdier</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">a_verdier</span><span class="p">)</span> <span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Budsjettlinje&#39;</span><span class="p">)</span>
-<span class="c1"># ax.vlines(A_num_anne, ymin=0, ymax=B_num_anne, linestyles=&quot;dashed&quot;)</span>
-<span class="c1"># ax.hlines(B_num_anne, xmin=0, xmax=A_num_anne, linestyles=&quot;dashed&quot;)</span>
-<span class="c1"># ax.vlines(A_num_beate, ymin=0, ymax=B_num_beate, linestyles=&quot;dotted&quot;)</span>
-<span class="c1"># ax.hlines(B_num_beate, xmin=0, xmax=A_num_beate, linestyles=&quot;dotted&quot;)</span>
-<span class="c1"># ax.scatter(A_num_anne, B_num_anne, color=&#39;red&#39;, s=40, zorder=5, label=&#39;Anne (α=?)&#39;)</span>
-<span class="c1"># ax.scatter(A_num_beate, B_num_beate, color=&#39;green&#39;, s=40, zorder=5, label=&#39;Beate (α=?)&#39;)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Optimal konsum for ulike alpha-verdier&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">A_anne</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">B_anne</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Anne&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">B_beate</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">A_beate</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Beate&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">A_anne</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="n">B_anne</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">B_anne</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="n">A_anne</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">B_beate</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="n">A_beate</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">A_beate</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="n">B_beate</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/85fa4269c604207471895af268a2d25bb702d2c6bbc4f81308ea3a61f250ab52.png" src="_images/85fa4269c604207471895af268a2d25bb702d2c6bbc4f81308ea3a61f250ab52.png" />
+<img alt="_images/d42d8fa7485dbcb7f63a115d363403371b50e3223ee9a335a163142f37cf2cd6.png" src="_images/d42d8fa7485dbcb7f63a115d363403371b50e3223ee9a335a163142f37cf2cd6.png" />
 </div>
 </div>
 </section>
-<section id="c-prisen-pa-strom-oker-sa-til-p-b-h-2-hvor-mye-har-du-skrudd-ned-varmen-i-leiligheten-spor-anne-bruker-du-mindre-penger-pa-mat-na-lurer-venninnen-pa-hva-er-svaret-ditt-pa-disse-sporsmalene">
-<h3>c) Prisen på strøm øker så til <span class="math notranslate nohighlight">\(P_B^{h} = 2\)</span>. “Hvor mye har du skrudd ned varmen i leiligheten?” spør Anne. “Bruker du mindre penger på mat nå” lurer venninnen på. Hva er svaret ditt på disse spørsmålene?<a class="headerlink" href="#c-prisen-pa-strom-oker-sa-til-p-b-h-2-hvor-mye-har-du-skrudd-ned-varmen-i-leiligheten-spor-anne-bruker-du-mindre-penger-pa-mat-na-lurer-venninnen-pa-hva-er-svaret-ditt-pa-disse-sporsmalene" title="Link to this heading">#</a></h3>
+</section>
+<section id="oppskrift-for-indifferenskurver">
+<h2>Oppskrift for indifferenskurver<a class="headerlink" href="#oppskrift-for-indifferenskurver" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Anne, fjern ?, # og legg inn dine verdier</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha_anne</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">alpha_anne</span><span class="o">.</span><span class="n">evalf</span><span class="p">())</span>
+<span class="n">alpha_beate</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">alpha_beate</span><span class="o">.</span><span class="n">evalf</span><span class="p">())</span>
 
-<span class="c1"># B_num_anne = B_eq.subs([(a,?),(b,?),(I,?),(p_B,?),(p_A,?)])</span>
-<span class="c1"># A_num_anne = A_eq.subs([(a,?),(b,?),(I,?),(p_B,?),(p_A,?)])</span>
+<span class="c1"># Indifferenskurver</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">indifferenskurve</span><span class="p">(</span><span class="n">A_verdier</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">U0</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">U0</span> <span class="o">/</span> <span class="n">A_verdier</span><span class="o">**</span><span class="n">alpha</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">))</span>
 
-<span class="c1"># display(B_num_anne, A_num_anne)</span>
+<span class="c1"># Nyttenivåer (U = A^alpha * B^(1-alpha))</span>
+<span class="n">U_anne</span> <span class="o">=</span> <span class="n">A_anne</span><span class="o">**</span><span class="n">alpha_anne</span> <span class="o">*</span> <span class="n">B_anne</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha_anne</span><span class="p">)</span>
+<span class="n">U_beate</span> <span class="o">=</span> <span class="n">A_beate</span><span class="o">**</span><span class="n">alpha_beate</span> <span class="o">*</span> <span class="n">B_beate</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha_beate</span><span class="p">)</span>
+
+<span class="n">U_anne</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">U_anne</span><span class="o">.</span><span class="n">evalf</span><span class="p">())</span>
+<span class="n">U_beate</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">U_beate</span><span class="o">.</span><span class="n">evalf</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Beate, fjern ?, #, og legg inn dine verdier</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tegn indifferenskurver</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">a_verdier</span><span class="p">,</span> <span class="n">indifferenskurve</span><span class="p">(</span><span class="n">a_verdier</span><span class="p">,</span> <span class="n">alpha_anne</span><span class="p">,</span> <span class="n">U_anne</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
 
-<span class="c1"># B_num_beate = B_eq.subs([(a,?),(b,?),(I,?),(p_B,?),(p_A,?)])</span>
-<span class="c1"># A_num_beate = A_eq.subs([(a,?),(b,?),(I,?),(p_B,?),(p_A,?)])</span>
+<span class="c1"># Tekst</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">A_anne</span><span class="o">+</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">B_anne</span><span class="p">,</span> <span class="s2">&quot;$U_</span><span class="si">{Anne}</span><span class="s2">$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">)</span>
+<span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/cc56dfa928d0e46aa5e2f00f4e310f64a67adeffae197f2990349814a70fe8c5.png" src="_images/cc56dfa928d0e46aa5e2f00f4e310f64a67adeffae197f2990349814a70fe8c5.png" />
+</div>
+</div>
+<section id="c-prisen-pa-strom-oker-sa-til-p-b-h-2-hvor-mye-har-du-skrudd-ned-varmen-i-leiligheten-spor-anne-bruker-du-mindre-penger-pa-mat-na-lurer-venninnen-pa-hva-er-svaret-ditt-pa-disse-sporsmalene">
+<h3>c) Prisen på strøm øker så til <span class="math notranslate nohighlight">\(P_B^{h} = 2\)</span>. “Hvor mye har du skrudd ned varmen i leiligheten?” spør Anne. “Bruker du mindre penger på mat nå” lurer venninnen på. Hva er svaret ditt på disse spørsmålene?<a class="headerlink" href="#c-prisen-pa-strom-oker-sa-til-p-b-h-2-hvor-mye-har-du-skrudd-ned-varmen-i-leiligheten-spor-anne-bruker-du-mindre-penger-pa-mat-na-lurer-venninnen-pa-hva-er-svaret-ditt-pa-disse-sporsmalene" title="Link to this heading">#</a></h3>
+<p>Når prisen på strøm øker slik at <span class="math notranslate nohighlight">\(P_B^{h} = 2\)</span>, så dreier budsjettlinjen til ny tilpasning gitt ved:</p>
+<div class="math notranslate nohighlight">
+\[
+B = \frac{I - P_A A}{P_B^{h}} = \frac{1 - 1 \cdot A}{2} = \frac{1 - A}{2}
+\]</div>
+<p>og vi får en ny tilpasning for Anne og Beate, som vist i figuren nedenfor.</p>
+<p>Vi ser fra uttrykkene for optimalt konsum i deloppgave a) at konsumet av <span class="math notranslate nohighlight">\(B\)</span> nå er halvert:</p>
+<div class="math notranslate nohighlight">
+\[
+B_{Anne} = \frac{(1-\alpha_A)I}{P_B^{h}} = 0.25
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+B_{Beate} = \frac{(1-\alpha_B)I}{P_B^{h}} = 0.375
+\]</div>
+<p>Siden Beate brukte mer penger på bolig fra før, så vil hun måtte skru ned varmen (altså redusere <span class="math notranslate nohighlight">\(B\)</span>) mer enn det Anne må. Vi legger for øvrig merke til at økningen i strømprisene ikke påvirker deres etterspørsel etter mat. Slik er det med Cobb-Douglas-preferanser, krysspriseffekten er lik null.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P_B</span> <span class="o">=</span> <span class="mi">2</span>
 
-<span class="c1"># display(B_num_beate, A_num_beate)</span>
+<span class="c1"># Her er løsningen for Anne og Beate på oppgave c</span>
+<span class="n">A_anne</span><span class="p">,</span> <span class="n">B_anne</span> <span class="o">=</span> <span class="n">optimal_konsum</span><span class="p">(</span><span class="n">alpha_anne</span><span class="p">)</span>
+<span class="n">A_beate</span><span class="p">,</span><span class="n">B_beate</span> <span class="o">=</span> <span class="n">optimal_konsum</span><span class="p">(</span><span class="n">alpha_beate</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">A_anne</span><span class="p">,</span> <span class="n">B_anne</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">A_beate</span><span class="p">,</span> <span class="n">B_beate</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 0.5\]</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.25
+</pre></div>
+</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 0.25\]</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.375
 </pre></div>
 </div>
 </div>
@@ -1603,21 +1705,19 @@ I=p_AA+p_BB \tag {1}\\
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">a_verdier</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">a_verdier</span> <span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ny budsjettlinje&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Optimal konsum for ulike alpha-verdier&#39;</span><span class="p">)</span>
 
-<span class="c1"># ax.vlines(B_num_anne, ymin=0, ymax=A_num_anne, linestyles=&quot;dashed&quot;)</span>
-<span class="c1"># ax.hlines(A_num_anne, xmin=0, xmax=B_num_anne, linestyles=&quot;dashed&quot;)</span>
-<span class="c1"># ax.vlines(B_num_beate, ymin=0, ymax=A_num_beate, linestyles=&quot;dotted&quot;)</span>
-<span class="c1"># ax.hlines(A_num_beate, xmin=0, xmax=B_num_beate, linestyles=&quot;dotted&quot;)</span>
-<span class="c1"># ax.scatter(B_num_anne, A_num_anne, color=&#39;red&#39;, s=40, zorder=5, label=&#39;Anne (α=?)&#39;)</span>
-<span class="c1"># ax.scatter(B_num_beate, A_num_beate, color=&#39;green&#39;, s=40, zorder=5, label=&#39;Beate (α=?)&#39;)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">B_anne</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">A_anne</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Anne ny tilpasning&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">B_beate</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">A_beate</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Beate ny tilpasning&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">B_anne</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="n">A_anne</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">A_anne</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="n">B_anne</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">B_beate</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="n">A_beate</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">A_beate</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="n">B_beate</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 <span class="n">fig</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/37a4c1258e8c0204c256561980f7a62a40699b451807657a463463d7b82c4710.png" src="_images/37a4c1258e8c0204c256561980f7a62a40699b451807657a463463d7b82c4710.png" />
+<img alt="_images/3eeead2605bcde3afc0d7c578944c5b4907e13ee1ae91c58496453a105e746de.png" src="_images/3eeead2605bcde3afc0d7c578944c5b4907e13ee1ae91c58496453a105e746de.png" />
 </div>
 </div>
 </section>
@@ -1626,15 +1726,53 @@ I=p_AA+p_BB \tag {1}\\
 <h2>1.4 Prisstøtte eller kontantstøtte?<a class="headerlink" href="#prisstotte-eller-kontantstotte" title="Link to this heading">#</a></h2>
 <p>Myndighetene diskuterer hvordan de kan hjelpe befolkningen i en tid med høye strømpriser. Anne har preferansene over mat <span class="math notranslate nohighlight">\(A\)</span> og en varm bolig <span class="math notranslate nohighlight">\(B\)</span> gitt ved <span class="math notranslate nohighlight">\(U = A^{0.5}B^{0.5}\)</span> og hennes inntekt er <span class="math notranslate nohighlight">\(I = 1\)</span>.</p>
 <p>Før prisøkningen kostet strømmen <span class="math notranslate nohighlight">\(P_B^{l} = 1\)</span>, men den har steget nå til <span class="math notranslate nohighlight">\(P_B{h} = 2\)</span>. Prisen på mat ligger fast, <span class="math notranslate nohighlight">\(P_A = 1\)</span>.</p>
-<p>Forslaget fra myndighetene er å gi en prisstøtte som gjør at kundene møter akkurat samme pris som før. Du er nyansatt økonom i Finansdepartementet og argumenterer for at man heller bør gi denne støtten som en kontantstøtte. Bruk mikroøkonomisk teori, og Anne for eksempel, for å vise hvorfor du mener kontantstøtte er bedre.</p>
+<p>Forslaget fra myndighetene er å gi en prisstøtte som gjør at kundene møter akkurat samme pris som før. Du er nyansatt økonom i Finansdepartementet og argumenterer for at man heller bør gi denne støtten som regnet på tidligere som en kontantstøtte. Bruk mikroøkonomisk teori, og Anne for eksempel, for å vise hvorfor du mener kontantstøtte er bedre.</p>
+<p>Med prisstøtte som gjør at Anne ikke kjenner noe til økningen i markedsprisen på strøm, så tilpasser hun seg i punkt <span class="math notranslate nohighlight">\(U_{Anne}\)</span>, i figuren ovenfor. Dette gir henne samme nytte som før prisøkningen.</p>
+<p>Størrelsen på prissubsidien er <span class="math notranslate nohighlight">\(S = 0.5\)</span>, som vist i oppgave 1.2. Du argumenterer for at man heller bør gi dette beløpet som en kontantstøtte. Annes samlede inntekt blir da <span class="math notranslate nohighlight">\(I + S = 1.5\)</span>, og budsjettlinjen parallellforskyves utover (i forhold til situasjon med høy strømpris, men uten støtte) med ny budsjettlinje.</p>
+<p>Denne krysser punkt <span class="math notranslate nohighlight">\(U_{Anne}\)</span>, siden kontantstøtten gjør det mulig for henne å kjøpe like mye strøm som med prisstøtten. Men med kontantstøtte vil ikke Anne velge å tilpasse seg i punkt <span class="math notranslate nohighlight">\(U_{Anne}\)</span>.</p>
+<p>Med en balansert Cobb-Douglas-nyttefunksjon vet vi at Anne ønsker å bruke like mye penger på hvert gode (akkurat som i oppgave 1.2, selv om vi da bare antok at det var slik).</p>
+<p>Med inntekt etter kontantstøtte <span class="math notranslate nohighlight">\(I + S = 1.5\)</span>, <span class="math notranslate nohighlight">\(P_A = 1\)</span> og <span class="math notranslate nohighlight">\(P_B = 2\)</span> får vi da <span class="math notranslate nohighlight">\(A = 0.75\)</span> og <span class="math notranslate nohighlight">\(B = 0.375\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Anne, fjern ?, # og legg inn dine verdier</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">I</span> <span class="o">=</span> <span class="n">I</span> <span class="o">+</span> <span class="n">total_subsidie</span>
 
-<span class="c1"># B_num_anne_kontantstøtte = B_eq.subs([(a,?),(b,?),(I,?),(p_B,?),(p_A,?)])</span>
-<span class="c1"># A_num_anne_kontantstøtte = A_eq.subs([(a,?),(b,?),(I,?),(p_B,?),(p_A,?)])</span>
+<span class="c1"># Her er for å lage figur for oppgave d</span>
+<span class="n">A_anne</span><span class="p">,</span> <span class="n">B_anne</span> <span class="o">=</span> <span class="n">optimal_konsum</span><span class="p">(</span><span class="n">alpha_anne</span><span class="p">)</span>
+<span class="n">A_beate</span><span class="p">,</span><span class="n">B_beate</span> <span class="o">=</span> <span class="n">optimal_konsum</span><span class="p">(</span><span class="n">alpha_beate</span><span class="p">)</span>
 
-<span class="c1"># display(B_num_anne_kontantstøtte, A_num_anne_kontantstøtte)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">A_anne</span><span class="p">,</span> <span class="n">B_anne</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">A_beate</span><span class="p">,</span> <span class="n">B_beate</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 0.75\]</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.375
+</pre></div>
+</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 0.375\]</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5625
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha_anne</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">alpha_anne</span><span class="p">)</span>
+<span class="n">alpha_beate</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">alpha_beate</span><span class="p">)</span>
+
+<span class="c1"># Indifferenskurver</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">indifferenskurve</span><span class="p">(</span><span class="n">A_verdier</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">U0</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">U0</span> <span class="o">/</span> <span class="n">A_verdier</span><span class="o">**</span><span class="n">alpha</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">))</span>
+
+<span class="c1"># Nyttenivåer (U = A^alpha * B^(1-alpha))</span>
+<span class="n">U_anne</span> <span class="o">=</span> <span class="n">A_anne</span><span class="o">**</span><span class="n">alpha_anne</span> <span class="o">*</span> <span class="n">B_anne</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha_anne</span><span class="p">)</span>
+<span class="n">U_beate</span> <span class="o">=</span> <span class="n">A_beate</span><span class="o">**</span><span class="n">alpha_beate</span> <span class="o">*</span> <span class="n">B_beate</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha_beate</span><span class="p">)</span>
+
+<span class="n">U_anne</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">U_anne</span><span class="p">)</span>
+<span class="n">U_beate</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">U_beate</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1648,21 +1786,18 @@ I=p_AA+p_BB \tag {1}\\
 <span class="n">a_verdier</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
 
 <span class="c1"># Budsjettlinjer</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">a_verdier</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">a_verdier</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Originalt budsjett&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">a_verdier</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">a_verdier</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Budsjett $P_B=1$&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="mf">1.5</span> <span class="o">-</span> <span class="n">a_verdier</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">a_verdier</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ny budsjettlinje Kontantstøtte&#39;</span><span class="p">)</span>
 
-<span class="c1"># Optimalpunkter med kontantstøtte og originale</span>
-<span class="c1"># ax.scatter(B_num_anne_kontantstøtte, A_num_anne_kontantstøtte, s = 40, zorder = 5, color=&#39;black&#39;, label=&#39;Anne (kontantstøtte)&#39;)</span>
-<span class="c1"># ax.scatter(0.5, 0.5, color=&#39;green&#39;, s = 40, zorder = 5, label=&#39;Annes valg uten støtte&#39;)</span>
-
-<span class="c1"># Linjer</span>
-<span class="c1"># ax.vlines(0.5, ymin=0, ymax=0.5, linestyles=&quot;dashed&quot;)</span>
-<span class="c1"># ax.hlines(0.5, xmin=0, xmax=0.5, linestyles=&quot;dashed&quot;)</span>
-<span class="c1"># ax.vlines(B_num_anne_kontantstøtte, ymin = 0, ymax = A_num_anne_kontantstøtte, linestyles=&quot;dashed&quot;)</span>
-<span class="c1"># ax.hlines(A_num_anne_kontantstøtte, xmin = 0, xmax = B_num_anne_kontantstøtte, linestyles=&quot;dashed&quot;)</span>
-
-
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="c1"># Optimalpunkter med kontantstøtte</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">B_anne</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">A_anne</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">zorder</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Anne (kontantstøtte)&#39;</span><span class="p">)</span>
+<span class="c1"># Indifferenskurve for Anne</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">a_verdier</span><span class="p">,</span> <span class="n">indifferenskurve</span><span class="p">(</span><span class="n">a_verdier</span><span class="p">,</span> <span class="n">alpha_anne</span><span class="p">,</span> <span class="n">U_anne</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="c1"># Gammel indifferenskurve for Anne</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">a_verdier</span><span class="p">,</span> <span class="n">indifferenskurve</span><span class="p">(</span><span class="n">a_verdier</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Indifferenskurve Anne&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">zorder</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Annes valg uten støtte&#39;</span><span class="p">)</span>
+<span class="c1"># Akser og title</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.7</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">)</span>
@@ -1673,9 +1808,10 @@ I=p_AA+p_BB \tag {1}\\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ac6200772338e8781968de06361b5d852ee7e69942c54e21c794b8fe757ee1f3.png" src="_images/ac6200772338e8781968de06361b5d852ee7e69942c54e21c794b8fe757ee1f3.png" />
+<img alt="_images/ece35b5c4f562c134aa7168d9e741e749840f2e773859216fcb713a610afddc1.png" src="_images/ece35b5c4f562c134aa7168d9e741e749840f2e773859216fcb713a610afddc1.png" />
 </div>
 </div>
+<p>Merk at indifferenskurver ikke kan krysse hverandre.</p>
 </section>
 </section>
 
@@ -1773,6 +1909,9 @@ I=p_AA+p_BB \tag {1}\\
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seminaroppgave-1-3-anne-og-venninnen-tilpasser-seg-ekte-strompriser">Seminaroppgave 1.3 Anne og venninnen tilpasser seg ekte strømpriser</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-hva-er-nyttevekten-a-til-anne-og-hva-med-beate">a) Hva er nyttevekten <span class="math notranslate nohighlight">\(a\)</span> til Anne, og hva med Beate?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-prisen-pa-de-to-godene-er-i-utgangspunktet-p-b-p-a-1-og-de-to-venninnene-begge-har-en-inntekt-i-1-hva-er-deres-konsum-av-a-og-b-regn-ut-og-illustrer-i-en-figur">b) Prisen på de to godene er i utgangspunktet <span class="math notranslate nohighlight">\(P_B = P_A = 1\)</span>, og de to venninnene begge har en inntekt <span class="math notranslate nohighlight">\(I = 1\)</span>. Hva er deres konsum av <span class="math notranslate nohighlight">\(A\)</span> og <span class="math notranslate nohighlight">\(B\)</span>? Regn ut og illustrer i en figur.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppskrift-for-indifferenskurver">Oppskrift for indifferenskurver</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-prisen-pa-strom-oker-sa-til-p-b-h-2-hvor-mye-har-du-skrudd-ned-varmen-i-leiligheten-spor-anne-bruker-du-mindre-penger-pa-mat-na-lurer-venninnen-pa-hva-er-svaret-ditt-pa-disse-sporsmalene">c) Prisen på strøm øker så til <span class="math notranslate nohighlight">\(P_B^{h} = 2\)</span>. “Hvor mye har du skrudd ned varmen i leiligheten?” spør Anne. “Bruker du mindre penger på mat nå” lurer venninnen på. Hva er svaret ditt på disse spørsmålene?</a></li>
 </ul>
 </li>
