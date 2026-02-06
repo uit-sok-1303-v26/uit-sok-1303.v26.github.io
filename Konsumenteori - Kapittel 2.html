@@ -394,6 +394,8 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#steg-4">Steg 4</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#effekten-av-hoyere-strompriser-i-to-steg">2.1 Effekten av høyere strømpriser, i to steg</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hvordan-pavirker-en-renteokning-ettersporselen-etter-bolig-og-andre-ting">2.2 Hvordan påvirker en renteøkning etterspørselen etter bolig og andre ting?</a></li>
 </ul>
             </nav>
         </div>
@@ -706,7 +708,9 @@ document.write(`
 <p>Tabell kan også for å vise effektene på en ryddig måte.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">Markdown</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># generell tabell</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">Markdown</span>
 
 <span class="n">tblcd</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">|    Gode     | Substitusjonseffekt|  Inntektseffekt  |  Total effekt  |</span>
@@ -727,6 +731,37 @@ document.write(`
 </div>
 </div>
 </section>
+</section>
+<section id="effekten-av-hoyere-strompriser-i-to-steg">
+<h2>2.1 Effekten av høyere strømpriser, i to steg<a class="headerlink" href="#effekten-av-hoyere-strompriser-i-to-steg" title="Link to this heading">#</a></h2>
+<p>Anne og venninnen Beate sitter fortsatt på kafeen og diskuterer den høye strømprisen. De to godene, mat (A) og en varm bolig (B), kostet i utgangspunktet <span class="math notranslate nohighlight">\(p_B^{l} = p_A = 1\)</span>, og så dobles prisen på strøm slik at <span class="math notranslate nohighlight">\(p_B^{h} = 2\)</span>.</p>
+<p>De har begge en inntekt på <span class="math notranslate nohighlight">\(I = 1\)</span>.</p>
+<p>Anne har en balansert Cobb-Douglas-nyttefunksjon, mens Beate legger større vekt på en god og varm bolig, med en nyttefunksjon:</p>
+<div class="math notranslate nohighlight">
+\[
+U_{Beate} = A^{0.25}B^{0.75}
+\]</div>
+<p>Annes substitusjons- og inntektseffekter av prisøkningen finner vi i matteboks 2.1 i boken, men hva med Beates?</p>
+<p>Fokuser på effekten på konsumet av gode B, og regn ut og illustrer. Sammenlign effekten av prisøkningen for de to venninnene.</p>
+</section>
+<section id="hvordan-pavirker-en-renteokning-ettersporselen-etter-bolig-og-andre-ting">
+<h2>2.2 Hvordan påvirker en renteøkning etterspørselen etter bolig og andre ting?<a class="headerlink" href="#hvordan-pavirker-en-renteokning-ettersporselen-etter-bolig-og-andre-ting" title="Link to this heading">#</a></h2>
+<p>Du er nyutdannet siviløkonom og har fått jobb i analyseavdelingen i Norges Bank. En av dine oppgaver er å følge med på hvordan etterspørselen utvikler seg i ulike markeder. Styringsrenten er nettopp satt opp, og bankenes rente på boliglån forventes å følge etter.</p>
+<p>Sjefen er interessert i hvordan en endring i renten påvirker ettersøprselen etter bolig og andre ting, og ber deg bruke mikroøkonomisk teori for å belyse dette spørsmålet.</p>
+<p>Du tar utgangspunkt i at økning i renten gjør at prisen på boligkonsum, <span class="math notranslate nohighlight">\(p_B\)</span>, går opp. Og så tenker du at det kan være nyttig å bruke et talleksempel for å illustrere effektene. Du antar at husholdningen har en inntekt <span class="math notranslate nohighlight">\(I = 1\)</span>, som kan brukes på bolig (B) og andre ting (A); at prisene i utgangspunktet er <span class="math notranslate nohighlight">\(p_B^{l} = p_A = 1\)</span>; og at renteøkningen så fører til at prisen på B dobles til <span class="math notranslate nohighlight">\(p_B^{h} = 2\)</span>.</p>
+<p>Bolig er et spesielt gode, man trenger tak over hodet. Du velger derfor å studere to ulike nyttefunksjoner: En balansert Cobb-Douglas-funksjon:</p>
+<div class="math notranslate nohighlight">
+\[
+U = A^{0.5}B^{0.5},
+\]</div>
+<p>hvor <span class="math notranslate nohighlight">\(A\)</span> er andre ting og <span class="math notranslate nohighlight">\(B\)</span> er bolig.</p>
+<p>Og en nyttefunksjon hvor bolig er et basisgode:</p>
+<div class="math notranslate nohighlight">
+\[
+U = A^{0.5}(B-b)^{0.5},
+\]</div>
+<p>hvor <span class="math notranslate nohighlight">\(b\)</span> er minstekonsumet av gode <span class="math notranslate nohighlight">\(B\)</span>, og hvor du lar være <span class="math notranslate nohighlight">\(b = 0.2\)</span>.</p>
+<p>Du regner ut konsumet av <span class="math notranslate nohighlight">\(A\)</span> og <span class="math notranslate nohighlight">\(B\)</span> før og etter rentehevingen og illustrerer dine funn ved hjelp av figurer. Bruk en figur for hver nyttefunksjon, og kommenter forskjellene du ser.</p>
 </section>
 </section>
 
@@ -802,6 +837,8 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#steg-4">Steg 4</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#effekten-av-hoyere-strompriser-i-to-steg">2.1 Effekten av høyere strømpriser, i to steg</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hvordan-pavirker-en-renteokning-ettersporselen-etter-bolig-og-andre-ting">2.2 Hvordan påvirker en renteøkning etterspørselen etter bolig og andre ting?</a></li>
 </ul>
   </nav></div>
 
