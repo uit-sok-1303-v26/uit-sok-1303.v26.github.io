@@ -444,19 +444,23 @@ document.write(`
 </div>
 </div>
 </div>
+<p>I kode kaller vi her eksponentene for alpha og beta for å gjøre koden mer oversiktlig. <span class="math notranslate nohighlight">\(A^{\alpha}\)</span> og <span class="math notranslate nohighlight">\(B^{\beta}\)</span> hvor <span class="math notranslate nohighlight">\(\alpha = 0.5, \beta = 0.5\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># symboler</span>
 
 <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">p_A</span><span class="p">,</span> <span class="n">p_B</span><span class="p">,</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;A B I p_A p_B&quot;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="mf">0.5</span>
+
 <span class="c1"># nytte</span>
-<span class="n">nytte</span> <span class="o">=</span> <span class="n">A</span><span class="o">**</span><span class="mf">0.5</span><span class="o">*</span><span class="n">B</span><span class="o">**</span><span class="mf">0.5</span>
+<span class="n">nytte</span> <span class="o">=</span> <span class="n">A</span><span class="o">**</span><span class="n">alpha</span><span class="o">*</span><span class="n">B</span><span class="o">**</span><span class="n">beta</span>
 
 <span class="c1"># steg 1</span>
 
-<span class="n">A_eq</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">I</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">p_A</span><span class="o">*</span><span class="p">(</span><span class="mf">0.5</span><span class="o">+</span><span class="mf">0.5</span><span class="p">))</span>
-<span class="n">B_eq</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">I</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">p_B</span><span class="o">*</span><span class="p">(</span><span class="mf">0.5</span><span class="o">+</span><span class="mf">0.5</span><span class="p">))</span>
+<span class="n">A_eq</span> <span class="o">=</span> <span class="p">(</span><span class="n">alpha</span><span class="o">*</span><span class="n">I</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">p_A</span><span class="o">*</span><span class="p">(</span><span class="n">alpha</span><span class="o">+</span><span class="n">beta</span><span class="p">))</span> <span class="c1"># _eq for &quot;equation&quot;</span>
+<span class="n">B_eq</span> <span class="o">=</span> <span class="p">(</span><span class="n">beta</span><span class="o">*</span><span class="n">I</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">p_B</span><span class="o">*</span><span class="p">(</span><span class="n">alpha</span><span class="o">+</span><span class="n">beta</span><span class="p">))</span>
 
 
 
@@ -465,10 +469,20 @@ document.write(`
 <span class="k">def</span><span class="w"> </span><span class="nf">budsjett</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">p_B</span><span class="p">,</span> <span class="n">p_A</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">I</span><span class="o">/</span><span class="n">p_A</span> <span class="o">-</span> <span class="p">(</span><span class="n">p_B</span><span class="o">*</span><span class="n">B</span><span class="o">/</span><span class="n">p_A</span><span class="p">)</span>
 
+<span class="n">display</span><span class="p">(</span><span class="n">budsjett</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">p_B</span><span class="p">,</span> <span class="n">p_A</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle - \frac{B p_{B}}{p_{A}} + \frac{I}{p_{A}}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># oppnådd nytte i likevekt</span>
 
-<span class="c1"># oppnådd nytte i likevekt</span>
-
-<span class="n">Vcd</span> <span class="o">=</span> <span class="n">nytte</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">A</span><span class="p">,</span> <span class="n">A_eq</span><span class="p">),</span> <span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">B_eq</span><span class="p">)])</span>
+<span class="n">Vcd</span> <span class="o">=</span> <span class="n">nytte</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">A</span><span class="p">,</span> <span class="n">A_eq</span><span class="p">),</span> <span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">B_eq</span><span class="p">)])</span> <span class="c1">#setter inn A ligningen og B ligningen inn i nytte funksjonen</span>
 <span class="n">Vcd</span>
 
 <span class="c1"># LEGG MERKE TIL AT DETTE ER EN FUNKSJON AV I</span>
@@ -484,9 +498,9 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># lag funksjon for indifferenskurve</span>
-<span class="n">U_a</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;U_a&#39;</span><span class="p">,</span> <span class="n">real</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">U_a</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;U_a&#39;</span><span class="p">,</span> <span class="n">real</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1">#U_a for &quot;Utility&quot; fra a</span>
 
-<span class="n">ind_kcd</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">nytte</span><span class="o">-</span><span class="n">U_a</span><span class="p">,</span> <span class="n">A</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ind_kcd</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">nytte</span><span class="o">-</span><span class="n">U_a</span><span class="p">,</span> <span class="n">A</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="c1">#Ind for indifferense, K for kurve, cd for cobbdouglas. </span>
 <span class="n">display</span><span class="p">(</span><span class="n">ind_kcd</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -498,7 +512,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ind_kcd_fn</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">lambdify</span><span class="p">((</span><span class="n">B</span><span class="p">,</span><span class="n">U_a</span><span class="p">),</span> <span class="n">ind_kcd</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ind_kcd_fn</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">lambdify</span><span class="p">((</span><span class="n">B</span><span class="p">,</span><span class="n">U_a</span><span class="p">),</span> <span class="n">ind_kcd</span><span class="p">)</span> <span class="c1">#Her settes det _fn for &quot;function&quot; for plotting.</span>
 
 <span class="n">ind_kcd_fn</span>
 </pre></div>
@@ -664,7 +678,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fikt_cdm</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">V_I</span><span class="o">-</span><span class="n">nytte_num</span><span class="p">,</span> <span class="n">I</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fikt_cdm</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">V_I</span><span class="o">-</span><span class="n">nytte_num</span><span class="p">,</span> <span class="n">I</span><span class="p">)</span> <span class="c1">#fikt = fiktiv, cd = cobb douglas, m for &quot;money&quot; eller da inntekt</span>
 <span class="nb">float</span><span class="p">(</span><span class="n">fikt_cdm</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -743,6 +757,13 @@ U_{Beate} = A^{0.25}B^{0.75}
 \]</div>
 <p>Annes substitusjons- og inntektseffekter av prisøkningen finner vi i matteboks 2.1 i boken, men hva med Beates?</p>
 <p>Fokuser på effekten på konsumet av gode B, og regn ut og illustrer. Sammenlign effekten av prisøkningen for de to venninnene.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Kopier inn koden fra første eksempelet og sett inn nye verdier for &quot;alpha&quot; and &quot;beta&quot; som nå er 0.25 og 0.75</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="hvordan-pavirker-en-renteokning-ettersporselen-etter-bolig-og-andre-ting">
 <h2>2.2 Hvordan påvirker en renteøkning etterspørselen etter bolig og andre ting?<a class="headerlink" href="#hvordan-pavirker-en-renteokning-ettersporselen-etter-bolig-og-andre-ting" title="Link to this heading">#</a></h2>
