@@ -601,7 +601,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ac607e26bdef4e1c9f0a6212c2c4313116655a18967a7f88df3977bfa832687f.png" src="_images/ac607e26bdef4e1c9f0a6212c2c4313116655a18967a7f88df3977bfa832687f.png" />
+<img alt="_images/cbb8280274ca30ab8c79dd16cff475ef41e3c3be847fb12b3a36d0624c35a97d.png" src="_images/cbb8280274ca30ab8c79dd16cff475ef41e3c3be847fb12b3a36d0624c35a97d.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -655,7 +655,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/09c1d7c2be8f094d3bb5d2fbf4a40d53cfa9f8b97fe1391d2cf5f77c1b7fc57c.png" src="_images/09c1d7c2be8f094d3bb5d2fbf4a40d53cfa9f8b97fe1391d2cf5f77c1b7fc57c.png" />
+<img alt="_images/b1dd6ef0c9dc1462884ba69f4624e49cdeba5a67692ecf46cfe2c3aa556658ee.png" src="_images/b1dd6ef0c9dc1462884ba69f4624e49cdeba5a67692ecf46cfe2c3aa556658ee.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -716,7 +716,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/cb37cd590ea71969cae324a73b66c971c8e91e647d32b30b6711f126f6263c82.png" src="_images/cb37cd590ea71969cae324a73b66c971c8e91e647d32b30b6711f126f6263c82.png" />
+<img alt="_images/cd384feb0c2fa9a2c69ce65654eb7358878562d682724b3a82fd5dfe2e7c7925.png" src="_images/cd384feb0c2fa9a2c69ce65654eb7358878562d682724b3a82fd5dfe2e7c7925.png" />
 </div>
 </div>
 <p>Tabell kan også for å vise effektene på en ryddig måte.</p>
@@ -725,14 +725,26 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># generell tabell</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">Markdown</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">textwrap</span><span class="w"> </span><span class="kn">import</span> <span class="n">dedent</span>
 
-<span class="n">tblcd</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="n">Substitusjonseffekt_gode_1</span> <span class="o">=</span> <span class="n">Bcd_eq_komp</span><span class="o">-</span><span class="n">B_eq_num</span>
+<span class="n">Inntektseffekt_gode_1</span> <span class="o">=</span> <span class="n">B_eq_ny</span><span class="o">-</span><span class="n">Bcd_eq_komp</span>
+<span class="n">Totaleffekt_gode_1</span> <span class="o">=</span> <span class="n">B_eq_ny</span><span class="o">-</span><span class="n">B_eq_num</span>
+
+
+<span class="n">Substitusjonseffekt_gode_2</span> <span class="o">=</span> <span class="n">Acd_eq_komp</span><span class="o">-</span><span class="n">A_eq_num</span>
+<span class="n">Inntektseffekt_gode_2</span> <span class="o">=</span> <span class="n">A_eq_ny</span><span class="o">-</span><span class="n">Acd_eq_komp</span>
+<span class="n">Totaleffekt_gode_2</span> <span class="o">=</span> <span class="n">A_eq_ny</span><span class="o">-</span><span class="n">A_eq_num</span>
+
+
+
+<span class="n">tblcd</span><span class="o">=</span><span class="n">dedent</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">|    Gode     | Substitusjonseffekt|  Inntektseffekt  |  Total effekt  |</span>
 <span class="s2">| :----------------------| :------------------| :------------------------| :--------------|</span>
-<span class="s2">| 1 | $</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">Bcd_eq_komp</span><span class="o">-</span><span class="n">B_eq_num</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">$|$</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">B_eq_ny</span><span class="o">-</span><span class="n">Bcd_eq_komp</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">$| $</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">B_eq_ny</span><span class="o">-</span><span class="n">B_eq_num</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">$     |</span>
-<span class="s2">| 2 |$</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">Acd_eq_komp</span><span class="o">-</span><span class="n">A_eq_num</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">$ | $</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">A_eq_ny</span><span class="o">-</span><span class="n">Acd_eq_komp</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">$ |  $</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">A_eq_ny</span><span class="o">-</span><span class="n">A_eq_num</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">$    |</span>
+<span class="s2">| 1 | $</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">Substitusjonseffekt_gode_1</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">$|$</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">Inntektseffekt_gode_1</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">$| $</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">Totaleffekt_gode_1</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">$     |</span>
+<span class="s2">| 2 |$</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">Substitusjonseffekt_gode_2</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">$ | $</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">Inntektseffekt_gode_2</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">$ |  $</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">Totaleffekt_gode_2</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">$    |</span>
 
-<span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
 <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="n">tblcd</span><span class="p">))</span>
 </pre></div>
 </div>
