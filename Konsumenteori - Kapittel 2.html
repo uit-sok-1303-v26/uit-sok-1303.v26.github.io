@@ -396,6 +396,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#effekten-av-hoyere-strompriser-i-to-steg">2.1 Effekten av høyere strømpriser, i to steg</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hvordan-pavirker-en-renteokning-ettersporselen-etter-bolig-og-andre-ting">2.2 Hvordan påvirker en renteøkning etterspørselen etter bolig og andre ting?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grundigere-utregning-for-forste-oppgave">Grundigere utregning for første oppgave</a></li>
 </ul>
             </nav>
         </div>
@@ -469,7 +470,7 @@ document.write(`
 
 <span class="k">def</span><span class="w"> </span><span class="nf">budsjett</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">p_B</span><span class="p">,</span> <span class="n">p_A</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">I</span><span class="o">/</span><span class="n">p_A</span> <span class="o">-</span> <span class="p">(</span><span class="n">p_B</span><span class="o">*</span><span class="n">B</span><span class="o">/</span><span class="n">p_A</span><span class="p">)</span>
-
+<span class="c1">#Obs budjsett er definert som inntekt, x, pris på B, pris på A, ikke omvendt. </span>
 <span class="n">display</span><span class="p">(</span><span class="n">budsjett</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">p_B</span><span class="p">,</span> <span class="n">p_A</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -560,7 +561,7 @@ document.write(`
 
 <span class="k">def</span><span class="w"> </span><span class="nf">create_ax</span><span class="p">():</span>
                 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-                <span class="c1"># ax.set_ylabel(&#39;$A$&#39;, loc=&#39;top&#39;, rotation=0)</span>
+                <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$A$&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
                 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$B$&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
                 
                 <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
@@ -577,19 +578,17 @@ document.write(`
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([],</span> <span class="p">[])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([],</span> <span class="p">[])</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$A$&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-
-
+<span class="c1"># Obs budjsett er definert som inntekt, x, pris på B, pris på A, ikke omvendt.</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">budsjett</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Opprinnelig budsjett&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ind_kcd_fn</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">nytte_num</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$U_1$&#39;</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">B_eq_num</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">A_eq_num</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">A_eq_num</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">B_eq_num</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;$B(a)$&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">B_eq_num</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">),</span> <span class="n">annotation_clip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;$A(a)$&#39;</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="n">A_eq_num</span><span class="p">),</span> <span class="n">annotation_clip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">B_eq_num</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">A_eq_num</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">B_eq_num</span><span class="p">,</span> <span class="n">A_eq_num</span> <span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="c1"># ax.annotate(&#39;$B(a)$&#39;, (B_eq_num, 0), annotation_clip=False)</span>
+<span class="c1"># ax.annotate(&#39;$A(a)$&#39;, (0, A_eq_num), annotation_clip=False)</span>
+<span class="c1"># ax.annotate(&#39;a&#39;, (B_eq_num,A_eq_num))</span>
+<span class="c1"># ax.plot(B_eq_num, A_eq_num , marker=&#39;o&#39;, color=&#39;black&#39;)</span>
 
 
 
@@ -602,7 +601,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/cbb8280274ca30ab8c79dd16cff475ef41e3c3be847fb12b3a36d0624c35a97d.png" src="_images/cbb8280274ca30ab8c79dd16cff475ef41e3c3be847fb12b3a36d0624c35a97d.png" />
+<img alt="_images/3c3c74bd13de7e9705ac1c9776c59d227d77f8755baab2d0f766a8fbe98b7c42.png" src="_images/3c3c74bd13de7e9705ac1c9776c59d227d77f8755baab2d0f766a8fbe98b7c42.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -638,16 +637,16 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># legg nye verdier på tegningen</span>
-
+<span class="c1">#Obs budjsett er definert som inntekt, x, pris på B, pris på A, ikke omvendt. </span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">budsjett</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Nytt budsjett&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ind_kcd_fn</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">nytte_ny</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgreen&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$U_2$&#39;</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">B_eq_ny</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">A_eq_ny</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">A_eq_ny</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">B_eq_ny</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;$B(b)$&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">B_eq_ny</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">annotation_clip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;$A(b)$&#39;</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="n">A_eq_ny</span><span class="o">-</span><span class="mi">2</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">annotation_clip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">B_eq_ny</span><span class="o">+</span><span class="mf">.5</span><span class="p">,</span><span class="n">A_eq_ny</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;$B(b)$&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">B_eq_ny</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">annotation_clip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;$A(b)$&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">A_eq_ny</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">annotation_clip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">B_eq_ny</span><span class="p">,</span><span class="n">A_eq_ny</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">B_eq_ny</span><span class="p">,</span> <span class="n">A_eq_ny</span> <span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">0.6</span><span class="p">))</span>
@@ -656,7 +655,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b1dd6ef0c9dc1462884ba69f4624e49cdeba5a67692ecf46cfe2c3aa556658ee.png" src="_images/b1dd6ef0c9dc1462884ba69f4624e49cdeba5a67692ecf46cfe2c3aa556658ee.png" />
+<img alt="_images/fa2f90778b6345e01f35c0a9acd06f715c441f3f4fa018149d7ff7e641fb69d9.png" src="_images/fa2f90778b6345e01f35c0a9acd06f715c441f3f4fa018149d7ff7e641fb69d9.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -700,14 +699,14 @@ document.write(`
 <span class="n">Acd_eq_komp</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">A_eq</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">I</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">fikt_cdm</span><span class="p">[</span><span class="mi">0</span><span class="p">])),</span> <span class="p">(</span><span class="n">p_B</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="n">p_A</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]))</span>
 
 <span class="c1"># tegne budsjett med denne inntekten &quot;kompensert budsjett&quot;</span>
-
+<span class="c1">#Obs budjsett er definert som inntekt, x, pris på B, pris på A, ikke omvendt. </span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">budsjett</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">fikt_cdm</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">x</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.4</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Kompensert budsjett&#39;</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">Bcd_eq_komp</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Acd_eq_komp</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">Acd_eq_komp</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Bcd_eq_komp</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;$B(c)$&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">Bcd_eq_komp</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">annotation_clip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;$A(c)$&#39;</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="n">Acd_eq_komp</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">annotation_clip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;$B(c)$&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">Bcd_eq_komp</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">annotation_clip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;$A(c)$&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Acd_eq_komp</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">annotation_clip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">Bcd_eq_komp</span><span class="o">+</span><span class="mf">.5</span><span class="p">,</span><span class="n">Acd_eq_komp</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Bcd_eq_komp</span><span class="p">,</span> <span class="n">Acd_eq_komp</span> <span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 
@@ -717,7 +716,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/cd384feb0c2fa9a2c69ce65654eb7358878562d682724b3a82fd5dfe2e7c7925.png" src="_images/cd384feb0c2fa9a2c69ce65654eb7358878562d682724b3a82fd5dfe2e7c7925.png" />
+<img alt="_images/a67469fdda9a67b80e67c9274583a61f3a6dcbd45af7b9ee84eb9179c88b44d5.png" src="_images/a67469fdda9a67b80e67c9274583a61f3a6dcbd45af7b9ee84eb9179c88b44d5.png" />
 </div>
 </div>
 <p>Tabell kan også for å vise effektene på en ryddig måte.</p>
@@ -811,9 +810,432 @@ U_{Beate} = A^{0.25}B^{0.75}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Kopier inn koden fra første eksempelet og sett inn nye verdier for &quot;alpha&quot; and &quot;beta&quot; som nå er 0.25 og 0.75</span>
+<span class="c1"># symboler</span>
+
+<span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">p_A</span><span class="p">,</span> <span class="n">p_B</span><span class="p">,</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;A B I p_A p_B&quot;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.75</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="mf">0.25</span>
+
+<span class="c1"># nytte</span>
+<span class="n">nytte</span> <span class="o">=</span> <span class="n">A</span><span class="o">**</span><span class="n">alpha</span><span class="o">*</span><span class="n">B</span><span class="o">**</span><span class="n">beta</span>
+
+<span class="c1"># steg 1</span>
+
+<span class="n">A_eq</span> <span class="o">=</span> <span class="p">(</span><span class="n">alpha</span><span class="o">*</span><span class="n">I</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">p_A</span><span class="o">*</span><span class="p">(</span><span class="n">alpha</span><span class="o">+</span><span class="n">beta</span><span class="p">))</span> <span class="c1"># _eq for &quot;equation&quot;</span>
+<span class="n">B_eq</span> <span class="o">=</span> <span class="p">(</span><span class="n">beta</span><span class="o">*</span><span class="n">I</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">p_B</span><span class="o">*</span><span class="p">(</span><span class="n">alpha</span><span class="o">+</span><span class="n">beta</span><span class="p">))</span>
+
+
+
+<span class="c1"># budsjett A = I/p_A - p_BB/p_B</span>
+<span class="c1">#Obs budjsett er definert som inntekt, x, pris på B, pris på A, ikke omvendt. </span>
+<span class="k">def</span><span class="w"> </span><span class="nf">budsjett</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">p_B</span><span class="p">,</span> <span class="n">p_A</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">I</span><span class="o">/</span><span class="n">p_A</span> <span class="o">-</span> <span class="p">(</span><span class="n">p_B</span><span class="o">*</span><span class="n">B</span><span class="o">/</span><span class="n">p_A</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">budsjett</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">p_B</span><span class="p">,</span> <span class="n">p_A</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle - \frac{B p_{B}}{p_{A}} + \frac{I}{p_{A}}\]</div>
+</div>
+</div>
+<p>For å sammenligne arbeidet som var nødvendig for å løse dette i python, så kan vi løse det for hånd også.</p>
+<div class="math notranslate nohighlight">
+\[
+I = 1,
+P_A = P^l_B = 1
+P^h_B = 2
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+U_{Beate} = A^{0.25}B^{0.75}
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">p_A</span><span class="p">,</span> <span class="n">p_B</span><span class="p">,</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;A B I p_A p_B&quot;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.25</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="mf">0.75</span>
+
+<span class="c1"># nytte</span>
+<span class="n">nytte</span> <span class="o">=</span> <span class="n">A</span><span class="o">**</span><span class="n">alpha</span><span class="o">*</span><span class="n">B</span><span class="o">**</span><span class="n">beta</span>
+
+<span class="n">nytte</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle A^{0.25} B^{0.75}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># steg 1</span>
+
+<span class="n">A_eq</span> <span class="o">=</span> <span class="p">(</span><span class="n">alpha</span><span class="o">*</span><span class="n">I</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">p_A</span><span class="o">*</span><span class="p">(</span><span class="n">alpha</span><span class="o">+</span><span class="n">beta</span><span class="p">))</span> <span class="c1"># _eq for &quot;equation&quot;</span>
+<span class="n">B_eq</span> <span class="o">=</span> <span class="p">(</span><span class="n">beta</span><span class="o">*</span><span class="n">I</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">p_B</span><span class="o">*</span><span class="p">(</span><span class="n">alpha</span><span class="o">+</span><span class="n">beta</span><span class="p">))</span>
+
+
+
+<span class="c1"># budsjett A = I/p_A - p_BB/p_B</span>
+<span class="c1">#Obs budjsett er definert som inntekt, x, pris på B, pris på A, ikke omvendt. </span>
+<span class="k">def</span><span class="w"> </span><span class="nf">budsjett</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">p_B</span><span class="p">,</span> <span class="n">p_A</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">I</span><span class="o">/</span><span class="n">p_A</span> <span class="o">-</span> <span class="p">(</span><span class="n">p_B</span><span class="o">*</span><span class="n">B</span><span class="o">/</span><span class="n">p_A</span><span class="p">)</span>
+
+<span class="n">Vcd</span> <span class="o">=</span> <span class="n">nytte</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">A</span><span class="p">,</span> <span class="n">A_eq</span><span class="p">),</span> <span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">B_eq</span><span class="p">)])</span> <span class="c1">#setter inn A ligningen og B ligningen inn i nytte funksjonen</span>
+<span class="n">Vcd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{0.569876764238694 I^{1.0}}{p_{A}^{0.25} p_{B}^{0.75}}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># lag funksjon for indifferenskurve</span>
+<span class="n">U_a</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;U_a&#39;</span><span class="p">,</span> <span class="n">real</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1">#U_a for &quot;Utility&quot; fra a</span>
+
+<span class="n">ind_kcd</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">nytte</span><span class="o">-</span><span class="n">U_a</span><span class="p">,</span> <span class="n">A</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="c1">#Ind for indifferense, K for kurve, cd for cobbdouglas.</span>
+
+<span class="n">ind_kcd_fn</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">lambdify</span><span class="p">((</span><span class="n">B</span><span class="p">,</span><span class="n">U_a</span><span class="p">),</span> <span class="n">ind_kcd</span><span class="p">)</span> <span class="c1">#Her settes det _fn for &quot;function&quot; for plotting.</span>
+
+
+
+<span class="n">ind_kcd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{U_{a}^{4}}{B^{3}}\]</div>
+</div>
+</div>
+<p>For å kunne dekomponere inntekts og substitusjonseffektene så må vi beregene hvor mye strøm Beate hadde dersom hun fikk akkurat nok penger til å beholde samme nytte som før gitt nye priser.</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{MU_A}{MU_B} = \frac{p_A}{p_B} \rightarrow \frac{0.25 \cdot A^{-0.75} \cdot B^{0.75}}{0.75 \cdot A^{0.25} \cdot B^{-0.25}} \rightarrow \frac{0.25 \cdot B}{0.75 \cdot A} = \frac{1}{2}
+\]</div>
+<p>I tilfelle det ikke er klart hvordan vi kommer frem til <span class="math notranslate nohighlight">\(\frac{0.25\cdot B}{0.75 \cdot A}\)</span> så ligger litt grundigere utregning nederst i dokumentet</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{B}{3A} = \frac{1}{2} \rightarrow 2B = 3A \rightarrow A = \frac{2}{3}B
+\]</div>
+<p>Bytter ut A med <span class="math notranslate nohighlight">\(\frac{2}{3}B\)</span> i nyttefunksjonen og setter den lik start-nytten
+$<span class="math notranslate nohighlight">\(
+\left(\frac{2}{3}B\right)^{0.25} \cdot B^{0.75} = 0.569877
+\)</span>$</p>
+<p>Vi kan bruke eksponentreglene for å forenkle dette uttrykket</p>
+<div class="math notranslate nohighlight">
+\[
+\left(\frac{2}{3}\right)^{0.25} \cdot B^{0.25} \cdot B^{0.75} = 0.569877
+\]</div>
+<p>Setter sammen</p>
+<div class="math notranslate nohighlight">
+\[
+0.9036 \cdot B^{1} = 0.569877
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sett inn verdier</span>
+
+<span class="n">B_eq_num</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">B_eq</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">I</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">p_A</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">p_B</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]))</span>
+<span class="n">A_eq_num</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">A_eq</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">I</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">p_A</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">p_B</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]))</span>
+<span class="n">nytte_num</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">Vcd</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">I</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">p_A</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">p_B</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">A_eq_num</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">B_eq_num</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">nytte_num</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.25
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.75
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5698767642386945
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tegne steg 1</span>
+
+<span class="c1"># lage en akse</span>
+
+<span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">create_ax</span><span class="p">():</span>
+                <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+                <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$A$&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$B$&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+                
+                <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+                <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+                
+                <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span>
+
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">create_ax</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.2</span><span class="p">))</span>
+
+<span class="c1">#Obs budjsett er definert som inntekt, x, pris på B, pris på A, ikke omvendt. </span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">budsjett</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Opprinnelig budsjett&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ind_kcd_fn</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">nytte_num</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$U_1$&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">B_eq_num</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">A_eq_num</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">A_eq_num</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">B_eq_num</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;$B(a)$&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">B_eq_num</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">),</span> <span class="n">annotation_clip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;$A(a)$&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">A_eq_num</span><span class="o">+</span><span class="mf">0.03</span><span class="p">),</span> <span class="n">annotation_clip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">B_eq_num</span><span class="o">+</span><span class="mf">0.01</span><span class="p">,</span><span class="n">A_eq_num</span><span class="o">+</span><span class="mf">0.01</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">B_eq_num</span><span class="p">,</span> <span class="n">A_eq_num</span> <span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+
+
+<span class="c1"># tittel</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Inntekts- og substitusjonseffekt&#39;</span><span class="p">)</span>
+
+<span class="c1">#vis navnene:</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/8c72eee48581eecd1b17a26395e3c53e5a491a750dd320f03c3c96f8e1c06262.png" src="_images/8c72eee48581eecd1b17a26395e3c53e5a491a750dd320f03c3c96f8e1c06262.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Steg 2</span>
+
+<span class="c1"># beregne nye verdier</span>
+
+
+<span class="n">B_eq_ny</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">B_eq</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">I</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">p_B</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">p_A</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]))</span>
+<span class="n">A_eq_ny</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">A_eq</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">I</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">p_B</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">p_A</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]))</span>
+<span class="n">nytte_ny</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">Vcd</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">I</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">p_B</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">p_A</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]))</span>
+
+
+<span class="n">display</span><span class="p">(</span><span class="n">B_eq_ny</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">A_eq_ny</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">nytte_ny</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.375
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.25
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.33885075135369186
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># legg nye verdier på tegningen</span>
+<span class="c1">#Obs budjsett er definert som inntekt, x, pris på B, pris på A, ikke omvendt. </span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">budsjett</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Nytt budsjett&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ind_kcd_fn</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">nytte_ny</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgreen&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$U_2$&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">B_eq_ny</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">A_eq_ny</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">A_eq_ny</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">B_eq_ny</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;$B(b)$&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">B_eq_ny</span><span class="o">-</span><span class="mf">0.02</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">annotation_clip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;$A(b)$&#39;</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">A_eq_ny</span><span class="o">-</span><span class="mf">0.02</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">annotation_clip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">B_eq_ny</span><span class="o">+</span><span class="mf">0.05</span><span class="p">,</span><span class="n">A_eq_ny</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">B_eq_ny</span><span class="p">,</span> <span class="n">A_eq_ny</span> <span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/9ffaaf01bd85eb05373faaff487373a4a69adb98a94a275243b32b9807db814b.png" src="_images/9ffaaf01bd85eb05373faaff487373a4a69adb98a94a275243b32b9807db814b.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># steg 3</span>
+
+<span class="c1"># beregn fiktiv inntekt</span>
+
+<span class="c1"># finn først hvordan oppnådd nytte er avhengig av inntekt gitt nye priser</span>
+
+<span class="n">V_I</span> <span class="o">=</span> <span class="n">Vcd</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">p_B</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">p_A</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
+<span class="n">V_I</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 0.338850751353692 I^{1.0}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fikt_cdm</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">V_I</span><span class="o">-</span><span class="n">nytte_num</span><span class="p">,</span> <span class="n">I</span><span class="p">)</span> <span class="c1">#fikt = fiktiv, cd = cobb douglas, m for &quot;money&quot; eller da inntekt</span>
+<span class="nb">float</span><span class="p">(</span><span class="n">fikt_cdm</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.681792830507427
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># fiktiv inntekt er 1.68</span>
+<span class="c1"># med denne inntekten og de nye prisene kan konsumenten få samme nytte til de nye prisene som i utgangspunktet.</span>
+
+<span class="c1"># verdier for godene med denne inntekten</span>
+<span class="n">Bcd_eq_komp</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">B_eq</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">I</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">fikt_cdm</span><span class="p">[</span><span class="mi">0</span><span class="p">])),</span> <span class="p">(</span><span class="n">p_B</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">p_A</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]))</span>
+<span class="n">Acd_eq_komp</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">A_eq</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">I</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">fikt_cdm</span><span class="p">[</span><span class="mi">0</span><span class="p">])),</span> <span class="p">(</span><span class="n">p_B</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">p_A</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]))</span>
+<span class="n">Bcd_eq_komp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6306723114402851
+</pre></div>
+</div>
+</div>
+</div>
+<p>Løser for kompensert B</p>
+<div class="math notranslate nohighlight">
+\[
+B_{komp} = \frac{0.569877}{0.9036} \approx 0.63
+\]</div>
+<p>Beate ville brukt 0.63 på strøm dersom hun fikk akkurat nok penger til å beholde samme nytte som før gitt nye priser. Dette er det “hypotetiske” forbruket av strøm hvis hun ble kompensert for å beholde nytten.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tegne budsjett med denne inntekten &quot;kompensert budsjett&quot;</span>
+
+<span class="c1">#Obs budjsett er definert som inntekt, x, pris på B, pris på A, ikke omvendt. Derfor er det 2,1 og ikke 1,2 her.</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">budsjett</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">fikt_cdm</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.4</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Kompensert budsjett&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">Bcd_eq_komp</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Acd_eq_komp</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">Acd_eq_komp</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Bcd_eq_komp</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Bcd_eq_komp</span><span class="p">,</span> <span class="n">Acd_eq_komp</span> <span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">0.6</span><span class="p">))</span>
+
+
+
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([],</span> <span class="p">[])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([],</span> <span class="p">[])</span>
+
+<span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/429afe744aaf35e9aec339acbedc1204d6d8e1538a92d17e5179ad5e7dcab588.png" src="_images/429afe744aaf35e9aec339acbedc1204d6d8e1538a92d17e5179ad5e7dcab588.png" />
+</div>
+</div>
+<div class="math notranslate nohighlight">
+\[
+SE = 0.63 - 0.75 = -0.12
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+IE = 0.375 - 0.63 = -0.256
+\]</div>
+<p>Total effekt
+$<span class="math notranslate nohighlight">\(
+TE = SE + IE = -0.12 + (-0.256) \approx -0.375
+\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># generell tabell</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+
+<span class="n">Substitusjonseffekt_gode_1</span> <span class="o">=</span> <span class="n">Bcd_eq_komp</span><span class="o">-</span><span class="n">B_eq_num</span>
+<span class="n">Inntektseffekt_gode_1</span> <span class="o">=</span> <span class="n">B_eq_ny</span><span class="o">-</span><span class="n">Bcd_eq_komp</span>
+<span class="n">Totaleffekt_gode_1</span> <span class="o">=</span> <span class="n">B_eq_ny</span><span class="o">-</span><span class="n">B_eq_num</span>
+
+
+<span class="n">Substitusjonseffekt_gode_2</span> <span class="o">=</span> <span class="n">Acd_eq_komp</span><span class="o">-</span><span class="n">A_eq_num</span>
+<span class="n">Inntektseffekt_gode_2</span> <span class="o">=</span> <span class="n">A_eq_ny</span><span class="o">-</span><span class="n">Acd_eq_komp</span>
+<span class="n">Totaleffekt_gode_2</span> <span class="o">=</span> <span class="n">A_eq_ny</span><span class="o">-</span><span class="n">A_eq_num</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;Gode&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;Substitusjonseffekt&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Substitusjonseffekt_gode_1</span><span class="p">,</span> <span class="n">Substitusjonseffekt_gode_2</span><span class="p">],</span>
+    <span class="s2">&quot;Inntektseffekt&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Inntektseffekt_gode_1</span><span class="p">,</span> <span class="n">Inntektseffekt_gode_2</span><span class="p">],</span>
+    <span class="s2">&quot;Total effekt&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Totaleffekt_gode_1</span><span class="p">,</span> <span class="n">Totaleffekt_gode_2</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Gode&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1">#fjerner index kolonnen</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Substitusjonseffekt</th>
+      <th>Inntektseffekt</th>
+      <th>Total effekt</th>
+    </tr>
+    <tr>
+      <th>Gode</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>-0.119328</td>
+      <td>-0.255672</td>
+      <td>-0.375</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.170448</td>
+      <td>-0.170448</td>
+      <td>0.000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Kode dere kan bruke for illustrasjon</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
@@ -833,10 +1255,6 @@ U_{Beate} = A^{0.25}B^{0.75}
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.5</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.5</span><span class="p">))</span>
 
-<span class="c1"># ta bort tall på aksene</span>
-
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([],</span> <span class="p">[])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([],</span> <span class="p">[])</span>
 </pre></div>
 </div>
 </section>
@@ -858,6 +1276,140 @@ U = A^{0.5}(B-b)^{0.5},
 \]</div>
 <p>hvor <span class="math notranslate nohighlight">\(b\)</span> er minstekonsumet av gode <span class="math notranslate nohighlight">\(B\)</span>, og hvor du lar være <span class="math notranslate nohighlight">\(b = 0.2\)</span>.</p>
 <p>Du regner ut konsumet av <span class="math notranslate nohighlight">\(A\)</span> og <span class="math notranslate nohighlight">\(B\)</span> før og etter rentehevingen og illustrerer dine funn ved hjelp av figurer. Bruk en figur for hver nyttefunksjon, og kommenter forskjellene du ser.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;A B&#39;</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">I</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">p_A</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">p_B_lav</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">p_B_hoy</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">cobb_douglas</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">p_A</span><span class="p">,</span> <span class="n">p_B</span><span class="p">):</span>
+    <span class="n">A_opt</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">I</span> <span class="o">/</span> <span class="n">p_A</span>
+    <span class="n">B_opt</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">)</span> <span class="o">*</span> <span class="n">I</span> <span class="o">/</span> <span class="n">p_B</span>
+    <span class="k">return</span> <span class="n">A_opt</span><span class="p">,</span> <span class="n">B_opt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A0</span><span class="p">,</span> <span class="n">B0</span> <span class="o">=</span> <span class="n">cobb_douglas</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">p_A</span><span class="p">,</span> <span class="n">p_B_lav</span><span class="p">)</span>
+<span class="n">A1</span><span class="p">,</span> <span class="n">B1</span> <span class="o">=</span> <span class="n">cobb_douglas</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">p_A</span><span class="p">,</span> <span class="n">p_B_hoy</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">A0</span><span class="p">,</span> <span class="n">B0</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">A1</span><span class="p">,</span> <span class="n">B1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.25
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">indiff</span><span class="p">(</span><span class="n">A_vals</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">U0</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">U0</span> <span class="o">/</span> <span class="p">(</span><span class="n">A_vals</span><span class="o">**</span><span class="n">alpha</span><span class="p">))</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_verdier</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">U0</span> <span class="o">=</span> <span class="p">(</span><span class="n">A0</span><span class="o">**</span><span class="n">alpha</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">B0</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">))</span>
+<span class="n">U1</span> <span class="o">=</span> <span class="p">(</span><span class="n">A1</span><span class="o">**</span><span class="n">alpha</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">B1</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># Budsjettlinjer</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">a_verdier</span><span class="p">),</span> <span class="n">a_verdier</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Gammel budsjett&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">a_verdier</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">a_verdier</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Ny budsjett&quot;</span><span class="p">)</span>
+
+<span class="c1"># Indifferens</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">a_verdier</span><span class="p">,</span> <span class="n">indiff</span><span class="p">(</span><span class="n">a_verdier</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">U0</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">a_verdier</span><span class="p">,</span> <span class="n">indiff</span><span class="p">(</span><span class="n">a_verdier</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">U1</span><span class="p">))</span>
+<span class="c1"># Punkter</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">B0</span><span class="p">,</span> <span class="n">A0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Før&quot;</span><span class="p">,</span><span class="n">zorder</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">B1</span><span class="p">,</span> <span class="n">A1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Etter&quot;</span><span class="p">,</span><span class="n">zorder</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="c1"># Tegner linjer</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">B0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">A0</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">A0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">B0</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">B1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">A1</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">A1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">B1</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+
+<span class="c1"># Skriver a og b</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">B0</span><span class="o">+</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">A0</span><span class="o">+</span><span class="mf">0.02</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">B1</span><span class="o">+</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">A1</span><span class="o">+</span><span class="mf">0.02</span><span class="p">))</span>
+
+<span class="c1"># Tittel og akselimitasjon</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.2</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.4</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Cobb-Douglas&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5ab3a4cfac292c80ccb0c535dda0e00d98fad4946abe387e4b747967c4e33182.png" src="_images/5ab3a4cfac292c80ccb0c535dda0e00d98fad4946abe387e4b747967c4e33182.png" />
+</div>
+</div>
+</section>
+<section id="grundigere-utregning-for-forste-oppgave">
+<h2>Grundigere utregning for første oppgave<a class="headerlink" href="#grundigere-utregning-for-forste-oppgave" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[
+\frac{MU_A}{MU_B} = \frac{p_A}{p_B} \rightarrow \frac{0.25 \cdot A^{-0.75} \cdot B^{0.75}}{0.75 \cdot A^{0.25} \cdot B^{-0.25}} = \frac{1}{2}
+\]</div>
+<p>Vi har 3 ledd hvor vi har tall, “A” leddet og “B” leddet.
+$<span class="math notranslate nohighlight">\(
+\frac{0.25}{0.75} \cdot A^{-0.75-0.25} \cdot B^{0.75+0.25} = \frac{1}{2}
+\)</span>$</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{0.25}{0.75} = \frac{1}{3}
+\]</div>
+<p>A leddene eksponentregel og flytter ned
+$<span class="math notranslate nohighlight">\(
+\frac{A^{-0.75}}{A^{0.25}} = A^{-0.75-0.25} = A^{-1} = \frac{1}{A}
+\)</span>$</p>
+<p>B leddene eksponentregel og flytter opp
+$<span class="math notranslate nohighlight">\(
+\frac{B^{0.75}}{B^{-0.25}} = B^{0.75+0.25} = B^1 = B
+\)</span>$</p>
+<p>Samler opp
+$<span class="math notranslate nohighlight">\(
+\frac{MU_A}{MU_B} = \frac{1}{3} \cdot \frac{1}{A} \cdot B = \frac{B}{3A}
+\)</span><span class="math notranslate nohighlight">\(
+Og settes likt
+\)</span><span class="math notranslate nohighlight">\(
+\frac{B}{3A} = \frac{1}{2}
+\)</span>$</p>
+<p>Kan nå kryssmultiplisere og løse for A og B
+$<span class="math notranslate nohighlight">\(
+2B = 3A \rightarrow A = \frac{2}{3}B
+\)</span>$</p>
+<p>Dette gir oss
+$<span class="math notranslate nohighlight">\(
+U_{start} = 0.25^{0.25} \cdot 0.75^{0.75} \approx 0.57
+\)</span>$</p>
 </section>
 </section>
 
@@ -935,6 +1487,7 @@ U = A^{0.5}(B-b)^{0.5},
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#effekten-av-hoyere-strompriser-i-to-steg">2.1 Effekten av høyere strømpriser, i to steg</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hvordan-pavirker-en-renteokning-ettersporselen-etter-bolig-og-andre-ting">2.2 Hvordan påvirker en renteøkning etterspørselen etter bolig og andre ting?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grundigere-utregning-for-forste-oppgave">Grundigere utregning for første oppgave</a></li>
 </ul>
   </nav></div>
 
