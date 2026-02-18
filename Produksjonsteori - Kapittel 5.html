@@ -424,12 +424,11 @@ document.write(`
 \[
 C = wL + rK \tag{1}
 \]</div>
-<p>hvor <span class="math notranslate nohighlight">\(w\)</span> er lønn per arbeider, <span class="math notranslate nohighlight">\(L\)</span> er antall arbeidere. Kostander for arbeid blir da <span class="math notranslate nohighlight">\(wL\)</span>. Kaptialkostnadene er prisen på kapital <span class="math notranslate nohighlight">\((r)\)</span> ganget med antall enheter kapital <span class="math notranslate nohighlight">\((K)\)</span>
-er prisen på bolig (B) og andre ting (A).</p>
+<p>hvor <span class="math notranslate nohighlight">\(w\)</span> er lønn per arbeider, <span class="math notranslate nohighlight">\(L\)</span> er antall arbeidere. Kostander for arbeid blir da <span class="math notranslate nohighlight">\(wL\)</span>. Kaptialkostnadene er prisen på kapital <span class="math notranslate nohighlight">\((r)\)</span> ganget med antall enheter kapital <span class="math notranslate nohighlight">\((K)\)</span>.</p>
 <p>En isokostlinje viser ulike kombinasjoner av arbeidskraft og kapital som mulig å oppnå for en gitt kostnad. For å tegne isolinjen kan vi omforme kostandfunksjonen slik at den står med:</p>
 <div class="math notranslate nohighlight">
 \[
-K = \frac{C}{r} - \frac{w}{l}L \tag{2}
+K = \frac{C}{r} - \frac{w}{r}L \tag{2}
 \]</div>
 <p>For å finne helningen til isokostlinjen deriverer vi mhp <span class="math notranslate nohighlight">\(L\)</span></p>
 <div class="math notranslate nohighlight">
@@ -484,8 +483,8 @@ MRTS=\frac{MU_L}{MU_K}
 <section id="et-eksempel">
 <h3>Et eksempel<a class="headerlink" href="#et-eksempel" title="Link to this heading">#</a></h3>
 <p>En bedrift bruker følgende produktfunksjon til å lage et gode</p>
-<div class="amsmath math notranslate nohighlight" id="equation-197bc0ea-d01d-496c-ad09-3cf4607cbb29">
-<span class="eqno">(1)<a class="headerlink" href="#equation-197bc0ea-d01d-496c-ad09-3cf4607cbb29" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-90a1b3d7-151c-4ecf-b23c-4bb9e12ed3e4">
+<span class="eqno">(1)<a class="headerlink" href="#equation-90a1b3d7-151c-4ecf-b23c-4bb9e12ed3e4" title="Permalink to this equation">#</a></span>\[\begin{equation}
    Q = Q(K,L)=K^aL^{1-a}\tag{7}
 \end{equation}\]</div>
 <p>hvor <span class="math notranslate nohighlight">\(Q\)</span> er enheter ferdigprodukt, <span class="math notranslate nohighlight">\(l\)</span> er enheter arbeidskraft (målt i timer), <span class="math notranslate nohighlight">\(K\)</span> er enheter kapital og <span class="math notranslate nohighlight">\(1&gt;  a&gt;0\)</span> er et konstant tall.<br />
@@ -502,58 +501,74 @@ Vi skal beregne grenseproduktivitetene og MRTS for denne funksjonen; se mattebok
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># definer nye symboler</span>
-<span class="n">K</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">Q1</span>  <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;K a L w r C Q1&#39;</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">K</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">Q</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;K L alpha w r Q&#39;</span><span class="p">)</span>
+<span class="c1">#alpha = 0.5</span>
 
-<span class="c1"># definer ny produksjonsfunksjon (Cobb-Douglas)</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">prod_cd</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="n">a</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">K</span><span class="o">**</span><span class="n">a</span><span class="o">*</span><span class="n">L</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">a</span><span class="p">)</span>
-<span class="n">prod_cd</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+<span class="n">cobb_doug</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">K</span><span class="o">**</span><span class="n">alpha</span><span class="o">*</span> <span class="n">L</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">))</span>
+
+<span class="n">cobb_doug</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle K^{a} L^{1 - a}\]</div>
+\[\displaystyle Q = K^{\alpha} L^{1 - \alpha}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># grenseproduktivitet til kaptial (K)</span>
-<span class="n">MP_K</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">prod_cd</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="n">a</span><span class="p">),</span><span class="n">K</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Marginalproduktet av kapital</span>
+<span class="n">MP_K</span> <span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">cobb_doug</span><span class="o">.</span><span class="n">rhs</span><span class="p">,</span> <span class="n">K</span><span class="p">)</span>
+
 <span class="n">MP_K</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle K^{a - 1} L^{1 - a} a\]</div>
+\[\displaystyle \frac{K^{\alpha} L^{1 - \alpha} \alpha}{K}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># grenseproduktivitet til arbeid (L)</span>
-<span class="n">MP_L</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">prod_cd</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="n">a</span><span class="p">),</span><span class="n">L</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Marginalproduktet av arbeidskraft</span>
+<span class="n">MP_L</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">cobb_doug</span><span class="o">.</span><span class="n">rhs</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>
+
 <span class="n">MP_L</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \left(\frac{K}{L}\right)^{a} \left(1 - a\right)\]</div>
+\[\displaystyle \frac{K^{\alpha} L^{1 - \alpha} \left(1 - \alpha\right)}{L}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># beregn MRTS</span>
-<span class="n">MRTS</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">MP_L</span><span class="o">/</span><span class="n">MP_K</span><span class="p">)</span>
-<span class="n">MRTS</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Marginale tekniske substitusjonsraten MRTS</span>
+<span class="n">MRTS</span> <span class="o">=</span> <span class="n">MP_L</span><span class="o">/</span><span class="n">MP_K</span>
+
+<span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">MRTS</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \frac{K \left(1 - a\right)}{L a}\]</div>
+\[\displaystyle \frac{K \left(1 - \alpha\right)}{L \alpha}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Samme uttrykk for MRTS, vi bare substituerer at alpha = 0.5</span>
+<span class="n">MRTS_2</span> <span class="o">=</span> <span class="n">MRTS</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">sp</span><span class="o">.</span><span class="n">Rational</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="c1"># Med en balansert Cobb-Douglas produksjonsfunksjon, hvor alpha = 0.5, så er MRTS = K/L.</span>
+<span class="n">MRTS_2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{K}{L}\]</div>
 </div>
 </div>
 </section>
@@ -619,188 +634,25 @@ Q_1 &amp;=Q(K.L) \tag {15}\\
 <p>Vi ser på et eksempel med Cobb-Douglas funksjon hvor <span class="math notranslate nohighlight">\(Q(K,L)=L^aK^{1-a}.\)</span> Se matteboks 5.2</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># produktfunksjon</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">prod</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">L</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">K</span><span class="o">**</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">L</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">a</span><span class="p">))</span>
-<span class="n">prod</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">L</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle K^{a} L^{1 - a}\]</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Steg 1: beregn MRTS</span>
-<span class="n">MRTS</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">MP_L</span><span class="o">/</span><span class="n">MP_K</span><span class="p">)</span>
-<span class="n">MRTS</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \frac{K \left(1 - a\right)}{L a}\]</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Steg 2: setter MRTS=w/r som i likning (14), og kan skrive denne som K/L = wa/r(1-a)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Steg 3:Den optimale faktorkombinasjon for K finner vi ved å løse likning (14)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Betingelsen for optimal faktorforbruk er at MRTS = w/r, hvor w er lønnssatsen og r er leiesatsen for kapital.</span>
+<span class="c1"># Merk at vi bruker MRTS_2 videre siden det forenkler algebraen veldig.</span>
+<span class="n">MRTS_eq</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">MRTS_2</span><span class="p">,</span> <span class="n">w</span><span class="o">/</span><span class="n">r</span><span class="p">)</span>
 
-<span class="n">K_rel</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">MRTS</span><span class="o">-</span><span class="n">w</span><span class="o">/</span><span class="n">r</span><span class="p">,</span><span class="n">K</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">display</span><span class="p">(</span><span class="n">K_rel</span><span class="p">)</span>
+<span class="n">MRTS_eq</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle - \frac{L a w}{r \left(a - 1\right)}\]</div>
+\[\displaystyle \frac{K}{L} = \frac{w}{r}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dette uttrykket sett inn i produktfunksjonen Q og løses for L</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Løser for kapital</span>
+<span class="n">K_løsning</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">MRTS_eq</span><span class="p">,</span> <span class="n">K</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
-<span class="n">prod1</span><span class="o">=</span><span class="n">prod</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">L</span><span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">K_rel</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">prod1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle L^{1 - a} \left(- \frac{L a w}{r \left(a - 1\right)}\right)^{a}\]</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">prod1</span><span class="p">)</span>   
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle L^{1 - a} \left(- \frac{L a w}{r \left(a - 1\right)}\right)^{a}\]</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Optimal innsats av arbeidskraft</span>
-<span class="n">L_eq</span><span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">prod1</span><span class="o">-</span><span class="n">Q1</span><span class="p">,</span><span class="n">L</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">display</span><span class="p">(</span><span class="n">L_eq</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle Q_{1} \left(\frac{1}{a w}\right)^{a} \left(- \frac{1}{r \left(a - 1\right)}\right)^{- a}\]</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">L_eq</span><span class="p">)</span> 
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle Q_{1} \left(\frac{1}{a w}\right)^{a} \left(- \frac{1}{r \left(a - 1\right)}\right)^{- a}\]</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#sett løsning av L inn i KA_rel for å få optimal innsats av kapital</span>
-
-<span class="n">K_eq</span><span class="o">=</span> <span class="n">K_rel</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">L_eq</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">K_eq</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle - \frac{Q_{1} a w \left(\frac{1}{a w}\right)^{a} \left(- \frac{1}{r \left(a - 1\right)}\right)^{- a}}{r \left(a - 1\right)}\]</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">K_opt</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">K_rel</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">L_eq</span><span class="p">))</span>
-<span class="n">K_opt</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle - \frac{Q_{1} a w \left(\frac{1}{a w}\right)^{a} \left(- \frac{1}{r \left(a - 1\right)}\right)^{- a}}{r \left(a - 1\right)}\]</div>
-</div>
-</div>
-<p>Hvordan forenkle dette uttrykket ??</p>
-<p>Her ser vi på en balansert Cobb-Douglas produktfunksjon der <span class="math notranslate nohighlight">\(a= 0.5\)</span>; <span class="math notranslate nohighlight">\(Q(K,L)=L^{0.5}K^{0.5}.\)</span></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># produktfunksjon a=0.5</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">prod1</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">L</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">K</span><span class="o">**</span><span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">L</span><span class="o">**</span><span class="mf">0.5</span><span class="p">))</span>
-<span class="n">prod1</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">L</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle K^{0.5} L^{0.5}\]</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># grenseproduktivitet til kaptial (K)</span>
-<span class="n">MP_K1</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">prod</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">K</span><span class="p">),</span><span class="n">K</span><span class="p">))</span>
-<span class="n">MP_K1</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \frac{0.5 L^{0.5}}{K^{0.5}}\]</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># grenseproduktivitet til arbeid (L)</span>
-<span class="n">MP_L1</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">prod</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">K</span><span class="p">),</span><span class="n">L</span><span class="p">))</span>
-<span class="n">MP_L1</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \frac{0.5 K^{0.5}}{L^{0.5}}\]</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Steg 1: beregn MRTS</span>
-<span class="n">MRTS1</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">MP_L1</span><span class="o">/</span><span class="n">MP_K1</span><span class="p">)</span>
-<span class="n">MRTS1</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \frac{1.0 K^{1.0}}{L^{1.0}}\]</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Steg 3:Den optimale faktorkombinasjon for K finner vi ved å løse likning (14)</span>
-
-<span class="n">K_rel1</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">MRTS1</span><span class="o">-</span><span class="n">w</span><span class="o">/</span><span class="n">r</span><span class="p">,</span><span class="n">K</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">display</span><span class="p">(</span><span class="n">K_rel1</span><span class="p">)</span>
+<span class="n">K_løsning</span>
 </pre></div>
 </div>
 </div>
@@ -811,42 +663,44 @@ Q_1 &amp;=Q(K.L) \tag {15}\\
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dette uttrykket sett inn i produktfunksjonen Q og løses for L</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Substituerer optimal_K inn i produksjonsfunksjonen for å finne optimal produksjon</span>
+<span class="n">optimal_Q</span> <span class="o">=</span> <span class="n">cobb_doug</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">K_løsning</span><span class="p">)</span>
 
-<span class="n">prod1</span><span class="o">=</span><span class="n">prod</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">L</span><span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">K_rel1</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">prod1</span><span class="p">)</span>
+<span class="n">optimal_Q</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \frac{L^{1.0} w^{0.5}}{r^{0.5}}\]</div>
+\[\displaystyle Q = L^{1 - \alpha} \left(\frac{L w}{r}\right)^{\alpha}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Optimal innsats av arbeidskraft</span>
-<span class="n">L_eq1</span><span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">prod1</span><span class="o">-</span><span class="n">Q1</span><span class="p">,</span><span class="n">L</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">display</span><span class="p">(</span><span class="n">L_eq1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Løser for L for å finne optimal arbeidskraft</span>
+<span class="n">optimal_L</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">optimal_Q</span><span class="p">,</span> <span class="n">L</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">optimal_L</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \frac{Q_{1} \sqrt{r}}{\sqrt{w}}\]</div>
+\[\displaystyle Q \left(\frac{r}{w}\right)^{\alpha}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Optimal innsats av kapital</span>
-<span class="n">K_opt1</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">K_rel1</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">L_eq1</span><span class="p">))</span>
-<span class="n">K_opt1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Substituerer optimal_L inn i cobb_doug for å finne optimal innsats av kapital</span>
+<span class="n">optimal_K</span> <span class="o">=</span> <span class="n">K_løsning</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">optimal_L</span><span class="p">)</span>
+
+<span class="n">optimal_K</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \frac{Q_{1} \sqrt{w}}{\sqrt{r}}\]</div>
+\[\displaystyle \frac{Q w \left(\frac{r}{w}\right)^{\alpha}}{r}\]</div>
 </div>
 </div>
 </section>
