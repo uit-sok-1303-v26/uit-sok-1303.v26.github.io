@@ -445,10 +445,11 @@ K = \frac{C}{r} - \frac{w}{r}L \tag{2}
 \[
 Q = Q(K,L)
 \]</div>
-<p>Produktfunksjonen viser sammenhengen mellom tre variabler (enheter ferdigprodukt, kapital og arbeidskraft). For å kunne tegne denne funksjonen i to dimensjoner må vi fastsette en verdi for én av variablene. Vi setter en fast verdi <span class="math notranslate nohighlight">\(Q_1\)</span> på produksjon og skriver
-$<span class="math notranslate nohighlight">\(
+<p>Produktfunksjonen viser sammenhengen mellom tre variabler (enheter ferdigprodukt, kapital og arbeidskraft). For å kunne tegne denne funksjonen i to dimensjoner må vi fastsette en verdi for én av variablene. Vi setter en fast verdi <span class="math notranslate nohighlight">\(Q_1\)</span> på produksjon og skriver</p>
+<div class="math notranslate nohighlight">
+\[
 Q_1 = f(K,L)\tag{3}
-\)</span>$</p>
+\]</div>
 <p>Likning (3) viser kombinasjoner av K og L som kan brukes for å produsere nøyaktig <span class="math notranslate nohighlight">\(Q_1\)</span> enheter ferdig produkt. Dette er med andre ord en isokvant, som vises i figuren</p>
 <p><img alt="image.png" src="_images/Picture4.png" /></p>
 <p>Figuren viser isokvanter for produksjon av kvantum <span class="math notranslate nohighlight">\(Q_1, Q_2, Q_3\)</span>. Kombinasjoner av K og L langs isokvanten for <span class="math notranslate nohighlight">\(Q_3\)</span> gir høyere produksjon enn kombinasjoner langs isokvanten for <span class="math notranslate nohighlight">\(Q_2\)</span>, og <span class="math notranslate nohighlight">\(Q_3\)</span> gir høyest produksjon for bedriften.</p>
@@ -483,8 +484,8 @@ MRTS=\frac{MU_L}{MU_K}
 <section id="et-eksempel">
 <h3>Et eksempel<a class="headerlink" href="#et-eksempel" title="Link to this heading">#</a></h3>
 <p>En bedrift bruker følgende produktfunksjon til å lage et gode</p>
-<div class="amsmath math notranslate nohighlight" id="equation-829b63ce-708c-4df5-a10e-a413fff73102">
-<span class="eqno">(1)<a class="headerlink" href="#equation-829b63ce-708c-4df5-a10e-a413fff73102" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5d179cc8-1df1-4788-b940-241664f35b04">
+<span class="eqno">(1)<a class="headerlink" href="#equation-5d179cc8-1df1-4788-b940-241664f35b04" title="Permalink to this equation">#</a></span>\[\begin{equation}
    Q = Q(K,L)=K^aL^{1-a}\tag{7}
 \end{equation}\]</div>
 <p>hvor <span class="math notranslate nohighlight">\(Q\)</span> er enheter ferdigprodukt, <span class="math notranslate nohighlight">\(l\)</span> er enheter arbeidskraft (målt i timer), <span class="math notranslate nohighlight">\(K\)</span> er enheter kapital og <span class="math notranslate nohighlight">\(1&gt;  a&gt;0\)</span> er et konstant tall.<br />
@@ -501,7 +502,8 @@ Vi skal beregne grenseproduktivitetene og MRTS for denne funksjonen; se mattebok
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">K</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">Q</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;K L alpha w r Q&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">K</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">C</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;K L alpha w r Q C&#39;</span><span class="p">)</span>
+
 <span class="c1">#alpha = 0.5</span>
 
 <span class="n">cobb_doug</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">K</span><span class="o">**</span><span class="n">alpha</span><span class="o">*</span> <span class="n">L</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">))</span>
@@ -513,6 +515,77 @@ Vi skal beregne grenseproduktivitetene og MRTS for denne funksjonen; se mattebok
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
 \[\displaystyle Q = K^{\alpha} L^{1 - \alpha}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Isokost</span>
+<span class="n">isokost</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">w</span><span class="o">*</span><span class="n">L</span> <span class="o">+</span> <span class="n">r</span><span class="o">*</span><span class="n">K</span><span class="p">)</span>
+
+<span class="n">isokost</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle C = K r + L w\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Isokostlinjen finner vi ved å løse for K</span>
+<span class="n">K_løsning</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">isokost</span><span class="p">,</span> <span class="n">K</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">K_løsning</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{C - L w}{r}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Helningen til isokostlinjen for å tegne figur, derivert med hensyn på L</span>
+<span class="n">L_derivert</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">K_løsning</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>
+
+<span class="n">L_derivert</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle - \frac{w}{r}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># For å tegne isokvanter, løser vi for K</span>
+<span class="n">K_løsning_isokvant</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">cobb_doug</span><span class="p">,</span> <span class="n">K</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">K_løsning_isokvant</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left(L^{\alpha - 1} Q\right)^{\frac{1}{\alpha}}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definerer funksjon for å tegne isokvant på figurer</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">isokvant</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">Q</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">Q</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">L</span>
+
+
+<span class="n">isokvant</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">Q</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{Q^{2}}{L}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -666,13 +739,13 @@ Q_1 &amp;=Q(K.L) \tag {15}\\
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Substituerer optimal_K inn i produksjonsfunksjonen for å finne optimal produksjon</span>
 <span class="n">optimal_Q</span> <span class="o">=</span> <span class="n">cobb_doug</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">K_løsning</span><span class="p">)</span>
 
-<span class="n">optimal_Q</span>
+<span class="n">optimal_Q</span><span class="o">.</span><span class="n">rhs</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle Q = L^{1 - \alpha} \left(\frac{L w}{r}\right)^{\alpha}\]</div>
+\[\displaystyle L^{1 - \alpha} \left(\frac{L w}{r}\right)^{\alpha}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -680,6 +753,7 @@ Q_1 &amp;=Q(K.L) \tag {15}\\
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Løser for L for å finne optimal arbeidskraft</span>
 <span class="n">optimal_L</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">optimal_Q</span><span class="p">,</span> <span class="n">L</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
+<span class="c1"># dette er samme som Q * kvadratroten av r/w, som er det vi ser i boken</span>
 <span class="n">optimal_L</span>
 </pre></div>
 </div>
@@ -692,6 +766,9 @@ Q_1 &amp;=Q(K.L) \tag {15}\\
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Substituerer optimal_L inn i cobb_doug for å finne optimal innsats av kapital</span>
+
+<span class="c1"># sympy klarer ikke forenkle uttrykket</span>
+<span class="c1"># men dette er samme som Q * kvadratroten av w/r, som er det vi ser i boken</span>
 <span class="n">optimal_K</span> <span class="o">=</span> <span class="n">K_løsning</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">optimal_L</span><span class="p">)</span>
 
 <span class="n">optimal_K</span>
