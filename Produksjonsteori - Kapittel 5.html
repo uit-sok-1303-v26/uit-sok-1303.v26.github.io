@@ -616,8 +616,8 @@ MRTS=\frac{MU_L}{MU_K}
 <section id="et-eksempel">
 <h3>Et eksempel<a class="headerlink" href="#et-eksempel" title="Link to this heading">#</a></h3>
 <p>En bedrift bruker følgende produktfunksjon til å lage et gode</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2388f476-e7ad-44de-8656-aa39d9589bfc">
-<span class="eqno">(1)<a class="headerlink" href="#equation-2388f476-e7ad-44de-8656-aa39d9589bfc" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0aa40fbf-907c-4bdb-86bf-f6da2a633273">
+<span class="eqno">(1)<a class="headerlink" href="#equation-0aa40fbf-907c-4bdb-86bf-f6da2a633273" title="Permalink to this equation">#</a></span>\[\begin{equation}
    Q = Q(K,L)=K^aL^{1-a}\tag{7}
 \end{equation}\]</div>
 <p>hvor <span class="math notranslate nohighlight">\(Q\)</span> er enheter ferdigprodukt, <span class="math notranslate nohighlight">\(L\)</span> er enheter arbeidskraft (målt i timer), <span class="math notranslate nohighlight">\(K\)</span> er enheter kapital og <span class="math notranslate nohighlight">\(1&gt;  a&gt;0\)</span> er et konstant tall.<br />
@@ -1129,6 +1129,9 @@ C = 2L + 1 \cdot (2L) = 2
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Vi får ny MRTS ved å substituere inn nye verdier for w og r i MRTS_eq</span>
+<span class="n">MRTS_ny_w2</span> <span class="o">=</span> <span class="n">MRTS_eq</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">w</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">sp</span><span class="o">.</span><span class="n">Rational</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))])</span>
+
+<span class="n">MRTS_ny_w2</span>
 </pre></div>
 </div>
 </div>
@@ -1140,6 +1143,9 @@ C = 2L + 1 \cdot (2L) = 2
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Løser for K</span>
+<span class="n">K_løsning_ny_w2</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">MRTS_ny_w2</span> <span class="p">,</span> <span class="n">K</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">K_løsning_ny_w2</span>
 </pre></div>
 </div>
 </div>
@@ -1151,6 +1157,9 @@ C = 2L + 1 \cdot (2L) = 2
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Substituerer inn nye verdier i isokost</span>
+<span class="n">ny_isokost_c2</span> <span class="o">=</span> <span class="n">isokost</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">K</span><span class="p">,</span> <span class="n">K_løsning_ny_w2</span><span class="p">),</span> <span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="mi">2</span><span class="p">)])</span>
+
+<span class="n">ny_isokost_c2</span>
 </pre></div>
 </div>
 </div>
@@ -1167,6 +1176,9 @@ C = 2L + 1 \cdot (2L) = 2
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Løser for L</span>
+<span class="n">optimal_L_ny_c2</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">ny_isokost_c2</span><span class="p">,</span> <span class="n">L</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">optimal_L_ny_c2</span>
 </pre></div>
 </div>
 </div>
@@ -1183,6 +1195,9 @@ K = 2L = 2 \cdot 0.5 = 1
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Løser for K</span>
+<span class="n">Optimal_K_ny_c2</span> <span class="o">=</span> <span class="n">K_løsning_ny_w2</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">L</span><span class="p">,</span> <span class="n">optimal_L_ny_c2</span><span class="p">)])</span>
+
+<span class="n">Optimal_K_ny_c2</span>
 </pre></div>
 </div>
 </div>
@@ -1194,6 +1209,8 @@ K = 2L = 2 \cdot 0.5 = 1
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Helning til isokostlinjen</span>
+<span class="n">helning_w2_ny</span> <span class="o">=</span> <span class="n">L_derivert</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">w</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
+<span class="n">helning_w2_ny</span>
 </pre></div>
 </div>
 </div>
@@ -1210,6 +1227,9 @@ Q = K^{0.5} L^{0.5} = 1^{0.5} \cdot 0.5^{0.5} \approx 0.7
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Produsert mengde</span>
+<span class="n">optimal_Q_ny_c2</span> <span class="o">=</span> <span class="n">cobb_doug</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">K</span><span class="p">,</span> <span class="n">Optimal_K_ny_c2</span><span class="p">),</span> <span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">optimal_L_ny_c2</span><span class="p">),</span> <span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">sp</span><span class="o">.</span><span class="n">Rational</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))])</span>
+
+<span class="nb">round</span><span class="p">(</span><span class="n">optimal_Q_ny_c2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1221,6 +1241,22 @@ Q = K^{0.5} L^{0.5} = 1^{0.5} \cdot 0.5^{0.5} \approx 0.7
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Figur for punkt c</span>
+<span class="n">L_verdier</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span><span class="nb">float</span><span class="p">(</span><span class="n">kostnad</span><span class="p">),</span> <span class="mi">100</span><span class="p">)</span>
+
+
+<span class="c1"># Tegner isokostlinjen</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">L_verdier</span><span class="p">,</span> <span class="n">kostnad</span> <span class="o">+</span> <span class="n">helning_w2_ny</span><span class="o">*</span><span class="n">L_verdier</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Isokostline c&#39;</span><span class="p">)</span>
+
+<span class="c1"># Tegner isokvanten</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">L_verdier</span><span class="p">,</span> <span class="n">isokvant</span><span class="p">(</span><span class="n">L_verdier</span><span class="p">,</span> <span class="n">optimal_Q_ny_c2</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Isokvant $Q_2$&#39;</span><span class="p">)</span>
+
+<span class="c1"># Punkt c for optimal faktorinnsats</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">optimal_L_ny_c2</span><span class="p">,</span> <span class="n">Optimal_K_ny_c2</span><span class="p">,</span> <span class="n">zorder</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">optimal_L_ny_c2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Optimal_K_ny_c2</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">Optimal_K_ny_c2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">optimal_L_ny_c2</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">optimal_L_ny_c2</span><span class="o">+</span><span class="mf">0.03</span><span class="p">,</span> <span class="n">Optimal_K_ny_c2</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+<span class="n">fig</span>
 </pre></div>
 </div>
 </div>

@@ -425,9 +425,15 @@ document.write(`
 <li><p>prisen på andre produkter/tjenester</p></li>
 <li><p>offentlig regulering.</p></li>
 </ul>
-<p>Konsumentens etterspørsel etter et produkt viser hva hen er villig til å betale for en ekstra enhet, dvs <em>marginal betalingsvillighet</em>. Den individuelle etterspørselen kan uttrykkes som $<span class="math notranslate nohighlight">\( Q_{i}^E=a_{i}-b_{i}P.\)</span>$</p>
+<p>Konsumentens etterspørsel etter et produkt viser hva hen er villig til å betale for en ekstra enhet, dvs <em>marginal betalingsvillighet</em>. Den individuelle etterspørselen kan uttrykkes som
+$<span class="math notranslate nohighlight">\(
+Q_{i}^E=a_{i}-b_{i}P
+\)</span>$</p>
 <p><img alt="Bilde" src="_images/Picture10.png" /></p>
-<p>Ved å summere konsumentenes etterspørselkurve får vi markedets etterspørselskurve $<span class="math notranslate nohighlight">\( Q^E=a-bP.\)</span>$</p>
+<p>Ved å summere konsumentenes etterspørselkurve får vi markedets etterspørselskurve
+$<span class="math notranslate nohighlight">\(
+Q^E=a-bP
+\)</span>$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import pakkene som vi trenger for å tegne en figur</span>
@@ -498,7 +504,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/09119fc5e83961550cf9f3efb6cc68b181497906208c91badf34ab114a0ce34c.png" src="_images/09119fc5e83961550cf9f3efb6cc68b181497906208c91badf34ab114a0ce34c.png" />
+<img alt="_images/4482b4581f0aeed4fae6d80315d7899f4141c1ca6d5c6078927ff0fb5581b13e.png" src="_images/4482b4581f0aeed4fae6d80315d7899f4141c1ca6d5c6078927ff0fb5581b13e.png" />
 </div>
 </div>
 <p>Med mange konsumenter vil ikke dette knekkpunktet være så fremtredende, og vi tegner etterspørsel som en jevn
@@ -506,19 +512,33 @@ funksjon.</p>
 <section id="elastisitetsbegrepet">
 <h3>1.1 Elastisitetsbegrepet<a class="headerlink" href="#elastisitetsbegrepet" title="Link to this heading">#</a></h3>
 <p>Elastisitet gir oss et mål på hvor følsomt tilbud og etterspørsel er for prisendringer. Vi har tidligere tegnet disse funksjonene som en rett linje, og helningen til linjen forteller oss noe om hvordan mengde tilbudt/etterspurt reagerer på prisendringer. Tenk at vi har invers etterspørsel etter laks i Norge gitt ved <span class="math notranslate nohighlight">\(P = 300 - 0.25Q\)</span>. Her er prisen målt i NOK og mengde i kilogram. Vi ser at for å selge en ekstra kilo med laks i Norge må prisen reduseres med 25 øre. I Spania er etterspørsel etter laks gitt ved <span class="math notranslate nohighlight">\(q = 500 - 0.3Q\)</span>, og q er nå prisen i EUR. For å selge en ekstra kilo laks til det spanske markedet må prisen reduseres med 30 cent. For å sammenlikne mellom Norge og Spania må vi ha informasjon om valutakursen mellom NOK og EUR. Dette eksempelet illustrerer at det å bruke helningen til etterspørsel/tilbud for å måle prisfølsomhet er avhengig av måleenheten for verdi. Sammenlikningen vil også påvirkes av hvordan vil måler kvantum (kilo, ton osv).</p>
-<p>Elastisitet er målt i prosent og er da uavhengig av måleenheten for verdi og mengde. Etterspørselselastisiteten måler hvor mange prosent etterspørselen endres når prisen øker med 1%. Tenk at vi har etterspørsel <span class="math notranslate nohighlight">\(Q^E(P)\)</span>. En liten endring i etterspørsel kan vi kalle <span class="math notranslate nohighlight">\(dQ^E\)</span>, slik at en prosentvis endring i etterspørsel er
-$<span class="math notranslate nohighlight">\(prosentvis\; endring \;i \; etterspørsel = \frac{dQ^E}{Q^E}\tag{1}.\)</span>$</p>
-<p>La <span class="math notranslate nohighlight">\(dP\)</span> vise en liten endring i pris, og vi kan skrive den prosentvise endringen i pris som
-$<span class="math notranslate nohighlight">\(prosentvis\; endring \;i \; pris = \frac{dP}{P}\tag{2}.\)</span>$</p>
+<p>Elastisitet er målt i prosent og er da uavhengig av måleenheten for verdi og mengde. Etterspørselselastisiteten måler hvor mange prosent etterspørselen endres når prisen øker med 1%. Tenk at vi har etterspørsel <span class="math notranslate nohighlight">\(Q^E(P)\)</span>. En liten endring i etterspørsel kan vi kalle <span class="math notranslate nohighlight">\(dQ^E\)</span>, slik at en prosentvis endring i etterspørsel er</p>
+<div class="math notranslate nohighlight">
+\[
+prosentvis\; endring \;i \; etterspørsel = \frac{dQ^E}{Q^E}\tag{1}
+\]</div>
+<p>La <span class="math notranslate nohighlight">\(dP\)</span> vise en liten endring i pris, og vi kan skrive den prosentvise endringen i pris som</p>
+<div class="math notranslate nohighlight">
+\[
+prosentvis\; endring \;i \; pris = \frac{dP}{P}\tag{2}
+\]</div>
 <p>Etterspørselens priselastisitet er gitt ved <span class="math notranslate nohighlight">\(\epsilon^E\)</span> som er den prosentvise endringen i kvantum etterspurt delt på den prosentvise endringen i pris.
-$<span class="math notranslate nohighlight">\(\epsilon^E = \frac{prosentvis\; endring \;i \; etterspørsel}{prosentvis\; endring \;i \; pris}.\)</span>$
-Tenk på et talleksempel før vi utleder dette formelt. Vi undersøker etterspørsel i et marked og har funnet at etterspørsel har nylig falt med 6%; i samme periode har prisen økt med 3%. Deler vi den ene på den andre så finner vi at -6%/3% = -2% (minus ettersom etterspørselen har falt). Tolkningen nå er når prisen øker med 1% så faller etterspørsel med 2%. Det er nettopp dette som etterspørselens priselastisitet måler!</p>
+$<span class="math notranslate nohighlight">\(
+\epsilon^E = \frac{prosentvis\; endring \;i \; etterspørsel}{prosentvis\; endring \;i \; pris}
+\)</span>$</p>
+<p>Tenk på et talleksempel før vi utleder dette formelt. Vi undersøker etterspørsel i et marked og har funnet at etterspørsel har nylig falt med 6%; i samme periode har prisen økt med 3%. Deler vi den ene på den andre så finner vi at -6%/3% = -2% (minus ettersom etterspørselen har falt). Tolkningen nå er når prisen øker med 1% så faller etterspørsel med 2%. Det er nettopp dette som etterspørselens priselastisitet måler!</p>
 <p>Ved å bruke likning (1) og (2) kan vi skrive
-$<span class="math notranslate nohighlight">\(\epsilon^E = \frac{\frac{dQ^E}{Q^E}}{\frac{dP}{P}}.\)</span><span class="math notranslate nohighlight">\(
-Her deles en brøk på en annen brøk som vi kan forenkle som følger
-\)</span><span class="math notranslate nohighlight">\(\epsilon^E = \frac{\frac{dQ^E}{Q^E}}{\frac{dP}{P}}=\frac{dQ^E}{Q^E}\frac{P}{dP}.\)</span>$</p>
+$<span class="math notranslate nohighlight">\(
+\epsilon^E = \frac{\frac{dQ^E}{Q^E}}{\frac{dP}{P}}
+\)</span>$</p>
+<p>Her deles en brøk på en annen brøk som vi kan forenkle som følger</p>
+<div class="math notranslate nohighlight">
+\[
+\epsilon^E = \frac{\frac{dQ^E}{Q^E}}{\frac{dP}{P}}=\frac{dQ^E}{Q^E}\frac{P}{dP}
+\]</div>
 <p>Som vi kan skrive om som:
-$<span class="math notranslate nohighlight">\(\epsilon^E = \frac{\frac{dQ^E}{Q^E}}{\frac{dP}{P}}=\frac{dQ^E}{Q^E}\frac{P}{dP}=\frac{dQ^E}{dP}\frac{P}{Q^E}.\)</span>$</p>
+$<span class="math notranslate nohighlight">\(
+\epsilon^E = \frac{\frac{dQ^E}{Q^E}}{\frac{dP}{P}}=\frac{dQ^E}{Q^E}\frac{P}{dP}=\frac{dQ^E}{dP}\frac{P}{Q^E}.\)</span>$</p>
 <p>Legg merke til at <span class="math notranslate nohighlight">\(\frac{dQ^E}{dP}\)</span> er helningen til den direkte etterspørselsfunksjonen <span class="math notranslate nohighlight">\(Q^E\)</span>. Ettersom etterspørselen heller nedover er <span class="math notranslate nohighlight">\(\frac{dQ^E}{dP} &lt; 0\)</span> og dermed er <span class="math notranslate nohighlight">\(\epsilon^E &lt; 0.\)</span></p>
 </section>
 <section id="eksempel-med-lineaer-ettersporsel">
@@ -570,7 +590,7 @@ $<span class="math notranslate nohighlight">\(\epsilon^E = \frac{\frac{dQ^E}{Q^E
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/fd3a56b0ced83e258dc8cfc99b782be6c6b86beb89eb9148037cda969ac0cc22.png" src="_images/fd3a56b0ced83e258dc8cfc99b782be6c6b86beb89eb9148037cda969ac0cc22.png" />
+<img alt="_images/2da358c0c5e4552beee0affeca39f7f11693f6829a6521623bf5a182996aec69.png" src="_images/2da358c0c5e4552beee0affeca39f7f11693f6829a6521623bf5a182996aec69.png" />
 </div>
 </div>
 <p>Vi kan regne ut et analytisk uttrykk for etterspørselens priselastisitet.</p>
@@ -618,7 +638,7 @@ $<span class="math notranslate nohighlight">\(\epsilon^E = \frac{\frac{dQ^E}{Q^E
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e2decd46de191145a711e9eb7aab11810faeb527c36ea3e32e93f89d2b669dd9.png" src="_images/e2decd46de191145a711e9eb7aab11810faeb527c36ea3e32e93f89d2b669dd9.png" />
+<img alt="_images/dd3b6f091afa702207c9516c02f66a9a0da3fe3758b043eaf20bca4914b86773.png" src="_images/dd3b6f091afa702207c9516c02f66a9a0da3fe3758b043eaf20bca4914b86773.png" />
 </div>
 </div>
 </section>
@@ -631,7 +651,10 @@ $<span class="math notranslate nohighlight">\(\epsilon^E = \frac{\frac{dQ^E}{Q^E
 <li><p>teknologien</p></li>
 <li><p>offentlige reguleringer.</p></li>
 </ul>
-<p>På samme vis som ovenfor kan vi summere opp tilbudet til hver produsent for å finne markedstilbudet $<span class="math notranslate nohighlight">\( Q^T=-y+dP.\)</span>$</p>
+<p>På samme vis som ovenfor kan vi summere opp tilbudet til hver produsent for å finne markedstilbudet
+$<span class="math notranslate nohighlight">\(
+Q^T=-y+dP
+\)</span>$</p>
 <p>Et lineært eksempel er tegnet nedenfor.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -667,17 +690,23 @@ $<span class="math notranslate nohighlight">\(\epsilon^E = \frac{\frac{dQ^E}{Q^E
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/a1de164718b47423f420f4871b866b2a163d93b9d66e43ab2b24d84f00e2e538.png" src="_images/a1de164718b47423f420f4871b866b2a163d93b9d66e43ab2b24d84f00e2e538.png" />
+<img alt="_images/26d27ebf76ff98638f5d57c6cbfc6ca1794bd1baf8b626ba7d8af479580a2bae.png" src="_images/26d27ebf76ff98638f5d57c6cbfc6ca1794bd1baf8b626ba7d8af479580a2bae.png" />
 </div>
 </div>
 <p>Tilbudet viser hva produsentene må ha for å dekke kostnaden av den siste enheten produsert, dvs produsentens grensekostnad.</p>
 <section id="eksempel-pa-tilbusdelastitstet">
 <h3>2.1 Eksempel på tilbusdelastitstet<a class="headerlink" href="#eksempel-pa-tilbusdelastitstet" title="Link to this heading">#</a></h3>
-<p>Vi har en lineær tilbudsfunksjonen <span class="math notranslate nohighlight">\(X^S(p)\)</span>. Tilbudselastisiteten viser hvor mange prosent tilbudet øker når prisen går opp med 1%, og skrives som
-$<span class="math notranslate nohighlight">\(\epsilon^T=\frac{dQ^T}{dp}\frac{P}{Q^T}.\)</span><span class="math notranslate nohighlight">\(
-Ettersom tilbudet heller oppover har vi \)</span>\frac{dQ^T}{dP}&gt;0<span class="math notranslate nohighlight">\( og dermed \)</span>\epsilon^T&gt;0.<span class="math notranslate nohighlight">\(     
-Ta et eksempel med \)</span>Q^T=-20+1.5P<span class="math notranslate nohighlight">\(. Vi kan regne ut at elastisiteten til tibudet er 
-\)</span><span class="math notranslate nohighlight">\(\epsilon^T=1.5 \frac{P}{Q^T}=1.5 \frac{P}{-20+1.5P}.\)</span>$</p>
+<p>Vi har en lineær tilbudsfunksjonen <span class="math notranslate nohighlight">\(X^S(p)\)</span>. Tilbudselastisiteten viser hvor mange prosent tilbudet øker når prisen går opp med 1%, og skrives som</p>
+<div class="math notranslate nohighlight">
+\[
+\epsilon^T=\frac{dQ^T}{dp}\frac{P}{Q^T}
+\]</div>
+<p>Ettersom tilbudet heller oppover har vi <span class="math notranslate nohighlight">\(\frac{dQ^T}{dP}&gt;0\)</span> og dermed <span class="math notranslate nohighlight">\(\epsilon^T&gt;0\)</span></p>
+<p>Ta et eksempel med <span class="math notranslate nohighlight">\(Q^T=-20+1.5P\)</span>. Vi kan regne ut at elastisiteten til tibudet er</p>
+<div class="math notranslate nohighlight">
+\[
+\epsilon^T=1.5 \frac{P}{Q^T}=1.5 \frac{P}{-20+1.5P}
+\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">tilbud</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
@@ -732,15 +761,22 @@ Ta et eksempel med \)</span>Q^T=-20+1.5P<span class="math notranslate nohighligh
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f24323c9b7219179721c36d4b728b428cf219787a7b97ecf85cdcfd7ffe597a8.png" src="_images/f24323c9b7219179721c36d4b728b428cf219787a7b97ecf85cdcfd7ffe597a8.png" />
+<img alt="_images/72b55f65de2c214be374061fb191222d75db66960ca1976bcec1ff458cea0037.png" src="_images/72b55f65de2c214be374061fb191222d75db66960ca1976bcec1ff458cea0037.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="markedslikevekt">
 <h2>3. Markedslikevekt<a class="headerlink" href="#markedslikevekt" title="Link to this heading">#</a></h2>
-<p>Markedlikevekten finner vi ved sette tilbud = etterspørsel:
-$<span class="math notranslate nohighlight">\( Q^E=Q^T.\)</span><span class="math notranslate nohighlight">\(  \)</span><span class="math notranslate nohighlight">\( a-bP=-y+dP.\)</span>$</p>
+<p>Markedlikevekten finner vi ved sette tilbud = etterspørsel:</p>
+<div class="math notranslate nohighlight">
+\[
+Q^E=Q^T
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+a-bP=-y+dP
+\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
@@ -768,9 +804,15 @@ $<span class="math notranslate nohighlight">\( Q^E=Q^T.\)</span><span class="mat
 </section>
 <section id="eksempel">
 <h2>Eksempel<a class="headerlink" href="#eksempel" title="Link to this heading">#</a></h2>
-<p>Ved å sette sammen tilbud og etterspørsel får vi en beskrivelse av begge sidene av markedet. Her tegnes et marked med følgende tilbud og etterspørsel:
-$<span class="math notranslate nohighlight">\( Q^T =-20 + 1.5P \;(tilbud)\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( Q^E = 100 - 1.25P \;(etterspørsel).\)</span>$</p>
+<p>Ved å sette sammen tilbud og etterspørsel får vi en beskrivelse av begge sidene av markedet. Her tegnes et marked med følgende tilbud og etterspørsel:</p>
+<div class="math notranslate nohighlight">
+\[
+Q^T =-20 + 1.5P \;(tilbud)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+Q^E = 100 - 1.25P \;(etterspørsel)
+\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">etters</span><span class="p">(</span><span class="n">P</span><span class="p">):</span>
@@ -795,7 +837,7 @@ $<span class="math notranslate nohighlight">\( Q^T =-20 + 1.5P \;(tilbud)\)</spa
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d100995c38a8badc69e59a5ed56d1c40788dcda1a25877423d678af995436227.png" src="_images/d100995c38a8badc69e59a5ed56d1c40788dcda1a25877423d678af995436227.png" />
+<img alt="_images/7439d3ae9470bada7834ef622dd0b20b3685c6b9b057519ebc6af4b2e27a9137.png" src="_images/7439d3ae9470bada7834ef622dd0b20b3685c6b9b057519ebc6af4b2e27a9137.png" />
 </div>
 </div>
 <p>Figuren viser at når prisen er “for høy” vil produsenter tilby mer enn kjøpere etterspør; er prisen “for lav” vil det være udekket etterspørsel. Det vil alltid være den korte siden av markedet som bestemmer hvor mye som blir omsatt ettersom det er frivillig å kjøpe/selge. I tilfeller med tilbudsoverskudd er omsatt mengde satt av etterspørsel. For å selge mer kan produsenter sette ned prisen litt (og fortsatt få dekket grensekostnaden). Med etterspørselsoverskudd er det tilbudet som begrenser omsetning i markedet. For å være villig til å produsere mer må selgere få bedre betalt, og det er konsumenter som er villige til å betale en høyere pris. Prismekanismen gjør at vi beveger oss mot punktet hvor tilbud og etterspørsel krysser. I dette punktet er markedet dekket - alle som vil kjøpe til rådende pris får kjøpe, og alle som er villig til å selge til denne prisen får solgt. Her er markedets likevekt.</p>
@@ -845,7 +887,7 @@ $<span class="math notranslate nohighlight">\( Q^T =-20 + 1.5P \;(tilbud)\)</spa
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6e7834b37143ba74ec5da51536b7f3c3e9fe4cf41711ab74908678335f25797f.png" src="_images/6e7834b37143ba74ec5da51536b7f3c3e9fe4cf41711ab74908678335f25797f.png" />
+<img alt="_images/a3df4b18ceacf7bd98450b6ba36fa58f4d968fc8c80f7ddd3aadd4bf9052be21.png" src="_images/a3df4b18ceacf7bd98450b6ba36fa58f4d968fc8c80f7ddd3aadd4bf9052be21.png" />
 </div>
 </div>
 </section>
@@ -872,7 +914,7 @@ Dersom bedrifter tar i bruk en kostnadsbesparende teknologi, eller prisen på en
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2ae264d01f0181df8183bd64d675b7555f2a7aaba8e4f00d753873cea3d2e60b.png" src="_images/2ae264d01f0181df8183bd64d675b7555f2a7aaba8e4f00d753873cea3d2e60b.png" />
+<img alt="_images/935742d057af02d68599a3787469f1fb010238ce508034c25904106b3d113e01.png" src="_images/935742d057af02d68599a3787469f1fb010238ce508034c25904106b3d113e01.png" />
 </div>
 </div>
 <p>Vi ser at dette fører til et fall i likevektsprisen og en økning i omsetning.</p>
@@ -895,7 +937,7 @@ Dersom bedrifter tar i bruk en kostnadsbesparende teknologi, eller prisen på en
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2f8db955109ef5d4fb313917356f440bc4eb1d0b00f537408a7c7918111b5f71.png" src="_images/2f8db955109ef5d4fb313917356f440bc4eb1d0b00f537408a7c7918111b5f71.png" />
+<img alt="_images/40c317ef9e0680ea96cc49667a4989057533b6a8c6ecaf9a948d6a34e4cfa059.png" src="_images/40c317ef9e0680ea96cc49667a4989057533b6a8c6ecaf9a948d6a34e4cfa059.png" />
 </div>
 </div>
 <p>Vi ser at omsetning øker, men at prisen også øker i ette tilfellet.</p>
@@ -903,9 +945,15 @@ Dersom bedrifter tar i bruk en kostnadsbesparende teknologi, eller prisen på en
 <section id="invers-tilbud-og-ettersporsel">
 <h2>5. Invers tilbud og etterspørsel<a class="headerlink" href="#invers-tilbud-og-ettersporsel" title="Link to this heading">#</a></h2>
 <p>Legg merke til hvordan vi har definert tilbud og etterspørsel: kvantum tilbudt/etterspurt som en funksjon av pris <span class="math notranslate nohighlight">\(Q^E(P), Q^T(P)\)</span>. Når vi tegner disse funkjsonene legg merke til at vi har pris på den vertikale og kvantum på den horisontale aksen, dvs vi har tegnet en funksjon <span class="math notranslate nohighlight">\(P(Q^E), \;P(Q^T)\)</span>. Disse kalles invers etterspørsel og invers tilbud.</p>
-<p>Se igjen på tilbud og etterspørsel som vi brukte tidligere:
-$<span class="math notranslate nohighlight">\( Q^T =-20 + 1.5P \;(tilbud)\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( Q^E = 100 - 1.25P \;(etterspørsel).\)</span>$</p>
+<p>Se igjen på tilbud og etterspørsel som vi brukte tidligere:</p>
+<div class="math notranslate nohighlight">
+\[
+Q^T =-20 + 1.5P \;(tilbud)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+Q^E = 100 - 1.25P \;(etterspørsel)
+\]</div>
 <p>Vi kan løse hver likning for p for å få invers tilbud og etterspørsel:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -935,9 +983,15 @@ $<span class="math notranslate nohighlight">\( Q^T =-20 + 1.5P \;(tilbud)\)</spa
 </div>
 </div>
 </div>
-<p>Da kan vi skrive invers tilbud og etterspørsel som:
-$<span class="math notranslate nohighlight">\( P = 13\frac{1}{3}+\frac{2}{3}Q^T \;(invers \;tilbud)\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( P = 80 - 0.8Q^E \;(invers \;etterspørsel).\)</span>$</p>
+<p>Da kan vi skrive invers tilbud og etterspørsel som:</p>
+<div class="math notranslate nohighlight">
+\[
+P = 13\frac{1}{3}+\frac{2}{3}Q^T \;(invers \;tilbud)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+P = 80 - 0.8Q^E \;(invers \;etterspørsel)
+\]</div>
 <p>Her ser vi tydelig at tilbudet treffer p-aksen på <span class="math notranslate nohighlight">\(P = 13\frac{1}{3}\)</span>, og har konstant helning <span class="math notranslate nohighlight">\(\frac{dT}{dQ^T} = \frac{2}{3}\)</span>. Etterspørsel treffer p-aksen på <span class="math notranslate nohighlight">\(P = 80\)</span>, og har konstant helning <span class="math notranslate nohighlight">\(\frac{dP}{dQ^E} = -0.8\)</span>.</p>
 <p>Vi kan selvsagt plotte invers etterspørsel, men må passe på å sette funksjonen som vi plotter på y-plassen i plot kommandoen:</p>
 <div class="cell docutils container">
@@ -966,7 +1020,7 @@ $<span class="math notranslate nohighlight">\( P = 13\frac{1}{3}+\frac{2}{3}Q^T 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c5743dd65282468e6adad6c161d59ff0d6a310da6935944e8c7cdde7d8f2b0ad.png" src="_images/c5743dd65282468e6adad6c161d59ff0d6a310da6935944e8c7cdde7d8f2b0ad.png" />
+<img alt="_images/fa997ef8e58f72934c4bce34c66191c463f8f5327732dccfeff82f8823eaa3af.png" src="_images/fa997ef8e58f72934c4bce34c66191c463f8f5327732dccfeff82f8823eaa3af.png" />
 </div>
 </div>
 </section>
