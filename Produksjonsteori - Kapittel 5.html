@@ -616,8 +616,8 @@ MRTS=\frac{MU_L}{MU_K}
 <section id="et-eksempel">
 <h3>Et eksempel<a class="headerlink" href="#et-eksempel" title="Link to this heading">#</a></h3>
 <p>En bedrift bruker følgende produktfunksjon til å lage et gode</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9fd64b18-81d7-47b5-92ab-269f064a44f5">
-<span class="eqno">(1)<a class="headerlink" href="#equation-9fd64b18-81d7-47b5-92ab-269f064a44f5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2388f476-e7ad-44de-8656-aa39d9589bfc">
+<span class="eqno">(1)<a class="headerlink" href="#equation-2388f476-e7ad-44de-8656-aa39d9589bfc" title="Permalink to this equation">#</a></span>\[\begin{equation}
    Q = Q(K,L)=K^aL^{1-a}\tag{7}
 \end{equation}\]</div>
 <p>hvor <span class="math notranslate nohighlight">\(Q\)</span> er enheter ferdigprodukt, <span class="math notranslate nohighlight">\(L\)</span> er enheter arbeidskraft (målt i timer), <span class="math notranslate nohighlight">\(K\)</span> er enheter kapital og <span class="math notranslate nohighlight">\(1&gt;  a&gt;0\)</span> er et konstant tall.<br />
@@ -1008,6 +1008,9 @@ L = 1 \cdot \sqrt{\frac{1}{2}} \approx 0.7
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Optimal faktorinnsats for L hvor w = 2</span>
+<span class="n">Opt_L_w2</span> <span class="o">=</span> <span class="n">optimal_L</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">w</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">sp</span><span class="o">.</span><span class="n">Rational</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))])</span>
+
+<span class="nb">round</span><span class="p">(</span><span class="n">Opt_L_w2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1028,6 +1031,9 @@ K = 1 \cdot \sqrt{\frac{2}{1}} \approx 1.4
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Optimal faktorinnsats for K</span>
+<span class="n">Opt_K_w2</span> <span class="o">=</span> <span class="n">optimal_K</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">w</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">sp</span><span class="o">.</span><span class="n">Rational</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))])</span>
+
+<span class="nb">round</span><span class="p">(</span><span class="n">Opt_K_w2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1049,12 +1055,140 @@ C = (2 \cdot 0.7) + (1 \cdot 1.4) = 2.8
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nye kostnader</span>
+<span class="n">ny_kostnad</span> <span class="o">=</span> <span class="n">isokost</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">L</span><span class="p">,</span> <span class="n">Opt_L_w2</span><span class="p">),</span> <span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">Opt_K_w2</span><span class="p">),</span> <span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
+
+<span class="nb">round</span><span class="p">(</span><span class="n">ny_kostnad</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
 \[\displaystyle 2.8\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Helning til isokostlinjen</span>
+<span class="n">helning_w2</span> <span class="o">=</span> <span class="n">L_derivert</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">w</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
+<span class="n">helning_w2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle -2\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ny figur</span>
+<span class="n">L_verdier</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">ny_kostnad</span><span class="p">),</span><span class="mi">1</span><span class="p">),</span> <span class="mi">100</span><span class="p">)</span>
+
+
+<span class="c1"># Tegner isokostlinjen, w er nå 2, så helningen er brattere</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">L_verdier</span><span class="p">,</span> <span class="n">ny_kostnad</span> <span class="o">+</span> <span class="n">helning_w2</span><span class="o">*</span><span class="n">L_verdier</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Isokostlinje b&#39;</span><span class="p">)</span>
+
+<span class="c1"># Punkt b for optimal faktorinnsats</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Opt_L_w2</span><span class="p">,</span> <span class="n">Opt_K_w2</span><span class="p">,</span> <span class="n">zorder</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">Opt_L_w2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Opt_K_w2</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">Opt_K_w2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Opt_L_w2</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">Opt_L_w2</span><span class="o">+</span><span class="mf">0.03</span><span class="p">,</span> <span class="n">Opt_K_w2</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+<span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/11454ed94590580133692e22ebc43154fa79863cb9d11653f930025560b552e3.png" src="_images/11454ed94590580133692e22ebc43154fa79863cb9d11653f930025560b552e3.png" />
+</div>
+</div>
+<p>c) Anta at bedriften i stedet ønsker å holde kostnadene konstante. Hvordan påvirker lønnsøkningen (fra <span class="math notranslate nohighlight">\(w = 1\)</span> til <span class="math notranslate nohighlight">\(w = 2\)</span>) bedriftens tilpasning i dette tilfellet?</p>
+<p>Regn ut (rund av til nærmeste desimal) og illustrer.</p>
+<p>Hvis bedriften i stedet har som mål å holde kostnadene på opprinnelig nivå, <span class="math notranslate nohighlight">\(C = 2\)</span>, må vi finne ut hvilken kombinasjon av <span class="math notranslate nohighlight">\(L\)</span> og <span class="math notranslate nohighlight">\(K\)</span> som gir oss dette kostnadsnivået.</p>
+<p>Vi vet fra den optimale faktorkombinasjonen at med den høyere prisen på arbeidskraft så skal <span class="math notranslate nohighlight">\(K\)</span> øke og <span class="math notranslate nohighlight">\(L\)</span> reduseres.</p>
+<p>For kapital får vi da</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{K}{L} = \frac{w}{r} = \frac{2}{1} = 2 
+\]</div>
+<p>Multipliserer vi begge sider av ligningen med <span class="math notranslate nohighlight">\(L\)</span> får vi:</p>
+<div class="math notranslate nohighlight">
+\[
+K = 2L
+\]</div>
+<p>Siden vi ønsker å holde kostnadene konstante, kan vi sette opp følgende ligning:</p>
+<div class="math notranslate nohighlight">
+\[
+C = wL + rK
+\]</div>
+<p>og substituerer inn <span class="math notranslate nohighlight">\(K = 2L\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+C = 2L + 1 \cdot (2L) = 2
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Vi får ny MRTS ved å substituere inn nye verdier for w og r i MRTS_eq</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{K}{L} = 2\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Løser for K</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 2 L\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Substituerer inn nye verdier i isokost</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 2 = 4 L\]</div>
+</div>
+</div>
+<p>Løser vi for <span class="math notranslate nohighlight">\(L\)</span> får vi:</p>
+<div class="math notranslate nohighlight">
+\[
+4L = 2 \rightarrow L = 0.5
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Løser for L</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{1}{2}\]</div>
+</div>
+</div>
+<p>Og for kapital får vi:</p>
+<div class="math notranslate nohighlight">
+\[
+K = 2L = 2 \cdot 0.5 = 1
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Løser for K</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 1\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -1068,18 +1202,32 @@ C = (2 \cdot 0.7) + (1 \cdot 1.4) = 2.8
 \[\displaystyle -2\]</div>
 </div>
 </div>
+<p>Produsert mengde blir da:</p>
+<div class="math notranslate nohighlight">
+\[
+Q = K^{0.5} L^{0.5} = 1^{0.5} \cdot 0.5^{0.5} \approx 0.7
+\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ny figur</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Produsert mengde</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/11454ed94590580133692e22ebc43154fa79863cb9d11653f930025560b552e3.png" src="_images/11454ed94590580133692e22ebc43154fa79863cb9d11653f930025560b552e3.png" />
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 0.71\]</div>
 </div>
 </div>
-<p>c) Anta at bedriften i stedet ønsker å holde kostnadene konstante. Hvordan påvirker lønnsøkningen (fra <span class="math notranslate nohighlight">\(w = 1\)</span> til <span class="math notranslate nohighlight">\(w = 2\)</span>) bedriftens tilpasning i dette tilfellet?</p>
-<p>Regn ut (rund av til nærmeste desimal) og illustrer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Figur for punkt c</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/426b0c5b5e4f4e727b542f9a0b1820a99d69848e98424f06e225aa7512639168.png" src="_images/426b0c5b5e4f4e727b542f9a0b1820a99d69848e98424f06e225aa7512639168.png" />
+</div>
+</div>
 </section>
 <section id="hvor-mye-sparer-conrad-pa-a-flytte-produksjonen-til-kina">
 <h2>5.3 Hvor mye sparer Conrad på å flytte produksjonen til Kina?<a class="headerlink" href="#hvor-mye-sparer-conrad-pa-a-flytte-produksjonen-til-kina" title="Link to this heading">#</a></h2>
