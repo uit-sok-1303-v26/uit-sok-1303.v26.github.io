@@ -425,7 +425,7 @@ document.write(`
 <section id="kostnadsfunksjonen">
 <h2>Kostnadsfunksjonen<a class="headerlink" href="#kostnadsfunksjonen" title="Link to this heading">#</a></h2>
 <p>En bedrift bruker to innsatsfaktorer, <strong>Arbeidskraft</strong> <span class="math notranslate nohighlight">\(L\)</span> og <strong>Kapital</strong> <span class="math notranslate nohighlight">\(K\)</span>
-Innsatsfaktorene har priser <span class="math notranslate nohighlight">\(w\)</span> lønn per arbeider, <span class="math notranslate nohighlight">\(L\)</span> er antall arbeidere. Kostander for arbeid blir da <span class="math notranslate nohighlight">\(wL\)</span>. Kaptialkostnadene er prisen på kapital <span class="math notranslate nohighlight">\((r)\)</span> ganget med antall enheter kapital <span class="math notranslate nohighlight">\((K)\)</span></p>
+Innsatsfaktorene har priser <span class="math notranslate nohighlight">\(w\)</span> lønn per arbeider, <span class="math notranslate nohighlight">\(L\)</span> er antall arbeidere. Kostander for arbeid blir da <span class="math notranslate nohighlight">\(wL\)</span>. Kapitalkostnadene er prisen på kapital <span class="math notranslate nohighlight">\((r)\)</span> ganget med antall enheter kapital <span class="math notranslate nohighlight">\((K)\)</span></p>
 <p>Kostandfunksjon for produksjon med to produksjonsfaktorer er:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -434,7 +434,7 @@ C = wL + rK \tag{1}
 </section>
 <section id="isokostlinje">
 <h2>Isokostlinje<a class="headerlink" href="#isokostlinje" title="Link to this heading">#</a></h2>
-<p>En isokostlinje viser ulike kombinasjoner av arbeidskraft og kapital som mulig å oppnå for en gitt kostnad. For å tegne isolinjen kan vi omforme kostandfunksjonen slik at den står med:</p>
+<p>En isokostlinje viser ulike kombinasjoner av arbeidskraft og kapital som mulig å oppnå for en gitt kostnad. For å tegne isokostlinjen kan vi endre kostandfunksjonen slik at den står med:</p>
 <div class="math notranslate nohighlight">
 \[
 K = \frac{C}{r} - \frac{w}{r}L \tag{2}
@@ -445,7 +445,7 @@ K = \frac{C}{r} - \frac{w}{r}L \tag{2}
 -\frac{\partial K}{\partial L}=\frac{w}{r}
 \]</div>
 <p><img alt="Bilde3" src="_images/Picture3.png" /></p>
-<p>Figuren viser faktorkombinasjoner og isokostliner.</p>
+<p>Figuren viser faktorkombinasjoner og isokostlinjer.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># importer pakkene som vi trenger</span>
@@ -615,11 +615,11 @@ MRTS=\frac{MU_L}{MU_K}
 <section id="et-eksempel">
 <h3>Et eksempel<a class="headerlink" href="#et-eksempel" title="Link to this heading">#</a></h3>
 <p>En bedrift bruker følgende produktfunksjon til å lage et gode</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a1432819-9fb6-4a0e-be6d-5e326f0babe4">
-<span class="eqno">(1)<a class="headerlink" href="#equation-a1432819-9fb6-4a0e-be6d-5e326f0babe4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-204d7bb7-73dc-4c77-98da-212d15a68b7e">
+<span class="eqno">(1)<a class="headerlink" href="#equation-204d7bb7-73dc-4c77-98da-212d15a68b7e" title="Permalink to this equation">#</a></span>\[\begin{equation}
    Q = Q(K,L)=K^aL^{1-a}\tag{7}
 \end{equation}\]</div>
-<p>hvor <span class="math notranslate nohighlight">\(Q\)</span> er enheter ferdigprodukt, <span class="math notranslate nohighlight">\(l\)</span> er enheter arbeidskraft (målt i timer), <span class="math notranslate nohighlight">\(K\)</span> er enheter kapital og <span class="math notranslate nohighlight">\(1&gt;  a&gt;0\)</span> er et konstant tall.<br />
+<p>hvor <span class="math notranslate nohighlight">\(Q\)</span> er enheter ferdigprodukt, <span class="math notranslate nohighlight">\(L\)</span> er enheter arbeidskraft (målt i timer), <span class="math notranslate nohighlight">\(K\)</span> er enheter kapital og <span class="math notranslate nohighlight">\(1&gt;  a&gt;0\)</span> er et konstant tall.<br />
 Vi skal beregne grenseproduktivitetene og MRTS for denne funksjonen; se matteboks 5.1.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -691,9 +691,15 @@ Vi skal beregne grenseproduktivitetene og MRTS for denne funksjonen; se mattebok
 \[\displaystyle \left(L^{\alpha - 1} Q\right)^{\frac{1}{\alpha}}\]</div>
 </div>
 </div>
+<p>Siden vi har at <span class="math notranslate nohighlight">\(\alpha = 0.5\)</span> så kan vi skrive om isokvanten enklere:</p>
+<div class="math notranslate nohighlight">
+\[
+(L^{\alpha-1}Q)^{\frac{1}{\alpha}} \rightarrow (L^{-0.5}Q)^{2} = \frac{Q^2}{L}
+\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definerer funksjon for å tegne isokvant på figurer</span>
+<span class="c1"># dette er samme utrykket som ovenfor</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">isokvant</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">Q</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">Q</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">L</span>
 
@@ -982,18 +988,18 @@ K = Q \left(\frac{w}{r}\right)^{\frac{1}{2}}
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">443</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">23</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Illustrerer i en figur</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">L_verdier</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">kostnad</span><span class="p">),</span> <span class="mi">100</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">create_ax</span><span class="p">()</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># Tegner isokostlinjen</span>
 
-<span class="nn">File c:\Users\Daniel\AppData\Local\Programs\Python\Python311\Lib\site-packages\sympy\core\expr.py:307,</span> in <span class="ni">Expr.__int__</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">305</span> <span class="k">def</span><span class="w"> </span><span class="fm">__int__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">306</span>     <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_number</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">307</span>         <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Cannot convert symbols to int&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">308</span>     <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">309</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">r</span><span class="o">.</span><span class="n">is_Number</span><span class="p">:</span>
+<span class="nn">File c:\Users\danie\AppData\Local\Programs\Python\Python311\Lib\site-packages\sympy\core\expr.py:320,</span> in <span class="ni">Expr.__int__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">318</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.symbol</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dummy</span>
+<span class="g g-Whitespace">    </span><span class="mi">319</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_number</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">320</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Cannot convert symbols to int&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">321</span> <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">322</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">r</span><span class="o">.</span><span class="n">is_Number</span><span class="p">:</span>
 
 <span class="ne">TypeError</span>: Cannot convert symbols to int
 </pre></div>
