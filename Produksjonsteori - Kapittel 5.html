@@ -395,7 +395,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kostnadsminimering">3. Kostnadsminimering</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppskrift-for-kostnadsminimering">Oppskrift for kostnadsminimering</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#samme-kvantum-eller-samme-kostnad">5.2 Samme kvantum eller samme kostnad?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hvor-mye-sparer-conrad-pa-a-flytte-produksjonen-til-kina">5.3 Hvor mye sparer Conrad på å flytte produksjonen til Kina?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hvor-mye-sparer-conrad-pa-a-flytte-produksjonen-til-kina">5.3 Hvor mye sparer Conrad på å flytte produksjonen til Kina?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hva-viser-figuren">Hva viser figuren?</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -616,8 +619,8 @@ MRTS=\frac{MU_L}{MU_K}
 <section id="et-eksempel">
 <h3>Et eksempel<a class="headerlink" href="#et-eksempel" title="Link to this heading">#</a></h3>
 <p>En bedrift bruker følgende produktfunksjon til å lage et gode</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0aa40fbf-907c-4bdb-86bf-f6da2a633273">
-<span class="eqno">(1)<a class="headerlink" href="#equation-0aa40fbf-907c-4bdb-86bf-f6da2a633273" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7961013c-b3a7-4716-a927-b8de08344baa">
+<span class="eqno">(1)<a class="headerlink" href="#equation-7961013c-b3a7-4716-a927-b8de08344baa" title="Permalink to this equation">#</a></span>\[\begin{equation}
    Q = Q(K,L)=K^aL^{1-a}\tag{7}
 \end{equation}\]</div>
 <p>hvor <span class="math notranslate nohighlight">\(Q\)</span> er enheter ferdigprodukt, <span class="math notranslate nohighlight">\(L\)</span> er enheter arbeidskraft (målt i timer), <span class="math notranslate nohighlight">\(K\)</span> er enheter kapital og <span class="math notranslate nohighlight">\(1&gt;  a&gt;0\)</span> er et konstant tall.<br />
@@ -1270,7 +1273,158 @@ Q = K^{0.5} L^{0.5} = 1^{0.5} \cdot 0.5^{0.5} \approx 0.7
 <p>Hvor mye er det å spare på å flytte produksjonen til Kina? Amta at lønnen i Norge er gitt ved <span class="math notranslate nohighlight">\(w_N = 1\)</span> og i Kina ved <span class="math notranslate nohighlight">\(w_K = 0.25\)</span>, mens prisen på kapital er den samme begge steder, <span class="math notranslate nohighlight">\(r = 1\)</span>.</p>
 <p>Bedriften har bestemt seg for å produsere <span class="math notranslate nohighlight">\(Q = 1\)</span> (altså en milliard ark) uansett om den flytter eller ikke. Produksjonsteknologien er gitt ved <span class="math notranslate nohighlight">\(Q = K^{0.5} L^{0.5}\)</span>.</p>
 <p>a) Hva blir kostnadsbesparelsen av å flytte produksjonen til Kina dersom Conrad bruker nøyaktig samme faktorsammensetning der som han gjør i Norge? Regn ut og illustrer.</p>
+<p>Fra matematikken vet vi at optimal faktorsammensetning for en balansert Cobb-Douglas-produksjonsfunksjon er gitt ved:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{K}{L} = \frac{w}{r}
+\]</div>
+<p>Med faktorprisene i Norge, <span class="math notranslate nohighlight">\(w_N = 1\)</span> og <span class="math notranslate nohighlight">\(r_N = 1\)</span>, så har vi at <span class="math notranslate nohighlight">\(K = L\)</span>, og man bruker en enhet av hver faktor for å produsere <span class="math notranslate nohighlight">\(Q = 1\)</span>.</p>
+<p>Faktorbruken for Norge blir da <span class="math notranslate nohighlight">\(K_N = L_N = 1\)</span>, og de totale kostnadene blir lik som fra tidligere oppgave.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Optimal faktorinnsats for L</span>
+<span class="n">Opt_L_Norge</span> <span class="o">=</span> <span class="n">optimal_L</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">w</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">sp</span><span class="o">.</span><span class="n">Rational</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))])</span>
+
+<span class="n">Opt_L_Norge</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 1\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Optimal faktorinnsats for K</span>
+<span class="n">Opt_K_Norge</span> <span class="o">=</span> <span class="n">optimal_K</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">w</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">sp</span><span class="o">.</span><span class="n">Rational</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))])</span>
+
+<span class="n">Opt_K_Norge</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 1\]</div>
+</div>
+</div>
+<div class="math notranslate nohighlight">
+\[
+C_N = w_N L_N + r_N K_N
+\]</div>
+<p>og ved å substituere inn tallverdier for <span class="math notranslate nohighlight">\(w_N\)</span>, <span class="math notranslate nohighlight">\(L_N\)</span>, <span class="math notranslate nohighlight">\(r_N\)</span> og <span class="math notranslate nohighlight">\(K_N\)</span> får vi:</p>
+<div class="math notranslate nohighlight">
+\[
+1 \cdot 1 + 1 \cdot 1 = 2
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Isokostlinjen for Norge </span>
+<span class="n">C_N</span> <span class="o">=</span> <span class="n">isokost</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">w</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">sp</span><span class="o">.</span><span class="n">Rational</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))])</span>
+
+<span class="n">C_N</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 2\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Helning til isokostlinjen for Norge</span>
+<span class="n">helning_norge</span> <span class="o">=</span> <span class="n">L_derivert</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">w</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
+<span class="n">helning_norge</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle -1\]</div>
+</div>
+</div>
+<p>Prisen på arbeidskraft i Kina er lavere enn i Norge, <span class="math notranslate nohighlight">\(w_K = 0.25\)</span>. Dersom man flytter produksjonen til Kina, men produserer på nøyaktig samme måte som i Norge, det vil si <span class="math notranslate nohighlight">\(K_N = L_N = 1\)</span>, så vil kostnadene i Kina være:</p>
+<div class="math notranslate nohighlight">
+\[
+C_K = w_K L_N + r K_N
+\]</div>
+<p>Substituerer vi inn tallverdier for <span class="math notranslate nohighlight">\(w_K\)</span>, <span class="math notranslate nohighlight">\(L_N\)</span>, <span class="math notranslate nohighlight">\(r\)</span> og <span class="math notranslate nohighlight">\(K_N\)</span> får vi:</p>
+<div class="math notranslate nohighlight">
+\[
+C_K = 0.25 \cdot 1 + 1 \cdot 1 = 1.25
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Isokostlinjen for Kina </span>
+<span class="n">C_K</span> <span class="o">=</span> <span class="n">isokost</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">w</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">),</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="mi">1</span><span class="p">)])</span>
+
+<span class="n">C_K</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 1.25\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Helning til isokostlinjen for Kina</span>
+<span class="n">helning_kina</span> <span class="o">=</span> <span class="n">L_derivert</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">w</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">),</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
+<span class="n">helning_kina</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle -0.25\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Illustrerer i en figur</span>
+<span class="n">L_verdier</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">create_ax</span><span class="p">()</span>
+
+<span class="c1"># Tegner isokostlinjen</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">L_verdier</span><span class="p">,</span> <span class="n">C_N</span> <span class="o">+</span> <span class="n">helning_norge</span> <span class="o">*</span> <span class="n">L_verdier</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Isokostlinje Norge&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">L_verdier</span><span class="p">,</span> <span class="n">C_K</span> <span class="o">+</span> <span class="n">helning_kina</span> <span class="o">*</span> <span class="n">L_verdier</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Isokostlinje Kina&#39;</span><span class="p">)</span>
+
+<span class="c1"># Tegner isokvanten</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">L_verdier</span><span class="p">,</span> <span class="n">isokvant</span><span class="p">(</span><span class="n">L_verdier</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Isokvant $Q_1$&#39;</span><span class="p">)</span>
+
+<span class="c1"># Punkt a for optimal faktorinnsats</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Opt_L_Norge</span><span class="p">,</span> <span class="n">Opt_K_Norge</span><span class="p">,</span> <span class="n">zorder</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">Opt_L_Norge</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Opt_K_Norge</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">Opt_K_Norge</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Opt_L_Norge</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;Norge&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">Opt_L_Norge</span><span class="o">+</span><span class="mf">0.03</span><span class="p">,</span> <span class="n">Opt_K_Norge</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/8b9a57e66a81d06cf79b2bc6d658a4ec89dd1929728bf84c3adba929679cf0db.png" src="_images/8b9a57e66a81d06cf79b2bc6d658a4ec89dd1929728bf84c3adba929679cf0db.png" />
+</div>
+</div>
+<section id="hva-viser-figuren">
+<h3>Hva viser figuren?<a class="headerlink" href="#hva-viser-figuren" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Conrads_besparelse</span> <span class="o">=</span> <span class="n">C_N</span> <span class="o">-</span> <span class="n">C_K</span>
+
+<span class="n">Conrads_besparelse</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 0.75\]</div>
+</div>
+</div>
 <p>b) Hva er den optimale faktorsammensetning med produksjon i Kina? Hvor mye ekstra er det å spare på å tilpasse faktorkombinasjonen til den lavere prisen på arbeidskraft i Kina? Regn ut og illustrer i samme figur som i deloppgave a.</p>
+</section>
 </section>
 </section>
 
@@ -1348,7 +1502,10 @@ Q = K^{0.5} L^{0.5} = 1^{0.5} \cdot 0.5^{0.5} \approx 0.7
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kostnadsminimering">3. Kostnadsminimering</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppskrift-for-kostnadsminimering">Oppskrift for kostnadsminimering</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#samme-kvantum-eller-samme-kostnad">5.2 Samme kvantum eller samme kostnad?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hvor-mye-sparer-conrad-pa-a-flytte-produksjonen-til-kina">5.3 Hvor mye sparer Conrad på å flytte produksjonen til Kina?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hvor-mye-sparer-conrad-pa-a-flytte-produksjonen-til-kina">5.3 Hvor mye sparer Conrad på å flytte produksjonen til Kina?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hva-viser-figuren">Hva viser figuren?</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
