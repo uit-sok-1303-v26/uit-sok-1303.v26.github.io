@@ -875,6 +875,9 @@ Q = K^{0.5}L^{0.5}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fra matteboks 6.1 er de totale kostnadene definert som</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">w</span><span class="o">*</span><span class="n">Q</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">K</span> <span class="o">+</span> <span class="n">z</span><span class="o">*</span><span class="n">Q</span><span class="o">+</span> <span class="n">r</span><span class="o">*</span><span class="n">K</span>
+
+<span class="n">C</span>
 </pre></div>
 </div>
 </div>
@@ -886,6 +889,9 @@ Q = K^{0.5}L^{0.5}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Finner grensekostnaden ved å derivere C med hensyn på Q</span>
+<span class="n">MC</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+
+<span class="n">MC</span>
 </pre></div>
 </div>
 </div>
@@ -897,6 +903,10 @@ Q = K^{0.5}L^{0.5}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definerer grensekostnaden som en funksjon for å plotte</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">MC_plot</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">z</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">z</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">w</span><span class="o">*</span><span class="n">Q</span><span class="o">/</span><span class="n">K</span>
+
+<span class="n">MC_plot</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -908,6 +918,9 @@ Q = K^{0.5}L^{0.5}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fra matteboks 6.1, gjennomsnittlige variable kostnader</span>
+<span class="n">AVC</span> <span class="o">=</span> <span class="n">w</span><span class="o">*</span><span class="n">Q</span><span class="o">/</span><span class="n">K</span> <span class="o">+</span> <span class="n">z</span>
+
+<span class="n">AVC</span>
 </pre></div>
 </div>
 </div>
@@ -919,6 +932,9 @@ Q = K^{0.5}L^{0.5}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fra matteboks 6.1, gjennomsnittlige faste kostnader</span>
+<span class="n">AFC</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="n">K</span><span class="o">/</span><span class="n">Q</span>
+
+<span class="n">AFC</span>
 </pre></div>
 </div>
 </div>
@@ -930,6 +946,9 @@ Q = K^{0.5}L^{0.5}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fra matteboks 6.1, gjennomsnittlige totale kostnader</span>
+<span class="n">ATC</span> <span class="o">=</span> <span class="n">AVC</span> <span class="o">+</span> <span class="n">AFC</span>
+
+<span class="n">ATC</span>
 </pre></div>
 </div>
 </div>
@@ -941,6 +960,10 @@ Q = K^{0.5}L^{0.5}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definerer ATC som en funksjon for å plotte</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">ATC_plot</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">r</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">K</span><span class="o">*</span><span class="n">r</span><span class="o">/</span><span class="n">Q</span> <span class="o">+</span> <span class="n">w</span><span class="o">*</span><span class="n">Q</span><span class="o">/</span><span class="n">K</span> <span class="o">+</span> <span class="n">z</span>
+
+<span class="n">ATC_plot</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -952,6 +975,9 @@ Q = K^{0.5}L^{0.5}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Substituerer inn for K = 1 og Q = 1, r = 1</span>
+<span class="n">AFC_subs</span> <span class="o">=</span> <span class="n">AFC</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">K</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="mi">1</span><span class="p">)])</span>
+
+<span class="n">AFC_subs</span>
 </pre></div>
 </div>
 </div>
@@ -963,6 +989,8 @@ Q = K^{0.5}L^{0.5}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Substituerer inn for K = 1 og Q = 1, w = 1, z = 0</span>
+<span class="n">MC_subs</span> <span class="o">=</span> <span class="n">MC</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">K</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="mi">0</span><span class="p">)])</span>
+<span class="n">MC_subs</span>
 </pre></div>
 </div>
 </div>
@@ -973,9 +1001,17 @@ Q = K^{0.5}L^{0.5}
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tegner ATC og MC</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig2</span><span class="p">,</span> <span class="n">ax2</span> <span class="o">=</span> <span class="n">create_ax</span><span class="p">()</span>
+
+<span class="c1"># Tegner ATC og MC</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Q_verdier</span><span class="p">,</span> <span class="n">MC_plot</span><span class="p">(</span><span class="n">Q_verdier</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;MC&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Q_verdier</span><span class="p">,</span> <span class="n">ATC_plot</span><span class="p">(</span><span class="n">Q_verdier</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;ATC&quot;</span><span class="p">)</span>
 
 <span class="c1"># Tegner linjer for MC og AFC</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">AFC_subs</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">MC_subs</span><span class="p">,</span> <span class="n">linestyles</span> <span class="o">=</span> <span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">MC_subs</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">AFC_subs</span><span class="p">,</span> <span class="n">linestyles</span> <span class="o">=</span> <span class="s2">&quot;--&quot;</span><span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
@@ -986,7 +1022,9 @@ Q = K^{0.5}L^{0.5}
 </section>
 <section id="c-forklar-for-ledelsen-ved-alpha-tech-forskjellene-du-finner-i-arbeidsbehov-og-kostnader-som-du-ser-na-opp-mot-det-du-fant-ved-ditt-forste-besok">
 <h3>c) Forklar for ledelsen ved Alpha Tech forskjellene du finner i arbeidsbehov og kostnader som du ser nå, opp mot det du fant ved ditt første besøk.<a class="headerlink" href="#c-forklar-for-ledelsen-ved-alpha-tech-forskjellene-du-finner-i-arbeidsbehov-og-kostnader-som-du-ser-na-opp-mot-det-du-fant-ved-ditt-forste-besok" title="Link to this heading">#</a></h3>
-<p>Sett svar her</p>
+<p>Vi ser at grensekostnaden stiger i produsert kvantum. Den siste enheten produsert koster mer enn den forrige. Dette skyldes at arbeidsbehovet øker eksponensielt med produksjonen, eller sagt på en annen måte, grenseproduktet til arbeidskraften faller.</p>
+<p>De gjennomsnittlige totale kostnadene har en U-form. For lavt kvantum produsert faller ATC i mengde produsert, og det skyldes at de faste kostnadene deles på flere enheter. For høyere mengde produsert øker ATC i mengde produsert, og dette drives av de økte arbeidskostnadene.</p>
+<p>De to kostnadskurvene krysser for <span class="math notranslate nohighlight">\(Q = 1\)</span>, hvor  <span class="math notranslate nohighlight">\(MC = ATC = 2\)</span>. I dette punktet koster dermed den siste produserte enheten like mye som  gjennomsnittet av alle de produserte enhetene. Dette representerer også bunnpunktet til ATC-kurven. Til venstre for dette punktet, altså for <span class="math notranslate nohighlight">\(Q &lt; 1\)</span>, er <span class="math notranslate nohighlight">\(MC &lt; ATC\)</span>. Kostnadsøkningen ved å produsere en enhet til er her lavere enn gjennomsnittet, og dette trekker ATC-kurven nedover. Til høyre for dette punktet, altså for <span class="math notranslate nohighlight">\(Q &gt; 1\)</span>, er <span class="math notranslate nohighlight">\(MC &gt; ATC\)</span>. De økte kostnadene forbundet med å produsere en ekstra enhet er her høyere enn gjennomsnittet, og dettte trekker ATC-kurven oppover.</p>
 </section>
 </section>
 <section id="skalautbytte">
@@ -1055,8 +1093,8 @@ L^* = Q \left(\frac{(1-a)r}{aw}\right)^{a}
 K^* = Q \left(\frac{aw}{(1-a)r}\right)^{1-a}
 \]</div>
 <p>Vi får da følgende produktfunksjon:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-26c4f075-180d-4afb-afa6-22d8ff5d468c">
-<span class="eqno">(2)<a class="headerlink" href="#equation-26c4f075-180d-4afb-afa6-22d8ff5d468c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cc61a650-7ab7-47c0-84d9-f2ecdf2183e4">
+<span class="eqno">(2)<a class="headerlink" href="#equation-cc61a650-7ab7-47c0-84d9-f2ecdf2183e4" title="Permalink to this equation">#</a></span>\[\begin{equation}
     Q = Q(K,L)=L^{a}K^{1-a}\tag{2}
 \end{equation}\]</div>
 <div class="cell docutils container">
