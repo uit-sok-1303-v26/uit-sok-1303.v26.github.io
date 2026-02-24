@@ -1053,17 +1053,17 @@ Q = Q(K,L)=K^{0.5}L^{0.5}\;\;(1)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # definer nye symboler</span>
-<span class="n">K</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;K a b&#39;</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">K1</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;K a b&#39;</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># definer produktfn</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">prod_cd</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">L</span><span class="o">**</span><span class="n">a</span><span class="o">*</span><span class="n">K</span><span class="o">**</span><span class="n">b</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">prod_cd</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">K1</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">L</span><span class="o">**</span><span class="n">a</span><span class="o">*</span><span class="n">K1</span><span class="o">**</span><span class="n">b</span>
 
 
 <span class="c1"># finn &quot;overskudd&quot; fra en fordobling av innsats i forhold til dobbel så mye produksjon</span>
 <span class="c1"># NB begge innsatsfaktorene fordobles</span>
 
-<span class="n">overskudd_cd</span><span class="o">=</span><span class="n">prod_cd</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">L</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">K</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">prod_cd</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<span class="n">overskudd_cd</span><span class="o">=</span><span class="n">prod_cd</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">L</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">K1</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">prod_cd</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">K1</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
 <span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">overskudd_cd</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1093,8 +1093,8 @@ L^* = Q \left(\frac{(1-a)r}{aw}\right)^{a}
 K^* = Q \left(\frac{aw}{(1-a)r}\right)^{1-a}
 \]</div>
 <p>Vi får da følgende produktfunksjon:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cc61a650-7ab7-47c0-84d9-f2ecdf2183e4">
-<span class="eqno">(2)<a class="headerlink" href="#equation-cc61a650-7ab7-47c0-84d9-f2ecdf2183e4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0f41972a-8276-4d4a-a412-469d9ca94169">
+<span class="eqno">(2)<a class="headerlink" href="#equation-0f41972a-8276-4d4a-a412-469d9ca94169" title="Permalink to this equation">#</a></span>\[\begin{equation}
     Q = Q(K,L)=L^{a}K^{1-a}\tag{2}
 \end{equation}\]</div>
 <div class="cell docutils container">
@@ -1208,9 +1208,86 @@ ATC_{LS} = \frac{TC_{LS}}{Q}
 <p>Regn ut og illustrer i en figur, hvor du også sammenligner med kostnadsfunksjonen fra året før.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Substituerer verdier inn for L_løsning, K = 2</span>
+<span class="n">L_subs</span> <span class="o">=</span> <span class="n">L_løsning</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">K</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="n">Q</span><span class="p">:</span><span class="mi">1</span><span class="p">})</span>
+
+<span class="n">L_subs</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{1}{2}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Substituerer verdier inn for Q = 1 og K = 2</span>
+<span class="n">Q_subs</span> <span class="o">=</span> <span class="n">cobb_doug</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">K</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">L_subs</span><span class="p">)])</span>
+
+<span class="n">Q_subs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 1.0\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hvis produksjonen øker til Q = 2 og K = 2</span>
+<span class="n">L_subs_2</span> <span class="o">=</span> <span class="n">L_løsning</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">K</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="mi">2</span><span class="p">)])</span>
+
+<span class="n">L_subs_2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 2\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Substituerer verdier inn for Q hvis produksjonen øker med K = 2</span>
+<span class="n">Q_subs_2</span> <span class="o">=</span> <span class="n">cobb_doug</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">K</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">L_subs_2</span><span class="p">)])</span>
+
+<span class="n">Q_subs_2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 2.0\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tegner produksjonsnivå for K_0 = 2</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Q_verdier</span><span class="p">,</span> <span class="n">L_plot</span><span class="p">(</span><span class="n">Q_verdier</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Ny produksjon&quot;</span><span class="p">)</span>
+
+<span class="c1"># Tegner optimale punkt for produksjon hvor K = 2, Q = 1</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Q_subs</span><span class="p">,</span><span class="n">L_subs</span><span class="p">,</span> <span class="n">zorder</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">Q_subs</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">L_subs</span><span class="p">,</span> <span class="n">linestyles</span> <span class="o">=</span> <span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">L_subs</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">Q_subs</span><span class="p">,</span> <span class="n">linestyles</span> <span class="o">=</span> <span class="s2">&quot;--&quot;</span><span class="p">)</span>
+
+<span class="c1"># Tegner optimale punkt for produksjon hvor K= 2, Q= 2</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Q_subs_2</span><span class="p">,</span> <span class="n">L_subs_2</span><span class="p">,</span> <span class="n">zorder</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">Q_subs_2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">L_subs_2</span><span class="p">,</span> <span class="n">linestyles</span> <span class="o">=</span> <span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">L_subs_2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Q_subs_2</span><span class="p">,</span> <span class="n">linestyles</span> <span class="o">=</span> <span class="s2">&quot;--&quot;</span><span class="p">)</span>
+
+<span class="c1"># Skriver inn L_2(Q)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;$L_2(Q)$&#39;</span><span class="p">,(</span><span class="n">Q_subs_2</span><span class="o">+</span><span class="mf">0.10</span><span class="p">,</span><span class="n">L_subs_2</span><span class="o">+</span><span class="mf">0.05</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+
+<span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/52a640411e00404ae2d802e086a763f6c532b0cbe81e24cdeadd05f9740b9e9a.png" src="_images/52a640411e00404ae2d802e086a763f6c532b0cbe81e24cdeadd05f9740b9e9a.png" />
 </div>
 </div>
 </section>
@@ -1219,21 +1296,43 @@ ATC_{LS} = \frac{TC_{LS}}{Q}
 <p>Regn ut grensekostnaden og den totale gjennomsnitskostnaden i produksjonen og illustrer.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Substituerer inn for K = 1 og Q = 1, r = 1</span>
+<span class="n">AFC_subs</span> <span class="o">=</span> <span class="n">AFC</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">K</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="mi">1</span><span class="p">)])</span>
+
+<span class="n">AFC_subs</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 2\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tegner ATC og MC</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Q_verdier</span><span class="p">,</span> <span class="n">MC_plot</span><span class="p">(</span><span class="n">Q_verdier</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;$MC_2$&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Q_verdier</span><span class="p">,</span> <span class="n">ATC_plot</span><span class="p">(</span><span class="n">Q_verdier</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;$ATC_2$&quot;</span><span class="p">)</span>
+
+<span class="c1"># Tegner linjer for MC og AFC</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">AFC_subs</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">MC_subs</span><span class="p">,</span> <span class="n">linestyles</span> <span class="o">=</span> <span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">MC_subs</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">AFC_subs</span><span class="p">,</span> <span class="n">linestyles</span> <span class="o">=</span> <span class="s2">&quot;--&quot;</span><span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+
+<span class="n">fig2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/e6c3479ee55461a57c819f46d1fe7e90ffd3389ef4f9c13ffd9aa49b90d75ba3.png" src="_images/e6c3479ee55461a57c819f46d1fe7e90ffd3389ef4f9c13ffd9aa49b90d75ba3.png" />
 </div>
 </div>
 </section>
 <section id="id1">
 <h3>c) Forklar for ledelsen ved Alpha Tech forskjellene du finner i arbeidsbehov og kostnader som du ser nå, opp mot det du fant ved ditt første besøk.<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>Sammenlignet med første besøk, ser vi at grensekostnader stiger halvparten så raskt. Dette skyldes at mer kapital gjør arbeidskraften mer produktiv, noe som gjør at arbeidsbehovet for en gitt økning i produksjonen blir lavere.</p>
+<p>De to kostnadsfunksjonene krysser hverandre nå for <span class="math notranslate nohighlight">\(Q = 2\)</span>. Det betyr at de totale kostnadene faller for et større intervall av produksjon nå enn ved første besøk. Dette skyldes en kombinasjon av to faktorer. For det sførste så betyr høyere faste kostnader at det er gunstig å øke produksjonen for å ha flere enheter å fordele de faste kostnadene på. For det andre betyr mer kapital at arbeidskraften blir mer produktiv, og arbeidskraft er dermed ikke en så viktig kostnadsdriver som ved første besøk.</p>
 </section>
 </section>
 </section>
