@@ -487,9 +487,9 @@ Q = L^{0.5} K_0^{0.5} \implies Q^2 = L \cdot K_0 \implies L = \frac{Q^2}{K_0} \t
 <section id="kostnadsfunksjonen-pa-kort-sikt">
 <h3>Kostnadsfunksjonen på kort sikt<a class="headerlink" href="#kostnadsfunksjonen-pa-kort-sikt" title="Link to this heading">#</a></h3>
 <p>På kort sikt har bedriften tre typer kostnader:</p>
-<p><strong>Faste kostnader (FC)</strong>: <span class="math notranslate nohighlight">\(r \cdot K_0\)</span> kostnaden for kapital som er bundet uavhengig av produksjonsnivå
-<strong>Variable kostnader (VC)</strong>: <span class="math notranslate nohighlight">\(w \cdot L + z \cdot Q\)</span> lønnskostnader og andre variable kostnader som varierer med produksjon
-<strong>Totale kostnader (TC)</strong>: <span class="math notranslate nohighlight">\(FC + VC\)</span></p>
+<p><strong>Faste kostnader (FC)</strong>: <span class="math notranslate nohighlight">\(r \cdot K_0\)</span> kostnaden for kapital som er bundet uavhengig av produksjonsnivå</p>
+<p><strong>Variable kostnader (VC)</strong>: <span class="math notranslate nohighlight">\(w \cdot L + z \cdot Q\)</span> lønnskostnader og andre variable kostnader som varierer med produksjon</p>
+<p><strong>Totale kostnader (TC)</strong>: <span class="math notranslate nohighlight">\(FC + VC\)</span></p>
 <p>Den totale kostnaden på kort sikt er:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -682,7 +682,7 @@ Q^* = K_0 \sqrt{\frac{r}{w}} \tag{9}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7548df34885f994623402b06852666aea301f34fa4fc25b00a4213f8dd11c474.png" src="_images/7548df34885f994623402b06852666aea301f34fa4fc25b00a4213f8dd11c474.png" />
+<img alt="_images/4bbdacc3ddd6a5286bfd6afd0565b81eca3e31f959398bcddcd998fae0c9b908.png" src="_images/4bbdacc3ddd6a5286bfd6afd0565b81eca3e31f959398bcddcd998fae0c9b908.png" />
 </div>
 </div>
 </section>
@@ -700,9 +700,172 @@ Q = K^{0.5}L^{0.5}
 <h3>a) Hva er arbeidsbehovet i produksjonen og grenseproduktet til arbeidskraften i bedriften? Regn ut og illustrer.<a class="headerlink" href="#a-hva-er-arbeidsbehovet-i-produksjonen-og-grenseproduktet-til-arbeidskraften-i-bedriften-regn-ut-og-illustrer" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">C</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;L K z w r Q C&#39;</span><span class="p">)</span>
+
+<span class="c1"># Definerer balansert cobb-douglas-funksjon</span>
+<span class="n">cobb_doug</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">K</span><span class="o">**</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">L</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">cobb_doug</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle Q = K^{0.5} L^{0.5}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Løser for L</span>
+<span class="n">L_løsning</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">cobb_doug</span><span class="p">,</span> <span class="n">L</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">L_løsning</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{Q^{2}}{K}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definerer en funksjon av L for å plotte</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">L_plot</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">K</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">Q</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">K</span>
+
+<span class="n">L_plot</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">K</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{Q^{2}}{K}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Isokost</span>
+<span class="n">isokost</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">w</span><span class="o">*</span><span class="n">L</span> <span class="o">+</span> <span class="n">r</span><span class="o">*</span><span class="n">K</span><span class="p">)</span>
+
+<span class="n">isokost</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle C = K r + L w\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Figurkonfigurasjon</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_ax</span><span class="p">():</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Q&#39;</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="s2">&quot;right&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;top&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;right&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Substituerer verdier inn for L_løsning</span>
+
+<span class="n">L_subs</span> <span class="o">=</span> <span class="n">L_løsning</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">K</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
+
+<span class="n">L_subs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 1\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Substituerer verdier inn for Q = 1</span>
+
+<span class="n">Q_subs</span> <span class="o">=</span> <span class="n">cobb_doug</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">K</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">L_subs</span><span class="p">)])</span>
+
+<span class="n">Q_subs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 1\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hvis produksjonen øker til Q = 2</span>
+<span class="n">L_subs_2</span> <span class="o">=</span> <span class="n">L_løsning</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">K</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="mi">2</span><span class="p">)])</span>
+
+<span class="n">L_subs_2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 4\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Substituerer verdier inn for Q hvis produksjonen øker</span>
+
+<span class="n">Q_subs_2</span> <span class="o">=</span> <span class="n">cobb_doug</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">([(</span><span class="n">K</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">L_subs_2</span><span class="p">)])</span>
+
+<span class="n">Q_subs_2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 2.0\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Illustrerer i en figur</span>
+<span class="n">Q_verdier</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">create_ax</span><span class="p">()</span>
+
+<span class="c1"># Tegner produksjonsnivå for K_0 = 1</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Q_verdier</span><span class="p">,</span> <span class="n">L_plot</span><span class="p">(</span><span class="n">Q_verdier</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Produksjon&quot;</span><span class="p">)</span>
+
+<span class="c1"># Tegner optimale punkt for produksjon hvor K = 1, Q = 1</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Q_subs</span><span class="p">,</span><span class="n">L_subs</span><span class="p">,</span> <span class="n">zorder</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">Q_subs</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">L_subs</span><span class="p">,</span> <span class="n">linestyles</span> <span class="o">=</span> <span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">L_subs</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">Q_subs</span><span class="p">,</span> <span class="n">linestyles</span> <span class="o">=</span> <span class="s2">&quot;--&quot;</span><span class="p">)</span>
+
+<span class="c1"># Tegner optimale punkt for produksjon hvor K= 1, Q= 2</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Q_subs_2</span><span class="p">,</span> <span class="n">L_subs_2</span><span class="p">,</span> <span class="n">zorder</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">Q_subs_2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">L_subs_2</span><span class="p">,</span> <span class="n">linestyles</span> <span class="o">=</span> <span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">L_subs_2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Q_subs_2</span><span class="p">,</span> <span class="n">linestyles</span> <span class="o">=</span> <span class="s2">&quot;--&quot;</span><span class="p">)</span>
+
+<span class="c1"># Skriver inn L(Q)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;$L(Q)$&#39;</span><span class="p">,(</span><span class="n">Q_subs_2</span><span class="o">+</span><span class="mf">0.05</span><span class="p">,</span><span class="n">L_subs_2</span><span class="o">+</span><span class="mf">0.05</span><span class="p">))</span>
+
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/1ff1cf584ace4cb47e04cd72b3ced4ad4c55150053499e96dc944d86c04607fd.png" src="_images/1ff1cf584ace4cb47e04cd72b3ced4ad4c55150053499e96dc944d86c04607fd.png" />
 </div>
 </div>
 </section>
@@ -711,9 +874,113 @@ Q = K^{0.5}L^{0.5}
 <p>Regn ut grensekostnaden og den totale gjennomsnitskostnaden i produksjonen og illustrer.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fra matteboks 6.1 er de totale kostnadene definert som</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle K r + Q z + \frac{Q^{2} w}{K}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Finner grensekostnaden ved å derivere C med hensyn på Q</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle z + \frac{2 Q w}{K}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definerer grensekostnaden som en funksjon for å plotte</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle z + \frac{2 Q w}{K}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fra matteboks 6.1, gjennomsnittlige variable kostnader</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle z + \frac{Q w}{K}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fra matteboks 6.1, gjennomsnittlige faste kostnader</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{K r}{Q}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fra matteboks 6.1, gjennomsnittlige totale kostnader</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{K r}{Q} + z + \frac{Q w}{K}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definerer ATC som en funksjon for å plotte</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{K r}{Q} + z + \frac{Q w}{K}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Substituerer inn for K = 1 og Q = 1, r = 1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 1\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Substituerer inn for K = 1 og Q = 1, w = 1, z = 0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 2\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tegner ATC og MC</span>
+
+<span class="c1"># Tegner linjer for MC og AFC</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/d2843c1346435589a8693f81306d58b30cf81e68ed877a85a161137d5a3f84fb.png" src="_images/d2843c1346435589a8693f81306d58b30cf81e68ed877a85a161137d5a3f84fb.png" />
 </div>
 </div>
 </section>
@@ -788,8 +1055,8 @@ L^* = Q \left(\frac{(1-a)r}{aw}\right)^{a}
 K^* = Q \left(\frac{aw}{(1-a)r}\right)^{1-a}
 \]</div>
 <p>Vi får da følgende produktfunksjon:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5fc29550-6184-4b30-a572-25655a100e15">
-<span class="eqno">(2)<a class="headerlink" href="#equation-5fc29550-6184-4b30-a572-25655a100e15" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f209eb0a-f353-453f-bc50-4f47d4da5ff6">
+<span class="eqno">(2)<a class="headerlink" href="#equation-f209eb0a-f353-453f-bc50-4f47d4da5ff6" title="Permalink to this equation">#</a></span>\[\begin{equation}
     Q = Q(K,L)=L^{a}K^{1-a}\tag{2}
 \end{equation}\]</div>
 <div class="cell docutils container">
@@ -878,6 +1145,18 @@ ATC_{LS} = \frac{TC_{LS}}{Q}
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
 \[\displaystyle \frac{Q r \left(\frac{a w}{r \left(1 - a\right)}\right)^{1 - a} + Q w \left(\frac{r \left(1 - a\right)}{a w}\right)^{a} + Q z}{Q}\]</div>
+</div>
+</div>
+<p>Og for en balansert cobb douglas funksjon.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">ATC_eq_lang</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">a</span><span class="p">:</span> <span class="n">sp</span><span class="o">.</span><span class="n">Rational</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)})</span><span class="o">.</span><span class="n">simplify</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle r \sqrt{\frac{w}{r}} + w \sqrt{\frac{r}{w}} + z\]</div>
 </div>
 </div>
 </section>
