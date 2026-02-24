@@ -387,6 +387,11 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kostnader-pa-kort-sikt">1. Kostnader på kort sikt</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kostnadsfunksjonen-pa-kort-sikt">Kostnadsfunksjonen på kort sikt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marginalkostnaden">Marginalkostnaden</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gjennomsnittlige-variable-kostnader-avc">Gjennomsnittlige variable kostnader (AVC)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gjennomsnittlige-faste-kostnader-afc">Gjennomsnittlige faste kostnader (AFC)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gjennomsnittlige-totale-kostnader-atc">Gjennomsnittlige totale kostnader (ATC)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minimumspunktet-til-atc">Minimumspunktet til ATC</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seminaroppgave-6-2-pa-besok-hos-alpha-tech">Seminaroppgave 6.2 På besøk hos Alpha Tech</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-anta-at-prisen-pa-innsatsfaktorene-arbeidskraft-og-kapital-er-henholdsvis-w-r-1-og-at-bruken-av-vareinnsats-er-sa-liten-at-vi-kan-se-bort-ifra-den-z-0">b) Anta at prisen på innsatsfaktorene arbeidskraft og kapital er henholdsvis <span class="math notranslate nohighlight">\(w = r = 1\)</span>, og at bruken av vareinnsats er så liten at vi kan se bort ifra den <span class="math notranslate nohighlight">\(z = 0\)</span>.</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-forklar-for-ledelsen-ved-alpha-tech-forskjellene-du-finner-i-arbeidsbehov-og-kostnader-som-du-ser-na-opp-mot-det-du-fant-ved-ditt-forste-besok">c) Forklar for ledelsen ved Alpha Tech forskjellene du finner i arbeidsbehov og kostnader som du ser nå, opp mot det du fant ved ditt første besøk.</a></li>
@@ -394,6 +399,11 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skalautbytte">2. Skalautbytte</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kostnader-pa-lang-sikt">3. Kostnader på lang sikt</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#total-kostnadsfunksjon-pa-lang-sikt">Total kostnadsfunksjon på lang sikt</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marginalkostnad-pa-lang-sikt-mc-ls">Marginalkostnad på lang sikt (<span class="math notranslate nohighlight">\(MC_{LS}\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gjennomsnittlige-totale-kostnader-pa-lang-sikt-atc-ls">Gjennomsnittlige totale kostnader på lang sikt (<span class="math notranslate nohighlight">\(ATC_{LS}\)</span>)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pa-nytt-besok-hos-alpha-tech">6.3 På nytt besøk hos Alpha Tech</a><ul class="nav section-nav flex-column">
@@ -457,6 +467,10 @@ Prisen per enhet kapital er fast <span class="math notranslate nohighlight">\(r\
 </div>
 </div>
 <p>Dette kan omformuleres som arbeidsbehovet ved å løse ligning (1) for <span class="math notranslate nohighlight">\(L\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+Q = L^{0.5} K_0^{0.5} \implies Q^2 = L \cdot K_0 \implies L = \frac{Q^2}{K_0} \tag{2}
+\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L_losning</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">kvantum_eq</span><span class="p">,</span> <span class="n">L</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
@@ -471,13 +485,16 @@ Prisen per enhet kapital er fast <span class="math notranslate nohighlight">\(r\
 </div>
 <section id="kostnadsfunksjonen-pa-kort-sikt">
 <h3>Kostnadsfunksjonen på kort sikt<a class="headerlink" href="#kostnadsfunksjonen-pa-kort-sikt" title="Link to this heading">#</a></h3>
-<p>Den totale kostnaden på kort sikt er summen av Faste kostnader (FC) <span class="math notranslate nohighlight">\(r K_0\)</span> som er kostnaden for kapital bundet uavhengig av produksjonsnivå, og Variable kostnader (VC) <span class="math notranslate nohighlight">\(wL + zQ\)</span> som er lønn og andre enhetskostnader som varierer med produksjon</p>
-<p>Vi har da Totale kostnader TC</p>
+<p>På kort sikt har bedriften tre typer kostnader:</p>
+<p><strong>Faste kostnader (FC)</strong>: <span class="math notranslate nohighlight">\(r \cdot K_0\)</span> kostnaden for kapital som er bundet uavhengig av produksjonsnivå
+<strong>Variable kostnader (VC)</strong>: <span class="math notranslate nohighlight">\(w \cdot L + z \cdot Q\)</span> lønnskostnader og andre variable kostnader som varierer med produksjon
+<strong>Totale kostnader (TC)</strong>: <span class="math notranslate nohighlight">\(FC + VC\)</span></p>
+<p>Den totale kostnaden på kort sikt er:</p>
 <div class="math notranslate nohighlight">
 \[
 TC = \underbrace{w\cdot L}_{\text{lønnskostnader}} + \underbrace{z \cdot Q}_{\text{andre variable kostnader}}  + \underbrace{r \cdot K_0}_{\text{kapitalkostnader}}
 \]</div>
-<p>Ved å subsittuere inn uttrykket for L fra ligning (2) får vi kostnadene som en funksjon av <span class="math notranslate nohighlight">\(Q\)</span></p>
+<p>Ved å substituere inn uttrykket for <span class="math notranslate nohighlight">\(L\)</span> fra ligning (2) får vi kostnadene som en funksjon av <span class="math notranslate nohighlight">\(Q\)</span> alene:</p>
 <div class="math notranslate nohighlight">
 \[
 TC(Q) = \frac{wQ^2}{K_0} + zQ +rK_0
@@ -496,7 +513,15 @@ TC(Q) = \frac{wQ^2}{K_0} + zQ +rK_0
 \[\displaystyle K_{0} r + Q z + \frac{Q^{2} w}{K_{0}}\]</div>
 </div>
 </div>
-<p>Marginalkostnaden finner vi ved å derivere med hensyn på Q. Den viser hvor mye kostnadene øker når produksjonen øker med en enhet.</p>
+</section>
+<section id="marginalkostnaden">
+<h3>Marginalkostnaden<a class="headerlink" href="#marginalkostnaden" title="Link to this heading">#</a></h3>
+<p>Marginalkostnaden finner vi ved å derivere totalkostnaden med hensyn på <span class="math notranslate nohighlight">\(Q\)</span>. Den viser hvor mye kostnadene øker når produksjonen øker med en enhet</p>
+<div class="math notranslate nohighlight">
+\[
+MC = \frac{\partial TC}{\partial Q} = \frac{2wQ}{K_0} + z \tag{5}
+\]</div>
+<p>Vi ser at marginalkostnaden er lineær og stigende i <span class="math notranslate nohighlight">\(Q\)</span>. Jo mer vi produserer, desto dyrere blir den neste enheten. Siden hver ny arbeider bidrar med mindre produksjon, koster det mer per enhet ekstra produksjon.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MC_eq_kort</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">TC_eq_kort</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span> <span class="c1">#Marginalkostnad </span>
@@ -509,20 +534,36 @@ TC(Q) = \frac{wQ^2}{K_0} + zQ +rK_0
 \[\displaystyle z + \frac{2 Q w}{K_{0}}\]</div>
 </div>
 </div>
-<p>Vi definerer de gjennomsnittlige variable kostnader som er variable kostnader per produsert enhet.</p>
+</section>
+<section id="gjennomsnittlige-variable-kostnader-avc">
+<h3>Gjennomsnittlige variable kostnader (AVC)<a class="headerlink" href="#gjennomsnittlige-variable-kostnader-avc" title="Link to this heading">#</a></h3>
+<p>De gjennomsnittlige variable kostnadene er variable kostnader per produsert enhet:</p>
+<div class="math notranslate nohighlight">
+\[
+AVC = \frac{VC}{Q} = \frac{\frac{wQ^2}{K_0 + zQ}}{Q} = \frac{wQ}{K_0} + z \tag{6}
+\]</div>
+<p><span class="math notranslate nohighlight">\(MC = 2 \cdot \frac{wQ}{K_0} + z\)</span> mens <span class="math notranslate nohighlight">\(AVC = \frac{wQ}{K_0} + z\)</span>. Marginalkostnaden stiger altså dobbelt så raskt som gjennomsnittlige variable kostnader.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">AVC_eq_kort</span> <span class="o">=</span> <span class="n">VC_eq_kort</span><span class="o">/</span><span class="n">Q</span>
-<span class="n">display</span><span class="p">(</span><span class="n">AVC_eq_kort</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">AVC_eq_kort</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \frac{Q z + \frac{Q^{2} w}{K_{0}}}{Q}\]</div>
+\[\displaystyle z + \frac{Q w}{K_{0}}\]</div>
 </div>
 </div>
-<p>Og de gjennomsnittlige faste kostnadene per enhet.</p>
+</section>
+<section id="gjennomsnittlige-faste-kostnader-afc">
+<h3>Gjennomsnittlige faste kostnader (AFC)<a class="headerlink" href="#gjennomsnittlige-faste-kostnader-afc" title="Link to this heading">#</a></h3>
+<p>De gjennomsnittlige faste kostnadene per enhet er</p>
+<div class="math notranslate nohighlight">
+\[
+AFC = \frac{FC}{Q} = \frac{rK_0}{Q} \tag{7}
+\]</div>
+<p>AFC synker asymptotisk mot null når <span class="math notranslate nohighlight">\(Q\)</span> øker. De faste kostnadene spres på flere enheter når produksjonen øker.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">AFC_eq_kort</span> <span class="o">=</span> <span class="n">FC_eq_kort</span><span class="o">/</span><span class="n">Q</span>
@@ -535,19 +576,39 @@ TC(Q) = \frac{wQ^2}{K_0} + zQ +rK_0
 \[\displaystyle \frac{K_{0} r}{Q}\]</div>
 </div>
 </div>
-<p>Her har vi da de gjennomsnittlige totale kostnadene per enhet. Vi skriver “ATC” for “Average Total cost”</p>
+</section>
+<section id="gjennomsnittlige-totale-kostnader-atc">
+<h3>Gjennomsnittlige totale kostnader (ATC)<a class="headerlink" href="#gjennomsnittlige-totale-kostnader-atc" title="Link to this heading">#</a></h3>
+<p>De gjennomsnittlige totale kostnadene per enhet er summen av AVC og AFC</p>
+<div class="math notranslate nohighlight">
+\[
+ATC = AVC + AFC = \frac{wQ}{K_0} + z + \frac{rK_0}{Q} \tag{8}
+\]</div>
+<p>I bunnpunktet av ATC-kurven er <span class="math notranslate nohighlight">\(MC = ATC\)</span>. Dette kan vi finne ved å derivere ATC med hensyn på <span class="math notranslate nohighlight">\(Q\)</span> og sette uttrykket lik null.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ATC_eq_kort</span> <span class="o">=</span> <span class="n">AVC_eq_kort</span><span class="o">+</span><span class="n">AFC_eq_kort</span>
-<span class="n">display</span><span class="p">(</span><span class="n">ATC_eq_kort</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">ATC_eq_kort</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \frac{K_{0} r}{Q} + \frac{Q z + \frac{Q^{2} w}{K_{0}}}{Q}\]</div>
+\[\displaystyle \frac{K_{0} r}{Q} + z + \frac{Q w}{K_{0}}\]</div>
 </div>
 </div>
+</section>
+<section id="minimumspunktet-til-atc">
+<h3>Minimumspunktet til ATC<a class="headerlink" href="#minimumspunktet-til-atc" title="Link to this heading">#</a></h3>
+<p>Minimumspunktet til ATC finner vi ved å derivere med hensyn på <span class="math notranslate nohighlight">\(Q\)</span> og sette lik null. I dette punktet vil <span class="math notranslate nohighlight">\(ATC = MC\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial ATC}{\partial Q} = \frac{w}{K_0} - \frac{rK_0}{Q^2} = 0
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+Q^* = K_0 \sqrt{\frac{r}{w}} \tag{9}
+\]</div>
 <p>Minimumspunktet til ATC kan vi finne ved å derivere med hensyn på Q og satt lik 0. I dette punktet vil ATC=MC</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -559,6 +620,22 @@ TC(Q) = \frac{wQ^2}{K_0} + zQ +rK_0
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
 \[\displaystyle \frac{K_{0} \sqrt{r}}{\sqrt{w}}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MC_i_min</span> <span class="o">=</span> <span class="n">MC_eq_kort</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">Minimum_ATC_kort</span><span class="p">)</span>
+<span class="n">ATC_i_min</span> <span class="o">=</span> <span class="n">ATC_eq_kort</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">Minimum_ATC_kort</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">MC_i_min</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">ATC_i_min</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 2 \sqrt{r} \sqrt{w} + z\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 2 \sqrt{r} \sqrt{w} + z\]</div>
 </div>
 </div>
 <p>Vi lager en illustrasjonsfigur. Vi bruker “Lambdify” for å omgjøre sympy ligninger om til plottbare funksjoner</p>
@@ -696,34 +773,29 @@ Q = Q(K,L)=K^{0.5}L^{0.5}\;\;(1)
 </ul>
 <section id="kostnader-pa-lang-sikt">
 <h3>3. Kostnader på lang sikt<a class="headerlink" href="#kostnader-pa-lang-sikt" title="Link to this heading">#</a></h3>
-<p>På lang sikt vil vi kunne endre både innsatsen av kapital (K) og arbeidskraft (L).</p>
+<p>På lang sikt kan bedriften fritt tilpasse alle innsatsfaktorer, inkludert kapital. Det betyr at det ikke lenger finnes faste kostnader, alle kostnader er variable.</p>
+<p>Fra Kapittel 5 (matteboks 5.2) vet vi at den optimale faktorinnsatsen for en Cobb-Douglas produktfunksjon <span class="math notranslate nohighlight">\(Q = K^{1-a}L^a\)</span> er gitt ved:</p>
+<div class="math notranslate nohighlight">
+\[
+L^* = Q \left(\frac{(1-a)r}{aw}\right)^{a}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+K^* = Q \left(\frac{aw}{(1-a)r}\right)^{1-a}
+\]</div>
 <p>Vi får da følgende produktfunksjon:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1034da9a-36ed-4152-ae02-9d88813826fe">
-<span class="eqno">(2)<a class="headerlink" href="#equation-1034da9a-36ed-4152-ae02-9d88813826fe" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7e83aa46-69fe-4e08-8f17-8a28a790a86e">
+<span class="eqno">(2)<a class="headerlink" href="#equation-7e83aa46-69fe-4e08-8f17-8a28a790a86e" title="Permalink to this equation">#</a></span>\[\begin{equation}
     Q = Q(K,L)=L^{a}K^{1-a}\tag{2}
 \end{equation}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fra matteboks 5.2 i kapittel 5 vet vi at optimal innsats av kapital er lik: og arbeidskraft</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">K_opt</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">a</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">Q</span><span class="o">*</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">w</span><span class="o">/</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">r</span><span class="p">))</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">a</span><span class="p">)</span>
-<span class="n">K_opt</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle Q \left(\frac{a w}{r \left(1 - a\right)}\right)^{1 - a}\]</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># og optimal innsatsen arbeidskraft er lik</span>
+<span class="n">L_opt</span> <span class="o">=</span> <span class="n">Q</span><span class="o">*</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">r</span><span class="o">/</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">w</span><span class="p">))</span><span class="o">**</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">K_opt</span> <span class="o">=</span> <span class="n">Q</span><span class="o">*</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">w</span><span class="o">/</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">r</span><span class="p">))</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">a</span><span class="p">)</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">L_opt</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">a</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">Q</span><span class="o">*</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">r</span><span class="o">/</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">w</span><span class="p">))</span><span class="o">**</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="n">L_opt</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+<span class="n">L_opt</span>
 </pre></div>
 </div>
 </div>
@@ -734,35 +806,29 @@ Q = Q(K,L)=K^{0.5}L^{0.5}\;\;(1)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># kostnad på lang sikt</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">C_l</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">L</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">w</span><span class="o">*</span><span class="n">L</span><span class="o">+</span><span class="n">r</span><span class="o">*</span><span class="n">K</span><span class="o">+</span><span class="n">z</span><span class="o">*</span><span class="n">Q</span>
-<span class="n">C_l</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">L</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">K_opt</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle K r + L w + Q z\]</div>
+\[\displaystyle Q \left(\frac{a w}{r \left(1 - a\right)}\right)^{1 - a}\]</div>
 </div>
 </div>
+</section>
+</section>
+<section id="total-kostnadsfunksjon-pa-lang-sikt">
+<h2>Total kostnadsfunksjon på lang sikt<a class="headerlink" href="#total-kostnadsfunksjon-pa-lang-sikt" title="Link to this heading">#</a></h2>
+<p>Kostnadsfunksjonen på lang sikt inkluderer lønnskostnader, kapitalkostnader og vareinnsats:</p>
+<div class="math notranslate nohighlight">
+\[
+TC_{LS} = w \cdot L^* + r \cdot K^* + z \cdot Q
+\]</div>
+<p>Ved å substituere inn de optimale faktorinnsatsene får vi en kostnadsfunksjon som kun avhenger av <span class="math notranslate nohighlight">\(Q\)</span> og prisene.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">TC_l</span><span class="o">=</span><span class="n">C_l</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">L</span><span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">L_opt</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">a</span><span class="p">))</span>
-<span class="n">display</span><span class="p">(</span><span class="n">TC_l</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle K r + Q w \left(\frac{r \left(1 - a\right)}{a w}\right)^{a} + Q z\]</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># totale kostnader på lang sikt</span>
-<span class="n">TC_l</span><span class="o">=</span><span class="p">(</span><span class="n">C_l</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">L</span><span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">L_opt</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">a</span><span class="p">)))</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">K_opt</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">a</span><span class="p">))</span>
-<span class="n">display</span><span class="p">(</span><span class="n">TC_l</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">TC_eq_lang</span> <span class="o">=</span> <span class="n">w</span><span class="o">*</span><span class="n">L_opt</span> <span class="o">+</span> <span class="n">r</span><span class="o">*</span><span class="n">K_opt</span> <span class="o">+</span> <span class="n">z</span><span class="o">*</span><span class="n">Q</span>
+<span class="n">display</span><span class="p">(</span><span class="n">TC_eq_lang</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -771,12 +837,18 @@ Q = Q(K,L)=K^{0.5}L^{0.5}\;\;(1)
 \[\displaystyle Q r \left(\frac{a w}{r \left(1 - a\right)}\right)^{1 - a} + Q w \left(\frac{r \left(1 - a\right)}{a w}\right)^{a} + Q z\]</div>
 </div>
 </div>
+<section id="marginalkostnad-pa-lang-sikt-mc-ls">
+<h3>Marginalkostnad på lang sikt (<span class="math notranslate nohighlight">\(MC_{LS}\)</span>)<a class="headerlink" href="#marginalkostnad-pa-lang-sikt-mc-ls" title="Link to this heading">#</a></h3>
+<p>Marginalkostnaden på lang sikt finner vi ved å derivere den totale kostnadsfunksjonen med hensyn på <span class="math notranslate nohighlight">\(Q\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+MC_{LS} = \frac{\partial TC_L}{\partial Q}
+\]</div>
+<p>Denne viser hvor mye kostnadene øker når produksjonen øker med én enhet, gitt at bedriften optimalt tilpasser alle faktorinnsatser.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Grensekostnader </span>
-<span class="k">def</span><span class="w"> </span><span class="nf">MC</span><span class="p">(</span><span class="n">TQ</span><span class="p">,</span><span class="n">K</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">((</span><span class="n">C_l</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">L</span><span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">L_opt</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">a</span><span class="p">)))</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">K_opt</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">a</span><span class="p">)),</span><span class="n">Q</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">MC</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">K</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MC_eq_lang</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">TC_eq_lang</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">MC_eq_lang</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -785,14 +857,18 @@ Q = Q(K,L)=K^{0.5}L^{0.5}\;\;(1)
 \[\displaystyle r \left(\frac{a w}{r \left(1 - a\right)}\right)^{1 - a} + w \left(\frac{r \left(1 - a\right)}{a w}\right)^{a} + z\]</div>
 </div>
 </div>
+</section>
+<section id="gjennomsnittlige-totale-kostnader-pa-lang-sikt-atc-ls">
+<h3>Gjennomsnittlige totale kostnader på lang sikt (<span class="math notranslate nohighlight">\(ATC_{LS}\)</span>)<a class="headerlink" href="#gjennomsnittlige-totale-kostnader-pa-lang-sikt-atc-ls" title="Link to this heading">#</a></h3>
+<p>De gjennomsnittlige totale kostnadene på lang sikt er:</p>
+<div class="math notranslate nohighlight">
+\[
+ATC_{LS} = \frac{TC_{LS}}{Q}
+\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gjennomsnittlige totale kostnader</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">ATC_LS</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">K</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">((</span><span class="n">C_l</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">L</span><span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">L_opt</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">a</span><span class="p">)))</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">K_opt</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">a</span><span class="p">))</span><span class="o">/</span><span class="n">Q</span><span class="p">)</span>
-
-<span class="n">ATC_LS</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">K</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ATC_eq_lang</span> <span class="o">=</span> <span class="n">TC_eq_lang</span><span class="o">/</span><span class="n">Q</span>
+<span class="n">display</span><span class="p">(</span><span class="n">ATC_eq_lang</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -908,6 +984,11 @@ Q = Q(K,L)=K^{0.5}L^{0.5}\;\;(1)
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kostnader-pa-kort-sikt">1. Kostnader på kort sikt</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kostnadsfunksjonen-pa-kort-sikt">Kostnadsfunksjonen på kort sikt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marginalkostnaden">Marginalkostnaden</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gjennomsnittlige-variable-kostnader-avc">Gjennomsnittlige variable kostnader (AVC)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gjennomsnittlige-faste-kostnader-afc">Gjennomsnittlige faste kostnader (AFC)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gjennomsnittlige-totale-kostnader-atc">Gjennomsnittlige totale kostnader (ATC)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minimumspunktet-til-atc">Minimumspunktet til ATC</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seminaroppgave-6-2-pa-besok-hos-alpha-tech">Seminaroppgave 6.2 På besøk hos Alpha Tech</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-anta-at-prisen-pa-innsatsfaktorene-arbeidskraft-og-kapital-er-henholdsvis-w-r-1-og-at-bruken-av-vareinnsats-er-sa-liten-at-vi-kan-se-bort-ifra-den-z-0">b) Anta at prisen på innsatsfaktorene arbeidskraft og kapital er henholdsvis <span class="math notranslate nohighlight">\(w = r = 1\)</span>, og at bruken av vareinnsats er så liten at vi kan se bort ifra den <span class="math notranslate nohighlight">\(z = 0\)</span>.</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-forklar-for-ledelsen-ved-alpha-tech-forskjellene-du-finner-i-arbeidsbehov-og-kostnader-som-du-ser-na-opp-mot-det-du-fant-ved-ditt-forste-besok">c) Forklar for ledelsen ved Alpha Tech forskjellene du finner i arbeidsbehov og kostnader som du ser nå, opp mot det du fant ved ditt første besøk.</a></li>
@@ -915,6 +996,11 @@ Q = Q(K,L)=K^{0.5}L^{0.5}\;\;(1)
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skalautbytte">2. Skalautbytte</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kostnader-pa-lang-sikt">3. Kostnader på lang sikt</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#total-kostnadsfunksjon-pa-lang-sikt">Total kostnadsfunksjon på lang sikt</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marginalkostnad-pa-lang-sikt-mc-ls">Marginalkostnad på lang sikt (<span class="math notranslate nohighlight">\(MC_{LS}\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gjennomsnittlige-totale-kostnader-pa-lang-sikt-atc-ls">Gjennomsnittlige totale kostnader på lang sikt (<span class="math notranslate nohighlight">\(ATC_{LS}\)</span>)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pa-nytt-besok-hos-alpha-tech">6.3 På nytt besøk hos Alpha Tech</a><ul class="nav section-nav flex-column">
