@@ -448,8 +448,8 @@ Vi kan skrive fortjenesten som en funksjon av produsert mengde <span class="math
 <section id="profittmaksimering-og-lonnsomhet">
 <h3>Profittmaksimering og lønnsomhet<a class="headerlink" href="#profittmaksimering-og-lonnsomhet" title="Link to this heading">#</a></h3>
 <p>Vi har følgende produktfunksjon:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-64e57c94-efab-4ec8-a2f4-6291fe72e73a">
-<span class="eqno">(3)<a class="headerlink" href="#equation-64e57c94-efab-4ec8-a2f4-6291fe72e73a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2ea8cf91-46fc-4557-9153-7c48c4802564">
+<span class="eqno">(3)<a class="headerlink" href="#equation-2ea8cf91-46fc-4557-9153-7c48c4802564" title="Permalink to this equation">#</a></span>\[\begin{equation}
     Q = Q(K,L)=L^{0.5}K_0^{0.5}\tag{4}
 \end{equation}\]</div>
 <p>Fra forelesning Kapittel 6, matteboks 6.1 vet vi at grensekostnaden er gitt ved</p>
@@ -690,9 +690,65 @@ MC_A = MC_B = 2Q
 </div>
 </div>
 <p>b) Sammenlign profitten for de to produsentene dersom prisen på laks er <span class="math notranslate nohighlight">\(P = 2\)</span>.</p>
+<p>For å profittmaksimere må vi huske at vi må sette prisen lik grensekostnaden, så <span class="math notranslate nohighlight">\(P = MC\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+2 = 2Q \Rightarrow Q = 1
+\]</div>
+<p>For <span class="math notranslate nohighlight">\(P = 2\)</span> og <span class="math notranslate nohighlight">\(MC = 2Q\)</span> så velger produsentene <span class="math notranslate nohighlight">\(Q_A = Q_B = 1\)</span>, siden pris her er lik grensekostnad, som er kriteriet for maksimal profitt. Vi ser at for produsent <span class="math notranslate nohighlight">\(B\)</span> så har vi en situasjon med null profitt, siden prisen er lik de gjennomsnittlige totale kostnadene.</p>
+<p>Produsent <span class="math notranslate nohighlight">\(A\)</span>, derimot, har profitt:</p>
+<div class="math notranslate nohighlight">
+\[
+\pi_A = (P - ATC_A) \cdot Q_A = (2 - 1) \cdot 1 = 1
+\]</div>
+<p>Dette kan vi vise med å bruke funksjonen fill_between i matplotlib, som fyller området mellom to kurver, i dette tilfellet mellom prisen og gjennomsnittlige totale kostnader for produsent <span class="math notranslate nohighlight">\(A\)</span>. Forskjellen i profitt mellom <span class="math notranslate nohighlight">\(A\)</span> og <span class="math notranslate nohighlight">\(B\)</span> skyldes det faktum at <span class="math notranslate nohighlight">\(A\)</span> har fått kosesjonene gratis.</p>
+<p>Produsent <span class="math notranslate nohighlight">\(A\)</span> har med dette en “superprofitt”, som man ofte referer til som en ressursrente eller <em>grunnrente</em>. For produsent <span class="math notranslate nohighlight">\(B\)</span> tilfaller grunnrenten staten, som har solgt konsesjonen for en pris <span class="math notranslate nohighlight">\(r\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setter P = 2</span>
+<span class="n">P</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="c1"># Setter P = MC</span>
+<span class="n">profitt_max</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">MC</span><span class="p">)</span>
+
+<span class="n">profitt_max</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Løser for Q</span>
+<span class="n">Q_løsning_2</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">profitt_max</span><span class="p">,</span> <span class="n">Q</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">Q_løsning_2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ATC_A</span> <span class="o">=</span> <span class="n">ATC_plot</span><span class="p">(</span><span class="n">Q_løsning_2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">ATC_A</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tegner linjer for MC og ATC_A</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">ATC_A</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">Q_løsning_2</span><span class="p">,</span> <span class="n">linestyles</span> <span class="o">=</span> <span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;green&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">Q_løsning_2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">ATC_A</span><span class="p">,</span> <span class="n">linestyles</span> <span class="o">=</span> <span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;green&quot;</span><span class="p">)</span>
+
+<span class="c1"># Fylt område for superprofitten</span>
+<span class="n">Q_fill</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">Q_løsning_2</span><span class="p">),</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">Q_fill</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">ATC_A</span><span class="p">),</span> <span class="n">P</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Profitt A&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">fig</span>
 </pre></div>
 </div>
 </div>
