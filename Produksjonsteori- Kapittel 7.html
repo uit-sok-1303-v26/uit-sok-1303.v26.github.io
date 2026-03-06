@@ -446,8 +446,8 @@ Vi kan skrive fortjenesten som en funksjon av produsert mengde <span class="math
 <section id="profittmaksimering-og-lonnsomhet">
 <h3>Profittmaksimering og lønnsomhet<a class="headerlink" href="#profittmaksimering-og-lonnsomhet" title="Link to this heading">#</a></h3>
 <p>Vi har følgende produktfunksjon:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-88907d66-538c-4b3b-b837-ba022ffdbb46">
-<span class="eqno">(3)<a class="headerlink" href="#equation-88907d66-538c-4b3b-b837-ba022ffdbb46" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a660e02b-637a-4341-b73f-bf4cb85b1691">
+<span class="eqno">(3)<a class="headerlink" href="#equation-a660e02b-637a-4341-b73f-bf4cb85b1691" title="Permalink to this equation">#</a></span>\[\begin{equation}
     Q = Q(K,L)=L^{0.5}K_0^{0.5}\tag{4}
 \end{equation}\]</div>
 <p>Fra forelesning Kapittel 6, matteboks 6.1 vet vi at grensekostnaden er gitt ved</p>
@@ -502,11 +502,25 @@ Vi kan skrive fortjenesten som en funksjon av produsert mengde <span class="math
 <p>Du er utnevnt som sekretær i et utvalg som skal se på beskatning i havbruket, og har fått i oppdrag av uvalgslederen å bruke mikroøkonomisk teori til å si noe om lønnsomheten i næringen. Anta at lakseproduksjonen er gitt ved produktfunksjonen <span class="math notranslate nohighlight">\(Q = K^{0.5}S^{0.5}\)</span>, der <span class="math notranslate nohighlight">\(K\)</span> er naturkapital og <span class="math notranslate nohighlight">\(S\)</span> er smolt (altså laksebabyer) som oppdretterne kjøper inn og videreforedler til ferdig laks.</p>
 <p>Naturen er en gitt faktor, et konsesjonsområde, hvor både størrelsen på anlegget og antall i næringen er regulert av staten. Anta at størrelsen på hver konsesjon er gitt ved <span class="math notranslate nohighlight">\(K_0 = 1\)</span>. Tidligere ble konsesjonene delt ut gratis, mens produsentene i de siste årene har måttet betale for dem. Lakseprodusent <span class="math notranslate nohighlight">\(A\)</span> var tidlig ute og fikk konsesjonen gratis, <span class="math notranslate nohighlight">\(r_A = 0\)</span>, mens <span class="math notranslate nohighlight">\(B\)</span> kom til senere og måtte betale en pris <span class="math notranslate nohighlight">\(r_B = 1\)</span>. Prisen på smolt er lik for begge produsentene og gitt ved <span class="math notranslate nohighlight">\(s = 1\)</span>.</p>
 <p>a) Regn ut kostnadene (grensekostnader, gjennomsnittlige variable kostnader, gjennomsnittlige totale kostnader) for produsent <span class="math notranslate nohighlight">\(A\)</span> og <span class="math notranslate nohighlight">\(B\)</span> og illustrer.</p>
+<p>Starter med å skrive inn Cobb-Douglas-produktfunksjonen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">S</span><span class="p">,</span><span class="n">K_0</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">z</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span><span class="n">K</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;S K_0 w r Q C z L K&#39;</span><span class="p">)</span>
+
+<span class="c1">#k_0 = 1, w = 1, z = 0</span>
+<span class="n">K_0</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">w</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">z</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="c1"># Definerer balansert cobb-douglas-funksjon</span>
+<span class="n">cobb_doug</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">K_0</span><span class="o">**</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">S</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">cobb_doug</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle Q = 1.0 S^{0.5}\]</div>
 </div>
 </div>
 <p>b) Sammenlign profitten for de to produsentene dersom prisen på laks er <span class="math notranslate nohighlight">\(P = 2\)</span>.</p>
@@ -672,7 +686,7 @@ Q = Q(K,L)=L^{0.5}K_0^{0.5}\tag{9}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/959cf9055fe1714bb18516d8cd1a9e16f940e9524804fd4c2dd7bffa0870f0bc.png" src="_images/959cf9055fe1714bb18516d8cd1a9e16f940e9524804fd4c2dd7bffa0870f0bc.png" />
+<img alt="_images/e57cbbc79bd97f4df7d509849a984e41b5b2285a72a29a20fadbb27120e8ad2a.png" src="_images/e57cbbc79bd97f4df7d509849a984e41b5b2285a72a29a20fadbb27120e8ad2a.png" />
 </div>
 </div>
 </section>
