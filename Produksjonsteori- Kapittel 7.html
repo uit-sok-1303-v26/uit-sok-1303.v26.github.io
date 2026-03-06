@@ -448,8 +448,8 @@ Vi kan skrive fortjenesten som en funksjon av produsert mengde <span class="math
 <section id="profittmaksimering-og-lonnsomhet">
 <h3>Profittmaksimering og lønnsomhet<a class="headerlink" href="#profittmaksimering-og-lonnsomhet" title="Link to this heading">#</a></h3>
 <p>Vi har følgende produktfunksjon:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2ea8cf91-46fc-4557-9153-7c48c4802564">
-<span class="eqno">(3)<a class="headerlink" href="#equation-2ea8cf91-46fc-4557-9153-7c48c4802564" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7dd3e7f7-ca0f-4c6a-a987-f8482cfd2054">
+<span class="eqno">(3)<a class="headerlink" href="#equation-7dd3e7f7-ca0f-4c6a-a987-f8482cfd2054" title="Permalink to this equation">#</a></span>\[\begin{equation}
     Q = Q(K,L)=L^{0.5}K_0^{0.5}\tag{4}
 \end{equation}\]</div>
 <p>Fra forelesning Kapittel 6, matteboks 6.1 vet vi at grensekostnaden er gitt ved</p>
@@ -715,6 +715,10 @@ MC_A = MC_B = 2Q
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 2 = 2 Q\]</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -725,6 +729,10 @@ MC_A = MC_B = 2Q
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 1\]</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -733,6 +741,10 @@ MC_A = MC_B = 2Q
 <span class="n">ATC_A</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 1\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -752,6 +764,9 @@ MC_A = MC_B = 2Q
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/74fa41d345d2457e93f3546d6adbf4e8d319bd6e98555fc54c816f3210a3a376.png" src="_images/74fa41d345d2457e93f3546d6adbf4e8d319bd6e98555fc54c816f3210a3a376.png" />
+</div>
 </div>
 </section>
 <section id="profitten-gar-opp-og-ned">
@@ -766,9 +781,278 @@ Q = K_0^{0.5}L^{0.5},
 <p><em>Hint:</em> Punkt <span class="math notranslate nohighlight">\(a\)</span> finnes på samme metode som første oppgave, punkt <span class="math notranslate nohighlight">\(b\)</span> og <span class="math notranslate nohighlight">\(c\)</span> trenger ABC-formelen og punkt <span class="math notranslate nohighlight">\(d\)</span> finner vi ved å sette <span class="math notranslate nohighlight">\(P = AVC\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definerer tallverdier</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">w</span> <span class="o">=</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">K</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="c1"># Definerer balansert cobb-douglas-funksjon</span>
+<span class="n">cobb_doug</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">K</span><span class="o">**</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">L</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">cobb_doug</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle Q = 1.0 L^{0.5}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fra matteboks 6.1 er kostnadene definert som</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">w</span><span class="o">*</span><span class="n">Q</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">K</span> <span class="o">+</span> <span class="n">z</span><span class="o">*</span><span class="n">Q</span><span class="o">+</span> <span class="n">r</span><span class="o">*</span><span class="n">K</span>
+
+<span class="n">C</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle Q^{2} + Q + 1\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Finner grensekostnaden ved å derivere C med hensyn på Q</span>
+<span class="n">MC</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+
+<span class="n">MC</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 2 Q + 1\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definerer grensekostnaden som en funksjon for å plotte</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">MC_plot</span><span class="p">(</span><span class="n">Q</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">Q</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fra matteboks 6.1, gjennomsnittlige variable kostnader</span>
+<span class="n">AVC</span> <span class="o">=</span> <span class="n">w</span><span class="o">*</span><span class="n">Q</span><span class="o">/</span><span class="n">K</span> <span class="o">+</span> <span class="n">z</span>
+
+<span class="n">AVC</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle Q + 1\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definerer AVC som en funksjon for å plotte</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">AVC_plot</span><span class="p">(</span><span class="n">Q</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">Q</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fra matteboks 6.1, gjennomsnittlige faste kostnader</span>
+<span class="n">FC</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="n">K_0</span><span class="o">/</span><span class="n">Q</span>
+
+<span class="n">FC</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{1}{Q}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fra matteboks 6.1, gjennomsnittlige totale kostnader</span>
+<span class="n">ATC</span> <span class="o">=</span> <span class="n">VC</span> <span class="o">+</span> <span class="n">FC</span>
+
+<span class="n">ATC</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle Q + \frac{1}{Q}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definerer ATC som en funksjon for å plotte</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">ATC_plot</span><span class="p">(</span><span class="n">Q</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">Q</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">Q</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setter P = 2</span>
+<span class="n">P_2</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="c1"># Setter P = MC</span>
+<span class="n">profitt_max</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">P_2</span><span class="p">,</span> <span class="n">MC</span><span class="p">)</span>
+
+<span class="n">profitt_max</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 5 = 2 Q + 1\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Løser for Q, dette gir oss punkt b</span>
+<span class="n">Q_løsning</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">profitt_max</span><span class="p">,</span> <span class="n">Q</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">Q_løsning</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 2\]</div>
+</div>
+</div>
+<p>Når er profitten null? Fra abc-formelen for andregradsligninger, <span class="math notranslate nohighlight">\(ax^2 + bx + c = 0\)</span>, så kan vi finne at profitten er null for:</p>
+<div class="math notranslate nohighlight">
+\[
+Q = \frac{P-1 \pm \sqrt{(P-1)^2 - 4}}{2}
+\]</div>
+<p>Siden <span class="math notranslate nohighlight">\(P = 5\)</span> så finner vi punktene <span class="math notranslate nohighlight">\(a\)</span> og <span class="math notranslate nohighlight">\(d\)</span> ved å sette inn i formelen:</p>
+<div class="math notranslate nohighlight">
+\[
+Q = \frac{5 -1 - \sqrt{(5 - 1)^2 - 4}}{2} = \approx 0.27
+\]</div>
+<p>og for punkt <span class="math notranslate nohighlight">\(d\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+Q = \frac{5 -1 + \sqrt{(5 - 1)^2 - 4}}{2} = \approx 3.73
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># abc-formelen for punkt a</span>
+
+<span class="n">Q_a</span> <span class="o">=</span> <span class="nb">round</span><span class="p">((</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">sp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">Q_a</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 0.27\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # abc-formelen for punkt c</span>
+<span class="n">Q_c</span> <span class="o">=</span> <span class="nb">round</span><span class="p">((</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">sp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">Q_c</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 3.73\]</div>
+</div>
+</div>
+<p>Punkt <span class="math notranslate nohighlight">\(d\)</span> finner vi hvor dekningsbidraget er null, altså hvor <span class="math notranslate nohighlight">\(P = AVC\)</span>. Siden <span class="math notranslate nohighlight">\(AVC = 1 + Q\)</span> så finner vi at <span class="math notranslate nohighlight">\(Q = 4\)</span> for punkt <span class="math notranslate nohighlight">\(d\)</span>. Det er altså ikke lønnsomt å produsere mer enn 3.73 enheter, og det er ikke lønnsomt å produsere mindre enn 0.27 enheter.</p>
+<p>Profitten er størst i intervallet mellom disse to punktene, og den går ned når produksjonen går mot enten <span class="math notranslate nohighlight">\(a\)</span> eller <span class="math notranslate nohighlight">\(d\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># P_2 = AVC</span>
+<span class="n">ligning</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">P_2</span><span class="p">,</span> <span class="n">AVC</span><span class="p">)</span>
+
+<span class="n">ligning</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 5 = Q + 1\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Løser for Q</span>
+<span class="n">Q_d</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">ligning</span><span class="p">,</span> <span class="n">Q</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">Q_d</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 4\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Figurkonfigurasjon</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_ax</span><span class="p">():</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Q&#39;</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="s2">&quot;right&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;top&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;right&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Q_verdier</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">create_ax</span><span class="p">()</span>
+
+<span class="c1"># Tegner ATC og MC</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Q_verdier</span><span class="p">,</span> <span class="n">MC_plot</span><span class="p">(</span><span class="n">Q_verdier</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;$MC$&quot;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;cornflowerblue&quot;</span><span class="p">)</span>
+<span class="c1"># r = 0 for ATC_A, r = 1 for ATC_B</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Q_verdier</span><span class="p">,</span> <span class="n">ATC_plot</span><span class="p">(</span><span class="n">Q_verdier</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;$ATC$&quot;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;palevioletred&quot;</span><span class="p">)</span>
+<span class="c1"># Tegner AVC</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Q_verdier</span><span class="p">,</span> <span class="n">AVC_plot</span><span class="p">(</span><span class="n">Q_verdier</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;$AVC$&quot;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span><span class="p">)</span>
+
+<span class="c1"># tegner punkt a</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Q_a</span><span class="p">,</span><span class="n">P_2</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">zorder</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+<span class="c1"># tegner punkt b</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Q_løsning</span><span class="p">,</span> <span class="n">P_2</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">zorder</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+<span class="c1">#tegner punkt c</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Q_c</span><span class="p">,</span> <span class="n">P_2</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">zorder</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+<span class="c1"># tegner punkt d</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Q_d</span><span class="p">,</span> <span class="n">P_2</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">zorder</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Tegner linje for P = 5</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span> <span class="n">linestyles</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">)</span>
+
+<span class="c1"># annoterer punktene</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">Q_a</span><span class="p">,</span><span class="mf">5.1</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">Q_løsning</span><span class="p">,</span><span class="mf">5.1</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">Q_c</span><span class="p">,</span><span class="mf">5.1</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">Q_d</span><span class="p">,</span><span class="mf">5.1</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s2">&quot;lower right&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/b2aab906bbbc0cf0053488874efc9484fc76f19b4a47168a293acd493668b6b8.png" src="_images/b2aab906bbbc0cf0053488874efc9484fc76f19b4a47168a293acd493668b6b8.png" />
 </div>
 </div>
 <section id="bedriftens-tilpasning-i-faktormarkedet-pa-kort-sikt">
