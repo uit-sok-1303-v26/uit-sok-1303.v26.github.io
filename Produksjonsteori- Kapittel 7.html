@@ -448,8 +448,8 @@ Vi kan skrive fortjenesten som en funksjon av produsert mengde <span class="math
 <section id="profittmaksimering-og-lonnsomhet">
 <h3>Profittmaksimering og lønnsomhet<a class="headerlink" href="#profittmaksimering-og-lonnsomhet" title="Link to this heading">#</a></h3>
 <p>Vi har følgende produktfunksjon:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7dd3e7f7-ca0f-4c6a-a987-f8482cfd2054">
-<span class="eqno">(3)<a class="headerlink" href="#equation-7dd3e7f7-ca0f-4c6a-a987-f8482cfd2054" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f600265e-ef22-4be0-96aa-d48e72962fb1">
+<span class="eqno">(3)<a class="headerlink" href="#equation-f600265e-ef22-4be0-96aa-d48e72962fb1" title="Permalink to this equation">#</a></span>\[\begin{equation}
     Q = Q(K,L)=L^{0.5}K_0^{0.5}\tag{4}
 \end{equation}\]</div>
 <p>Fra forelesning Kapittel 6, matteboks 6.1 vet vi at grensekostnaden er gitt ved</p>
@@ -913,8 +913,8 @@ Q = K_0^{0.5}L^{0.5},
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Løser for Q, dette gir oss punkt b</span>
-<span class="n">Q_løsning</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">profitt_max</span><span class="p">,</span> <span class="n">Q</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">Q_løsning</span>
+<span class="n">Q_losning</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">profitt_max</span><span class="p">,</span> <span class="n">Q</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">Q_losning</span>
 </pre></div>
 </div>
 </div>
@@ -1032,7 +1032,7 @@ Q = \frac{5 -1 + \sqrt{(5 - 1)^2 - 4}}{2} = \approx 3.73
 <span class="c1"># tegner punkt a</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Q_a</span><span class="p">,</span><span class="n">P_2</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">zorder</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
 <span class="c1"># tegner punkt b</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Q_løsning</span><span class="p">,</span> <span class="n">P_2</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">zorder</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Q_losning</span><span class="p">,</span> <span class="n">P_2</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">zorder</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
 <span class="c1">#tegner punkt c</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Q_c</span><span class="p">,</span> <span class="n">P_2</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">zorder</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
 <span class="c1"># tegner punkt d</span>
@@ -1043,7 +1043,7 @@ Q = \frac{5 -1 + \sqrt{(5 - 1)^2 - 4}}{2} = \approx 3.73
 
 <span class="c1"># annoterer punktene</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">Q_a</span><span class="p">,</span><span class="mf">5.1</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">Q_løsning</span><span class="p">,</span><span class="mf">5.1</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">Q_losning</span><span class="p">,</span><span class="mf">5.1</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">Q_c</span><span class="p">,</span><span class="mf">5.1</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">Q_d</span><span class="p">,</span><span class="mf">5.1</span><span class="p">))</span>
 
