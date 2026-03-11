@@ -375,7 +375,11 @@
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tilbud-og-ettersporsel">Tilbud og etterspørsel</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markedsettersporsel">1. Markedsetterspørsel</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elastisitetsbegrepet">1.1 Elastisitetsbegrepet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-aggregering-av-ettersporsel">Eksempel: Aggregering av etterspørsel</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#krig-pa-kontinentet-og-ettersporselen-etter-gass-for-husholdninger-og-industri">8.1 Krig på Kontinentet og etterspørselen etter gass for husholdninger og industri</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#elastisitetsbegrepet">1.1 Elastisitetsbegrepet</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-med-lineaer-ettersporsel">Eksempel med lineær etterspørsel</a></li>
 </ul>
 </li>
@@ -383,10 +387,14 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-pa-tilbusdelastitstet">2.1 Eksempel på tilbusdelastitstet</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markedslikevekt">3. Markedslikevekt</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel">Eksempel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markedslikevekt">3. Markedslikevekt</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel">Eksempel</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#krig-pa-kontinentet-og-gasspriser-pa-kort-og-lang-sikt">8.2 Krig på Kontinentet og gasspriser, på kort og lang sikt</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skift-i-tilbud-og-ettersporsel">4. Skift i tilbud og etterspørsel</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#invers-tilbud-og-ettersporsel">5. Invers tilbud og etterspørsel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hvorfor-er-strommen-sa-dyr-nar-vannet-er-gratis">8.4 Hvorfor er strømmen så dyr når vannet er gratis?</a></li>
 </ul>
             </nav>
         </div>
@@ -413,6 +421,7 @@
 <li><p>prisen på andre produkter/tjenester</p></li>
 <li><p>offentlig regulering.</p></li>
 </ul>
+<p>Q står for kvantum, P for pris,</p>
 <p>Konsumentens etterspørsel etter et produkt viser hva hen er villig til å betale for en ekstra enhet, dvs <em>marginal betalingsvillighet</em>. Den individuelle etterspørselen kan uttrykkes som</p>
 <div class="math notranslate nohighlight">
 \[
@@ -426,34 +435,57 @@ Q^E=a-bP
 \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import pakkene som vi trenger for å tegne en figur</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># importer pakkene som vi trenger</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definer Lineær etterspørsel til konsument 1 og 2</span>
-<span class="c1"># cf fig 3.2 i boka</span>
-<span class="c1"># x=a - b*p</span>
-<span class="c1">#Vi setter a_1 = a_2=100, b_1=1, b_2=2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definer symboler</span>
+<span class="n">P</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span><span class="n">Q_hus</span><span class="p">,</span> <span class="n">Q_Ind</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">d</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;P Q a b Q_Hus Q_Ind y d&#39;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 
-
+<span class="c1"># Lineær etterspørsel generelt</span>
+<span class="n">Q_E</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="o">*</span><span class="n">P</span>
+<span class="n">Q_E</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle - P b + a\]</div>
+</div>
+</div>
+<section id="eksempel-aggregering-av-ettersporsel">
+<h3>Eksempel: Aggregering av etterspørsel<a class="headerlink" href="#eksempel-aggregering-av-ettersporsel" title="Link to this heading">#</a></h3>
+<p>La oss tenke oss to konsumenter med følgende individuelle etterspørsel:</p>
+<div class="math notranslate nohighlight">
+\[
+Q_1^E = 100 - P
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+Q_2^E = 100 - 2P
+\]</div>
+<p>Merk at konsument 2 har en brattere etterspørselskurve (høyere <span class="math notranslate nohighlight">\(\beta_i\)</span>), og etterspør null enheter når <span class="math notranslate nohighlight">\(P \geq 50\)</span>. Konsument 1 etterspør null når <span class="math notranslate nohighlight">\(P \geq 100\)</span>. Markedsetterspørselen er summen av de to konsumentenes etterspørsel, men vi må passe på at vi ikke legger til negativ etterspørsel. For <span class="math notranslate nohighlight">\(P &lt; 50\)</span> er begge konsumenter aktive, og for <span class="math notranslate nohighlight">\(50 \leq P &lt; 100\)</span> er det kun konsument 1 som etterspør.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definer individuell etterspørsel</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">demand_1</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
     <span class="k">return</span> <span class="mi">100</span> <span class="o">-</span> <span class="n">p</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">demand_2</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
     <span class="k">return</span> <span class="mi">100</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">p</span>
 
+<span class="c1"># Markedsetterspørsel: horisontal summering</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">m_demand</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
-    <span class="n">w</span><span class="o">=</span><span class="n">demand_1</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-    <span class="n">z</span><span class="o">=</span><span class="n">demand_2</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-    <span class="nb">sum</span> <span class="o">=</span> <span class="p">(</span><span class="n">z</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="n">w</span> <span class="o">+</span> <span class="p">(</span><span class="n">z</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">z</span><span class="o">+</span><span class="n">w</span><span class="p">)</span>
-
-        
+    <span class="n">w</span> <span class="o">=</span> <span class="n">demand_1</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">demand_2</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="nb">sum</span> <span class="o">=</span> <span class="p">(</span><span class="n">z</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="n">w</span> <span class="o">+</span> <span class="p">(</span><span class="n">z</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">z</span> <span class="o">+</span> <span class="n">w</span><span class="p">)</span>
     <span class="k">return</span> <span class="nb">sum</span>
 </pre></div>
 </div>
@@ -462,55 +494,470 @@ Q^E=a-bP
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tegne individuell etterspørsel og den horisontale summen</span>
+<span class="n">p_num</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 
-<span class="n">p_num</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">110</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 
 <span class="c1"># plott av linjene</span>
-
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">demand_1</span><span class="p">(</span><span class="n">p_num</span><span class="p">),</span><span class="n">p_num</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Etterspørsel kons 1&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">demand_2</span><span class="p">(</span><span class="n">p_num</span><span class="p">),</span><span class="n">p_num</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Etterspørsel kons 2&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">m_demand</span><span class="p">(</span><span class="n">p_num</span><span class="p">),</span><span class="n">p_num</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Markedsetterspørsel&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">demand_1</span><span class="p">(</span><span class="n">p_num</span><span class="p">),</span> <span class="n">p_num</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Etterspørsel kons 1&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">demand_2</span><span class="p">(</span><span class="n">p_num</span><span class="p">),</span> <span class="n">p_num</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Etterspørsel kons 2&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">m_demand</span><span class="p">(</span><span class="n">p_num</span><span class="p">),</span> <span class="n">p_num</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Markedsetterspørsel&#39;</span><span class="p">)</span>
 
 <span class="c1"># bruk løkke for å tegne aksene</span>
-
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-
-    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Pris (P)&#39;</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="n">rotation</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Kvantum (Q)&#39;</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;right&#39;</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">110</span><span class="p">),</span><span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">210</span><span class="p">))</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Pris (P)&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Kvantum (Q)&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">110</span><span class="p">),</span> <span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">210</span><span class="p">))</span>
     <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelleft</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
     <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
     <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
+
 <span class="c1"># gi en passende tittel</span>
-
 <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Utledning av etterspørsel i markedet&#39;</span><span class="p">)</span>
-
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4482b4581f0aeed4fae6d80315d7899f4141c1ca6d5c6078927ff0fb5581b13e.png" src="_images/4482b4581f0aeed4fae6d80315d7899f4141c1ca6d5c6078927ff0fb5581b13e.png" />
+<img alt="_images/09119fc5e83961550cf9f3efb6cc68b181497906208c91badf34ab114a0ce34c.png" src="_images/09119fc5e83961550cf9f3efb6cc68b181497906208c91badf34ab114a0ce34c.png" />
 </div>
 </div>
-<p>Med mange konsumenter vil ikke dette knekkpunktet være så fremtredende, og vi tegner etterspørsel som en jevn
-funksjon.</p>
+<p>Med mange konsumenter vil ikke dette knekkpunktet være så fremtredende, og vi tegner etterspørsel som en jevn funksjon.</p>
+<p>La oss nå se på et annet eksempel med tre konsumenter og bruke sympy for å finne markedsetterspørselen analytisk.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eksempel med tre konsumenter</span>
+
+<span class="n">Q1</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">-</span> <span class="n">P</span>
+<span class="n">Q2</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">P</span>
+<span class="n">Q3</span> <span class="o">=</span> <span class="mi">160</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">P</span>
+
+<span class="c1"># Markedsetterspørsel (summen)</span>
+<span class="n">Q_marked</span> <span class="o">=</span> <span class="n">Q1</span> <span class="o">+</span> <span class="n">Q2</span> <span class="o">+</span> <span class="n">Q3</span>
+<span class="n">Q_marked_forenklet</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">Q_marked</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Q_marked_forenklet</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 360 - 6 P\]</div>
+</div>
+</div>
+<p>Vi ser at markedsetterspørselen er <span class="math notranslate nohighlight">\(Q^E = 360 - 6P\)</span>. Boken kaller dette “skvispris” men vi refererer til dette som Reservasjonsprisen (prisen der etterspørselen er null) finner vi ved å sette <span class="math notranslate nohighlight">\(Q^E = 0\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Finn reservasjonsprisen (skvispris)</span>
+<span class="n">P_res</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">Q_marked_forenklet</span><span class="p">,</span> <span class="n">P</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">P_res</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 60\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eksempel med tre konsumenter</span>
+
+<span class="n">Q1</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">-</span> <span class="n">P</span>
+<span class="n">Q2</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">P</span>
+<span class="n">Q3</span> <span class="o">=</span> <span class="mi">160</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">P</span>
+
+<span class="c1"># Markedsetterspørsel (summen)</span>
+<span class="n">Q_marked</span> <span class="o">=</span> <span class="n">Q1</span> <span class="o">+</span> <span class="n">Q2</span> <span class="o">+</span> <span class="n">Q3</span>
+<span class="n">Q_marked_forenklet</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">Q_marked</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Q_marked_forenklet</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 360 - 6 P\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tegn markedsetterspørselen</span>
+
+<span class="n">p_num</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">create_ax</span><span class="p">():</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Pris (P)&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Kvantum (Q)&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">create_ax</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">360</span> <span class="o">-</span> <span class="mi">6</span><span class="o">*</span><span class="n">p_num</span><span class="p">,</span> <span class="n">p_num</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Markedsetterspørsel&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;Reservasjonspris = 60&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">P_res</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">P_res</span><span class="p">))</span>
+
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">380</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">80</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Markedsetterspørsel med tre konsumenter&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c1098048308ff71c48d9c380a1cd398bd88a52d7eac7934526268dbea9fb235a.png" src="_images/c1098048308ff71c48d9c380a1cd398bd88a52d7eac7934526268dbea9fb235a.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="krig-pa-kontinentet-og-ettersporselen-etter-gass-for-husholdninger-og-industri">
+<h2>8.1 Krig på Kontinentet og etterspørselen etter gass for husholdninger og industri<a class="headerlink" href="#krig-pa-kontinentet-og-ettersporselen-etter-gass-for-husholdninger-og-industri" title="Link to this heading">#</a></h2>
+<p>Gass er en viktig energikilde i Europa, både for husholdninger og for industrien. Anta at husholdningene har etterspørselsfunksjonen:</p>
+<div class="math notranslate nohighlight">
+\[
+Q^E_{Hus} = 5 - P
+\]</div>
+<p>Mens industrien har:</p>
+<div class="math notranslate nohighlight">
+\[
+Q^E_{Ind} = 6 - 2P
+\]</div>
+<p>a) Hva er skvisprisen til de to konsumentgruppene (husholdninger og industri)?</p>
+<p>Punktet hvor etterspørselskurven skjærer den vertikale aksen viser det maksimale av det konsumenten er villig til å betale for det aktuelle godet. Vi kaller det konsumentens skvispris. Denne prisen eller høyere, skviser vekk hele konsumet.</p>
+<div class="math notranslate nohighlight">
+\[
+Q^E_{i} = 0 \Rightarrow P^{skvis}_{E_i} = \frac{\alpha_i}{\beta_i}
+\]</div>
+<p>For husholdninger har vi at:</p>
+<div class="math notranslate nohighlight">
+\[
+\alpha_{Hus} = 5 \quad \text{og} \quad \beta_{Hus} = 1,
+\]</div>
+<p>siden etterspørselsfunksjonen er <span class="math notranslate nohighlight">\(Q^E_{Hus} = 5 - 1 \cdot P\)</span> (<span class="math notranslate nohighlight">\(\beta\)</span> forsvinner ettersom når man ganger 1 med <span class="math notranslate nohighlight">\(P\)</span> så får man bare <span class="math notranslate nohighlight">\(P\)</span>). Dermed er skvisprisen for husholdninger:</p>
+<div class="math notranslate nohighlight">
+\[
+P^{skvis}_{Hus} = \frac{5}{1} = 5
+\]</div>
+<p>Og for industrien har vi at:</p>
+<div class="math notranslate nohighlight">
+\[
+\alpha_{Ind} = 6 \quad \text{og} \quad \beta_{Ind} = 2,
+\]</div>
+<p>siden etterspørselsfunksjonen er <span class="math notranslate nohighlight">\(Q^E_{Ind} = 6 - 2 \cdot P\)</span>.</p>
+<p>Dermed er skvisprisen for industrien:</p>
+<div class="math notranslate nohighlight">
+\[
+P^{skvis}_{Ind} = \frac{6}{2} = 3
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Skriver inn alpha og beta for husholdninger</span>
+<span class="n">alpha_hus</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">beta_hus</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># Skriver inn alpha og beta for industri</span>
+<span class="n">alpha_ind</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">beta_ind</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="c1"># Skvisprisen til husholdninger</span>
+<span class="n">Skvis_hus</span> <span class="o">=</span> <span class="p">(</span><span class="n">alpha_hus</span><span class="o">/</span><span class="n">beta_hus</span><span class="p">)</span>
+
+<span class="n">Skvis_hus</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Skvisprisen til industri</span>
+<span class="n">Skvis_ind</span> <span class="o">=</span> <span class="p">(</span><span class="n">alpha_ind</span><span class="o">/</span><span class="n">beta_ind</span><span class="p">)</span>
+
+<span class="n">Skvis_ind</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Etterspørsel_Hus</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">Q_hus</span><span class="p">,</span> <span class="n">alpha_hus</span> <span class="o">-</span> <span class="n">beta_hus</span> <span class="o">*</span> <span class="n">P</span><span class="p">)</span>
+
+<span class="n">Etterspørsel_Ind</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">Q_Ind</span><span class="p">,</span> <span class="n">alpha_ind</span> <span class="o">-</span> <span class="n">beta_ind</span> <span class="o">*</span> <span class="n">P</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">Etterspørsel_Hus</span><span class="p">,</span> <span class="n">Etterspørsel_Ind</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle Q_{Hus} = 5 - P\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle Q_{Ind} = 6 - 2 P\]</div>
+</div>
+</div>
+<p>b) Illustrer i en figur etterspørselen fra de to konsumentgruppene hver for seg og samlet.</p>
+<p>Vi kan nå plotte etterspørselen for de to gruppene hver for seg og samlet. Den samlede etterspørselen får vi ved å summere de to etterspørselsfunksjonene:</p>
+<div class="math notranslate nohighlight">
+\[
+Q^E_{Total} = Q^E_{Hus} + Q^E_{Ind} = (5 - P) + (6 - 2P) = 11 - 3P
+\]</div>
+<p>for <span class="math notranslate nohighlight">\(P \leq 3\)</span> (siden industrien ikke etterspør gass når prisen er høyere enn 3), og</p>
+<div class="math notranslate nohighlight">
+\[
+Q^E_{Total} = Q^E_{Hus} = 5 - P
+\]</div>
+<p>for <span class="math notranslate nohighlight">\(P &gt; 3\)</span> (siden industrien ikke etterspør gass når prisen er høyere enn 3).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Summert etterspørsel</span>
+<span class="n">Ettersp_summert</span> <span class="o">=</span> <span class="n">Etterspørsel_Hus</span><span class="o">.</span><span class="n">rhs</span> <span class="o">+</span> <span class="n">Etterspørsel_Ind</span><span class="o">.</span><span class="n">rhs</span>
+
+<span class="n">Ettersp_summert</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 11 - 3 P\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Figurkonfigurasjon</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_ax</span><span class="p">():</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Q&#39;</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="s2">&quot;right&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;top&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;right&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Figur 8.1a</span>
+<span class="n">P_verdier</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">create_ax</span><span class="p">()</span>
+
+<span class="c1"># Vi plotter etterspørselen direkte som en funksjon av P</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">5</span> <span class="o">-</span> <span class="n">P_verdier</span><span class="p">,</span> <span class="n">P_verdier</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Etterspørsel husholdning&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">6</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">P_verdier</span><span class="p">,</span> <span class="n">P_verdier</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Etterspørsel industri&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/afaa10692fffeb838b53fb69f4be9b96b903f5b60da8771a8ac4a5b137579c10.png" src="_images/afaa10692fffeb838b53fb69f4be9b96b903f5b60da8771a8ac4a5b137579c10.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Figur 8.1b</span>
+<span class="n">fig2</span><span class="p">,</span> <span class="n">ax2</span> <span class="o">=</span> <span class="n">create_ax</span><span class="p">()</span>
+
+<span class="c1"># Vi plotter etterspørselen direkte som en funksjon av P</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">5</span> <span class="o">-</span> <span class="n">P_verdier</span><span class="p">,</span> <span class="n">P_verdier</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Etterspørsel husholdning&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">6</span> <span class="o">-</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">P_verdier</span><span class="p">),</span> <span class="n">P_verdier</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Etterspørsel industri&#39;</span><span class="p">)</span>
+
+<span class="c1"># P_verdier for P mellom 0 og 3, for industri</span>
+<span class="n">P_verdier_ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="c1"># P verdier for husholdninger 3 og 11 for å få med hele etterspørselen</span>
+<span class="n">P_verdier_hus</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Må plotte summert etterspørsel, vi får en knekk for når industri begynner å etterspørre</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">11</span><span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="n">P_verdier_ind</span><span class="p">,</span> <span class="n">P_verdier_ind</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Samlet etterspørsel&#39;</span><span class="p">)</span>
+<span class="c1"># For husholdninger må vi plotte 5-P for å få den riktige retningen på kurven</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">5</span><span class="o">-</span><span class="n">P_verdier_hus</span><span class="p">,</span> <span class="n">P_verdier_hus</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Etterspørsel husholdning&#39;</span><span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+
+<span class="c1"># Tegner en vertikal linje ved skvisprisen til industri for å vise knekkpunktet</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">Skvis_ind</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dotted&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Skvispris industri&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/e0780e9cd41dd9a9b88b9fbb99c1739e6f486ec4f4a144d8861992b1aa5b753a.png" src="_images/e0780e9cd41dd9a9b88b9fbb99c1739e6f486ec4f4a144d8861992b1aa5b753a.png" />
+</div>
+</div>
+<p>c) Hva skjer med etterspørselen fra husholdninger og industri om gassprisen går fra lav <span class="math notranslate nohighlight">\(P_l = 1\)</span> til høy <span class="math notranslate nohighlight">\(P_h = 2\)</span>?</p>
+<p><span class="math notranslate nohighlight">\(P_{lav} = 1\)</span> gir oss at etterspørselen for husholdninger er:</p>
+<div class="math notranslate nohighlight">
+\[
+Q^E_{Hus}(P_{lav}) = 5 - 1 = 4
+\]</div>
+<p>og for industrien:</p>
+<div class="math notranslate nohighlight">
+\[
+Q^E_{Ind}(P_{lav}) = 6 - 2 \cdot 1 = 4
+\]</div>
+<p>Det vil si at ved en lav pris på gass, etterspør både husholdninger og industri 4 enheter.</p>
+<p><span class="math notranslate nohighlight">\(P_{høy} = 2\)</span> gir oss at etterspørselen for husholdninger er:</p>
+<div class="math notranslate nohighlight">
+\[
+Q^E_{Hus}(P_{høy}) = 5 - 2 = 3
+\]</div>
+<p>og for industrien:</p>
+<div class="math notranslate nohighlight">
+\[
+Q^E_{Ind}(P_{høy}) = 6 - 2 \cdot 2 = 2
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setter P_lav = 1</span>
+<span class="n">P_lav</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">Q_løsning_hus</span> <span class="o">=</span> <span class="n">Etterspørsel_Hus</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">P_lav</span><span class="p">)</span><span class="o">.</span><span class="n">rhs</span>
+<span class="n">Q_løsning_ind</span> <span class="o">=</span> <span class="n">Etterspørsel_Ind</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">P_lav</span><span class="p">)</span><span class="o">.</span><span class="n">rhs</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">Q_løsning_hus</span><span class="p">,</span> <span class="n">Q_løsning_ind</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 4\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 4\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setter P_høy = 2</span>
+<span class="n">P_høy</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">Q_løsning_hus_høy</span> <span class="o">=</span> <span class="n">Etterspørsel_Hus</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">P_høy</span><span class="p">)</span><span class="o">.</span><span class="n">rhs</span>
+<span class="n">Q_løsning_ind_høy</span> <span class="o">=</span> <span class="n">Etterspørsel_Ind</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">P_høy</span><span class="p">)</span><span class="o">.</span><span class="n">rhs</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">Q_løsning_hus_høy</span><span class="p">,</span> <span class="n">Q_løsning_ind_høy</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 3\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 2\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tegner horisontale linjer for P_lav og P_høy</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">P_lav</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;$P_</span><span class="si">{lav}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;green&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">P_høy</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;$P_</span><span class="si">{høy}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;green&quot;</span><span class="p">)</span>
+
+<span class="c1"># Tegner vertikal linje til punkt a og markerer punkt a</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">Q_løsning_hus</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">P_lav</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dotted&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">Q_løsning_hus</span><span class="o">+</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">P_lav</span><span class="o">+</span><span class="mf">0.1</span><span class="p">))</span>
+
+<span class="c1"># Tegner vertikal linje til punkt b_Hus og markerer punkt b_Hus</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">Q_løsning_hus_høy</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">P_høy</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dotted&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;$b_</span><span class="si">{Hus}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">Q_løsning_hus_høy</span><span class="p">,</span> <span class="n">P_høy</span><span class="o">+</span><span class="mf">0.2</span><span class="p">))</span>
+
+<span class="c1"># Tegner vertikal linje til punkt b_Ind og markerer punkt b_Ind</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">Q_løsning_ind_høy</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">P_høy</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dotted&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;$b_</span><span class="si">{Ind}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">Q_løsning_ind_høy</span><span class="o">-</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">P_høy</span><span class="o">-</span><span class="mf">0.3</span><span class="p">))</span>
+
+<span class="c1"># Markerer punktene a, b_Hus og b_Ind</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Q_løsning_hus</span><span class="p">,</span> <span class="n">P_lav</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">zorder</span> <span class="o">=</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Q_løsning_hus_høy</span><span class="p">,</span> <span class="n">P_høy</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Q_løsning_ind_høy</span><span class="p">,</span> <span class="n">P_høy</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">zorder</span> <span class="o">=</span> <span class="mi">6</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+<span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/de9db825702eddbc542fad671fcdd0b04a686b5b727197c58ce4a0afbcc3a5b6.png" src="_images/de9db825702eddbc542fad671fcdd0b04a686b5b727197c58ce4a0afbcc3a5b6.png" />
+</div>
+</div>
+<p>For den samlede etterspørselen ved <span class="math notranslate nohighlight">\(P_{lav}\)</span>, siden <span class="math notranslate nohighlight">\(P_{lav} = 1\)</span> er mindre enn skvisprisen for både husholdninger og industri, vil den samlede etterspørselen være summen av de to:</p>
+<div class="math notranslate nohighlight">
+\[
+Q^E_{Total}(P_{lav}) = Q^E_{Hus}(P_{lav}) + Q^E_{Ind}(P_{lav}) = 4 + 4 = 8
+\]</div>
+<p>Den samlede etterspørselen går ned totalt:</p>
+<div class="math notranslate nohighlight">
+\[
+Q^E_{Total}(P_{høy}) = Q^E_{Hus}(P_{høy}) + Q^E_{Ind}(P_{høy}) = 3 + 2 = 5
+\]</div>
+<p>Det vil si at ved en høyere pris på gass, går husholdningenes etterspørsel ned fra 4 til 3 enheter og industrien fra 4 til 2 enheter.</p>
+<p>Totalt sett skyldes den større responsen på prisøkningen fra industrien at de er mer prisfølsomme enn husholdningene.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P_lav_summert</span> <span class="o">=</span> <span class="n">Ettersp_summert</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">P_lav</span><span class="p">)</span>
+<span class="n">P_høy_summert</span> <span class="o">=</span> <span class="n">Ettersp_summert</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">P_høy</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">P_lav_summert</span><span class="p">,</span> <span class="n">P_høy_summert</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 8\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 5\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tegner horisontale linjer for P_lav og P_høy</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">P_lav</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;$P_</span><span class="si">{lav}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;green&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">P_høy</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;$P_</span><span class="si">{høy}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;green&quot;</span><span class="p">)</span>
+
+<span class="c1"># Tegner vertikal linje til punkt a og markerer punkt a</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">P_lav_summert</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">P_lav</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dotted&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">P_lav_summert</span><span class="o">+</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">P_lav</span><span class="o">+</span><span class="mf">0.1</span><span class="p">))</span>
+
+<span class="c1"># Tegner vertikal linje til punkt b</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">P_høy_summert</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">P_høy</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dotted&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">P_høy_summert</span><span class="o">-</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">P_høy</span><span class="o">+</span><span class="mf">0.2</span><span class="p">))</span>
+
+<span class="c1"># Markerer punktene a, b</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">P_lav_summert</span><span class="p">,</span> <span class="n">P_lav</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">zorder</span> <span class="o">=</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">P_høy_summert</span><span class="p">,</span> <span class="n">P_høy</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span> <span class="mi">6</span><span class="p">)</span>
+
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+<span class="n">fig2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ada2aacd8bc1b21916cbb02a59e5fce38cf67d8a8b08d26f98c8a692967d0d81.png" src="_images/ada2aacd8bc1b21916cbb02a59e5fce38cf67d8a8b08d26f98c8a692967d0d81.png" />
+</div>
+</div>
+</section>
 <section id="elastisitetsbegrepet">
-<h3>1.1 Elastisitetsbegrepet<a class="headerlink" href="#elastisitetsbegrepet" title="Link to this heading">#</a></h3>
+<h2>1.1 Elastisitetsbegrepet<a class="headerlink" href="#elastisitetsbegrepet" title="Link to this heading">#</a></h2>
 <p>Elastisitet gir oss et mål på hvor følsomt tilbud og etterspørsel er for prisendringer. Vi har tidligere tegnet disse funksjonene som en rett linje, og helningen til linjen forteller oss noe om hvordan mengde tilbudt/etterspurt reagerer på prisendringer. Tenk at vi har invers etterspørsel etter laks i Norge gitt ved <span class="math notranslate nohighlight">\(P = 300 - 0.25Q\)</span>. Her er prisen målt i NOK og mengde i kilogram. Vi ser at for å selge en ekstra kilo med laks i Norge må prisen reduseres med 25 øre. I Spania er etterspørsel etter laks gitt ved <span class="math notranslate nohighlight">\(q = 500 - 0.3Q\)</span>, og q er nå prisen i EUR. For å selge en ekstra kilo laks til det spanske markedet må prisen reduseres med 30 cent. For å sammenlikne mellom Norge og Spania må vi ha informasjon om valutakursen mellom NOK og EUR. Dette eksempelet illustrerer at det å bruke helningen til etterspørsel/tilbud for å måle prisfølsomhet er avhengig av måleenheten for verdi. Sammenlikningen vil også påvirkes av hvordan vil måler kvantum (kilo, ton osv).</p>
 <p>Elastisitet er målt i prosent og er da uavhengig av måleenheten for verdi og mengde. Etterspørselselastisiteten måler hvor mange prosent etterspørselen endres når prisen øker med 1%. Tenk at vi har etterspørsel <span class="math notranslate nohighlight">\(Q^E(P)\)</span>. En liten endring i etterspørsel kan vi kalle <span class="math notranslate nohighlight">\(dQ^E\)</span>, slik at en prosentvis endring i etterspørsel er</p>
 <div class="math notranslate nohighlight">
 \[
-prosentvis\; endring \;i \; etterspørsel = \frac{dQ^E}{Q^E}\tag{1}
+prosentvis\; endring \;i \; etterspørsel = \frac{dQ^E}{Q^E}\tag{3}
 \]</div>
 <p>La <span class="math notranslate nohighlight">\(dP\)</span> vise en liten endring i pris, og vi kan skrive den prosentvise endringen i pris som</p>
 <div class="math notranslate nohighlight">
 \[
-prosentvis\; endring \;i \; pris = \frac{dP}{P}\tag{2}
+prosentvis\; endring \;i \; pris = \frac{dP}{P}\tag{4}
 \]</div>
 <p>Etterspørselens priselastisitet er gitt ved <span class="math notranslate nohighlight">\(\epsilon^E\)</span> som er den prosentvise endringen i kvantum etterspurt delt på den prosentvise endringen i pris.</p>
 <div class="math notranslate nohighlight">
@@ -534,20 +981,11 @@ prosentvis\; endring \;i \; pris = \frac{dP}{P}\tag{2}
 \epsilon^E = \frac{\frac{dQ^E}{Q^E}}{\frac{dP}{P}}=\frac{dQ^E}{Q^E}\frac{P}{dP}=\frac{dQ^E}{dP}\frac{P}{Q^E}
 \]</div>
 <p>Legg merke til at <span class="math notranslate nohighlight">\(\frac{dQ^E}{dP}\)</span> er helningen til den direkte etterspørselsfunksjonen <span class="math notranslate nohighlight">\(Q^E\)</span>. Ettersom etterspørselen heller nedover er <span class="math notranslate nohighlight">\(\frac{dQ^E}{dP} &lt; 0\)</span> og dermed er <span class="math notranslate nohighlight">\(\epsilon^E &lt; 0.\)</span></p>
-</section>
 <section id="eksempel-med-lineaer-ettersporsel">
 <h3>Eksempel med lineær etterspørsel<a class="headerlink" href="#eksempel-med-lineaer-ettersporsel" title="Link to this heading">#</a></h3>
 <p>La oss tenke oss følgende lineære etterspørselsfunksjon:</p>
 <p><span class="math notranslate nohighlight">\(Q^E = 500- 5P\)</span> i punkt <span class="math notranslate nohighlight">\(P=50, Q^E=250.\)</span></p>
 <p>La oss tegne dette først.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">demand</span><span class="p">(</span><span class="n">P</span><span class="p">):</span>
@@ -584,17 +1022,13 @@ prosentvis\; endring \;i \; pris = \frac{dP}{P}\tag{2}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2da358c0c5e4552beee0affeca39f7f11693f6829a6521623bf5a182996aec69.png" src="_images/2da358c0c5e4552beee0affeca39f7f11693f6829a6521623bf5a182996aec69.png" />
+<img alt="_images/fd3a56b0ced83e258dc8cfc99b782be6c6b86beb89eb9148037cda969ac0cc22.png" src="_images/fd3a56b0ced83e258dc8cfc99b782be6c6b86beb89eb9148037cda969ac0cc22.png" />
 </div>
 </div>
 <p>Vi kan regne ut et analytisk uttrykk for etterspørselens priselastisitet.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
-
-<span class="n">Q</span><span class="p">,</span> <span class="n">P</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;Q, P&#39;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">Q_d</span><span class="p">(</span><span class="n">P</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">Q_d</span><span class="p">(</span><span class="n">P</span><span class="p">):</span>
     <span class="k">return</span> <span class="mi">500</span><span class="o">-</span><span class="mi">5</span><span class="o">*</span><span class="n">P</span>
 
 <span class="n">el_d</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">Q_d</span><span class="p">(</span><span class="n">P</span><span class="p">),</span> <span class="n">P</span><span class="p">)</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">Q</span>
@@ -632,9 +1066,10 @@ prosentvis\; endring \;i \; pris = \frac{dP}{P}\tag{2}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/dd3b6f091afa702207c9516c02f66a9a0da3fe3758b043eaf20bca4914b86773.png" src="_images/dd3b6f091afa702207c9516c02f66a9a0da3fe3758b043eaf20bca4914b86773.png" />
+<img alt="_images/e2decd46de191145a711e9eb7aab11810faeb527c36ea3e32e93f89d2b669dd9.png" src="_images/e2decd46de191145a711e9eb7aab11810faeb527c36ea3e32e93f89d2b669dd9.png" />
 </div>
 </div>
+<p>c) Med invasjonen av Ukraina og bruddet i handelsforbindelsene med Russland får vi et skift i tilbudskurven, gitt ved <span class="math notranslate nohighlight">\(\gamma' = 0.3\)</span>. Hva skjer med markedslikevekten på kort sikt? Hva så med lang sikt? Kommenter det du finner.</p>
 </section>
 </section>
 <section id="markedstilbudet">
@@ -685,7 +1120,7 @@ Q^T=-y+dP
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/26d27ebf76ff98638f5d57c6cbfc6ca1794bd1baf8b626ba7d8af479580a2bae.png" src="_images/26d27ebf76ff98638f5d57c6cbfc6ca1794bd1baf8b626ba7d8af479580a2bae.png" />
+<img alt="_images/a1de164718b47423f420f4871b866b2a163d93b9d66e43ab2b24d84f00e2e538.png" src="_images/a1de164718b47423f420f4871b866b2a163d93b9d66e43ab2b24d84f00e2e538.png" />
 </div>
 </div>
 <p>Tilbudet viser hva produsentene må ha for å dekke kostnaden av den siste enheten produsert, dvs produsentens grensekostnad.</p>
@@ -756,7 +1191,7 @@ Q^T=-y+dP
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/72b55f65de2c214be374061fb191222d75db66960ca1976bcec1ff458cea0037.png" src="_images/72b55f65de2c214be374061fb191222d75db66960ca1976bcec1ff458cea0037.png" />
+<img alt="_images/f24323c9b7219179721c36d4b728b428cf219787a7b97ecf85cdcfd7ffe597a8.png" src="_images/f24323c9b7219179721c36d4b728b428cf219787a7b97ecf85cdcfd7ffe597a8.png" />
 </div>
 </div>
 </section>
@@ -774,12 +1209,7 @@ a-bP=-y+dP
 \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
-
-<span class="n">P</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;P, Q,y,d,a,b&#39;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-
-<span class="n">eq_T</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="o">-</span><span class="n">y</span><span class="o">+</span><span class="n">d</span><span class="o">*</span><span class="n">P</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eq_T</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="o">-</span><span class="n">y</span><span class="o">+</span><span class="n">d</span><span class="o">*</span><span class="n">P</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
 <span class="n">eq_E</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="o">*</span><span class="n">P</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
 
 <span class="n">sol_dict</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span> <span class="p">((</span><span class="n">eq_T</span><span class="p">,</span> <span class="n">eq_E</span><span class="p">),</span> <span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">))</span>
@@ -796,9 +1226,8 @@ a-bP=-y+dP
 </div>
 </div>
 </div>
-</section>
 <section id="eksempel">
-<h2>Eksempel<a class="headerlink" href="#eksempel" title="Link to this heading">#</a></h2>
+<h3>Eksempel<a class="headerlink" href="#eksempel" title="Link to this heading">#</a></h3>
 <p>Ved å sette sammen tilbud og etterspørsel får vi en beskrivelse av begge sidene av markedet. Her tegnes et marked med følgende tilbud og etterspørsel:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -832,19 +1261,14 @@ Q^E = 100 - 1.25P \;(etterspørsel)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7439d3ae9470bada7834ef622dd0b20b3685c6b9b057519ebc6af4b2e27a9137.png" src="_images/7439d3ae9470bada7834ef622dd0b20b3685c6b9b057519ebc6af4b2e27a9137.png" />
+<img alt="_images/d100995c38a8badc69e59a5ed56d1c40788dcda1a25877423d678af995436227.png" src="_images/d100995c38a8badc69e59a5ed56d1c40788dcda1a25877423d678af995436227.png" />
 </div>
 </div>
 <p>Figuren viser at når prisen er “for høy” vil produsenter tilby mer enn kjøpere etterspør; er prisen “for lav” vil det være udekket etterspørsel. Det vil alltid være den korte siden av markedet som bestemmer hvor mye som blir omsatt ettersom det er frivillig å kjøpe/selge. I tilfeller med tilbudsoverskudd er omsatt mengde satt av etterspørsel. For å selge mer kan produsenter sette ned prisen litt (og fortsatt få dekket grensekostnaden). Med etterspørselsoverskudd er det tilbudet som begrenser omsetning i markedet. For å være villig til å produsere mer må selgere få bedre betalt, og det er konsumenter som er villige til å betale en høyere pris. Prismekanismen gjør at vi beveger oss mot punktet hvor tilbud og etterspørsel krysser. I dette punktet er markedet dekket - alle som vil kjøpe til rådende pris får kjøpe, og alle som er villig til å selge til denne prisen får solgt. Her er markedets likevekt.</p>
 <p>Vi kan løse for denne likevekten. Vi leter etter ett punkt som er både på tilbuds- og etterspørselsfunksjonen, dvs vi må løse likningssettet for P og Q.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
-
-<span class="n">P</span><span class="p">,</span> <span class="n">Q</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;P, Q&#39;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-
-<span class="n">eq_s</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="o">+</span><span class="mf">1.5</span><span class="o">*</span><span class="n">P</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eq_s</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="o">+</span><span class="mf">1.5</span><span class="o">*</span><span class="n">P</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
 <span class="n">eq_d</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="mi">100</span><span class="o">-</span><span class="mf">1.25</span><span class="o">*</span><span class="n">P</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
 
 <span class="n">sol_dict</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span> <span class="p">((</span><span class="n">eq_s</span><span class="p">,</span> <span class="n">eq_d</span><span class="p">),</span> <span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">))</span>
@@ -882,7 +1306,33 @@ Q^E = 100 - 1.25P \;(etterspørsel)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/a3df4b18ceacf7bd98450b6ba36fa58f4d968fc8c80f7ddd3aadd4bf9052be21.png" src="_images/a3df4b18ceacf7bd98450b6ba36fa58f4d968fc8c80f7ddd3aadd4bf9052be21.png" />
+<img alt="_images/6e7834b37143ba74ec5da51536b7f3c3e9fe4cf41711ab74908678335f25797f.png" src="_images/6e7834b37143ba74ec5da51536b7f3c3e9fe4cf41711ab74908678335f25797f.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="krig-pa-kontinentet-og-gasspriser-pa-kort-og-lang-sikt">
+<h2>8.2 Krig på Kontinentet og gasspriser, på kort og lang sikt<a class="headerlink" href="#krig-pa-kontinentet-og-gasspriser-pa-kort-og-lang-sikt" title="Link to this heading">#</a></h2>
+<p>I oppgave 8.1 så vi på den internasjonale prisen på gass som gitt. I denne oppgaven skal vi se hva som skjer med prisen på gass når det oppstår et negativt tilbudssjokk, som følge av krig på Kontinentet og redusert tilgang på gass fra Russland.</p>
+<p>Vi ser på to scenarier. Det første er kortsiktig, hvor forbrukerne har liten anledning til å gjøre tilpasninger i sitt energiforbruk. Det andre er mer langsiktig, hvor forbrukerne har hatt tid på seg til å investere i alternative energikilder, slik som solcellepaneler, og til energiøkonomiserende tiltak, slik som bedre isolering av hus.</p>
+<p>Vi slår sammen de ulike kundegruppene, og antar at etterspørselen etter gass er gitt ved:</p>
+<div class="math notranslate nohighlight">
+\[Q^E = \alpha - \beta P\]</div>
+<p>På kort sikt er <span class="math notranslate nohighlight">\(\alpha_{kort} = \beta_{kort} = 1\)</span>, mens på lang sikt er <span class="math notranslate nohighlight">\(\alpha_{lang} = 1.5, \beta_{lang} = 2\)</span>. Vi kan tenke på det som en kombinasjon av en generell økning i etterspørselen etter gass over tid (høyere <span class="math notranslate nohighlight">\(\alpha\)</span>) og investeringer som gjør det enklere å skifte over til andre energikilder, slik som sol eller vind, dersom prisen på gass skulle bli høy (høyere <span class="math notranslate nohighlight">\(\beta\)</span>).</p>
+<p>a) Tegn etterspørselskurven på kort og lang sikt. Hva er skvisprisen til konsumentene på kort og lang sikt?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Skriv ditt svar her</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>b) Tilbudet av gass er gitt ved <span class="math notranslate nohighlight">\(Q^T = -\gamma + P\)</span>. Anta at <span class="math notranslate nohighlight">\(\gamma = 0\)</span> i utgangspunktet. Regn ut og illustrer markedskrysset på kort og lang sikt. Hva er etterspørselselastisiteten på kort og lang sikt i likevekt?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Skriv ditt svar her</span>
+</pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -909,7 +1359,7 @@ Dersom bedrifter tar i bruk en kostnadsbesparende teknologi, eller prisen på en
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/935742d057af02d68599a3787469f1fb010238ce508034c25904106b3d113e01.png" src="_images/935742d057af02d68599a3787469f1fb010238ce508034c25904106b3d113e01.png" />
+<img alt="_images/2ae264d01f0181df8183bd64d675b7555f2a7aaba8e4f00d753873cea3d2e60b.png" src="_images/2ae264d01f0181df8183bd64d675b7555f2a7aaba8e4f00d753873cea3d2e60b.png" />
 </div>
 </div>
 <p>Vi ser at dette fører til et fall i likevektsprisen og en økning i omsetning.</p>
@@ -932,7 +1382,7 @@ Dersom bedrifter tar i bruk en kostnadsbesparende teknologi, eller prisen på en
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/40c317ef9e0680ea96cc49667a4989057533b6a8c6ecaf9a948d6a34e4cfa059.png" src="_images/40c317ef9e0680ea96cc49667a4989057533b6a8c6ecaf9a948d6a34e4cfa059.png" />
+<img alt="_images/2f8db955109ef5d4fb313917356f440bc4eb1d0b00f537408a7c7918111b5f71.png" src="_images/2f8db955109ef5d4fb313917356f440bc4eb1d0b00f537408a7c7918111b5f71.png" />
 </div>
 </div>
 <p>Vi ser at omsetning øker, men at prisen også øker i ette tilfellet.</p>
@@ -1015,7 +1465,30 @@ P = 80 - 0.8Q^E \;(invers \;etterspørsel)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/fa997ef8e58f72934c4bce34c66191c463f8f5327732dccfeff82f8823eaa3af.png" src="_images/fa997ef8e58f72934c4bce34c66191c463f8f5327732dccfeff82f8823eaa3af.png" />
+<img alt="_images/c5743dd65282468e6adad6c161d59ff0d6a310da6935944e8c7cdde7d8f2b0ad.png" src="_images/c5743dd65282468e6adad6c161d59ff0d6a310da6935944e8c7cdde7d8f2b0ad.png" />
+</div>
+</div>
+</section>
+<section id="hvorfor-er-strommen-sa-dyr-nar-vannet-er-gratis">
+<h2>8.4 Hvorfor er strømmen så dyr når vannet er gratis?<a class="headerlink" href="#hvorfor-er-strommen-sa-dyr-nar-vannet-er-gratis" title="Link to this heading">#</a></h2>
+<p>Mesteparten av produksjonen i Norge skjer med vannkraft. Hvorfor er da strømmen så dyr? Er ikke vannet gratis?</p>
+<p>Produksjonen av strøm i Norge er nesten utelukkende basert på vannkraft. Anta at denne er gitt ved en Leontief-teknologi <span class="math notranslate nohighlight">\(Q^T = \min(V, K)\)</span>, hvor <span class="math notranslate nohighlight">\(V\)</span> er fyllingsgraden i vannmagasinene og <span class="math notranslate nohighlight">\(K\)</span> er den installerte kapasiteten i vannkraftproduksjonen, bestemt av størrelsen på demningene og turbinene.</p>
+<p>Vi antar at kapasiteten er gitt, <span class="math notranslate nohighlight">\(K = 1\)</span>. Fyllingsgraden, derimot, avhenger av hvor mye det regner, og vi skal studere både et nedbørsfattig år, med <span class="math notranslate nohighlight">\(V_l = 0.75\)</span>, og et nedbørsrikt år, med <span class="math notranslate nohighlight">\(V_h = 1.25\)</span>.</p>
+<p>Vi skal se på to scenarier for etterspørselen, sommer og vinter. Om sommeren er etterspørselen lav og gitt ved <span class="math notranslate nohighlight">\(Q_l^E = 0.5 - P\)</span>, mens om vinteren er etterspørselen høy, <span class="math notranslate nohighlight">\(Q_h^E = 1.5 - P\)</span>.</p>
+<p>a) Hva blir strømprisen sommer og vinter i det nedbørsfattige året?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Denne går vi gjennom på tavlen</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>b) Hva blir strømprisen sommer og vinter i det nedbørsrike året?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Denne går vi gjennom på tavlen</span>
+</pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -1089,7 +1562,11 @@ P = 80 - 0.8Q^E \;(invers \;etterspørsel)
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tilbud-og-ettersporsel">Tilbud og etterspørsel</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markedsettersporsel">1. Markedsetterspørsel</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elastisitetsbegrepet">1.1 Elastisitetsbegrepet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-aggregering-av-ettersporsel">Eksempel: Aggregering av etterspørsel</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#krig-pa-kontinentet-og-ettersporselen-etter-gass-for-husholdninger-og-industri">8.1 Krig på Kontinentet og etterspørselen etter gass for husholdninger og industri</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#elastisitetsbegrepet">1.1 Elastisitetsbegrepet</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-med-lineaer-ettersporsel">Eksempel med lineær etterspørsel</a></li>
 </ul>
 </li>
@@ -1097,10 +1574,14 @@ P = 80 - 0.8Q^E \;(invers \;etterspørsel)
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-pa-tilbusdelastitstet">2.1 Eksempel på tilbusdelastitstet</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markedslikevekt">3. Markedslikevekt</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel">Eksempel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markedslikevekt">3. Markedslikevekt</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel">Eksempel</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#krig-pa-kontinentet-og-gasspriser-pa-kort-og-lang-sikt">8.2 Krig på Kontinentet og gasspriser, på kort og lang sikt</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skift-i-tilbud-og-ettersporsel">4. Skift i tilbud og etterspørsel</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#invers-tilbud-og-ettersporsel">5. Invers tilbud og etterspørsel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hvorfor-er-strommen-sa-dyr-nar-vannet-er-gratis">8.4 Hvorfor er strømmen så dyr når vannet er gratis?</a></li>
 </ul>
   </nav></div>
 
