@@ -425,12 +425,17 @@
 <p>Konsumentens etterspørsel etter et produkt viser hva hen er villig til å betale for en ekstra enhet, dvs <em>marginal betalingsvillighet</em>. Den individuelle etterspørselen kan uttrykkes som</p>
 <div class="math notranslate nohighlight">
 \[
-Q_{i}^E=a_{i}-b_{i}P
+Q_{i}^E=\alpha_{i}-\beta_{i}P\tag{1}
 \]</div>
-<p>Ved å summere konsumentenes etterspørselkurve får vi markedets etterspørselskurve</p>
+<p>Markedets etterspørsel er den horisontale summen av alle konsumentenes etterspørsel. Med <span class="math notranslate nohighlight">\(n\)</span> konsumenter i markedet summerer vi:</p>
 <div class="math notranslate nohighlight">
 \[
-Q^E=a-bP
+Q^E = \sum_{i=1}^{n} Q_i^E = \sum_{i=1}^{n}(\alpha_i - \beta_i P) = \alpha - \beta P\tag{2}
+\]</div>
+<p>hvor <span class="math notranslate nohighlight">\(\alpha = \sum a_i\)</span> og <span class="math notranslate nohighlight">\(\beta = \sum \beta_i\)</span>. Enkelt skrevet:</p>
+<div class="math notranslate nohighlight">
+\[
+Q^E=\alpha-\beta P
 \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -964,7 +969,7 @@ prosentvis\; endring \;i \; pris = \frac{dP}{P}\tag{4}
 \epsilon^E = \frac{prosentvis\; endring \;i \; etterspørsel}{prosentvis\; endring \;i \; pris}
 \]</div>
 <p>Tenk på et talleksempel før vi utleder dette formelt. Vi undersøker etterspørsel i et marked og har funnet at etterspørsel har nylig falt med 6%; i samme periode har prisen økt med 3%. Deler vi den ene på den andre så finner vi at -6%/3% = -2% (minus ettersom etterspørselen har falt). Tolkningen nå er når prisen øker med 1% så faller etterspørsel med 2%. Det er nettopp dette som etterspørselens priselastisitet måler!</p>
-<p>Ved å bruke likning (1) og (2) kan vi skrive</p>
+<p>Ved å bruke likning (3) og (4) kan vi skrive</p>
 <div class="math notranslate nohighlight">
 \[
 \epsilon^E = \frac{\frac{dQ^E}{Q^E}}{\frac{dP}{P}}
