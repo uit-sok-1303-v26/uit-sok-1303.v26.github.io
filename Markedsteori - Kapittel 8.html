@@ -497,6 +497,18 @@ Q_2^E = 100 - 2P
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">demand_1</span><span class="p">(</span><span class="mi">30</span><span class="p">),</span> <span class="n">demand_2</span><span class="p">(</span><span class="mi">30</span><span class="p">),</span> <span class="n">m_demand</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(70, 40, 110)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tegne individuell etterspørsel og den horisontale summen</span>
 <span class="n">p_num</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 
@@ -874,16 +886,6 @@ Q^E_{Ind}(P_{høy}) = 6 - 2 \cdot 2 = 2
 <img alt="_images/a7ceb86a14e551ab2369262792a6357dc5b9f6516ba041f7357f72c5af6c7bf1.png" src="_images/a7ceb86a14e551ab2369262792a6357dc5b9f6516ba041f7357f72c5af6c7bf1.png" />
 </div>
 </div>
-<p>For den samlede etterspørselen ved <span class="math notranslate nohighlight">\(P_{lav}\)</span>, siden <span class="math notranslate nohighlight">\(P_{lav} = 1\)</span> er mindre enn skvisprisen for både husholdninger og industri, vil den samlede etterspørselen være summen av de to:</p>
-<div class="math notranslate nohighlight">
-\[
-Q^E_{Total}(P_{lav}) = Q^E_{Hus}(P_{lav}) + Q^E_{Ind}(P_{lav}) = 4 + 4 = 8
-\]</div>
-<p>Den samlede etterspørselen går ned totalt:</p>
-<div class="math notranslate nohighlight">
-\[
-Q^E_{Total}(P_{høy}) = Q^E_{Hus}(P_{høy}) + Q^E_{Ind}(P_{høy}) = 3 + 2 = 5
-\]</div>
 <p>Det vil si at ved en høyere pris på gass, går husholdningenes etterspørsel ned fra 4 til 3 enheter og industrien fra 4 til 2 enheter.</p>
 <p>Totalt sett skyldes den større responsen på prisøkningen fra industrien at de er mer prisfølsomme enn husholdningene.</p>
 <div class="cell docutils container">
@@ -930,6 +932,16 @@ Q^E_{Total}(P_{høy}) = Q^E_{Hus}(P_{høy}) + Q^E_{Ind}(P_{høy}) = 3 + 2 = 5
 <img alt="_images/d73873a66c82fd546b0d3bef4ac22a8b0c294bf92f81e77ab50b63cc3fc720e2.png" src="_images/d73873a66c82fd546b0d3bef4ac22a8b0c294bf92f81e77ab50b63cc3fc720e2.png" />
 </div>
 </div>
+<p>For den samlede etterspørselen ved <span class="math notranslate nohighlight">\(P_{lav}\)</span>, siden <span class="math notranslate nohighlight">\(P_{lav} = 1\)</span> er mindre enn skvisprisen for både husholdninger og industri, vil den samlede etterspørselen være summen av de to:</p>
+<div class="math notranslate nohighlight">
+\[
+Q^E_{Total}(P_{lav}) = Q^E_{Hus}(P_{lav}) + Q^E_{Ind}(P_{lav}) = 4 + 4 = 8
+\]</div>
+<p>Den samlede etterspørselen går ned totalt:</p>
+<div class="math notranslate nohighlight">
+\[
+Q^E_{Total}(P_{høy}) = Q^E_{Hus}(P_{høy}) + Q^E_{Ind}(P_{høy}) = 3 + 2 = 5
+\]</div>
 </section>
 <section id="elastisitetsbegrepet">
 <h2>1.1 Elastisitetsbegrepet<a class="headerlink" href="#elastisitetsbegrepet" title="Link to this heading">#</a></h2>
