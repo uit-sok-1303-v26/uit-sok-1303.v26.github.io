@@ -836,7 +836,7 @@ $<span class="math notranslate nohighlight">\(
 <span class="c1"># det er da mulig å gjøre det på to forskjellige måter</span>
 
 <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">p_A</span><span class="p">,</span> <span class="n">p_B</span><span class="p">,</span><span class="n">a</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;A B I p_A p_B a&#39;</span><span class="p">)</span>
-
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.25</span>
 <span class="n">I</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">p_A</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">p_B</span> <span class="o">=</span> <span class="mi">1</span>
@@ -878,31 +878,18 @@ $<span class="math notranslate nohighlight">\(
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nyttevekten til Beate</span>
-<span class="n">alpha_beate</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">a</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">a</span><span class="p">),</span> <span class="n">a</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A_beate</span><span class="p">,</span> <span class="n">B_beate</span> <span class="o">=</span> <span class="n">optimal_konsum</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span><span class="n">I</span><span class="p">,</span><span class="n">p_A</span><span class="p">,</span><span class="n">p_B</span><span class="p">)</span>
 
-<span class="n">alpha_beate</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \frac{1}{4}\]</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A_beate</span><span class="p">,</span> <span class="n">B_beate</span> <span class="o">=</span> <span class="n">optimal_konsum</span><span class="p">(</span><span class="n">alpha_beate</span><span class="p">,</span><span class="n">I</span><span class="p">,</span><span class="n">p_A</span><span class="p">,</span><span class="n">p_B</span><span class="p">)</span>
-
-<span class="n">display</span><span class="p">(</span><span class="n">A_beate</span><span class="o">.</span><span class="n">evalf</span><span class="p">(),</span> <span class="n">B_beate</span><span class="o">.</span><span class="n">evalf</span><span class="p">())</span>
+<span class="n">display</span><span class="p">(</span><span class="n">A_beate</span><span class="p">,</span> <span class="n">B_beate</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
 \[\displaystyle 0.25\]</div>
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle 0.75\]</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.75
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -911,7 +898,7 @@ $<span class="math notranslate nohighlight">\(
 <span class="k">def</span><span class="w"> </span><span class="nf">indifferenskurve</span><span class="p">(</span><span class="n">A_verdier</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">U0</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">U0</span> <span class="o">/</span> <span class="n">A_verdier</span><span class="o">**</span><span class="n">alpha</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">))</span>
 
-<span class="n">U0_beate</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">A_beate</span><span class="o">**</span><span class="n">alpha_beate</span> <span class="o">*</span> <span class="n">B_beate</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha_beate</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">U0_beate</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">A_beate</span><span class="o">**</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">B_beate</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
 
 <span class="n">U0_beate</span>
 </pre></div>
@@ -933,7 +920,7 @@ $<span class="math notranslate nohighlight">\(
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">b_verdier</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">b_verdier</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Budsjett&#39;</span><span class="p">)</span>
 
 <span class="c1"># Indifferenskurve</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">indifferenskurve</span><span class="p">(</span><span class="n">b_verdier</span><span class="p">,</span> <span class="n">alpha_beate</span><span class="p">,</span> <span class="n">U0_beate</span><span class="p">),</span> <span class="n">b_verdier</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">indifferenskurve</span><span class="p">(</span><span class="n">b_verdier</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">U0_beate</span><span class="p">),</span> <span class="n">b_verdier</span><span class="p">)</span>
 
 <span class="c1"># Legg inn optimalpunktet</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">B_beate</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">A_beate</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Beates optimale konsum&#39;</span><span class="p">)</span>
@@ -967,23 +954,24 @@ $<span class="math notranslate nohighlight">\(
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inntektseffekt</span>
 <span class="n">p_B</span> <span class="o">=</span> <span class="mi">2</span>
 
-<span class="n">A_beate</span><span class="p">,</span><span class="n">B_beate</span> <span class="o">=</span> <span class="n">optimal_konsum</span><span class="p">(</span><span class="n">alpha_beate</span><span class="p">,</span><span class="n">I</span><span class="p">,</span><span class="n">p_A</span><span class="p">,</span><span class="n">p_B</span><span class="p">)</span>
+<span class="n">A_beate</span><span class="p">,</span><span class="n">B_beate</span> <span class="o">=</span> <span class="n">optimal_konsum</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span><span class="n">I</span><span class="p">,</span><span class="n">p_A</span><span class="p">,</span><span class="n">p_B</span><span class="p">)</span>
 
-<span class="n">display</span><span class="p">(</span><span class="n">A_beate</span><span class="o">.</span><span class="n">evalf</span><span class="p">(),</span> <span class="n">B_beate</span><span class="o">.</span><span class="n">evalf</span><span class="p">())</span>
+<span class="n">display</span><span class="p">(</span><span class="n">A_beate</span><span class="p">,</span> <span class="n">B_beate</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
 \[\displaystyle 0.25\]</div>
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle 0.375\]</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.375
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inntektseffekt</span>
-<span class="n">U1_beate</span> <span class="o">=</span> <span class="n">A_beate</span><span class="o">**</span><span class="n">alpha_beate</span> <span class="o">*</span> <span class="n">B_beate</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha_beate</span><span class="p">)</span>
+<span class="n">U1_beate</span> <span class="o">=</span> <span class="n">A_beate</span><span class="o">**</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">B_beate</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">)</span>
 
 <span class="n">U1_beate</span><span class="o">.</span><span class="n">evalf</span><span class="p">()</span>
 </pre></div>
@@ -1009,7 +997,7 @@ $<span class="math notranslate nohighlight">\(
 <span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">A_beate</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">B_beate</span><span class="p">),</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
 
 <span class="c1"># Indifferenskurve</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">indifferenskurve</span><span class="p">(</span><span class="n">b_verdier</span><span class="p">,</span> <span class="n">alpha_beate</span><span class="p">,</span> <span class="n">U1_beate</span><span class="p">),</span> <span class="n">b_verdier</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">indifferenskurve</span><span class="p">(</span><span class="n">b_verdier</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">U1_beate</span><span class="p">),</span> <span class="n">b_verdier</span><span class="p">)</span>
 
 <span class="c1"># Tegner punkt c</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">B_beate</span><span class="p">)</span><span class="o">+</span><span class="mf">0.02</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">A_beate</span><span class="p">)</span><span class="o">+</span><span class="mf">0.02</span><span class="p">))</span>
@@ -1028,13 +1016,13 @@ $<span class="math notranslate nohighlight">\(
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Substitusjonseffekt</span>
 
 <span class="c1"># Optimalt forhold A/B med ny pris</span>
-<span class="n">opt_forhold</span> <span class="o">=</span> <span class="p">(</span><span class="n">alpha_beate</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha_beate</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="n">p_B</span><span class="o">/</span><span class="n">p_A</span><span class="p">)</span>
+<span class="n">opt_forhold</span> <span class="o">=</span> <span class="p">(</span><span class="n">alpha</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="n">p_B</span><span class="o">/</span><span class="n">p_A</span><span class="p">)</span>
 
 <span class="c1"># A uttrykt ved B</span>
 <span class="n">A_sub</span> <span class="o">=</span> <span class="n">opt_forhold</span> <span class="o">*</span> <span class="n">B</span>
 
 <span class="c1"># Hold gammel nytte konstant</span>
-<span class="n">U_likning</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">((</span><span class="n">A_sub</span><span class="o">**</span><span class="n">alpha_beate</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">B</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha_beate</span><span class="p">)),</span> <span class="n">U0_beate</span><span class="p">)</span>
+<span class="n">U_likning</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">((</span><span class="n">A_sub</span><span class="o">**</span><span class="n">alpha</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">B</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">)),</span> <span class="n">U0_beate</span><span class="p">)</span>
 
 <span class="c1"># Løs for B</span>
 <span class="n">B_sub</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">U_likning</span><span class="p">,</span> <span class="n">B</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
