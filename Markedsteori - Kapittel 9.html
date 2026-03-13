@@ -375,6 +375,7 @@
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markedslikevekt-ved-frikonkurrasne">Markedslikevekt ved frikonkurrasne</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vi-tegner-inn-likevektspris-og-kvantum">Vi tegner inn likevektspris og -kvantum.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#krig-pa-kontinentet-hoyere-strompriser-og-samfunnsokonomisk-overskudd">9.1 Krig på Kontinentet, høyere strømpriser og samfunnsøkonomisk overskudd</a></li>
 </ul>
             </nav>
         </div>
@@ -403,9 +404,9 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">demand</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="mi">1500</span><span class="o">/</span><span class="p">(</span><span class="mi">20</span><span class="o">+</span><span class="n">x</span><span class="p">))</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">100</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">supply</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">200</span>
+    <span class="k">return</span> <span class="mi">20</span> <span class="o">+</span> <span class="n">x</span>
 </pre></div>
 </div>
 </div>
@@ -420,36 +421,31 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \frac{1500}{x + 20} = \frac{x^{2}}{200}\]</div>
+\[\displaystyle 100 - x = x + 20\]</div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_eq</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">equ</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
-
-<span class="n">display</span><span class="p">(</span><span class="n">x_eq</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x_eq</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">x_eq</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">x_eq</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle - \frac{20}{3} + 10 \left(- \frac{1}{2} - \frac{\sqrt{3} i}{2}\right) \sqrt[3]{\frac{10 \sqrt{2017}}{3} + \frac{4042}{27}} + \frac{40}{9 \left(- \frac{1}{2} - \frac{\sqrt{3} i}{2}\right) \sqrt[3]{\frac{10 \sqrt{2017}}{3} + \frac{4042}{27}}}\]</div>
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle - \frac{20}{3} + \frac{40}{9 \left(- \frac{1}{2} + \frac{\sqrt{3} i}{2}\right) \sqrt[3]{\frac{10 \sqrt{2017}}{3} + \frac{4042}{27}}} + 10 \left(- \frac{1}{2} + \frac{\sqrt{3} i}{2}\right) \sqrt[3]{\frac{10 \sqrt{2017}}{3} + \frac{4042}{27}}\]</div>
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle - \frac{20}{3} + \frac{40}{9 \sqrt[3]{\frac{10 \sqrt{2017}}{3} + \frac{4042}{27}}} + 10 \sqrt[3]{\frac{10 \sqrt{2017}}{3} + \frac{4042}{27}}\]</div>
+\[\displaystyle 40\]</div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># siste element er eneste som ikke er et imaginært tall</span>
-<span class="n">x_eq</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">x_eq</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lagrer bare løsningen som et tall</span>
+<span class="n">x_eq</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">x_eq</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">x_eq</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>60.89684931003215
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>40.0
 </pre></div>
 </div>
 </div>
@@ -462,7 +458,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>18.542131279443815
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>60.0
 </pre></div>
 </div>
 </div>
@@ -502,7 +498,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f4408ff6d15564624d0318c2b2a79c382d4d1771318d91f0a724e0e098662ed2.png" src="_images/f4408ff6d15564624d0318c2b2a79c382d4d1771318d91f0a724e0e098662ed2.png" />
+<img alt="_images/6d1f5e05daca7acb622a81008dc0445c30c2631c5de1bd6f91bd9ac092ae3b39.png" src="_images/6d1f5e05daca7acb622a81008dc0445c30c2631c5de1bd6f91bd9ac092ae3b39.png" />
 </div>
 </div>
 </section>
@@ -520,7 +516,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c2303aeffdd70ceb7889d142ef101f17b624b67f7e3756cd9c3e9cf156467536.png" src="_images/c2303aeffdd70ceb7889d142ef101f17b624b67f7e3756cd9c3e9cf156467536.png" />
+<img alt="_images/e6588706d1712608de40b3464d1492d03e91f42caaa29e79adb12545cc69ea9d.png" src="_images/e6588706d1712608de40b3464d1492d03e91f42caaa29e79adb12545cc69ea9d.png" />
 </div>
 </div>
 <p>Den vertikale avstanden mellom etterspørselskurven og likevektsprisen er forskjellen i hva konsumenter er villig til å betale for hver ekstra enhet og hva de faktisk må betale. Dette er et overskudd til konsumenten, og kan summeres over alle enheter kjøpt. Dette gir oss konsumentoverskuddet som det grønne området nedenfor.</p>
@@ -536,7 +532,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f3ed74bc2a2666fad01d290ce01fa6980b76a178d912338ce98c92fb193d8f23.png" src="_images/f3ed74bc2a2666fad01d290ce01fa6980b76a178d912338ce98c92fb193d8f23.png" />
+<img alt="_images/5ef2f60359b1134e44857abfca31c6f4e855382984dbddad3cc8e2ad75f81d06.png" src="_images/5ef2f60359b1134e44857abfca31c6f4e855382984dbddad3cc8e2ad75f81d06.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -548,7 +544,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle 752.771582940749\]</div>
+\[\displaystyle 800.0\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -560,7 +556,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle 967.006531985176\]</div>
+\[\displaystyle 800.0\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -571,7 +567,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1719.7781149259245
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1600.0
 </pre></div>
 </div>
 </div>
@@ -620,31 +616,66 @@
     <tr>
       <th>0</th>
       <td>Solgt mengde</td>
-      <td>60.90</td>
+      <td>40.0</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Pris</td>
-      <td>18.54</td>
+      <td>60.0</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Konsumentoverskudd</td>
-      <td>967.01</td>
+      <td>800.0</td>
     </tr>
     <tr>
       <th>3</th>
       <td>Produsentoverskudd</td>
-      <td>752.77</td>
+      <td>800.0</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Samfunnsøkonomisk overskudd</td>
-      <td>1719.78</td>
+      <td>1600.0</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
+</div>
+</section>
+<section id="krig-pa-kontinentet-hoyere-strompriser-og-samfunnsokonomisk-overskudd">
+<h2>9.1 Krig på Kontinentet, høyere strømpriser og samfunnsøkonomisk overskudd<a class="headerlink" href="#krig-pa-kontinentet-hoyere-strompriser-og-samfunnsokonomisk-overskudd" title="Link to this heading">#</a></h2>
+<p>Conrad leser i avisen om krigen i Ukraina og at bortfallet av russisk gass har gjort at strømprisen på Kontinentet har gått opp. Han tenker at prisøkningen ikke kan være samfunnsøkonomisk effektivt.</p>
+<p>Se for deg en situasjon hvor etterspørselen etter strøm er gitt ved:</p>
+<div class="math notranslate nohighlight">
+\[Q^E = 1 - P\]</div>
+<p>Mens tilbudet er gitt ved:</p>
+<div class="math notranslate nohighlight">
+\[Q^T = -\gamma + P\]</div>
+<p>Før krigen i Ukraina så var <span class="math notranslate nohighlight">\(\gamma_{fred} = 0\)</span>, men med stansen av gassleveransene fra Russland, får vi et skift i tilbudskurven, gitt ved <span class="math notranslate nohighlight">\(\gamma_{krig} = 0.2\)</span>.</p>
+<p><strong>a.</strong> Hva blir likevekten og det samfunnsøkonomiske overskuddet i dette markedet før krigen?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>b.</strong> Hvordan påvirker krigen likevekten og det samfunnsøkonomiske overskuddet? Er du enig med Conrad at det har oppstått et effektivitetstap?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>c.</strong> Conrad tenker at når krigen er over og vi igjen går tilbake til <span class="math notranslate nohighlight">\(\gamma_{fred} = 0\)</span>, så vil det samfunnsøkonomiske overskuddet øke, og med det også den samfunnsøkonomiske effektiviteten. Har han rett i det?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>
@@ -717,6 +748,7 @@
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markedslikevekt-ved-frikonkurrasne">Markedslikevekt ved frikonkurrasne</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vi-tegner-inn-likevektspris-og-kvantum">Vi tegner inn likevektspris og -kvantum.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#krig-pa-kontinentet-hoyere-strompriser-og-samfunnsokonomisk-overskudd">9.1 Krig på Kontinentet, høyere strømpriser og samfunnsøkonomisk overskudd</a></li>
 </ul>
   </nav></div>
 
