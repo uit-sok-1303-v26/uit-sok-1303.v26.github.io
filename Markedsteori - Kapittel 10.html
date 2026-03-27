@@ -375,6 +375,12 @@
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hvilken-side-av-markedet-betaler-mest-av-avgiften">Hvilken side av markedet betaler mest av avgiften?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#en-optimal-avgiftssats">En optimal avgiftssats?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lavere-elavgift-men-vi-betaler-like-mye-for-strommen">10.1 Lavere elavgift, men vi betaler like mye for strømmen!</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scenario-1-sommer-alpha-s-1">Scenario 1: Sommer (<span class="math notranslate nohighlight">\(\alpha_s = 1\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scenario-2-vinter-alpha-v-1-5">Scenario 2: Vinter (<span class="math notranslate nohighlight">\(\alpha_v = 1.5\)</span>)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subsidier-insidens-og-dodvektstap">10.3 Subsidier, insidens og dødvektstap</a></li>
 </ul>
             </nav>
         </div>
@@ -388,6 +394,7 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="kapittel-10-markededsteori-okonomisk-politikk">
 <h1>Kapittel 10 - Markededsteori, økonomisk politikk<a class="headerlink" href="#kapittel-10-markededsteori-okonomisk-politikk" title="Link to this heading">#</a></h1>
+<p>Notatblokken lastes enklest ned på <a class="github reference external" href="https://github.com/uit-sok-1303-v26/uit-sok-1303.v26.github.io/blob/main/Markedsteori%20-%20Kapittel%2010.ipynb">uit-sok-1303-v26/uit-sok-1303.v26.github.io</a></p>
 <p>Her skal vi se på virkningen av å innføre en avgift per solgte enhet. En skatt lik <span class="math notranslate nohighlight">\(t\)</span> per solgt enhet i markedet skaper en “kile” mellom prisen konsumentene betaler (<span class="math notranslate nohighlight">\(P^E\)</span>) og den produsentene mottar (<span class="math notranslate nohighlight">\(P^T\)</span>):</p>
 <div class="math notranslate nohighlight">
 \[
@@ -488,7 +495,7 @@ Q^T=-100+4.3(P-t)\tag{5}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e65eee1676aa539ac1d846b505ac083c7c9a27a9a9a77aa4f85a9af23ff0b488.png" src="_images/e65eee1676aa539ac1d846b505ac083c7c9a27a9a9a77aa4f85a9af23ff0b488.png" />
+<img alt="_images/9c74b10e826fde9c2d885bae615cf8d2c87031a74fa0e4a6b667c45c9e81160c.png" src="_images/9c74b10e826fde9c2d885bae615cf8d2c87031a74fa0e4a6b667c45c9e81160c.png" />
 </div>
 </div>
 <p>Den opprinnelige likevekten er i a. Den nye tilbudsfunskjonen krysser etterspørsel i b og vi ser at omsatt mengde faller. Før vi beregner effekten på likevekten, la oss spørre hva som ville skjedd dersom vi hadde lagt avgiften på kjøperne?</p>
@@ -506,7 +513,7 @@ Q^T=-100+4.3(P-t)\tag{5}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/cd55799cc276ae44c6b692bf6b7f3fc8cbd291a34f1f6a8be3b613de32d706d7.png" src="_images/cd55799cc276ae44c6b692bf6b7f3fc8cbd291a34f1f6a8be3b613de32d706d7.png" />
+<img alt="_images/add2067446117d6840d224f0ede025ba514b39a9098debeb783113d21275b935.png" src="_images/add2067446117d6840d224f0ede025ba514b39a9098debeb783113d21275b935.png" />
 </div>
 </div>
 <p>Det ser ut som om omstatt kvantum blir det samme om vi ilegge avgiften kjøpere eller selgere! La oss løse for likevekten og vise dette formelt.</p>
@@ -666,23 +673,23 @@ Q^T=-100+4.3(P-t)\tag{5}
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sett inn linjer som viser likevekten</span>
 <span class="c1"># clip_on=False for å tegne utenfor plottområdet</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">Q_eq_fn</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="mi">65</span><span class="p">,</span> <span class="n">P_E</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">clip_on</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">P_eq_fn</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span><span class="mi">200</span><span class="p">,</span><span class="mi">237</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">clip_on</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">P_eq_fn</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="mi">200</span><span class="p">,</span><span class="mi">237</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">clip_on</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">Q_eq_fn</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="mi">70</span><span class="p">,</span> <span class="n">P_E</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">clip_on</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">P_eq_fn</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span><span class="mi">220</span><span class="p">,</span><span class="mi">237</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">clip_on</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">P_eq_fn</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="mi">220</span><span class="p">,</span><span class="mi">237</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">clip_on</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="c1"># sett inn likevektsverdier i figuren</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">Q_opt</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">Q_opt</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">64</span><span class="p">),</span> <span class="n">annotation_clip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">P_E</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="n">P_E</span><span class="p">),</span> <span class="n">annotation_clip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">P_E</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="n">P_E</span><span class="o">-</span><span class="mi">4</span><span class="p">),</span> <span class="n">annotation_clip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">Q_opt</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">Q_opt</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">69</span><span class="p">),</span> <span class="n">annotation_clip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">P_E</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">221</span><span class="p">,</span> <span class="n">P_E</span><span class="p">),</span> <span class="n">annotation_clip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">P_E</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">221</span><span class="p">,</span> <span class="n">P_E</span><span class="o">-</span><span class="mi">4</span><span class="p">),</span> <span class="n">annotation_clip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.6</span><span class="p">,</span><span class="mf">0.6</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
 <span class="n">fig</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7aace8c8b03e8fdab4d9b1d9df6066a4d5282e66d3b24bae652d33bf68eb3d3f.png" src="_images/7aace8c8b03e8fdab4d9b1d9df6066a4d5282e66d3b24bae652d33bf68eb3d3f.png" />
+<img alt="_images/e4b5d57da6121ce802f5e1580ffc02d570e490b9933357ff70317897e9aa0ed9.png" src="_images/e4b5d57da6121ce802f5e1580ffc02d570e490b9933357ff70317897e9aa0ed9.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -720,7 +727,7 @@ Q^T=-100+4.3(P-t)\tag{5}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/cbda9f848836964e6f1efd963d7e432e099ecf58009d3fafc82683b7f679fcb2.png" src="_images/cbda9f848836964e6f1efd963d7e432e099ecf58009d3fafc82683b7f679fcb2.png" />
+<img alt="_images/600014295fbd366e662fab5242b7c0d9500f0fdca9882931f0401b2bdbc7a48d.png" src="_images/600014295fbd366e662fab5242b7c0d9500f0fdca9882931f0401b2bdbc7a48d.png" />
 </div>
 </div>
 <p>Totalt avgiftproveny til staten er summen av det rosa og det grå området i figuren. Vi ser at konsumentene betaler mest. Vi kan lage en hypotese om at det er den siden av markedet som er minst prisfølsom som vil betale mest. Hvis dette stemmer må det være tilfellet at selgere reagerer mer på prisendringer enn konsumenter, målt fra den opprinnelige likevekten.</p>
@@ -758,7 +765,7 @@ Q^T=-100+4.3(P-t)\tag{5}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/767851b5e008295e82bf4aa72878603f942e1cc92c40d4ed6e9bf29faaad539d.png" src="_images/767851b5e008295e82bf4aa72878603f942e1cc92c40d4ed6e9bf29faaad539d.png" />
+<img alt="_images/9b52527958b95aa1af454e546663d5d988a560853f090385d4afb0ed350a3bc1.png" src="_images/9b52527958b95aa1af454e546663d5d988a560853f090385d4afb0ed350a3bc1.png" />
 </div>
 </div>
 <p>Myndighetene står overfor en avveining her: en økning i avgiften gir flere kroner i proveny per enhet solgt, men reduserer samtidig antall enheter solgt. La oss undersøke dette næremere.</p>
@@ -793,7 +800,7 @@ Q^T=-100+4.3(P-t)\tag{5}
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="c1">#title</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span> <span class="p">(</span><span class="s1">&#39;Avgiftproveny&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span> <span class="p">(</span><span class="s1">&#39;Eksempel på form for utvikling av avgiftproveny&#39;</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">150</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">8500</span><span class="p">);</span>
@@ -801,7 +808,7 @@ Q^T=-100+4.3(P-t)\tag{5}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ee38752d7d7d6d73c4f727d9c83c640fb92c9d1d9f0b489cb2d8a9deaf3aa0d0.png" src="_images/ee38752d7d7d6d73c4f727d9c83c640fb92c9d1d9f0b489cb2d8a9deaf3aa0d0.png" />
+<img alt="_images/c3f6fd669871cd45880a505f8830ba9946e4dc5f108a9803be655f5bfe213bb3.png" src="_images/c3f6fd669871cd45880a505f8830ba9946e4dc5f108a9803be655f5bfe213bb3.png" />
 </div>
 </div>
 <p>Denne type kurve kalles ofte en Laffer kurve. (Arthur Laffer var rådgiver for US President Ronald Reagan, 1981-89). Her ser vi myndighetens avveining ganske tydelig, og vi kan også finne avgiftssatsen som maksimerer provenyet.</p>
@@ -850,17 +857,10 @@ Q^T=-100+4.3(P-t)\tag{5}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/50d19078f525e479f7b9819c1cdf6e4a68151380a8e5160a3439f89eeed9090b.png" src="_images/50d19078f525e479f7b9819c1cdf6e4a68151380a8e5160a3439f89eeed9090b.png" />
+<img alt="_images/16530381e542786f3cc8a826abdb9f5e0f9c2d3a24ac0f2b5b1c71581978f790.png" src="_images/16530381e542786f3cc8a826abdb9f5e0f9c2d3a24ac0f2b5b1c71581978f790.png" />
 </div>
 </div>
 <p>La oss nå undersøke likevekten med en avgift i en generell lineær markedsmodell. Vi skal se på en avgift på t kr per enhet som er ilagt produsentene.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># definer symbolene som vi kommer til å bruke</span>
@@ -976,6 +976,31 @@ Q^T=-100+4.3(P-t)\tag{5}
 </div>
 <p>(iv) andel betalt av konsumenten er over 0.5 dersom <span class="math notranslate nohighlight">\(B&gt;b\)</span>. Dvs konsumenter betaler en større andel av avgiften dersom de er mindre følsom for prisendringer enn produsenter. Husk at <span class="math notranslate nohighlight">\(\epsilon^D = -b\frac{p}{x}, \epsilon^S=B\frac{p}{x}\)</span>. Når vi måler på et felles punkt (dvs samme <span class="math notranslate nohighlight">\(\frac{p}{x}\)</span>) som likevekten med <span class="math notranslate nohighlight">\(t=0\)</span>, vil den relative prisfølsomheten bestemmes av sammenlikningen mellom <span class="math notranslate nohighlight">\(b\)</span> og <span class="math notranslate nohighlight">\(B\)</span>.</p>
 </section>
+<section id="lavere-elavgift-men-vi-betaler-like-mye-for-strommen">
+<h2>10.1 Lavere elavgift, men vi betaler like mye for strømmen!<a class="headerlink" href="#lavere-elavgift-men-vi-betaler-like-mye-for-strommen" title="Link to this heading">#</a></h2>
+<p>Høye strømpriser har ført til et krav om å fjerne elavgiften. Man skulle kanskje tro at lavere elavgift vil gi en tilsvarende reduksjon i strømprisen for kundene, men så enkelt er det ikke.</p>
+<p>Vi ser for oss at strømproduksjonen kommer fra vannkraft, med null grensekostnad og en kapasitetsgrense på <span class="math notranslate nohighlight">\(Q^T = 1\)</span>. La etterspørselen etter strøm være gitt ved <span class="math notranslate nohighlight">\(Q^E = \alpha - P^E\)</span>, hvor <span class="math notranslate nohighlight">\(P^E\)</span> er prisen som konsumentene betaler. En elavgift <span class="math notranslate nohighlight">\(t\)</span> vil gjøre at konsumentprisen blir høyere enn produsentprisen <span class="math notranslate nohighlight">\(P^T\)</span>, slik at <span class="math notranslate nohighlight">\(P^E = P^T + t\)</span>.</p>
+<p>Vi skal studere to scenarier: sommer, med lav etterspørsel (på grunn av varmt vær), og vinter, med høy etterspørsel (kaldt vær).</p>
+<section id="scenario-1-sommer-alpha-s-1">
+<h3>Scenario 1: Sommer (<span class="math notranslate nohighlight">\(\alpha_s = 1\)</span>)<a class="headerlink" href="#scenario-1-sommer-alpha-s-1" title="Link to this heading">#</a></h3>
+<p>a) Hva blir pris og mengde uten elavgift (<span class="math notranslate nohighlight">\(t = 0\)</span>)?</p>
+<p>b) Hva skjer om det innføres en elavgift, <span class="math notranslate nohighlight">\(t = 0.5\)</span>? Studer effekten på konsumentpris (<span class="math notranslate nohighlight">\(P^E\)</span>) og produsentpris (<span class="math notranslate nohighlight">\(P^T\)</span>), hvor <span class="math notranslate nohighlight">\(P^E = P^T + t\)</span>. Hvem bærer avgiften?</p>
+<p>c) Hva skjer om det oppstår et krav om å fjerne elavgiften? Hva blir effekten for konsument- og produsentpris?</p>
+</section>
+<section id="scenario-2-vinter-alpha-v-1-5">
+<h3>Scenario 2: Vinter (<span class="math notranslate nohighlight">\(\alpha_v = 1.5\)</span>)<a class="headerlink" href="#scenario-2-vinter-alpha-v-1-5" title="Link to this heading">#</a></h3>
+<p>d) Hva blir pris og mengde uten elavgift?</p>
+<p>e) Hva skjer om det innføres en elavgift, <span class="math notranslate nohighlight">\(t = 0.5\)</span>? Studer effekten på konsument- og produsentpris. Hvem må bære avgiften nå?</p>
+<p>f) Hva skjer nå om myndighetene gir etter for et krav om å fjerne elavgiften?</p>
+</section>
+</section>
+<section id="subsidier-insidens-og-dodvektstap">
+<h2>10.3 Subsidier, insidens og dødvektstap<a class="headerlink" href="#subsidier-insidens-og-dodvektstap" title="Link to this heading">#</a></h2>
+<p>Betrakt et marked hvor etterspørselen er <span class="math notranslate nohighlight">\(Q^E = 100 - P\)</span> og tilbudet <span class="math notranslate nohighlight">\(Q^T = -20 + P\)</span>.</p>
+<p>a) Hva blir likevektspris og kvantum, og konsument- og produsentoverskudd i dette markedet?</p>
+<p>b) Produsentpartiet er ikke fornøyd med situasjonen, og har tatt til orde for en subsidie til produsentene på <span class="math notranslate nohighlight">\(s = 20\)</span> for hver enhet produsert. Dette vil skape en kile mellom konsumentpris og produsentpris, slik at <span class="math notranslate nohighlight">\(P^E + s = P^T\)</span>. Hva blir likevekten med en slik subsidie? Tror du Produsentpartiet blir fornøyd?</p>
+<p>c) Hva blir konsumentoverskudd, produsentoverskudd og det samfunnsøkonomiske overskuddet med subsidien? Sammenlign med det du fant i deloppgave a. Tror du Effektivitetspartiet er fornøyd med en slik politikk?</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1046,6 +1071,12 @@ Q^T=-100+4.3(P-t)\tag{5}
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hvilken-side-av-markedet-betaler-mest-av-avgiften">Hvilken side av markedet betaler mest av avgiften?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#en-optimal-avgiftssats">En optimal avgiftssats?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lavere-elavgift-men-vi-betaler-like-mye-for-strommen">10.1 Lavere elavgift, men vi betaler like mye for strømmen!</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scenario-1-sommer-alpha-s-1">Scenario 1: Sommer (<span class="math notranslate nohighlight">\(\alpha_s = 1\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scenario-2-vinter-alpha-v-1-5">Scenario 2: Vinter (<span class="math notranslate nohighlight">\(\alpha_v = 1.5\)</span>)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subsidier-insidens-og-dodvektstap">10.3 Subsidier, insidens og dødvektstap</a></li>
 </ul>
   </nav></div>
 
