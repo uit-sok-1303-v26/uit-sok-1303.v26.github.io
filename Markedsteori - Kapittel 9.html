@@ -373,7 +373,7 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markedslikevekt-ved-frikonkurrasne">Markedslikevekt ved frikonkurrasne</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markedslikevekt-ved-frikonkurranse">Markedslikevekt ved frikonkurranse</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#markedslikevekt">Markedslikevekt</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel">Eksempel</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dodvektstap">Dødvektstap</a></li>
@@ -383,7 +383,13 @@
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anbefalt-lesestoff-rundt-norgespris-for-arbeidskravet">Anbefalt lesestoff rundt norgespris for arbeidskravet</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#krig-pa-kontinentet-hoyere-strompriser-og-samfunnsokonomisk-overskudd">9.1 Krig på Kontinentet, høyere strømpriser og samfunnsøkonomisk overskudd</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#krig-pa-kontinentet-hoyere-strompriser-og-samfunnsokonomisk-overskudd">9.1 Krig på Kontinentet, høyere strømpriser og samfunnsøkonomisk overskudd</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#losning-9-1-a-med-integral-likevekt-og-so-for-krigen-gamma-0">Løsning 9.1 a) med integral – Likevekt og SO før krigen (<span class="math notranslate nohighlight">\(\gamma = 0\)</span>)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konsumentoverskudd">Konsumentoverskudd</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#produsentoverskudd">Produsentoverskudd</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#samfunnsokonomisk-overskudd">Samfunnsøkonomisk overskudd</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hvorfor-skal-vi-betale-sa-mye-for-noe-vi-har-sa-mye-av">9.4 Hvorfor skal vi betale så mye for noe vi har så mye av?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nar-den-usynlige-hand-svikter-dodvektstapet-ved-forurensning-frivillig-oppgave">9.5 Når den usynlige hånd svikter: Dødvektstapet ved forurensning. Frivillig oppgave</a></li>
 </ul>
@@ -400,8 +406,8 @@
   <section class="tex2jax_ignore mathjax_ignore" id="kapittel-9-markedsteori-samfunnsokonomisk-effektivitet">
 <h1>Kapittel 9 - Markedsteori, samfunnsøkonomisk effektivitet<a class="headerlink" href="#kapittel-9-markedsteori-samfunnsokonomisk-effektivitet" title="Link to this heading">#</a></h1>
 <p>Notatblokken lastes enklest ned på <a class="github reference external" href="https://github.com/uit-sok-1303-v26/uit-sok-1303.v26.github.io/blob/main/Markedsteori%20-%20Kapittel%209.ipynb">uit-sok-1303-v26/uit-sok-1303.v26.github.io</a></p>
-<section id="markedslikevekt-ved-frikonkurrasne">
-<h2>Markedslikevekt ved frikonkurrasne<a class="headerlink" href="#markedslikevekt-ved-frikonkurrasne" title="Link to this heading">#</a></h2>
+<section id="markedslikevekt-ved-frikonkurranse">
+<h2>Markedslikevekt ved frikonkurranse<a class="headerlink" href="#markedslikevekt-ved-frikonkurranse" title="Link to this heading">#</a></h2>
 <section id="markedslikevekt">
 <h3>Markedslikevekt<a class="headerlink" href="#markedslikevekt" title="Link to this heading">#</a></h3>
 <p>Vi har et marked med etterspørsel <span class="math notranslate nohighlight">\(Q^E\)</span> og tilbud <span class="math notranslate nohighlight">\(Q^T\)</span>. Likevekten finnes der tilbud og etterspørsel er like:</p>
@@ -523,6 +529,58 @@ SO = KO + PO = 8 + 8 = 16 \tag{8}
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Overskudd</th>
+      <th>Verdi (kr)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Solgt mengde</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pris</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Konsumentoverskudd</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Produsentoverskudd</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Samfunnsøkonomisk overskudd</td>
+      <td>16.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -558,7 +616,7 @@ SO = KO + PO = 8 + 8 = 16 \tag{8}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f0aec3bf9e02dd9a61d3e821adc949fc4deef7c79e86ec2c4a0b9baff4a84df7.png" src="_images/f0aec3bf9e02dd9a61d3e821adc949fc4deef7c79e86ec2c4a0b9baff4a84df7.png" />
+<img alt="_images/1239874d3cbc55c6a1fcc3fa39bdcbea89f9e76ade8555aecd2f296b4f3a3de1.png" src="_images/1239874d3cbc55c6a1fcc3fa39bdcbea89f9e76ade8555aecd2f296b4f3a3de1.png" />
 </div>
 </div>
 <p>Det samfunnsøkonomiske overskuddet kommer ved å legge sammen “PO” (Produsentoverskudd) og “KO” (Konsumentoverskuddet).</p>
@@ -663,7 +721,7 @@ SO = KO + PO = 8 + 8 = 16 \tag{8}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/cb11802c7338bf7f6d82340aea2bb2c8d1829ff72e95a0618769dee99499456b.png" src="_images/cb11802c7338bf7f6d82340aea2bb2c8d1829ff72e95a0618769dee99499456b.png" />
+<img alt="_images/6d1f5e05daca7acb622a81008dc0445c30c2631c5de1bd6f91bd9ac092ae3b39.png" src="_images/6d1f5e05daca7acb622a81008dc0445c30c2631c5de1bd6f91bd9ac092ae3b39.png" />
 </div>
 </div>
 </section>
@@ -681,7 +739,7 @@ SO = KO + PO = 8 + 8 = 16 \tag{8}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8cafd95397d261d80d2ee8d674a4de8457fb8e7c878e7b6362da486d408a6526.png" src="_images/8cafd95397d261d80d2ee8d674a4de8457fb8e7c878e7b6362da486d408a6526.png" />
+<img alt="_images/e6588706d1712608de40b3464d1492d03e91f42caaa29e79adb12545cc69ea9d.png" src="_images/e6588706d1712608de40b3464d1492d03e91f42caaa29e79adb12545cc69ea9d.png" />
 </div>
 </div>
 <p>Den vertikale avstanden mellom etterspørselskurven og likevektsprisen er forskjellen i hva konsumenter er villig til å betale for hver ekstra enhet og hva de faktisk må betale. Dette er et overskudd til konsumenten, og kan summeres over alle enheter kjøpt. Dette gir oss konsumentoverskuddet som det grønne området nedenfor.</p>
@@ -697,7 +755,7 @@ SO = KO + PO = 8 + 8 = 16 \tag{8}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/a6b5ab2858cb4072534dcac0e7a41a8620416aceb361db0d114ef3be44252733.png" src="_images/a6b5ab2858cb4072534dcac0e7a41a8620416aceb361db0d114ef3be44252733.png" />
+<img alt="_images/5ef2f60359b1134e44857abfca31c6f4e855382984dbddad3cc8e2ad75f81d06.png" src="_images/5ef2f60359b1134e44857abfca31c6f4e855382984dbddad3cc8e2ad75f81d06.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -826,13 +884,437 @@ SO = KO + PO = 8 + 8 = 16 \tag{8}
 <p><strong>a.</strong> Hva blir likevekten og det samfunnsøkonomiske overskuddet i dette markedet før krigen?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definerer symbolene</span>
+<span class="n">Q_E</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">Q_T</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;Q_E P Q_T gamma&#39;</span><span class="p">)</span>
+
+<span class="c1"># Definerer etterspørsels- og tilbudsfunksjonene</span>
+<span class="n">Ettersporsel</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">Q_E</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">P</span><span class="p">)</span>
+<span class="n">Tilbud</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">Q_T</span><span class="p">,</span> <span class="o">-</span><span class="n">gamma</span> <span class="o">+</span> <span class="n">P</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">Ettersporsel</span><span class="p">,</span> <span class="n">Tilbud</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle Q_{E} = 1 - P\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle Q_{T} = P - \gamma\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Løser for likevekt</span>
+<span class="n">likevekt</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">Ettersporsel</span><span class="o">.</span><span class="n">rhs</span> <span class="o">-</span> <span class="n">Tilbud</span><span class="o">.</span><span class="n">rhs</span><span class="p">,</span> <span class="n">P</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Viser likevekten</span>
+<span class="n">display</span><span class="p">(</span><span class="n">likevekt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{\gamma}{2} + \frac{1}{2}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># For fred så har vi gamma = 0</span>
+<span class="n">gamma_verdi</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">P_losning</span> <span class="o">=</span> <span class="n">likevekt</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">gamma</span><span class="p">,</span> <span class="n">gamma_verdi</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">P_losning</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{1}{2}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Finner likevektskvantum ved å sette likevektsprisen inn i en av funksjonene</span>
+<span class="n">Q_losning</span> <span class="o">=</span> <span class="n">Ettersporsel</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">P_losning</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">Q_losning</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{1}{2}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Figurkonfigurasjon</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_ax</span><span class="p">():</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Q&#39;</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="s2">&quot;right&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;top&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;right&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span>
 </pre></div>
 </div>
 </div>
 </div>
+<section id="losning-9-1-a-med-integral-likevekt-og-so-for-krigen-gamma-0">
+<h3>Løsning 9.1 a) med integral – Likevekt og SO før krigen (<span class="math notranslate nohighlight">\(\gamma = 0\)</span>)<a class="headerlink" href="#losning-9-1-a-med-integral-likevekt-og-so-for-krigen-gamma-0" title="Link to this heading">#</a></h3>
+<p><strong>Setter tilbud lik etterspørsel:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+Q^E = Q^T 
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+1 - P = 0 + P \implies 1 = 2P 
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{P^*_{fred} = 0.5} 
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+Q^*_{fred} = 1 - 0.5 = 0.5 
+\]</div>
+<p><strong>Invers etterspørsel:</strong> <span class="math notranslate nohighlight">\(P^D = 1 - Q\)</span>. <strong>Invers tilbud</strong> (med <span class="math notranslate nohighlight">\(\gamma=0\)</span>): <span class="math notranslate nohighlight">\(P^S = Q\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+KO_{fred} = \int_0^{0.5}(1 - Q - 0.5)\,dQ = \int_0^{0.5}(0.5 - Q)\,dQ
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+KO_{fred} = \left[0.5Q - \frac{Q^2}{2}\right]_0^{0.5} = 0.25 - 0.125 = 0.125 
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+PO_{fred} = \int_0^{0.5}(0.5 - Q)\,dQ = 0.125
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{SO_{fred} = KO + PO = 0.125 + 0.125 = 0.25} 
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Viser i figur 9.1a</span>
+<span class="n">P_verdier</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">create_ax</span><span class="p">()</span>
+
+<span class="c1"># Etterspørselskurve</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">P_verdier</span><span class="p">,</span><span class="n">P_verdier</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Etterspørsel&#39;</span><span class="p">)</span>
+
+<span class="c1"># Tilbudskurve</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">-</span><span class="n">gamma_verdi</span> <span class="o">+</span> <span class="n">P_verdier</span><span class="p">,</span> <span class="n">P_verdier</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$T_1$&#39;</span><span class="p">)</span>
+
+<span class="c1"># Likevektspunkt fred</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Q_losning</span><span class="p">,</span> <span class="n">P_losning</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Likevektspunkt&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/96e5ff24bdc2b895e0e3475d1fcbdee66a0e8413dfc93cb68aeff28197df3230.png" src="_images/96e5ff24bdc2b895e0e3475d1fcbdee66a0e8413dfc93cb68aeff28197df3230.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="konsumentoverskudd">
+<h2>Konsumentoverskudd<a class="headerlink" href="#konsumentoverskudd" title="Link to this heading">#</a></h2>
+<p>Konsumentoverskudd er arealet av trekanten mellom etterspørselskurven og prisen, opp til det kvantumet som omsettes i markedet.</p>
+<p>For å finne dette må vi huske formelen for areal av trekant, som er:</p>
+<div class="math notranslate nohighlight">
+\[
+A = \frac{\text{grunnlinje} \cdot \text{høyde}}{2} 
+\]</div>
+<p>I vårt tilfelle for å finne konsumentoverskuddet, må vi finne høyden og grunnlinjen til trekanten.</p>
+<p>Dette er gitt ved:</p>
+<div class="math notranslate nohighlight">
+\[
+g = 0.5
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+h = 1 - 0.5 = 0.5
+\]</div>
+<p>Så konsumentoverskuddet blir:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{KO} = \frac{0.5 \cdot 0.5}{2} = \frac{0.25}{2} = 0.125
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Konsumentoverskudd, regnet med areal av trekant</span>
+<span class="n">KO</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">P_losning</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="o">/</span> <span class="mi">2</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">KO</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 0.125\]</div>
+</div>
+</div>
+</section>
+<section id="produsentoverskudd">
+<h2>Produsentoverskudd<a class="headerlink" href="#produsentoverskudd" title="Link to this heading">#</a></h2>
+<p>Produsentoverskudd er arealet av trekanten mellom tilbudskurven og prisen, opp til det kvantumet som omsettes i markedet.</p>
+<p>For å finne dette må vi også finne høyden og grunnlinjen til trekanten for produsentoverskudd, dette følger samme formel som for konsumentoverskudd.</p>
+<p>Så produsentoverskuddet blir:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{PO} = \frac{0.5 \cdot 0.5}{2} = \frac{0.25}{2} = 0.125
+\]</div>
+</section>
+<section id="samfunnsokonomisk-overskudd">
+<h2>Samfunnsøkonomisk overskudd<a class="headerlink" href="#samfunnsokonomisk-overskudd" title="Link to this heading">#</a></h2>
+<p>Samfunnsøkonomisk overskudd er summen av konsumentoverskudd og produsentoverskudd.</p>
+<div class="math notranslate nohighlight">
+\[
+\text{SO} = \text{KO} + \text{PO} = 0.125 + 0.125 = 0.25
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Produsentoverskudd, regnet med areal av trekant</span>
+<span class="n">PO</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span> <span class="n">P_losning</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="o">/</span> <span class="mi">2</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">PO</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 0.125\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Samfunnsøkonomisk overskudd er summen av konsument- og produsentoverskudd</span>
+<span class="n">SO</span> <span class="o">=</span> <span class="n">KO</span> <span class="o">+</span> <span class="n">PO</span>
+
+<span class="n">SO</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 0.25\]</div>
+</div>
+</div>
+<p>For å tegne dette i python bruker vi funksjonen ‘fill_between’ for å fylle området mellom kurvene og prisen. Denne bruker integralet av funksjonen for å finne arealet under kurven, og dermed konsument- og produsentoverskuddet.</p>
+<p>For å vite hva vi skal ‘fylle mellom’ eller integrere, så må vi finne invers tilbud og etterspørselskurve.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Invers tilbud og etterspørselskurve</span>
+<span class="n">P_E</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">Ettersporsel</span><span class="p">,</span> <span class="n">P</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">P_T</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">Tilbud</span><span class="p">,</span> <span class="n">P</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">P_E</span><span class="p">,</span> <span class="n">P_T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 1 - Q_{E}\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle Q_{T} + \gamma\]</div>
+</div>
+</div>
+<p>Dette viser bare begge måter å gjøre det på, men for å tegne KO og PO i figuren så må vi bruke fill_between, som bruker integralet for å finne arealet under kurven. Dette må vi også bruke når vi har funksjoner som ikke er lineære, hvor det ikke er like lett å finne høyde og grunnlinje for trekanten. Utregning for å integrere finner dere nederst i notebooken.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Integrerer for å finne konsument- og produsentoverskudd</span>
+<span class="n">KO_integral</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">P_E</span> <span class="o">-</span> <span class="n">P_losning</span><span class="p">,</span> <span class="p">(</span><span class="n">Q_E</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Q_losning</span><span class="p">))</span>
+<span class="n">PO_integral</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">P_losning</span> <span class="o">-</span> <span class="n">P_T</span><span class="p">,</span> <span class="p">(</span><span class="n">Q_T</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Q_losning</span><span class="p">))</span>
+
+<span class="n">display</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">KO_integral</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">PO_integral</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">gamma</span><span class="p">,</span> <span class="n">gamma_verdi</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.125
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.125
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Vi vet at området som skal fylles går fra 0 til 0.5, derfor må vi definere en liste med Q-verdier som dekker dette området</span>
+<span class="n">Q_fyll</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Konsumentoverskudd, fill_between  fyller området mellom etterspørselskurven og prisen</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">Q_fyll</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">Q_fyll</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">P_losning</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Konsumentoverskudd&#39;</span><span class="p">)</span>
+
+<span class="c1"># Prodsentoverskudd, fill_between fyller området mellom tilbudskurven og prisen</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">Q_fyll</span><span class="p">,</span> <span class="n">Q_fyll</span> <span class="o">+</span> <span class="n">gamma_verdi</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">P_losning</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgreen&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Produsentoverskudd&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+<span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/1a92f0be935f9e20829059a7327b0b39ce1879711ffc7988718f0157bbf7222b.png" src="_images/1a92f0be935f9e20829059a7327b0b39ce1879711ffc7988718f0157bbf7222b.png" />
+</div>
+</div>
 <p><strong>b.</strong> Hvordan påvirker krigen likevekten og det samfunnsøkonomiske overskuddet? Er du enig med Conrad at det har oppstått et effektivitetstap?</p>
+<p>Krig (<span class="math notranslate nohighlight">\(\gamma = 0.2\)</span>)</p>
+<p><strong>Ny likevekt:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+1 - P = -0.2 + P \implies 1.2 = 2P 
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\boxed{P^*_{krig} = 0.6} 
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+Q^*_{krig} = 1 - 0.6 = 0.4 
+\]</div>
+<p><strong>Invers tilbud</strong> (med <span class="math notranslate nohighlight">\(\gamma=0.2\)</span>): <span class="math notranslate nohighlight">\(P^S = Q + 0.2\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+KO_{krig} = \int_0^{0.4}(1 - Q - 0.6)\,dQ = \int_0^{0.4}(0.4 - Q)\,dQ = 0.08 
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+PO_{krig} = \int_0^{0.4}(0.6 - (Q + 0.2))\,dQ = \int_0^{0.4}(0.4 - Q)\,dQ = 0.08
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+SO_{krig} = 0.08 + 0.08 = 0.16
+\]</div>
+<p><strong>Effektivitetstap</strong> = <span class="math notranslate nohighlight">\(SO_{fred} - SO_{krig} = 0.25 - 0.16 = 0.09\)</span>.</p>
+<p>Conrad har rett: krigen reduserer den samfunnsøkonomiske effektiviteten. Tilbudskurven skifter inn (lavere tilbud), pris stiger, omsatt kvantum faller, og dødvektstapet er <span class="math notranslate nohighlight">\(0.09\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gamma_krig</span> <span class="o">=</span> <span class="mf">0.2</span>
+
+<span class="c1"># Substituerer inn krigsverdien for gamma i likevekten for å finne den nye likevektsprisen</span>
+<span class="n">P_losning_krig</span> <span class="o">=</span> <span class="n">likevekt</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">gamma</span><span class="p">,</span> <span class="n">gamma_krig</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">P_losning_krig</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 0.6\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Finner likevektskvantum ved å sette likevektsprisen inn i en av funksjonene</span>
+<span class="n">Q_losning_krig</span> <span class="o">=</span> <span class="n">Ettersporsel</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">P_losning_krig</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">Q_losning_krig</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 0.4\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Konsumentoverskudd under krig, regnet med areal av trekant</span>
+<span class="n">KO_krig</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">P_losning_krig</span><span class="p">)</span> <span class="o">*</span> <span class="n">Q_losning_krig</span> <span class="o">/</span> <span class="mi">2</span>
+
+<span class="n">KO_krig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 0.08\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Produsentoverskudd under krig, regnet med areal av trekant</span>
+<span class="n">PO_krig</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span> <span class="n">P_losning_krig</span><span class="p">)</span> <span class="o">*</span> <span class="n">Q_losning_krig</span> <span class="o">/</span> <span class="mi">2</span>
+
+<span class="n">PO_krig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 0.08\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Samfunnsøkonomisk overskudd under krig</span>
+<span class="n">SO_krig</span> <span class="o">=</span> <span class="n">KO_krig</span> <span class="o">+</span> <span class="n">PO_krig</span>
+
+<span class="n">SO_krig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 0.16\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Figur 9.1b</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">create_ax</span><span class="p">()</span>
+<span class="c1"># Etterspørselskurve fred</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">P_verdier</span><span class="p">,</span> <span class="n">P_verdier</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Etterspørsel&#39;</span><span class="p">)</span>
+
+<span class="c1"># Tilbudskurve fred</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">-</span><span class="n">gamma_verdi</span> <span class="o">+</span> <span class="n">P_verdier</span><span class="p">,</span> <span class="n">P_verdier</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$T_1$&#39;</span><span class="p">)</span>
+<span class="c1"># Tilbudskurve krig</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">-</span><span class="n">gamma_krig</span> <span class="o">+</span> <span class="n">P_verdier</span><span class="p">,</span> <span class="n">P_verdier</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$T_2$&#39;</span><span class="p">)</span>
+
+<span class="c1"># Likevektspunkt fred</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Q_losning</span><span class="p">,</span> <span class="n">P_losning</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Likevektspunkt fred&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="c1"># Likevektspunkt krig</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Q_losning_krig</span><span class="p">,</span> <span class="n">P_losning_krig</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Likevektspunkt krig&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c5b49eb30b64c77f3326d84a4706c6806e3899cdf618cca9fea2b5038d022d79.png" src="_images/c5b49eb30b64c77f3326d84a4706c6806e3899cdf618cca9fea2b5038d022d79.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fyller inn området for konsumentoverskudd og produsentoverskudd under krig</span>
+<span class="n">Q_fyll_krig</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">Q_losning_krig</span><span class="p">),</span> <span class="mi">100</span><span class="p">)</span>
+<span class="c1"># Konsumentoverskudd under krig, fill_between  fyller området mellom etterspørselskurven og prisen</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">Q_fyll_krig</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">Q_fyll_krig</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">P_losning_krig</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Konsumentoverskudd krig&#39;</span><span class="p">)</span>
+<span class="c1"># Prodsentoverskudd under krig, fill_between fyller området mellom tilbudskurven og prisen</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">Q_fyll_krig</span><span class="p">,</span> <span class="n">Q_fyll_krig</span> <span class="o">+</span> <span class="n">gamma_krig</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">P_losning_krig</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgreen&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Produsentoverskudd krig&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+<span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/3bbcdcd175ed4a5aa26981a57dca181538b0acc4240c02ca33b9cbf3cf305901.png" src="_images/3bbcdcd175ed4a5aa26981a57dca181538b0acc4240c02ca33b9cbf3cf305901.png" />
+</div>
+</div>
 <p><strong>c.</strong> Conrad tenker at når krigen er over og vi igjen går tilbake til <span class="math notranslate nohighlight">\(\gamma_{fred} = 0\)</span>, så vil det samfunnsøkonomiske overskuddet øke, og med det også den samfunnsøkonomiske effektiviteten. Har han rett i det?</p>
+<p>Når <span class="math notranslate nohighlight">\(\gamma\)</span> går tilbake til <span class="math notranslate nohighlight">\(0\)</span> etter krigen, er markedsforholdene identiske med situasjonen i del a). Likevekten og SO returnerer til <span class="math notranslate nohighlight">\(P^* = 0.5\)</span>, <span class="math notranslate nohighlight">\(Q^* = 0.5\)</span>, <span class="math notranslate nohighlight">\(SO = 0.25\)</span>.</p>
+<p>Conrad har rett: SO øker tilbake til <span class="math notranslate nohighlight">\(0.25\)</span> når krigen er over. Markedet er igjen i den samfunnsøkonomisk effektive likevekten.</p>
 </section>
 <section id="hvorfor-skal-vi-betale-sa-mye-for-noe-vi-har-sa-mye-av">
 <h2>9.4 Hvorfor skal vi betale så mye for noe vi har så mye av?<a class="headerlink" href="#hvorfor-skal-vi-betale-sa-mye-for-noe-vi-har-sa-mye-av" title="Link to this heading">#</a></h2>
@@ -917,7 +1399,7 @@ SO = KO + PO = 8 + 8 = 16 \tag{8}
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markedslikevekt-ved-frikonkurrasne">Markedslikevekt ved frikonkurrasne</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markedslikevekt-ved-frikonkurranse">Markedslikevekt ved frikonkurranse</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#markedslikevekt">Markedslikevekt</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel">Eksempel</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dodvektstap">Dødvektstap</a></li>
@@ -927,7 +1409,13 @@ SO = KO + PO = 8 + 8 = 16 \tag{8}
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anbefalt-lesestoff-rundt-norgespris-for-arbeidskravet">Anbefalt lesestoff rundt norgespris for arbeidskravet</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#krig-pa-kontinentet-hoyere-strompriser-og-samfunnsokonomisk-overskudd">9.1 Krig på Kontinentet, høyere strømpriser og samfunnsøkonomisk overskudd</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#krig-pa-kontinentet-hoyere-strompriser-og-samfunnsokonomisk-overskudd">9.1 Krig på Kontinentet, høyere strømpriser og samfunnsøkonomisk overskudd</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#losning-9-1-a-med-integral-likevekt-og-so-for-krigen-gamma-0">Løsning 9.1 a) med integral – Likevekt og SO før krigen (<span class="math notranslate nohighlight">\(\gamma = 0\)</span>)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konsumentoverskudd">Konsumentoverskudd</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#produsentoverskudd">Produsentoverskudd</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#samfunnsokonomisk-overskudd">Samfunnsøkonomisk overskudd</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hvorfor-skal-vi-betale-sa-mye-for-noe-vi-har-sa-mye-av">9.4 Hvorfor skal vi betale så mye for noe vi har så mye av?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nar-den-usynlige-hand-svikter-dodvektstapet-ved-forurensning-frivillig-oppgave">9.5 Når den usynlige hånd svikter: Dødvektstapet ved forurensning. Frivillig oppgave</a></li>
 </ul>
