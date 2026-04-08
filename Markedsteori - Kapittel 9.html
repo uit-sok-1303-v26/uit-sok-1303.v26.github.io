@@ -53,7 +53,7 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -1183,11 +1183,15 @@ h = 1 - 0.5 = 0.5
 \[
 Q^*_{krig} = 1 - 0.6 = 0.4 
 \]</div>
-<p><strong>Invers tilbud</strong> (med <span class="math notranslate nohighlight">\(\gamma=0.2\)</span>): <span class="math notranslate nohighlight">\(P^S = Q + 0.2\)</span>.</p>
+<p><strong>Invers tilbud</strong> (med <span class="math notranslate nohighlight">\(\gamma=0.2\)</span>): <span class="math notranslate nohighlight">\(P^S = Q + 0.2\)</span>. Integranden av <span class="math notranslate nohighlight">\(Q^n\)</span> er <span class="math notranslate nohighlight">\(\frac{Q^{n+1}}{n+1}\)</span>. <span class="math notranslate nohighlight">\(Q\)</span> = <span class="math notranslate nohighlight">\(Q^1\)</span> = <span class="math notranslate nohighlight">\(\frac{Q^{1+1}}{1+1} = \frac{Q^2}{2}\)</span>.</p>
 <div class="math notranslate nohighlight">
-\[
-KO_{krig} = \int_0^{0.4}(1 - Q - 0.6)\,dQ = \int_0^{0.4}(0.4 - Q)\,dQ = 0.08 
-\]</div>
+\[\begin{split}
+\begin{aligned}
+KO_{krig} &amp;= \int_0^{0.4}(1 - Q - 0.6)\,dQ = \int_0^{0.4}(0.4 - Q)\,dQ \\
+&amp;= \left[0.4Q - \frac{Q^2}{2}\right]_0^{0.4} = \left(0.4 \cdot 0.4 - \frac{0.4^2}{2} \right) - \left(0.4\cdot 0 - \frac{0^2}{2}\right) \\ 
+&amp;= (0.16-\frac{0.16}{2} - 0) =  0.08 
+\end{aligned}
+\end{split}\]</div>
 <div class="math notranslate nohighlight">
 \[
 PO_{krig} = \int_0^{0.4}(0.6 - (Q + 0.2))\,dQ = \int_0^{0.4}(0.4 - Q)\,dQ = 0.08
