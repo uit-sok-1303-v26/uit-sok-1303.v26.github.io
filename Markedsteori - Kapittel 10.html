@@ -999,8 +999,277 @@ Q^T=-100+4.3(P-t)\tag{5}
 <h2>10.3 Subsidier, insidens og dødvektstap<a class="headerlink" href="#subsidier-insidens-og-dodvektstap" title="Link to this heading">#</a></h2>
 <p>Betrakt et marked hvor etterspørselen er <span class="math notranslate nohighlight">\(Q^E = 100 - P\)</span> og tilbudet <span class="math notranslate nohighlight">\(Q^T = -20 + P\)</span>.</p>
 <p>a) Hva blir likevektspris og kvantum, og konsument- og produsentoverskudd i dette markedet?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T</span><span class="p">,</span> <span class="n">P</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;T P&#39;</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Etterspørsel</span>
+<span class="n">Ettersp</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="mi">100</span> <span class="o">-</span> <span class="n">P</span><span class="p">)</span>
+
+<span class="c1"># Tilbud</span>
+<span class="n">Tilbud</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span> <span class="o">+</span> <span class="n">P</span><span class="p">)</span>
+
+<span class="c1"># Viser tilbud og etterspørsel</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">Ettersp</span><span class="p">,</span> <span class="n">Tilbud</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle Q = 100 - P\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle Q = P - 20\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Løser for P</span>
+<span class="n">P_losning</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">Ettersp</span><span class="o">.</span><span class="n">rhs</span> <span class="o">-</span> <span class="n">Tilbud</span><span class="o">.</span><span class="n">rhs</span><span class="p">,</span> <span class="n">P</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">P_losning</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 60\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Substituerer løsningen for P inn i Etterspørsel for å finne Q</span>
+<span class="n">Q_losning</span> <span class="o">=</span> <span class="n">Ettersp</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">P_losning</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">Q_losning</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 40\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Konsumentoverskudd og produsentoverskudd, løser for invers først</span>
+<span class="n">P_E</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">Ettersp</span><span class="p">,</span> <span class="n">P</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">P_T</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">Tilbud</span><span class="p">,</span> <span class="n">P</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">P_E</span><span class="p">,</span> <span class="n">P_T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 100 - Q\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle Q + 20\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Integrerer for å finne overskudd</span>
+<span class="n">KO_integral</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">P_E</span> <span class="o">-</span> <span class="n">P_losning</span><span class="p">,</span> <span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Q_losning</span><span class="p">))</span>
+<span class="n">PO_integral</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">P_losning</span> <span class="o">-</span> <span class="n">P_T</span><span class="p">,</span> <span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Q_losning</span><span class="p">))</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">KO_integral</span><span class="p">,</span> <span class="n">PO_integral</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 800\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 800\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Figurkonfigurasjon</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_ax</span><span class="p">():</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Q&#39;</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="s2">&quot;right&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;top&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;right&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Q_verdier</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">create_ax</span><span class="p">()</span>
+
+<span class="c1"># Vi bruker den inverse løsningen til å vite hva vi skal plotte for å få tilbud og etterspørsel</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Q_verdier</span><span class="p">,</span> <span class="mi">100</span><span class="o">-</span> <span class="n">Q_verdier</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Etterspørsel&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Q_verdier</span><span class="p">,</span> <span class="n">Q_verdier</span><span class="o">+</span><span class="mi">20</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Tilbud&#39;</span><span class="p">)</span>
+
+<span class="c1"># Stiplede linjer til likevekt</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">Q_losning</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">P_losning</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">P_losning</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Q_losning</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+<span class="c1"># For å fylle konsument og produsentoverskudd ser vi at vi skal gå fra 0 til 40 på x-aksen</span>
+<span class="n">Q_fyll</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">Q_losning</span><span class="p">),</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">Q_fyll</span><span class="p">,</span> <span class="mi">100</span><span class="o">-</span><span class="n">Q_fyll</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">P_losning</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Konsumentoverskudd&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">Q_fyll</span><span class="p">,</span> <span class="n">Q_fyll</span><span class="o">+</span><span class="mi">20</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">P_losning</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Produsentoverskudd&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/d4d302ae886b32a520518241439b92dcafe6108db7e511cd9bd3ed3bae459ad5.png" src="_images/d4d302ae886b32a520518241439b92dcafe6108db7e511cd9bd3ed3bae459ad5.png" />
+</div>
+</div>
 <p>b) Produsentpartiet er ikke fornøyd med situasjonen, og har tatt til orde for en subsidie til produsentene på <span class="math notranslate nohighlight">\(s = 20\)</span> for hver enhet produsert. Dette vil skape en kile mellom konsumentpris og produsentpris, slik at <span class="math notranslate nohighlight">\(P^E + s = P^T\)</span>. Hva blir likevekten med en slik subsidie? Tror du Produsentpartiet blir fornøyd?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Subsidie</span>
+<span class="n">Ny_ettersp</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="mi">100</span> <span class="o">-</span> <span class="n">P</span> <span class="o">+</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">Ny_tilbud</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span> <span class="o">+</span> <span class="n">P</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">Ny_ettersp</span><span class="p">,</span> <span class="n">Ny_tilbud</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle Q = 120 - P\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle Q = P - 20\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ny løsning for P og Q med subsidien</span>
+<span class="n">P_losning_sub</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">Ny_ettersp</span><span class="o">.</span><span class="n">rhs</span> <span class="o">-</span> <span class="n">Ny_tilbud</span><span class="o">.</span><span class="n">rhs</span><span class="p">,</span> <span class="n">P</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">Q_losning_sub</span> <span class="o">=</span> <span class="n">Ny_ettersp</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">P_losning_sub</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">P_losning_sub</span><span class="p">,</span> <span class="n">Q_losning_sub</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 70\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 50\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ny invers løsning for Etterspørsel og Tilbud</span>
+<span class="n">P_E_ny</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">Ny_ettersp</span><span class="p">,</span> <span class="n">P</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">P_T_ny</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">Ny_tilbud</span><span class="p">,</span> <span class="n">P</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">P_E_ny</span><span class="p">,</span> <span class="n">P_T_ny</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 120 - Q\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle Q + 20\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tilbud med subsidie</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Q_verdier</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span> <span class="o">+</span> <span class="n">Q_verdier</span> <span class="o">+</span> <span class="mi">20</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Tilbud med subsidie&#39;</span><span class="p">)</span>
+
+<span class="c1"># Stiplede linjer til nye likevekt</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">Q_losning_sub</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">P_losning_sub</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">P_losning_sub</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Q_losning_sub</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">);</span>
+
+<span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/327786abe36980f214683a2bc642e6c23680bbccb4cc669e39f3a5336ee66dd5.png" src="_images/327786abe36980f214683a2bc642e6c23680bbccb4cc669e39f3a5336ee66dd5.png" />
+</div>
+</div>
 <p>c) Hva blir konsumentoverskudd, produsentoverskudd og det samfunnsøkonomiske overskuddet med subsidien? Sammenlign med det du fant i deloppgave a. Tror du Effektivitetspartiet er fornøyd med en slik politikk?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ny produsent og konsumentoverskudd med subsidien</span>
+<span class="n">KO_integral_sub</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">P_E_ny</span> <span class="o">-</span> <span class="n">P_losning_sub</span><span class="p">,</span> <span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Q_losning_sub</span><span class="p">))</span>
+<span class="n">PO_integral_sub</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">P_losning_sub</span> <span class="o">-</span> <span class="n">P_T_ny</span><span class="p">,</span> <span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Q_losning_sub</span><span class="p">))</span>
+
+<span class="c1"># For samfunnsøoverksudd må vi trekke fra kostnaden av subsidien, som er 20 kr per enhet</span>
+<span class="n">Samf_overskudd</span> <span class="o">=</span> <span class="n">KO_integral_sub</span> <span class="o">+</span> <span class="n">PO_integral_sub</span> <span class="o">-</span> <span class="mi">20</span><span class="o">*</span><span class="n">Q_losning_sub</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">KO_integral_sub</span><span class="p">,</span> <span class="n">PO_integral_sub</span><span class="p">,</span> <span class="n">Samf_overskudd</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 1250\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 1250\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 1500\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dødvektstapet er kostnaden av subsidien minus økningen i konsument og produsentoverskudd</span>
+<span class="n">Dodvektstap</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">Q_losning_sub</span> <span class="o">-</span> <span class="p">(</span><span class="n">KO_integral_sub</span> <span class="o">-</span> <span class="n">KO_integral</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">PO_integral_sub</span> <span class="o">-</span> <span class="n">PO_integral</span><span class="p">)</span>
+
+<span class="n">Dodvektstap</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 100\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ny figur</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">create_ax</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Q_verdier</span><span class="p">,</span> <span class="mi">100</span><span class="o">-</span> <span class="n">Q_verdier</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Etterspørsel&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Q_verdier</span><span class="p">,</span> <span class="n">Q_verdier</span><span class="o">+</span><span class="mi">20</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Tilbud&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Q_verdier</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span> <span class="o">+</span> <span class="n">Q_verdier</span> <span class="o">+</span> <span class="mi">20</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Tilbud med subsidie&#39;</span><span class="p">)</span>
+
+<span class="c1"># Stiplede linjer til likevekt</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">Q_losning</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">P_losning</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dotted&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dotted&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">Q_losning_sub</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">P_losning_sub</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dotted&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">P_losning_sub</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Q_losning_sub</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dotted&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+<span class="c1"># Fyller overskudd</span>
+<span class="n">Q_fyll_sub</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">Q_losning_sub</span><span class="p">),</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">Q_fyll_sub</span><span class="p">,</span> <span class="mi">100</span><span class="o">-</span><span class="n">Q_fyll_sub</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">Q_losning_sub</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgreen&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Konsumentoverskudd etter subsidie&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">Q_fyll_sub</span><span class="p">,</span> <span class="n">Q_fyll_sub</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">Q_losning_sub</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightcoral&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Produsentoverskudd etter subsidie&#39;</span><span class="p">)</span>
+
+<span class="c1"># Dødvektstapet</span>
+<span class="n">Q_fyll_dod</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">Q_losning</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">Q_losning_sub</span><span class="p">),</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">Q_fyll_dod</span><span class="p">,</span> <span class="mi">100</span><span class="o">-</span><span class="n">Q_fyll_dod</span><span class="p">,</span> <span class="n">Q_fyll_dod</span><span class="o">+</span><span class="mi">20</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Dødvektstap&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/0dd44db289274916745ed6feb0041dfa57e942ffdc5836f6a317da41c788dada.png" src="_images/0dd44db289274916745ed6feb0041dfa57e942ffdc5836f6a317da41c788dada.png" />
+</div>
+</div>
 </section>
 </section>
 
