@@ -372,7 +372,7 @@
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hvordan-levere-arbeidskravet">Hvordan levere arbeidskravet</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppsett-for-innlevering">Oppsett for innlevering</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppsett-for-innlevering-ved-bruk-av-jupyter-notebooks">Oppsett for innlevering ved bruk av jupyter notebooks.</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kapittel-1-innledning">Kapittel 1 - Innledning</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kapittel-2-konsumenters-tilpasning-i-kraftmarkedet">Kapittel 2 -  Konsumenters tilpasning i kraftmarkedet</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kapittel-3-en-samfunnsokonomisk-analyse-det-norske-kraftmarkedet">Kapittel 3 - En samfunnsøkonomisk analyse det norske kraftmarkedet</a></li>
@@ -400,8 +400,8 @@
 <p>Dere skal bruke Python som dataverktøy for å tegne figurer og utføre den matematiske analysen. For å levere Python-kode kan dere enten legge ved Jupyter-notatblokken (eller annen kodefil) eller en GitHub-lenke til kodefilen som inneholder både Python-kode og tekst. Husk å merke alle filene med kandidatnummer.</p>
 <p>Alle kilder er tillatt, inkludert egne notater, PDF-er fra forelesningene, lærebøker, nettsider, KI-verktøy osv. Det er imidlertid ikke tillatt å gjengi innhold fra KI-verktøy, medstudenter, nettressurser, litteratur eller andre kilder uten korrekt referanse. Dersom KI-verktøy benyttes, er verifisering av KI-generert innhold er obligatorisk. Merk KI-generert tekst med anførselstegn hvis brukt ordrett. Alt KI-generert innhold må verifiseres og kildehenvises i teksten.</p>
 </section>
-<section id="oppsett-for-innlevering">
-<h2>Oppsett for innlevering<a class="headerlink" href="#oppsett-for-innlevering" title="Link to this heading">#</a></h2>
+<section id="oppsett-for-innlevering-ved-bruk-av-jupyter-notebooks">
+<h2>Oppsett for innlevering ved bruk av jupyter notebooks.<a class="headerlink" href="#oppsett-for-innlevering-ved-bruk-av-jupyter-notebooks" title="Link to this heading">#</a></h2>
 <p>I jupyter notatblokker så kan dere velge å lage nye kodeblokker eller det som heter “Markdown”. I de tidligere kapittelene dere har lastet ned så kan dere dobbelklikke på blokker for å se hvordan vi har skrevet disse kapittelene og anbefaler dere å levere arbeidskravet på samme måte. Det vil si at dere skriver teksten i “Markdown” og koden i “python”-kodeblokker.</p>
 <p>Da blir det:</p>
 <section id="kapittel-1-innledning">
@@ -452,6 +452,14 @@
 <li><p>Velg  Render to PDF Latex, og vent til renderingen er ferdig. Etter at renderingen er ferdig, vil du finne PDF-filen i samme mappe som jupyterfilen din. Og dobbelsjekk at PDF-filen ser ut som du ønsker før du leverer den i WISEflow.</p></li>
 </ol>
 <p><img alt="" src="_images/Latex.png" /></p>
+<p>For å unngå å vise kode i pdf så bør dere legge til en ny sånn “Markdown” celle helt på toppen i dokumentet hvor dere legger in</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span>
+<span class="n">title</span><span class="p">:</span> <span class="s2">&quot;Tittel&quot;</span>
+<span class="n">echo</span><span class="p">:</span> <span class="n">false</span>
+<span class="o">---</span>
+</pre></div>
+</div>
+<p>Dere kan så legge inn jupyter notebook filen som vedlegg inne på wiseflow</p>
 </section>
 <section id="kopiering-av-python-outputs-til-for-eks-word-alternativ-metode">
 <h2>Kopiering av python outputs til for eks word (Alternativ metode).<a class="headerlink" href="#kopiering-av-python-outputs-til-for-eks-word-alternativ-metode" title="Link to this heading">#</a></h2>
@@ -540,7 +548,7 @@
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hvordan-levere-arbeidskravet">Hvordan levere arbeidskravet</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppsett-for-innlevering">Oppsett for innlevering</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oppsett-for-innlevering-ved-bruk-av-jupyter-notebooks">Oppsett for innlevering ved bruk av jupyter notebooks.</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kapittel-1-innledning">Kapittel 1 - Innledning</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kapittel-2-konsumenters-tilpasning-i-kraftmarkedet">Kapittel 2 -  Konsumenters tilpasning i kraftmarkedet</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kapittel-3-en-samfunnsokonomisk-analyse-det-norske-kraftmarkedet">Kapittel 3 - En samfunnsøkonomisk analyse det norske kraftmarkedet</a></li>
